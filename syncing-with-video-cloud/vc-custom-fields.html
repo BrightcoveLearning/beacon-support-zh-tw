@@ -1,0 +1,1297 @@
+﻿<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+
+    <title>建立視訊雲端自訂欄位</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-ultra.eot" type="font/eot">
+    <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-ultra.woff" type="font/woff">
+    <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-super.eot" type="font/eot">
+    <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-super.woff" type="font/woff">
+    <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-black.eot" type="font/eot">
+    <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-black.woff" type="font/woff">
+    <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-bold.eot" type="font/eot">
+    <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-bold.woff" type="font/woff">
+    <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-medium.eot" type="font/eot">
+    <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-medium.woff" type="font/woff">
+    <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&amp;display=swap">
+      <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://support.brightcove.com/site-assets/css/site/prism.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://support.brightcove.com/site-assets/css/site/styles.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://support.brightcove.com/site-assets/css/site/landing-page.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://support.brightcove.com/site-assets/css/site/tabs.css"
+    />
+    <link rel="stylesheet" href="/assets/css/local.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/381443caa8.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://support.brightcove.com/site-assets/js/site/google-analytics.js"></script>
+    <script src="/assets/js/sajari-head.js"></script>
+  </head>
+
+  <body class="body"></body>
+</html>
+
+<header>
+  <div class="div-header">
+    <a href="/"><img class="product-logo" src="https://support.brightcove.com/site-assets/images/site/product-logos/Beacon_Logo.svg" alt="產品標誌" style="max-height: 100px;max-width: 232px;"/></a>
+<!-- GTranslate: https://gtranslate.io/ -->
+<select onchange="doGTranslate(this);"><option value="">選擇語言</option><option value="en|en" translate="No">English</option><option value="en|zh-TW" translate="No">繁體中文</option><option value="en|fr" translate="No">Français</option><option value="en|de" translate="No">Deutsche</option><option value="en|ja" translate="No">日本語</option><option value="en|ko" translate="No">한국어</option><option value="en|es" translate="No">Español</option></select>
+
+<script>
+/* <![CDATA[ */
+function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
+/* ]]> */
+</script>
+
+    <select id="site_select" class="bcls-select" style="margin-right: 1rem;">
+      <option value="">其他布萊特灣文件</option>
+      
+        
+          <option value="https://support.brightcove.com">文件首頁</option>
+        
+      
+        
+          <option value="https://audience.support.brightcove.com">布萊特灣觀眾</option>
+        
+      
+        
+          <option value="https://beacon.support.brightcove.com">布萊特灣燈塔</option>
+        
+      
+        
+          <option value="https://campaign.support.brightcove.com">布萊特灣戰役</option>
+        
+      
+        
+          <option value="https://engage.support.brightcove.com">布萊特灣參與</option>
+        
+      
+        
+          <option value="https://live.support.brightcove.com">Brightcove Live</option>
+        
+      
+        
+          <option value="https://gallery.support.brightcove.com">Brightcove 圖庫</option>
+        
+      
+        
+          <option value="https://ssai.support.brightcove.com">布萊特灣</option>
+        
+      
+        
+          <option value="https://social.support.brightcove.com">布萊特灣社會</option>
+        
+      
+        
+          <option value="https://studio.support.brightcove.com">視訊雲端工作室</option>
+        
+      
+        
+          <option value="https://player.support.brightcove.com">布萊特灣球員開發</option>
+        
+      
+        
+          <option value="https://apis.support.brightcove.com">視訊雲端平台 API</option>
+        
+      
+        
+          <option value="https://sdks.support.brightcove.com">視訊雲端裝置開發套件</option>
+        
+      
+        
+          <option value="https://integrations.support.brightcove.com">整合與 CMS 連接器</option>
+        
+      
+        
+          <option value="https://general.support.brightcove.com">視訊雲端一般資訊</option>
+        
+      
+        
+          <option value="https://zencoder.support.brightcove.com">Zencoder</option>
+        
+      
+    </select>
+
+
+    <span class="secondary-nav"><a href="https://supportportal.brightcove.com/s/login/?"><img src="https://support.brightcove.com/site-assets/images/site/support.png" alt="支持"/>聯繫支持</a><span style="vertical-align: top;margin-left:1em;margin-right:1em;">|</span><a href="https://status.brightcove.com/"><img src="https://support.brightcove.com/site-assets/images/site/status.png" alt="系統狀態"/>系統狀況</a></span><br/>
+    
+  </div>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb arr-right">
+      
+      <li class="breadcrumb-item"><a href="/">首頁</a></li>
+      
+      
+      
+      <li class="breadcrumb-item"><a href="/syncing-with-video-cloud/">與視頻云同步</a></li>
+      
+      <li class="breadcrumb-item active" aria-current="page">建立視訊雲端自訂欄位</li>
+    </ol>
+  </nav>
+</header>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3 left-side-bar">
+      <nav class="sidenav" id="side_nav">
+        
+        
+        <h5><a href="/index.html">首頁</a></h5>
+        
+        
+        
+        <h5 class="submenu-header"><a href="/getting-started/index.html">開始使<strong>用 + </strong></a></h5>
+        <ul class="sidenav-submenu" style="display:none;">
+          
+          
+          <li><a href="/getting-started/learning-guide-bc-beacon.html">學習指南</a></li>
+          
+          
+          
+          <li><a href="/getting-started/implementation-phases.html">實施階段</a></li>
+          
+          
+          
+          <li><a href="/getting-started/app-design-considerations.html">應用程式設計考量</a></li>
+          
+          
+          
+          <li><a href="/getting-started/creating-your-app-design-info-architecture.html">應用程式設計-資訊架構</a></li>
+          
+          
+          
+          <li><a href="/getting-started/creating-your-app-design-layout-options.html">應用程式設計-佈局選項</a></li>
+          
+          
+          
+          <li><a href="/getting-started/design-best-practices.html">設計最佳實務</a></li>
+          
+          
+        </ul>
+        
+        
+        
+        <h5 class="submenu-header"><a href="/syncing-with-video-cloud/index.html"><strong>與視訊雲端同步</strong></a></h5>
+        <ul class="sidenav-submenu" style="display:none;">
+          
+          
+          <li><a href="/syncing-with-video-cloud/vc-custom-fields.html">建立視訊雲端自訂欄位</a></li>
+          
+          
+          
+          <li><a href="/syncing-with-video-cloud/forcing-a-sync.html">強制同步</a></li>
+          
+          
+        </ul>
+        
+        
+        
+        <h5 class="submenu-header"><a href="/using-brightcove-beacon/index.html">使用布萊特灣信標<strong> + </strong></a></h5>
+        <ul class="sidenav-submenu" style="display:none;">
+          
+          
+          <li><a href="/using-brightcove-beacon/adding-to-page.html">將輪播新增至頁面</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/creating-a-channel.html">建立通道</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/electronic-program-guides.html">建立電子程式指南 (EPG) </a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/creating-a-page.html">建立新頁面</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/creating-a-playlist.html">建立播放清單</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/creating-subscription-package.html">建立訂閱套件</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/promo-codes.html">建立促銷代碼</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/series-seasons-episodes.html">建立系列/季節/集</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/configuring-server-side-ad-settings.html">設定伺服器端廣告設定</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/implementing-authvod.html">實作驗證</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/live-ssai.html">實施即時 SSAI </a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/vod-ssai.html">實施 VOD SSAI </a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/including-non-configurable-pages.html">包括無法設定的頁面</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/introducing-pages.html">介紹頁面</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/streaming-live-event.html">串流即時事件</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/streaming-vods-to-a-channel.html">將 VOD 串流至頻道</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/monetization-options.html">瞭解營利選項</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/using-subscription-package.html">使用訂閱套件</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/tools.html">使用工具</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/viewing-analytics-data.html">檢視分析資料</a></li>
+          
+          
+        </ul>
+        
+        
+        
+        <h5 class="submenu-header"><a href="/creating-your-apps/index.html">建立您的應用程式<strong> + </strong></a></h5>
+        <ul class="sidenav-submenu" style="display:none;">
+          
+          
+          <li class="submenu-header">
+            <a href="/creating-your-apps/android/index.html">安卓<strong> + </strong></a>
+            <ul class="sidenav-subsubmenu" style="display:none;">
+              
+              <li><a href="/creating-your-apps/android/submitting-to-android.html">將新應用程式提交至 Android 商店</a></li>
+              
+              <li><a href="/creating-your-apps/android/updating-android-apps-to-bcb.html">更新 Android 應用程序到布萊特灣信標</a></li>
+              
+              <li><a href="/creating-your-apps/android/adding-subscriptions-in-android.html">新增訂閱至安卓</a></li>
+              
+              <li><a href="/creating-your-apps/android/improving-relevance-android.html">改善安卓遊戲商店中的搜尋關聯性</a></li>
+              
+              <li><a href="/creating-your-apps/android/installing-android-test-build.html">安裝一個安卓測試構建</a></li>
+              
+            </ul>
+          </li>
+          
+          
+          
+          <li class="submenu-header">
+            <a href="/creating-your-apps/fire-tv/index.html">火電視<strong> + </strong></a>
+            <ul class="sidenav-subsubmenu" style="display:none;">
+              
+              <li><a href="/creating-your-apps/fire-tv/installing-fire-tv-test-build.html">安裝防火電視測試組建</a></li>
+              
+              <li><a href="/creating-your-apps/fire-tv/submitting-to-amazon.html">提交到亞馬遜商店</a></li>
+              
+            </ul>
+          </li>
+          
+          
+          
+          <li class="submenu-header">
+            <a href="/creating-your-apps/ios-tvos/index.html">IOS /電訊系統/電視系統<strong> + </strong></a>
+            <ul class="sidenav-subsubmenu" style="display:none;">
+              
+              <li><a href="/creating-your-apps/ios-tvos/installing-ios-test-build.html">安裝IOS/tvOS 測試組建</a></li>
+              
+              <li><a href="/creating-your-apps/ios-tvos/submitting-to-apple.html">提交至蘋果商店</a></li>
+              
+            </ul>
+          </li>
+          
+          
+          
+          <li class="submenu-header">
+            <a href="/creating-your-apps/panasonic/index.html">松下<strong> + </strong></a>
+            <ul class="sidenav-subsubmenu" style="display:none;">
+              
+              <li><a href="/creating-your-apps/panasonic/submitting-to-panasonic.html">提交至松下商店</a></li>
+              
+            </ul>
+          </li>
+          
+          
+          
+          <li class="submenu-header">
+            <a href="/creating-your-apps/roku/index.html">六<strong> + </strong></a>
+            <ul class="sidenav-subsubmenu" style="display:none;">
+              
+              <li><a href="/creating-your-apps/roku/configuring-inchannel-products.html">在 Roku 中設定通路內產品</a></li>
+              
+              <li><a href="/creating-your-apps/roku/installing-roku-test-build.html">安裝 Roku 測試組建</a></li>
+              
+              <li><a href="/creating-your-apps/roku/submitting-to-roku.html">提交至六商店</a></li>
+              
+            </ul>
+          </li>
+          
+          
+          
+          <li class="submenu-header">
+            <a href="/creating-your-apps/samsung/index.html">三星<strong> + </strong></a>
+            <ul class="sidenav-subsubmenu" style="display:none;">
+              
+              <li><a href="/creating-your-apps/samsung/samsung-partner.html">成為三星合作夥伴</a></li>
+              
+              <li><a href="/creating-your-apps/samsung/submitting-to-samsung.html">提交至三星商店</a></li>
+              
+            </ul>
+          </li>
+          
+          
+          
+          <li><a href="/creating-your-apps/common-required-info.html">一般必要資訊</a></li>
+          
+          
+          
+          <li><a href="/creating-your-apps/device-apps-validation-guide.html">裝置應用程式驗證指南</a></li>
+          
+          
+        </ul>
+        
+        
+        
+        <h5 class="submenu-header"><a href="/references/index.html">參考資料<strong> + </strong></a></h5>
+        <ul class="sidenav-submenu" style="display:none;">
+          
+          
+          <li><a href="/references/common-configuration-settings.html">一般組態設定</a></li>
+          
+          
+          
+          <li><a href="/references/creating-stripe-account.html">建立等量帳戶</a></li>
+          
+          
+          
+          <li><a href="/references/glossary.html">詞彙</a></li>
+          
+          
+          
+          <li><a href="/references/image-requirements.html">圖片及其規格</a></li>
+          
+          
+          
+          <li><a href="/references/known-issues.html">已知問題</a></li>
+          
+          
+          
+          <li><a href="/references/product-updates.html">產品更新</a></li>
+          
+          
+        </ul>
+        
+        
+        
+        <h5 class="submenu-header"><a href="/training/index.html">訓練<strong> + </strong></a></h5>
+        <ul class="sidenav-submenu" style="display:none;">
+          
+          
+          <li><a href="/training/training-demand-custom-fields.html">使用視訊雲端視訊/自訂欄位</a></li>
+          
+          
+          
+          <li><a href="/training/training-demand-design-layout.html">設計應用程式配置</a></li>
+          
+          
+          
+          <li><a href="/training/training-demand-playlists.html">建立和使用播放清單</a></li>
+          
+          
+          
+          <li><a href="/training/training-demand-series-seasons-episodes.html">創建系列，季節和劇集</a></li>
+          
+          
+          
+          <li><a href="/training/training-demand-vod-ssai.html">實作 VOD 伺服器端廣告</a></li>
+          
+          
+          
+          <li><a href="/training/training-demand-publish-android-app.html">在 Play 商店發布安卓應用程序</a></li>
+          
+          
+          
+          <li><a href="/training/training-demand-viewing-analytics.html">檢視分析資料</a></li>
+          
+          
+        </ul>
+        
+        
+        
+        <h5 class="submenu-header"><a href="/support/index.html">支援<strong> + </strong></a></h5>
+        <ul class="sidenav-submenu" style="display:none;">
+          
+          
+          <li><a href="/support/brightcove-answer.html">布萊特灣答案</a></li>
+          
+          
+          
+          <li><a href="/support/viewing-brightcove-system-status-page.html">檢視布萊特灣系統狀態頁面</a></li>
+          
+          
+          
+          <li><a href="/support/contact-sales.html">聯絡銷售人員</a></li>
+          
+          
+          
+          <li><a href="/support/opening-case-with-brightcove-support.html">開啟支援案例</a></li>
+          
+          
+        </ul>
+        
+        
+      </nav>
+    </div>
+    <div class="col-lg-7" style="background-color: white;color: #333333;margin-top: -1em;margin-bottom: -1em;padding-bottom:1em;">
+      <!-- bootstrap layout -->
+<p id="bc_veggie_burger_wrapper" style="display: none;"><img id="bc_veggie_burger" src="/assets/images/feather/menu.svg" alt="導覽功能表"/></p>
+
+<!-- search bar -->
+<div id="nav-search-box" style="margin-top: 1rem;"></div>
+<!-- in-page navigation for narrow screens -->
+<details class="centered-inpage-nav" id="centered_inpage_nav">
+  <summary><h6 class="toc">頁面內容</h6></summary>
+  <nav id="centered_toc"></nav>
+  <ul id="centered_in_page_toc" class="list-none"></ul>
+</details>
+<!-- open in new tab/window -->
+<a id="open_new_tab" href="#" target="_blank" style="display: none;"><img src="/assets/images/feather/external-link.svg" alt="在新分頁中開啟" style="margin-top:4em;width: 1.5em;"/></a>
+
+
+<article class="bcls-article">
+    <h1>建立視訊雲端自訂欄位</h1>
+    <summary>
+        在本主題中，您會看到同步至布萊特灣信標所需的視訊雲端自訂欄位。
+    </summary>
+    <section class="bcls-section">
+        <h2 id="Introduction">簡介</h2>
+        <p>
+            將從影片雲端匯入到布萊特灣信標的影片，必須有一組豐富的中繼資料，定義在布萊特灣信標中正確使用。在本文件中，您將看到如何在 Studio 中創建新的自定義字段。此外，已定義布萊特灣信標所需欄位。
+    </section>
+    <section class="bcls-section">
+        <h2 id="Creating_custom_fields">建立自訂欄位</h2>
+        <p>若要建立自訂欄位，請依照下列步驟執行。</p>
+        <ol class="bcls-tasklist">
+            <li>登入視訊雲端工作室。</li>
+            <li>
+                在導覽標題中，依序按一下 [ <strong>管理員</strong> ] 和 [ <strong>視訊欄位</strong> ]。請注意，您必須是帳戶管理員才能存取 ADMIN 功能表。
+            </li>
+            <li>
+                [視訊欄位] 頁面會顯示您的自訂欄位和所有標準視訊中繼資料欄位，如下列螢幕擷取畫面所示： <figure class="bcls-figure"> <img class="bcls-image" src="https://img.brightcove.com/node1050-custom-fields-overview1.png" alt=""/> </figure>
+            </li>
+            <li>
+                按一下「<strong>新增自訂欄位</strong>」。
+                <figure class="bcls-figure"> <img class="bcls-image" src="https://img.brightcove.com/node1050-new-custom-field1.png" alt=""/> </figure>
+            </li>
+            <li>
+                <p>
+                    輸入「顯<strong>示名稱</strong>」。這會顯示為「上載」和「媒體」模組中欄位的標籤。系統會根據顯示<strong>名稱自動為欄位建立「內部</strong>名稱」。
+                </p>
+                <aside class="bcls-aside bcls-aside--information language-editable"> 注意：本文件稍後會指定成功匯入布萊特灣信標所使用的顯示名稱。
+                </aside>
+            </li>
+            <li>
+                選取欄位的「<strong>類型</strong>」。
+                <ul>
+                    <li>
+                        <strong>文字</strong> -使用者可以在欄位中輸入任何內容，最多可達 1024 個單位元組字元 (或 512 個雙位元組字元)。
+                    </li>
+                    <li>
+                        <strong>列表</strong> -用戶將從值列表中進行選擇。清單中最多只能有 150 個可能值，而且清單中每個值的長度不能超過 100 個字元。
+                    </li>
+                </ul>
+            </li>
+            <li>
+                輸入「<strong>摘要</strong>」。描述字段將在 Studio 界面中顯示為提示。
+            </li>
+            <li>
+                如果需要自訂欄位，請勾選 [將<strong>此欄位設為必要欄位] </strong>。
+            </li>
+            <li>
+                <p>
+                    如果您的字段類型是<strong>清單</strong>，輸入以逗號分隔的值列表，然後單擊<strong>添加到列表</strong>，如以下屏幕截圖所示。
+                </p>
+                <aside class="bcls-aside bcls-aside--information"> 注意事項：
+                    <ol>
+                        <li>
+                            這些值不得包含引號 (例如：動物，鳥，魚）。
+                        </li>
+                        <li>
+                            沒有值可以包含逗號-所有逗號將被視為不同值的分隔符。
+                        </li>
+                    </ol>
+                </aside>
+                <figure class="bcls-figure"> <img class="bcls-image" src="https://img.brightcove.com/node1050-new-custom-field-added1.png" alt=""/> </figure>
+            </li>
+            <li>
+                按一下「<strong>儲存欄位</strong>」以儲存變更。按一下「<strong>儲存並加入其他</strong>」以儲存欄位並開始建立其他欄位。
+            </li>
+        </ol>
+        <p>
+            您建立的自訂欄位會立即可用，&nbsp;並且會顯示&nbsp;在「媒體」模組中。
+        </p>
+        <p>
+            最多可以建立 10 個自訂欄位。如果您需要 10 個以上的欄位，請按一下 [ <strong>需要更多] 欄位？</strong>連結，以聯絡 Brightcove 客戶支援以取得更多資訊的要求。發行者限制為 50 個自訂欄位。
+        </p>
+        <h3 id="edit">編輯清單值</h3>
+        <p>
+            您可以將其他值添加到「列表」類型的自定義字段中。按一下自訂欄位名稱連結，新增值，然後按一下「<strong>新增至清單</strong>」。完成後，按一下「<strong>儲存欄位</strong>」。
+        </p>
+        <h3 id="delete">刪除清單值</h3>
+        <p>
+            您可以從「列表」類型的自定義字段中添加刪除現有值。點擊自定義字段名稱鏈接，然後點擊刪除圖標（<img alt="" src="https://img.brightcove.com/node1050-delete-icon.png"/>）與值關聯，然後單擊<strong>保存字段</strong>。
+        </p>
+        <p>
+            移除清單值時，先前指派該值的任何視訊都會保留該值。不過，如果編輯具有已刪除值的視訊，則會清除該值，並且必須選取新值。
+        </p>
+        <h3 id="remove">從帳戶移除自訂欄位</h3>
+        <p>
+            為了從您的帳戶中刪除自定義字段，您必須<a href="https://supportportal.brightcove.com/s/login/">聯繫Brightcove支持</a>。請注意，如果您有 Brightcove 支持刪除自定義字段，修改日期將會更改任何存在值的視頻。
+        </p>
+    </section>
+    <section class="bcls-section">
+        <h2 id="Using_list_values_for_Brightcove_Beacon_metadata"> 使用布萊特灣信標中繼資料的清單值 </h2>
+        <p>
+            在下表中，您可以找到一些您必須創建的自定義字段。如上所示，在創建自定義字段時，您可以將數據類型選擇為<strong>文本</strong>要么<strong>清單</strong>。請注意，所有<strong>種類</strong>是<strong>文本</strong>。如果影片內容策展人可以從清單中選擇，而不必輸入文字，可以減輕影片內容策展人的負擔。此外，如果可以從列表中選擇值而不是輸入值，它總是有助於保持數據輸入更加一致。因此，如果您發現<strong>清單</strong>在某些商業情況下可行，可以使用列表。
+        </p>
+        <p>
+            當然，選擇是您的，但是您可能會發現一些自定義字段<strong>清單</strong>是數據類型的不錯選擇。例如，您可能希望考慮以下內容，包括列表： </p>
+        <ul>
+            <li>信標類型</li>
+            <li>信標。激烈</li>
+            <li>信標。觀眾分數</li>
+            <li>信標. 權利.&lt;計數器 &gt;。類型</li>
+        </ul>
+    </section>
+    <section class="bcls-section">
+        <h2 id="Standard_fields">標準欄位</h2>
+        <p>
+            下表顯示標準的 Video Cloud 欄位，表示這些欄位預設存在，Brightcove Beacon 會使用此欄位來正確匯入與中繼資料相關聯的視訊。
+        </p>
+        <p>只需從上述步驟 6 中提醒關於字符限制的快速提醒：</p>
+        <ul>
+            <li>
+                文字-最多可包含 1024 個單位元組字元 (或 512 個雙位元組字元)。
+            </li>
+            <li>
+                列表-不能超過 150 個可能的值，列表中的每個值長度不能超過 100 個字符。
+            </li>
+        </ul>
+        <aside class="bcls-aside bcls-aside--warning language-editable"> 注意：請密切注意廣告的定義<strong>images.poster.src</strong>和<strong>images.thumbnail.src</strong>因為您將提供與Studio UI中要求的圖像不同的圖像。您將使用此處顯示的 UI 新增影像，但請遵循表格中的指導方針，而不是使用者介面中的指導方針： <figure class="bcls-figure"> <img class="bcls-image" src="/assets/images/syncing-with-vc/vc-custom-fields/editing-images.png" alt=""/> </figure>
+        </aside>
+        <table class="bcls-table">
+            <thead class="bcls-table__head">
+                <tr>
+                    <th>視訊雲端欄位</th>
+                    <th>描述</th>
+                    <th>
+                        在哪裡/如何<br/>填充
+                    </th>
+                    <th>必填</th>
+                </tr>
+            </thead>
+            <tbody class="bcls-table__body">
+                <tr>
+                    <td>持續時間</td>
+                    <td>
+                        由布萊特灣信標用於在詳細資料畫面中顯示觀看百分比和持續時間
+                    </td>
+                    <td>由視訊雲端自動填入</td>
+                    <td>是</td>
+                </tr>
+                <tr>
+                    <td>圖像. 海報 .src</td>
+                    <td>
+                        橫向影像 (16:9)：
+                        <table>
+                            <tr>
+                                <td>最小值</td>
+                                <td>寬度：1000 像素</td>
+                                <td>高度：563 像素</td>
+                            </tr>
+                            <tr>
+                                <td>最大值</td>
+                                <td>寬度：4000 像素</td>
+                                <td>高度：2250 像素</td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td>
+                        編輯<strong>圖像&gt;海報</strong>視頻屬性中的“部分”，然後瀏覽以查找本地保存圖像的位置。
+                    </td>
+                    <td>是</td>
+                </tr>
+                <tr>
+                    <td>圖像. 縮略圖 .src</td>
+                    <td>
+                        海報影像 (2:3)
+                        <table>
+                            <tr>
+                                <td>最小值</td>
+                                <td>寬度：1000 像素</td>
+                                <td>高度：1500 像素</td>
+                            </tr>
+                            <tr>
+                                <td>最大值</td>
+                                <td>寬度：2000 像素</td>
+                                <td>高度：3000 像素</td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td>
+                        編輯<strong>圖像&gt;縮略圖</strong>視頻屬性中的“部分”，然後瀏覽以查找本地保存圖像的位置。
+                    </td>
+                    <td>是</td>
+                </tr>
+                <tr>
+                    <td>影像。廣泛的 .src</td>
+                    <td>
+                        <strong>即將推出</strong> -在此期間默認為<code translate="No">images.poster.src</code> </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>圖像. 肖像海報 .src</td>
+                    <td>
+                        <strong>即將推出</strong> -在此期間默認為<code translate="No">images.poster.src</code> </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>名稱</td>
+                    <td>由布萊特灣信標作為資產的標題</td>
+                    <td>
+                        編輯<strong>視頻信息</strong>視頻屬性部分，然後輸入<em>名稱</em> </td>
+                    <td>是</td>
+                </tr>
+                <tr>
+                    <td>標籤</td>
+                    <td>
+                        不會顯示在應用程式中，而是由布萊特灣信標使用來建立播放清單
+                    </td>
+                    <td>
+                        編輯<strong>視頻信息</strong>視頻屬性部分，然後輸入<em>標籤</em> </td>
+                    <td>否</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <section class="bcls-section">
+        <h2 id="Custom_field_names">自訂欄位名稱</h2>
+        <p>
+            本文件的接下來三個部分涵蓋您可能需要根據特定實作使用案例建立的自訂欄位。每個自定義字段都有一個<strong>顯示名稱</strong>和<strong>內部名稱</strong>。如果您覺得自己的名字更有意義<strong>顯示名稱</strong>選項，您可以使用它，但是<strong>內部名稱</strong><code translate="No">MUST</code>完全匹配。
+        </p>
+    </section>
+    <section class="bcls-section">
+        <h2 id="General_custom_fields">一般，自訂欄位</h2>
+        <p>
+            下表顯示您可能必須根據實作建立的自訂 Video Cloud 欄位。請注意，您建立的欄位不需要勾選 [將<strong>此欄位設為必填] </strong>核取方塊。
+        </p>
+        <table class="bcls-table">
+            <thead class="bcls-table__head">
+                <tr>
+                    <th>顯示名稱</th>
+                    <th>
+                        內部名稱
+                    </th>
+                    <th>類型</th>
+                    <th>備註/範例</th>
+                </tr>
+            </thead>
+            <tbody class="bcls-table__body">
+                <tr>
+                    <td>信標類型</td>
+                    <td>信標類型</td>
+                    <td>文字</td>
+                    <td>
+                        *資產類型<br/> *顯示在詳細信息頁面中，將用於在不同屏幕中組織資產。如果未設置此值，則<strong>無體裁</strong>將顯示在用戶界面中<br/> *不設置此值會影響<strong>相關內容</strong>功能性<br/> *示例：Brightcove Beacon中定義的一種流派，例如<em>行動</em>要么<em>冒險</em>電影 </td>
+                </tr>
+                <tr>
+                    <td>信標。<br/>生產年份</td>
+                    <td>
+                        信標_ <br/>生產年
+                    </td>
+                    <td>
+                        文字
+                    </td>
+                    <td>
+                        *資產的生產年份-將顯示在詳細信息頁面中<br/> *四位數整數
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        信標廣播。<br/>導向器
+                    </td>
+                    <td>
+                        beacon_cast_ <br/>導向器
+                    </td>
+                    <td>文字</td>
+                    <td>*以逗號分隔的董事名單<br/> *示例：董事姓名，例如<em>簡·史密斯，聖地亞哥·阿爾馬達</em> </td>
+                </tr>
+                <tr>
+                    <td>信標.</td>
+                    <td>信標 _ 卡斯 _ 辛格</td>
+                    <td>文字</td>
+                    <td>
+                        *逗號分隔的歌手姓名列表<br/> *示例：歌手姓名，例如<em>簡·史密斯，聖地亞哥·阿爾馬達</em> </td>
+                </tr>
+                <tr>
+                    <td>信標。演員</td>
+                    <td>信標演員</td>
+                    <td>文字</td>
+                    <td>
+                        *以逗號分隔的演員姓名列表<br/> *示例：演員姓名，例如<em>簡·史密斯，聖地亞哥·阿爾馬達</em> </td>
+                </tr>
+                <tr>
+                    <td>
+                        信標廣播。<br/>作曲家
+                    </td>
+                    <td>
+                        beacon_cast_ <br/>作曲家
+                    </td>
+                    <td>文字</td>
+                    <td>
+                        *以逗號分隔的作曲家名單<br/> *示例：作曲家的姓名，例如<em>簡·史密斯，聖地亞哥·阿爾馬達</em> </td>
+                </tr>
+                <tr>
+                    <td>
+                        信標廣播。<br/> songWriter
+                    </td>
+                    <td>
+                        beacon_cast_ <br/>詞曲作者
+                    </td>
+                    <td>文字</td>
+                    <td>
+                        *逗號分隔的歌曲作者姓名列表<br/> *示例：歌曲作者的姓名，例如<em>簡·史密斯，聖地亞哥·阿爾馬達</em> </td>
+                </tr>
+                <tr>
+                    <td>信標</td>
+                    <td>信標寫入器</td>
+                    <td>文字</td>
+                    <td>
+                        *逗號分隔的作者姓名列表<br/> *示例：作家姓名，例如<em>簡·史密斯，聖地亞哥·阿爾馬達</em> </td>
+                </tr>
+                <tr>
+                    <td>信標。激烈</td>
+                    <td>信標 (_R)</td>
+                    <td>文字</td>
+                    <td>
+                        *提供資產的年齡等級<br/> *此欄位的值應為<strong>鍵=值</strong>對，以逗號分隔，其中的鍵是國家/地區代碼（例如<strong>我們</strong>），並且該值是適用於Brightcove Beacon支持的國家/地區代碼的年齡等級<br/> *如果未設置此值，則將使用Brightcove Beacon中設置的默認國家/地區年齡等級系統的最高允許等級<br/> *示例：鍵=值，鍵=值，例如<em>us = TV-Y，us = TV-M</em>） </td>
+                </tr>
+                <tr>
+                    <td>
+                        信標。<br/>簡短的介紹
+                    </td>
+                    <td>
+                        信標_ <br/>簡短的介紹
+                    </td>
+                    <td>文字</td>
+                    <td>
+                        *允許提供針對Brightcove Beacon的簡短描述<br/> *如果未設置此值，則使用視頻簡短描述字段中設置的文本<br/> *如果此字段留為空白，並且<strong>簡短的介紹</strong>在Video Cloud Studio的視頻中輸入了視頻<strong>視頻信息</strong>，則會提取Studio值。注意工作室<strong>簡短的介紹</strong>限制為250個字符，而此自定義字段可以為1024個字符。
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        信標。<br/>詳細描述
+                    </td>
+                    <td>
+                        信標_ <br/>詳細描述
+                    </td>
+                    <td>文字</td>
+                    <td>
+                        *允許提供針對Brightcove Beacon的詳細描述<br/> *如果未設置此值，則使用視頻詳細說明字段中設置的文本<br/> *如果此字段留為空白，並且<strong>詳細描述</strong>在Video Cloud Studio的視頻中輸入了視頻<strong>視頻信息</strong>，則會提取Studio值。注意工作室<strong>詳細描述</strong>是5000個字符，而此自定義字段只能是1024個字符。
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        信標。<br/> viewerScore
+                    </td>
+                    <td>
+                        信標_ <br/>觀眾評分
+                    </td>
+                    <td>文字</td>
+                    <td>
+                        *允許設置觀眾評分的初始得分（來自其他系統或設置初始值）<br/> *僅當Brightcove Beacon中的視頻資產是新的時才使用，並且在Brightcove Beacon中此資產的任何後續更新都將被忽略-這樣就不會覆蓋用戶在Brightcove Beacon中設置的值<br/> *可能的值是0到100之間的整數 </td>
+                </tr>
+                <tr>
+                    <td>信標. 預告符號</td>
+                    <td>信標預約識別碼</td>
+                    <td>文字</td>
+                    <td>
+                        *指向視頻雲中的另一個視頻資產，該視頻資產將用作設置此字段的資產的預告片<br/> *所指向的資產將作為電影或劇集丟棄<br/> *示例：視頻雲視頻ID，例如<em>6140603191001</em> </td>
+                </tr>
+                <tr>
+                    <td>信標. 內嵌</td>
+                    <td>信標 (_ 內嵌)</td>
+                    <td>文字</td>
+                    <td>
+                        *如果此字段不存在，則默認為攝取<br/> *如果您不希望某些特定資產不與Brightcove Beacon同步，則應將其設置為<strong>沒有</strong> </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <section class="bcls-section">
+        <h2 id="Rights_Management_fields">「權限管理」字段</h2>
+        <p>
+            若要支援資產的營利和存取限制，應該使用一組自訂欄位。由於您可以擁有多個版權管理組態執行個體，建議的方法是建立多組自訂欄位。在每個實例的名稱中，計數器用於區分它們。第一個實例應該使用計數器為 0。以下是實際使用計數器值的這些分組字段的示例： <figure class="bcls-figure"> <img class="bcls-image" src="/assets/images/syncing-with-vc/vc-custom-fields/rights-management.png" alt=""/> </figure>
+            舉例來說，您可能需要一組來定義您在影片中使用的廣告，另一個用來定義假期的特殊優惠，例如新年。
+        </p>
+        <p>
+            一個具體的例子將有助於澄清這些字段的使用。下面的屏幕截圖顯示設置在視頻雲端的視頻上使用的服務器端廣告插入（SSAI）。
+            <figure class="bcls-figure"> <img class="bcls-image" src="/assets/images/syncing-with-vc/vc-custom-fields/rights-mamagement-example-avod.png" alt=""/> </figure>
+            您可以從這個例子中學習以下內容： </p>
+        <ul>
+            <li>並非群組中的所有權限管理欄位都必須被指派值。在這種情況下，只有<em>beacon.rights。&lt;計數器&gt; .adConfiguration</em>和<em>beacon.rights。&lt;計數器&gt;。類型</em>被使用。</li>
+            <li>您可以使用在布萊特灣信標自訂欄位中的工作室中建立的 SSAI 組態識別碼。</li>
+            <li>一組版權管理欄位的計數器值可以從 0 開始 (以黃色反白顯示)。</li>
+            <li>雖然在此截圖中沒有直接可見，但事實上，視頻雲端 SSAI 配置將被攝入布萊特灣信標。</li>
+        </ul>
+        <p>請注意，您建立的欄位不需要勾選 [將<strong>此欄位設為必填] </strong>核取方塊。</p>
+        <p>
+            下表顯示您可能必須根據實作建立的自訂 Video Cloud 欄位。
+        </p>
+        <table class="bcls-table">
+            <thead class="bcls-table__head">
+                <tr>
+                    <th>顯示名稱</th>
+                    <th>內部名稱</th>
+                    <th>類型</th>
+                    <th>備註/範例</th>
+                </tr>
+            </thead>
+            <tbody class="bcls-table__body">
+                <tr>
+                    <td>信標. 權利.&lt;計數器 &gt;。類型</td>
+                    <td>beacon_rights_ <br/> &lt;counter&gt; _type</td>
+                    <td>文字</td>
+                    <td>
+                        *標識資產的貨幣化類型<br/> *對於值，請使用以下之一： <ul>
+                            <li>自由</li>
+                            <li>AVOD</li>
+                            <li>斯沃德</li>
+                            <li>繼承</li>
+                        </ul>
+                        * 預設值：<strong>自由</strong><br/> *的<strong>繼承</strong>該值僅適用於<em>插曲</em>資產 </td>
+                </tr>
+                <tr>
+                    <td>
+                        信標權利。<br/> &lt;計數器&gt;。<br/>開始日期
+                    </td>
+                    <td>
+                        beacon_rights_ <br/> &lt;計數器&gt; _ <br/>開始日期
+                    </td>
+                    <td>文字</td>
+                    <td>
+                        *應在此特定組的訪問限制和貨幣化選項下公開資產的日期<br/> *格式：日期年度-毫米-DD <br/> * 預設值：如果未設定，預設為視訊可用性開始日期 </td>
+                </tr>
+                <tr>
+                    <td>信標. 權利.&lt;計數器 &gt;。結束日期</td>
+                    <td>
+                        beacon_rights_ <br/> &lt;計數器&gt; _結束日期
+                    </td>
+                    <td>文字</td>
+                    <td>
+                        *在此特定組的訪問限制和貨幣化選項下不再應該暴露資產的日期<br/> *格式：日期年度-毫米-DD <br/> * 預設值：如果未設定，預設為視訊可用性結束日期 </td>
+                </tr>
+                <tr>
+                    <td>信標. 權利.&lt;計數器 &gt;。裝置</td>
+                    <td>
+                        beacon_rights_ <br/> &lt;counter&gt; _devices
+                    </td>
+                    <td>文字</td>
+                    <td>
+                        * Brightcove Beacon支持的設備的逗號分隔列表，該資產在此特定集合的訪問限制和獲利選項下應公開給這些設備<br/> *逗號分隔的列表： <ul>
+                            <li>iOS</li>
+                            <li>Android</li>
+                            <li>網路</li>
+                            <li>Roku</li>
+                            <li>STV</li>
+                            <li>火電視</li>
+                            <li>LGTV</li>
+                            <li>Samsung (三星)</li>
+                            <li>蘋果電視</li>
+                            <li>安卓電視</li>
+                            <li>松下</li>
+                        </ul>
+                        * 預設值：如果沒有設置，默認為布萊特灣信標支持的所有設備 </td>
+                </tr>
+                <tr>
+                    <td>
+                        信標權利。<br/> &lt;計數器&gt;。<br/>地點許可證
+                    </td>
+                    <td>
+                        beacon_rights_ <br/> &lt;計數器&gt; _ <br/>位置許可
+                    </td>
+                    <td>文字</td>
+                    <td>
+                        *在Brightcove信標中定義的位置的逗號分隔列表，應根據此特定集合的訪問限制和貨幣化選項將資產暴露給這些位置<br/> * 默認值：如果沒有設置，默認為布萊特灣信標支持的所有位置 </td>
+                </tr>
+                <tr>
+                    <td>
+                        beacon.rights。&lt;計數器&gt;。<br/>地點
+                    </td>
+                    <td>
+                        beacon_rights_ <br/> &lt;計數器&gt; _ <br/>拒絕
+                    </td>
+                    <td>文字</td>
+                    <td>
+                        *在Brightcove Beacon中定義的位置的逗號分隔列表，在此特定集合的訪問限制和貨幣化選項下不應將資產暴露給的位置<br/> *無默認值
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        信標權利。<br/> &lt;計數器&gt;。<br/>包裹名字
+                    </td>
+                    <td>
+                        beacon_rights_ <br/> &lt;計數器&gt; _ <br/>包裹名字
+                    </td>
+                    <td>文字</td>
+                    <td>
+                        * 如果使用<strong>信標 .reat，則必須輸入此欄位的值。<counter>。類型</strong>字段值設置為<strong>SVOD</strong><br/> *逗號分隔的軟件包名稱列表，如Brightcove Beacon中所定義<br/> * 例子：<em>高級體育，動作片，地球日電影</em><br/> *無默認值
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        信標權利。<br/> &lt;計數器&gt;。<br/> adConfiguration
+                    </td>
+                    <td>
+                        beacon_rights_ <br/> &lt;計數器&gt; _ <br/>廣告配置
+                    </td>
+                    <td>文字</td>
+                    <td>
+                        * 如果使用<strong>信標 .reat，則必須輸入此欄位的值。<counter>。類型</strong>字段值設置為<strong>影音</strong><br/> * Brightcove Beacon中廣告配置的標識符<br/> *無默認值
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <section class="bcls-section">
+        <h2 id="Episode_fields">插曲欄位</h2>
+        <p>
+            系列劇集的影片需要完成以下內容。下圖顯示了一系列和它的季節和情節之間的關係。
+        </p>
+        <figure class="bcls-figure"> <img class="bcls-image" src="/assets/images/syncing-with-vc/vc-custom-fields/beacon-series-season-episode.png" alt=""/> </figure>
+        <p>
+            根據圖表，下列為系列中六部影片的必填欄位。
+        </p>
+        <ul>
+            <li>
+                影片 1
+                <ul>
+                    <li>信標。序列名稱：俄勒岡海岸的冒險</li>
+                    <li>信標。情節。季節編號：1</li>
+                    <li>信標。章節。數字：1</li>
+                </ul>
+            </li>
+            <li>
+                影片 2
+                <ul>
+                    <li>信標。序列名稱：俄勒岡海岸的冒險</li>
+                    <li>信標。情節。季節編號：1</li>
+                    <li>信標。章節。數字：2</li>
+                </ul>
+            </li>
+            <li>
+                影片 3
+                <ul>
+                    <li>信標。序列名稱：俄勒岡海岸的冒險</li>
+                    <li>信標。情節。季節編號：1</li>
+                    <li>信標。章節。數字：3</li>
+                </ul>
+            </li>
+            <li>
+                影片 4
+                <ul>
+                    <li>信標。序列名稱：俄勒岡海岸的冒險</li>
+                    <li>信標。情節。季節編號：2</li>
+                    <li>信標。章節。數字：1</li>
+                </ul>
+            </li>
+            <li>
+                視訊 5
+                <ul>
+                    <li>信標。序列名稱：俄勒岡海岸的冒險</li>
+                    <li>信標。情節。季節編號：2</li>
+                    <li>信標。章節。數字：2</li>
+                </ul>
+            </li>
+            <li>
+                視訊 6
+                <ul>
+                    <li>信標。序列名稱：俄勒岡海岸的冒險</li>
+                    <li>信標。情節。季節編號：2</li>
+                    <li>信標。章節。數字：3</li>
+                </ul>
+            </li>
+        </ul>
+        <p>下面是使用插曲字段的實際實現。在這種情況下，自訂欄位會以相關值顯示 (以 Yellos 反白顯示的值)。</p>
+        <figure class="bcls-figure"> <img class="bcls-image" src="/assets/images/syncing-with-vc/vc-custom-fields/episode-example.png" alt=""/> </figure>
+        <table class="bcls-table">
+            <thead class="bcls-table__head">
+                <tr>
+                    <th>顯示名稱</th>
+                    <th>
+                        內部名稱
+                    </th>
+                    <td>類型</td>
+                    <th>備註/範例</th>
+                </tr>
+            </thead>
+            <tbody class="bcls-table__body">
+                <tr>
+                    <td>
+                        信標集。<br/> serieName
+                    </td>
+                    <td>
+                        beacon_episode_ <br/>系列名稱
+                    </td>
+                    <td>文字</td>
+                    <td>
+                        *如果這是劇集資產，則必須輸入此字段的值，否則不需要任何值<br/> *值指向情節所屬的Brightcove Beacon中的系列標識符（需要直接在Brightcove Beacon中創建系列）<br/> *示例：系列名稱，<em>俄勒岡海岸歷險記</em> </td>
+                </tr>
+                <tr>
+                    <td>
+                        信標集。<br/>季節數
+                    </td>
+                    <td>
+                        beacon_episode_ <br/>季節數
+                    </td>
+                    <td>測試</td>
+                    <td>
+                        *如果這是劇集資產，則必須輸入此字段的值，否則不需要任何值<br/> *標識劇集所屬的Brightcove Beacon中的序列號（需要直接在Brightcove Beacon中創建季節）<br/> *格式：整數指的是視訊所屬的季節編號 </td>
+                </tr>
+                <tr>
+                    <td>
+                        信標集。<br/>數
+                    </td>
+                    <td>
+                        beacon_episode_ <br/>數
+                    </td>
+                    <td>文字</td>
+                    <td>*如果這是劇集資產，則必須輸入此字段的值，否則不需要任何值<br/> *標識季節內的劇集編號<br/> *格式：參照影片集數的整數 </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</article>
+<!-- complete bootstrap layout -->
+    </div>
+    <div class="col-sm-2 right-side-bar">
+      
+      <nav class="right-side-nav" id="right_side_nav">
+        <h6 class="toc">頁面內容</h6>
+        <ul id="in_page_nav" class="list-none"></ul>
+      </nav>
+      
+    </div>
+  </div>
+</div>
+
+<hr>
+<div class="last-updated">
+  頁面最後更新日期為 10 月 29 日
+</div>
+
+
+
+<footer class="bcls-footer" role="contentinfo">
+  <div class="row">
+    <div class="region region-footer-top-center col-md-12">
+      <nav role="navigation" aria-labelledby="block-brightcovesupport-menu" id="block-brightcovesupport" class="footer-menu">
+
+        <h2>布萊特灣支援</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://status.brightcove.com">系統狀態</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?">聯絡支援</a>
+          </li>
+          <li>
+            <a href="https://support.brightcove.com/">文獻資料</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-training-menu" id="block-training" class="footer-menu">
+
+        <h2>訓練</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://studio.support.brightcove.com/training/online-training-courses.html">線上課程</a>
+          </li>
+          <li>
+            <a href="https://studio.support.brightcove.com/training/register-training.html">註冊課程</a>
+          </li>
+          <li>
+            <a href="https://university.brightcove.com/">布萊特灣大學</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-brightcove-menu" class="footer-menu">
+
+        <h2>Brightcove</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://www.brightcove.com">亮麗</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?">聯絡我們</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="row">
+    <div class="region region-footer-bottom-center col-md-12">
+      <div class="bcls-copyright footer-menu">
+        <table>
+          <tr>
+            <td>
+              <div id="bc_copyright" class="field field--name-field-copyright-year field--type-string field--label-hidden field--item" style="float: left;"> 布萊特灣公司版權所有</div>
+            </td>
+            <td><a href="https://www.brightcove.com/en/legal/privacy">私隱</a> | 條<a href="https://www.brightcove.com/en/terms-and-conditions">款及細則</a></td>
+            <td>
+              <div class="gf-links-cols footer-menu">
+                <div class="gf-social"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" newtab="newtab" class="gf-social-linkedin"><i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i></a><a href="https://twitter.com/brightcove" title="Twitter" newtab="newtab" class="gf-social-twitter"><i class="fab fa-twitter" style="font-size: 1.5rem;"></i></a><a href="https://www.facebook.com/Brightcove" title="Facebook" newtab="newtab" class="gf-social-facebook"><i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i></a>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</footer>
+<div id="talla_wrapper">
+  <p style="text-align: right;position: relative;"><button style="background:rgb(2, 28, 146);color:Snow;padding:.3rem;position:fixed;right:0;bottom:1em;z-index:9999999" onclick="javascript:displayChat()">有問題嗎？ </button> </p>
+  <div id="talla_chat">
+</div>
+</div>
+<script>
+      
+  var searchBox = sajari.init({
+    mode: "search-box",
+    project: "1588255093746585379", // Set this to your project.
+    collection: "brightcove-documenation", // Set this to your collection.
+    instantPipeline: "autocomplete", // Pipeline used as you type
+    inputPlaceholder: "Search", // Input element placeholder
+    maxSuggestions: 5, // Maximum number of suggestions to show
+    attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to
+  });
+  
+    searchBox("sub", "pipeline.search-sent", function (_, query) {
+      window.location = "/search.html?q=" + encodeURIComponent(query.q);
+    });
+  
+
+</script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/https-fix.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/setDate.js"></script>
+  
+  <script src="https://support.brightcove.com/site-assets/js/site/prism.js"></script>
+  
+  <script src="https://support.brightcove.com/site-assets/js/site/site.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/tabs.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/toc.js"></script>
+  <script src="/assets/js/sites_nav.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/bcls-utils.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/local-link-fix.js"></script>
+  <script src="/assets/js/feedback.js"></script>
+  
+  <script src="/assets/js/sajari-search-foot.js"></script>
+  
+  <!-- <script src="/assets/js/sajari-index.js"></script> -->
+  <script src="https://assets.talla.com/latest/embeddedjs/talla.js"></script>
+  <script src="/assets/js/talla-init.js"></script>
+  <style>
+    a.sj-paginator__page-number.sj-paginator__page-number--current.css-so0ov7 {
+      background-color: lightblue;
+    }
+    div.sj-tabs__tab {
+      margin-top: 3rem;
+      margin-left: .3rem;
+      border-top-left-radius: .4rem;
+      border-top-right-radius: .4rem;
+      background-color:#e8e8e8;
+    }
+
+    div.sj-tabs__tab.sj-tabs__tab--selected {
+      border-bottom-color: crimson;
+      background-color: #f8f8f8;
+    }
+
+    p.sj-results__result__description.css-p9jvyt {
+      font-size: 1rem;
+    }
+
+    .sj-result__text.css-31l7gp h3 {
+      color: navy;
+      font-size: 1.4rem;
+    }
+    </style>
+
+</body>
+
+</html>

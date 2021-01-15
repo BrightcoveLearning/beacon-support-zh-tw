@@ -1,0 +1,998 @@
+﻿<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="在本主題中，您將學習如何使用 Brightcove 信標的隨選視訊 (VOD) 來建立和管理伺服器端廣告插入 (SSAI)。" />
+
+    <title>實施 VOD SSAI</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-ultra.eot" type="font/eot">
+    <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-ultra.woff" type="font/woff">
+    <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-super.eot" type="font/eot">
+    <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-super.woff" type="font/woff">
+    <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-black.eot" type="font/eot">
+    <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-black.woff" type="font/woff">
+    <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-bold.eot" type="font/eot">
+    <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-bold.woff" type="font/woff">
+    <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-medium.eot" type="font/eot">
+    <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-medium.woff" type="font/woff">
+    <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&amp;display=swap">
+      <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://support.brightcove.com/site-assets/css/site/prism.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://support.brightcove.com/site-assets/css/site/styles.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://support.brightcove.com/site-assets/css/site/landing-page.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://support.brightcove.com/site-assets/css/site/tabs.css"
+    />
+    <link rel="stylesheet" href="/assets/css/local.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/381443caa8.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://support.brightcove.com/site-assets/js/site/google-analytics.js"></script>
+    <script src="/assets/js/sajari-head.js"></script>
+  </head>
+
+  <body class="body"></body>
+</html>
+
+<header>
+  <div class="div-header">
+    <a href="/"><img class="product-logo" src="https://support.brightcove.com/site-assets/images/site/product-logos/Beacon_Logo.svg" alt="產品標誌" style="max-height: 100px;max-width: 232px;"/></a>
+<!-- GTranslate: https://gtranslate.io/ -->
+<select onchange="doGTranslate(this);"><option value="">選擇語言</option><option value="en|en" translate="No">English</option><option value="en|zh-TW" translate="No">繁體中文</option><option value="en|fr" translate="No">Français</option><option value="en|de" translate="No">Deutsche</option><option value="en|ja" translate="No">日本語</option><option value="en|ko" translate="No">한국어</option><option value="en|es" translate="No">Español</option></select>
+
+<script>
+/* <![CDATA[ */
+function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
+/* ]]> */
+</script>
+
+    <select id="site_select" class="bcls-select" style="margin-right: 1rem;">
+      <option value="">其他布萊特灣文件</option>
+      
+        
+          <option value="https://support.brightcove.com">文件首頁</option>
+        
+      
+        
+          <option value="https://audience.support.brightcove.com">布萊特灣觀眾</option>
+        
+      
+        
+          <option value="https://beacon.support.brightcove.com">布萊特灣燈塔</option>
+        
+      
+        
+          <option value="https://campaign.support.brightcove.com">布萊特灣戰役</option>
+        
+      
+        
+          <option value="https://engage.support.brightcove.com">布萊特灣參與</option>
+        
+      
+        
+          <option value="https://live.support.brightcove.com">Brightcove Live</option>
+        
+      
+        
+          <option value="https://gallery.support.brightcove.com">Brightcove 圖庫</option>
+        
+      
+        
+          <option value="https://ssai.support.brightcove.com">布萊特灣</option>
+        
+      
+        
+          <option value="https://social.support.brightcove.com">布萊特灣社會</option>
+        
+      
+        
+          <option value="https://studio.support.brightcove.com">視訊雲端工作室</option>
+        
+      
+        
+          <option value="https://player.support.brightcove.com">布萊特灣球員開發</option>
+        
+      
+        
+          <option value="https://apis.support.brightcove.com">視訊雲端平台 API</option>
+        
+      
+        
+          <option value="https://sdks.support.brightcove.com">視訊雲端裝置開發套件</option>
+        
+      
+        
+          <option value="https://integrations.support.brightcove.com">整合與 CMS 連接器</option>
+        
+      
+        
+          <option value="https://general.support.brightcove.com">視訊雲端一般資訊</option>
+        
+      
+        
+          <option value="https://zencoder.support.brightcove.com">Zencoder</option>
+        
+      
+    </select>
+
+
+    <span class="secondary-nav"><a href="https://supportportal.brightcove.com/s/login/?"><img src="https://support.brightcove.com/site-assets/images/site/support.png" alt="支持"/>聯繫支持</a><span style="vertical-align: top;margin-left:1em;margin-right:1em;">|</span><a href="https://status.brightcove.com/"><img src="https://support.brightcove.com/site-assets/images/site/status.png" alt="系統狀態"/>系統狀況</a></span><br/>
+    
+  </div>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb arr-right">
+      
+      <li class="breadcrumb-item"><a href="/">首頁</a></li>
+      
+      
+      
+      <li class="breadcrumb-item"><a href="/using-brightcove-beacon/">使用布萊特灣信標</a></li>
+      
+      <li class="breadcrumb-item active" aria-current="page">實施 VOD SSAI</li>
+    </ol>
+  </nav>
+</header>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3 left-side-bar">
+      <nav class="sidenav" id="side_nav">
+        
+        
+        <h5><a href="/index.html">首頁</a></h5>
+        
+        
+        
+        <h5 class="submenu-header"><a href="/getting-started/index.html">開始使<strong>用 + </strong></a></h5>
+        <ul class="sidenav-submenu" style="display:none;">
+          
+          
+          <li><a href="/getting-started/learning-guide-bc-beacon.html">學習指南</a></li>
+          
+          
+          
+          <li><a href="/getting-started/implementation-phases.html">實施階段</a></li>
+          
+          
+          
+          <li><a href="/getting-started/app-design-considerations.html">應用程式設計考量</a></li>
+          
+          
+          
+          <li><a href="/getting-started/creating-your-app-design-info-architecture.html">應用程式設計-資訊架構</a></li>
+          
+          
+          
+          <li><a href="/getting-started/creating-your-app-design-layout-options.html">應用程式設計-佈局選項</a></li>
+          
+          
+          
+          <li><a href="/getting-started/design-best-practices.html">設計最佳實務</a></li>
+          
+          
+        </ul>
+        
+        
+        
+        <h5 class="submenu-header"><a href="/syncing-with-video-cloud/index.html"><strong>與視訊雲端同步</strong></a></h5>
+        <ul class="sidenav-submenu" style="display:none;">
+          
+          
+          <li><a href="/syncing-with-video-cloud/vc-custom-fields.html">建立視訊雲端自訂欄位</a></li>
+          
+          
+          
+          <li><a href="/syncing-with-video-cloud/forcing-a-sync.html">強制同步</a></li>
+          
+          
+        </ul>
+        
+        
+        
+        <h5 class="submenu-header"><a href="/using-brightcove-beacon/index.html">使用布萊特灣信標<strong> + </strong></a></h5>
+        <ul class="sidenav-submenu" style="display:none;">
+          
+          
+          <li><a href="/using-brightcove-beacon/adding-to-page.html">將輪播新增至頁面</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/creating-a-channel.html">建立通道</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/electronic-program-guides.html">建立電子程式指南 (EPG) </a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/creating-a-page.html">建立新頁面</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/creating-a-playlist.html">建立播放清單</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/creating-subscription-package.html">建立訂閱套件</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/promo-codes.html">建立促銷代碼</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/series-seasons-episodes.html">建立系列/季節/集</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/configuring-server-side-ad-settings.html">設定伺服器端廣告設定</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/implementing-authvod.html">實作驗證</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/live-ssai.html">實施即時 SSAI </a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/vod-ssai.html">實施 VOD SSAI </a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/including-non-configurable-pages.html">包括無法設定的頁面</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/introducing-pages.html">介紹頁面</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/streaming-live-event.html">串流即時事件</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/streaming-vods-to-a-channel.html">將 VOD 串流至頻道</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/monetization-options.html">瞭解營利選項</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/using-subscription-package.html">使用訂閱套件</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/tools.html">使用工具</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/viewing-analytics-data.html">檢視分析資料</a></li>
+          
+          
+        </ul>
+        
+        
+        
+        <h5 class="submenu-header"><a href="/creating-your-apps/index.html">建立您的應用程式<strong> + </strong></a></h5>
+        <ul class="sidenav-submenu" style="display:none;">
+          
+          
+          <li class="submenu-header">
+            <a href="/creating-your-apps/android/index.html">安卓<strong> + </strong></a>
+            <ul class="sidenav-subsubmenu" style="display:none;">
+              
+              <li><a href="/creating-your-apps/android/submitting-to-android.html">將新應用程式提交至 Android 商店</a></li>
+              
+              <li><a href="/creating-your-apps/android/updating-android-apps-to-bcb.html">更新 Android 應用程序到布萊特灣信標</a></li>
+              
+              <li><a href="/creating-your-apps/android/adding-subscriptions-in-android.html">新增訂閱至安卓</a></li>
+              
+              <li><a href="/creating-your-apps/android/improving-relevance-android.html">改善安卓遊戲商店中的搜尋關聯性</a></li>
+              
+              <li><a href="/creating-your-apps/android/installing-android-test-build.html">安裝一個安卓測試構建</a></li>
+              
+            </ul>
+          </li>
+          
+          
+          
+          <li class="submenu-header">
+            <a href="/creating-your-apps/fire-tv/index.html">火電視<strong> + </strong></a>
+            <ul class="sidenav-subsubmenu" style="display:none;">
+              
+              <li><a href="/creating-your-apps/fire-tv/installing-fire-tv-test-build.html">安裝防火電視測試組建</a></li>
+              
+              <li><a href="/creating-your-apps/fire-tv/submitting-to-amazon.html">提交到亞馬遜商店</a></li>
+              
+            </ul>
+          </li>
+          
+          
+          
+          <li class="submenu-header">
+            <a href="/creating-your-apps/ios-tvos/index.html">IOS /電訊系統/電視系統<strong> + </strong></a>
+            <ul class="sidenav-subsubmenu" style="display:none;">
+              
+              <li><a href="/creating-your-apps/ios-tvos/installing-ios-test-build.html">安裝IOS/tvOS 測試組建</a></li>
+              
+              <li><a href="/creating-your-apps/ios-tvos/submitting-to-apple.html">提交至蘋果商店</a></li>
+              
+            </ul>
+          </li>
+          
+          
+          
+          <li class="submenu-header">
+            <a href="/creating-your-apps/panasonic/index.html">松下<strong> + </strong></a>
+            <ul class="sidenav-subsubmenu" style="display:none;">
+              
+              <li><a href="/creating-your-apps/panasonic/submitting-to-panasonic.html">提交至松下商店</a></li>
+              
+            </ul>
+          </li>
+          
+          
+          
+          <li class="submenu-header">
+            <a href="/creating-your-apps/roku/index.html">六<strong> + </strong></a>
+            <ul class="sidenav-subsubmenu" style="display:none;">
+              
+              <li><a href="/creating-your-apps/roku/configuring-inchannel-products.html">在 Roku 中設定通路內產品</a></li>
+              
+              <li><a href="/creating-your-apps/roku/installing-roku-test-build.html">安裝 Roku 測試組建</a></li>
+              
+              <li><a href="/creating-your-apps/roku/submitting-to-roku.html">提交至六商店</a></li>
+              
+            </ul>
+          </li>
+          
+          
+          
+          <li class="submenu-header">
+            <a href="/creating-your-apps/samsung/index.html">三星<strong> + </strong></a>
+            <ul class="sidenav-subsubmenu" style="display:none;">
+              
+              <li><a href="/creating-your-apps/samsung/samsung-partner.html">成為三星合作夥伴</a></li>
+              
+              <li><a href="/creating-your-apps/samsung/submitting-to-samsung.html">提交至三星商店</a></li>
+              
+            </ul>
+          </li>
+          
+          
+          
+          <li><a href="/creating-your-apps/common-required-info.html">一般必要資訊</a></li>
+          
+          
+          
+          <li><a href="/creating-your-apps/device-apps-validation-guide.html">裝置應用程式驗證指南</a></li>
+          
+          
+        </ul>
+        
+        
+        
+        <h5 class="submenu-header"><a href="/references/index.html">參考資料<strong> + </strong></a></h5>
+        <ul class="sidenav-submenu" style="display:none;">
+          
+          
+          <li><a href="/references/common-configuration-settings.html">一般組態設定</a></li>
+          
+          
+          
+          <li><a href="/references/creating-stripe-account.html">建立等量帳戶</a></li>
+          
+          
+          
+          <li><a href="/references/glossary.html">詞彙</a></li>
+          
+          
+          
+          <li><a href="/references/image-requirements.html">圖片及其規格</a></li>
+          
+          
+          
+          <li><a href="/references/known-issues.html">已知問題</a></li>
+          
+          
+          
+          <li><a href="/references/product-updates.html">產品更新</a></li>
+          
+          
+        </ul>
+        
+        
+        
+        <h5 class="submenu-header"><a href="/training/index.html">訓練<strong> + </strong></a></h5>
+        <ul class="sidenav-submenu" style="display:none;">
+          
+          
+          <li><a href="/training/training-demand-custom-fields.html">使用視訊雲端視訊/自訂欄位</a></li>
+          
+          
+          
+          <li><a href="/training/training-demand-design-layout.html">設計應用程式配置</a></li>
+          
+          
+          
+          <li><a href="/training/training-demand-playlists.html">建立和使用播放清單</a></li>
+          
+          
+          
+          <li><a href="/training/training-demand-series-seasons-episodes.html">創建系列，季節和劇集</a></li>
+          
+          
+          
+          <li><a href="/training/training-demand-vod-ssai.html">實作 VOD 伺服器端廣告</a></li>
+          
+          
+          
+          <li><a href="/training/training-demand-publish-android-app.html">在 Play 商店發布安卓應用程序</a></li>
+          
+          
+          
+          <li><a href="/training/training-demand-viewing-analytics.html">檢視分析資料</a></li>
+          
+          
+        </ul>
+        
+        
+        
+        <h5 class="submenu-header"><a href="/support/index.html">支援<strong> + </strong></a></h5>
+        <ul class="sidenav-submenu" style="display:none;">
+          
+          
+          <li><a href="/support/brightcove-answer.html">布萊特灣答案</a></li>
+          
+          
+          
+          <li><a href="/support/viewing-brightcove-system-status-page.html">檢視布萊特灣系統狀態頁面</a></li>
+          
+          
+          
+          <li><a href="/support/contact-sales.html">聯絡銷售人員</a></li>
+          
+          
+          
+          <li><a href="/support/opening-case-with-brightcove-support.html">開啟支援案例</a></li>
+          
+          
+        </ul>
+        
+        
+      </nav>
+    </div>
+    <div class="col-lg-7" style="background-color: white;color: #333333;margin-top: -1em;margin-bottom: -1em;padding-bottom:1em;">
+      <!-- bootstrap layout -->
+<p id="bc_veggie_burger_wrapper" style="display: none;"><img id="bc_veggie_burger" src="/assets/images/feather/menu.svg" alt="導覽功能表"/></p>
+
+<!-- search bar -->
+<div id="nav-search-box" style="margin-top: 1rem;"></div>
+<!-- in-page navigation for narrow screens -->
+<details class="centered-inpage-nav" id="centered_inpage_nav">
+  <summary><h6 class="toc">頁面內容</h6></summary>
+  <nav id="centered_toc"></nav>
+  <ul id="centered_in_page_toc" class="list-none"></ul>
+</details>
+<!-- open in new tab/window -->
+<a id="open_new_tab" href="#" target="_blank" style="display: none;"><img src="/assets/images/feather/external-link.svg" alt="在新分頁中開啟" style="margin-top:4em;width: 1.5em;"/></a>
+
+
+<h1>實施 VOD SSAI</h1>
+<article class="bcls-article">
+  <summary>在本主題中，您將學習如何使用 Brightcove 信標的隨選視訊 (VOD) 來建立和管理伺服器端廣告插入 (SSAI)。</summary>
+
+  <section class="bcls-section">
+    <h2 id="overview">概覽</h2>
+    <p>伺服器端廣告內嵌於影片串流中，因此瀏覽器中的廣告封鎖程式無法封鎖這些廣告。它同時適用於受 DRM 保護和不受保護的內容。布萊特灣信標支援 SSAI 的 VOD。</p>
+    <p>以下是新增伺服器端廣告的步驟：</p>
+    <ol class="bcls-tasklist">
+      <li>在Video Cloud Studio中，<a href="#Creating_an_ad_configuration">創建廣告配置</a></li>
+      <li><a href="#Set the custom field values">設置自定義字段值</a>為您的視頻</li>
+      <li><a href="#Adding_videos_to_a_Playlist">將您的視頻添加到播放列表</a></li>
+      <li>在Brightcove Beacon中<a href="#Importing_videos_and_playlists">導入您的視頻和播放列表</a></li>
+    </ol>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Best_practices">最佳實務</h2>
+    <p>在 VOD 內容中新增伺服器端廣告時，Brightcove 建議遵循以下最佳做法：</p>
+    <ul>
+      <li>在視訊雲端中建立您的廣告設定</li>
+      <li>使用 Video Cloud 中的自訂欄位將廣告設定指派給影片</li>
+      <li>即使您可以將廣告設定指派給布萊特灣信標的影片，建議您在 Video Cloud 中執行此操作</li>
+      <li>僅使用<strong>廣告</strong> Brightcove Beacon中的“直播”和頻道部分</li>
+    </ul>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Creating_an_ad_configuration">建立廣告組態</h2>
+    <p>
+      您將在這裡建立一個 SSAI 廣告配置，以定義您在布萊特灣信標 VOD 資產中顯示的廣告。
+    </p>
+    <ol class="bcls-tasklist-restart">
+      <li>登入視訊雲端工作室。</li>
+      <li>
+        在導覽標題中，按一下 [ <strong>管理</strong> ]，然後選取 [ <strong>伺服器端廣告設定</strong> ]。將會顯示所有廣告設定的清單。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/1-studio-ssai-settings.png"/>
+        </figure>
+      </li>
+      <li>
+        若要建立新的廣告組態，請按一下 [ <strong>建立廣告組態</strong> ] 按鈕。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/2-create-ad-configuration.png"/>
+        </figure>
+      </li>
+      <li>
+        從下拉菜單中選擇<strong>視頻點播</strong>作為類型。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/vod-ssai/select-vod.png"/>
+        </figure>
+      </li>
+      <li>
+        請確認您看到的是「<strong>伺服器端廣告設定」</strong>表單。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/vod-ssai/vod-ad-form.png"/>
+        </figure>
+      </li>
+      <li>為您的廣告設定<strong>命名</strong>。</li>
+      <li>
+        選取<strong>廣告伺服器回應</strong>：
+        <table class="bcls-table">
+            <thead class="bcls-table__head">
+                <tr>
+                    <th>廣告伺服器回應</th>
+                    <th>詳細資料</th>
+                </tr>
+            </thead>
+            <tbody class="bcls-table__body">
+                <tr>
+                    <td>VAST 3.0<strong></strong></td>
+                    <td><a href="https://www.iab.com/guidelines/vast/">數字視頻廣告投放模板</a></td>
+                </tr>
+                <tr>
+                    <td><strong>DFP廣告管理系統VMAP</strong></td>
+                    <td><a href="https://www.iab.com/guidelines/vmap/">視頻多個廣告播放列表</a></td>
+                </tr>
+                <tr>
+                    <td><strong>DFP (廣告規則) </strong></td>
+                    <td><a href="https://www.google.com/ads/publisher/#?modal_active=none">DFP / Google for Publishers的專有格式</a></td>
+                </tr>
+                <tr>
+                    <td><strong>智慧型 XML </strong></td>
+                    <td><a href="https://www.freewheel.com/">FreeWheel的專有格式</a></td>
+                </tr>
+            </tbody>
+        </table>
+        <br/>
+        <aside class="bcls-aside bcls-aside--information">
+          請洽詢您的廣告營運管理員，以取得正確的值以選取。
+        </aside>
+      </li>
+      <li>輸入<strong>廣告代碼 (伺服器網址) </strong>。</li>
+      <li>按一下「<strong>儲存</strong>」。</li>
+      <li>
+        複製廣告設定的 ID，因為您稍後需要它來設定 VOD 資產。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/vod-ssai/copy-ad-id.png"/>
+        </figure>
+      </li>
+    </ol>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Setting_custom_field_values">設定自訂欄位值</h2>
+
+    <p>在本節中，您將學習如何使用必要的設置來配置您的 VOD 資產，以在布萊特灣信標顯示 SSAI。</p>
+    <ol class="bcls-tasklist-restart">
+      <li>
+        在Studio中，轉到<strong>媒體</strong>模塊。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/vod-ssai/studio-home-media.png"/>
+        </figure>
+      </li>
+      <li>
+        按一下您要新增 SSAI 的視訊。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/vod-ssai/select-your-video.png"/>
+        </figure>
+      </li>
+      <li>向下滾動到<strong>自定義字段</strong>部分。</li>
+      <li>
+        點擊<strong>編輯</strong>按鈕。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/vod-ssai/custom-fields-edit.png"/>
+        </figure>
+      </li>
+      <li>
+        向下滾動並找到<strong>beacon.rights.0.adConfiguration</strong>字段，然後粘貼您先前創建的廣告配置的ID。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/vod-ssai/beacon-ad-id.png"/>
+        </figure>
+      </li>
+      <li>
+        繼續向下滾動並在<strong>beacon.rights.0.type</strong>現場寫<strong>影音</strong>將此視頻點播分類為廣告視頻點播。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/vod-ssai/beacon-ad-rights.png"/>
+        </figure>
+      </li>
+      <li>
+        轉到底部<strong>自定義字段</strong>部分，然後單擊<strong>保存</strong>按鈕。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" width="200" height="200" src="/assets/images/using-bcb/vod-ssai/save-button.png"/>
+        </figure>
+        <aside class="bcls-aside bcls-aside--information">默認情況下，您最多可以添加3個SSAI ID，並在<strong>自定義字段</strong>部分。</aside>
+      </li>
+      <li>
+        在頂部菜單中，單擊<strong>返回影片</strong>。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/vod-ssai/back-to-videos.png"/>
+        </figure>
+      </li>
+    </ol>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Adding_videos_to_a_Playlist">新增影片至播放清單</h2>
+
+    <p>在本節中，您將將您的 VOD 資產添加到播放列表。</p>
+    <ol class="bcls-tasklist-restart">
+      <li>
+        在Studio中，返回到<strong>媒體</strong>模塊。
+      </li>
+      <li>
+        按一下影片的核取方塊。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/vod-ssai/add-to-playlist.png"/>
+        </figure>
+      </li>
+      <li>點擊<strong>更多</strong>從主菜單</li>
+      <li>從下拉菜單中選擇<strong>添加到播放列表</strong>。</li>
+      <li>
+        選擇您要新增影片的播放清單。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/vod-ssai/add-button.png"/>
+        </figure>
+      </li>
+      <li>按一下「<strong>新增</strong>」按鈕。</li>
+      <li>將您的 VOD 資產新增至播放清單後，請前往布萊特灣信標平台。</li>
+    </ol>
+  </section>
+
+
+  <section class="bcls-section">
+    <h2 id="Importing_videos_and_playlists">匯入視訊和播放清單</h2>
+    <p>在布萊特灣信標，您可以從視訊雲端擷取/匯入影片和播放清單。</p>
+
+    <ol class="bcls-tasklist-restart">
+      <li>登入您的布萊特灣信標帳號。</li>
+      <li>在頂部菜單中，選擇<strong>工具類</strong>，這是扳手圖標。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/vod-ssai/ingest-videos.jpg"/>
+        </figure>
+      </li>
+      <li>在左側導航中，選擇<strong>攝取</strong>。</li>
+      <li>
+        點擊<strong>更新Brightcove視頻</strong>按鈕和/或<strong>更新Brightcove播放列表</strong>按鈕。
+      </li>
+      <li>您從視訊雲端中的影片和播放清單現在應該位於布萊特灣信標。在頂部菜單中，單擊<strong>播放清單</strong>標籤。</li>
+      <li>
+        選取您的播放清單，即可查看其中包含的影片。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/vod-ssai/select-playlist.png"/>
+        </figure>
+      </li>
+      <li>
+        請確認您可以在左側目錄中看到與該播放清單相關聯的所有 VOD 資產。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/vod-ssai/beacon-content-section.png"/>
+        </figure>
+      </li>
+      <li>在Brightcove Beacon頂部菜單中，單擊<strong>電影</strong>標籤。</li>
+      <li>
+        點擊您的 VOD 資產。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/vod-ssai/beacon-movies.png"/>
+        </figure>
+      </li>
+      <li>
+        點擊<strong>權利和計劃</strong>標籤。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/vod-ssai/beacon-vod-settings.png"/>
+        </figure>
+      </li>
+      <li>在裡面<strong>權利類型</strong>菜單，您應該看到<strong>廣告-AVOD</strong>已選擇。</li>
+      <li>在裡面<strong>廣告配置</strong>菜單中，您應該會看到之前創建的廣告配置ID。</li>
+      <li>
+        若要立即在應用程式中查看您的影片，您必須清除快取。在頂部菜單中，單擊<strong>工具類</strong>（扳手）按鈕，然後清除緩存。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/18-clear-cache.png"/>
+        </figure>
+      </li>
+      <li>在左側導航中，選擇<strong>快取</strong>。</li>
+      <li>選擇<strong>緩存清除</strong>按鈕。</li>
+      <li>
+        打開您的Brightcove Beacon應用程序，然後單擊<strong>頁</strong>標籤上添加了播放列表。（圖片上的所有活動名稱和圖片僅供例如用途）。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/vod-ssai/beacon-app.png"/>
+        </figure>
+
+        <aside class="bcls-aside bcls-aside--information">
+          若要在布萊特灣信標應用程式中視覺化您的播放清單，您必須先將播放清單新增至布萊特灣信標頁面。要了解有關如何向頁面添加播放列表的更多信息，請訪問以下內容<a href="https://beacon.support.brightcove.com/using-brightcove-beacon/adding-to-page.html" target="_blank">文件資料</a>。
+        </aside>
+      </li>
+      <li>按一下您已設定伺服器端廣告的影片。</li>
+      <li>
+        點擊<strong>玩</strong>按鈕，您應該會看到視頻播放廣告。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/vod-ssai/play-beacon-app.png"/>
+        </figure>
+      </li> 
+    </ol>
+  </section>
+
+  <!-- <section class="bcls-section">
+    <h2 id="configuring-vod-beacon">Configuring your VOD asset in Brightcove Beacon</h2>
+    <p>In this section you will learn how to configure your VOD with SSAI asset in Brightcove Beacon.</p>
+
+    <ol class="bcls-tasklist-restart">
+      <li>In the Brightcove Beacon top menu, click the <strong>Playlists</strong> tab.</li>
+      <li>
+        Select your playlist to see the videos it contains.
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/vod-ssai/select-playlist.png" />
+        </figure>
+      </li>
+      <li>
+        Check to be sure you can see all the VOD assets associated with that playlist in the left table of contents.
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/vod-ssai/beacon-content-section.png" />
+        </figure>
+      </li>
+      <li>In the Brightcove Beacon top menu, click in the <strong>Movies</strong> tab.</li>
+      <li>
+        Click on your VOD asset.
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/vod-ssai/beacon-movies.png" />
+        </figure>
+      </li>
+      <li>
+        Click the <strong>Rights & Scheduling</strong> tab.
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/vod-ssai/beacon-vod-settings.png" />
+        </figure>
+      </li>
+      <li>In the <strong>Rights Type</strong> menu, select <strong>Advertising - AVOD</strong>.</li>
+      <li>In the <strong>Advertisement Configuration</strong> bottom menu, select your previously created Advertisement configuration.</li>
+      <li>Click the <strong>Update Event</strong> button to save your changes.</li>
+      <li>
+        Click on the <strong>Tools</strong> (wrench) button in the upper right of the screen, then clear the cache.
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/18-clear-cache.png" />
+        </figure>
+      </li>
+      <li>
+        Open your Brightcove Beacon App and click in the <strong>Page</strong> tab on which your playlist was added. (All the event names and pictures on the image are for example
+        purposes only).
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/vod-ssai/beacon-app.png" />
+        </figure>
+
+        <aside class="bcls-aside bcls-aside--information">
+          To visualize your Playlist in the Brightcove Beacon App, you must have added your playlist to a Brightcove Beacon Page first. To know more about how to add a playlist to
+          a Page please visit the following <a href="https://beacon.support.brightcove.com/using-brightcove-beacon/adding-to-page.html" target="_blank">documentation</a>.
+        </aside>
+      </li>
+      <li>Click your VOD with SSAI asset you configured.</li>
+      <li>
+        Click the <strong>Play</strong> button and you should now be able to see your video play with ads.
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" width="400" height="400" src="/assets/images/using-bcb/vod-ssai/play-beacon-app.png" />
+        </figure>
+      </li>
+    </ol>
+  </section> -->
+</article>
+
+<!-- complete bootstrap layout -->
+    </div>
+    <div class="col-sm-2 right-side-bar">
+      
+      <nav class="right-side-nav" id="right_side_nav">
+        <h6 class="toc">頁面內容</h6>
+        <ul id="in_page_nav" class="list-none"></ul>
+      </nav>
+      
+    </div>
+  </div>
+</div>
+
+<hr>
+<div class="last-updated">
+  頁面最後更新日期為十一月七日
+</div>
+
+
+
+<footer class="bcls-footer" role="contentinfo">
+  <div class="row">
+    <div class="region region-footer-top-center col-md-12">
+      <nav role="navigation" aria-labelledby="block-brightcovesupport-menu" id="block-brightcovesupport" class="footer-menu">
+
+        <h2>布萊特灣支援</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://status.brightcove.com">系統狀態</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?">聯絡支援</a>
+          </li>
+          <li>
+            <a href="https://support.brightcove.com/">文獻資料</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-training-menu" id="block-training" class="footer-menu">
+
+        <h2>訓練</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://studio.support.brightcove.com/training/online-training-courses.html">線上課程</a>
+          </li>
+          <li>
+            <a href="https://studio.support.brightcove.com/training/register-training.html">註冊課程</a>
+          </li>
+          <li>
+            <a href="https://university.brightcove.com/">布萊特灣大學</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-brightcove-menu" class="footer-menu">
+
+        <h2>Brightcove</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://www.brightcove.com">亮麗</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?">聯絡我們</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="row">
+    <div class="region region-footer-bottom-center col-md-12">
+      <div class="bcls-copyright footer-menu">
+        <table>
+          <tr>
+            <td>
+              <div id="bc_copyright" class="field field--name-field-copyright-year field--type-string field--label-hidden field--item" style="float: left;"> 布萊特灣公司版權所有</div>
+            </td>
+            <td><a href="https://www.brightcove.com/en/legal/privacy">私隱</a> | 條<a href="https://www.brightcove.com/en/terms-and-conditions">款及細則</a></td>
+            <td>
+              <div class="gf-links-cols footer-menu">
+                <div class="gf-social"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" newtab="newtab" class="gf-social-linkedin"><i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i></a><a href="https://twitter.com/brightcove" title="Twitter" newtab="newtab" class="gf-social-twitter"><i class="fab fa-twitter" style="font-size: 1.5rem;"></i></a><a href="https://www.facebook.com/Brightcove" title="Facebook" newtab="newtab" class="gf-social-facebook"><i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i></a>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</footer>
+<div id="talla_wrapper">
+  <p style="text-align: right;position: relative;"><button style="background:rgb(2, 28, 146);color:Snow;padding:.3rem;position:fixed;right:0;bottom:1em;z-index:9999999" onclick="javascript:displayChat()">有問題嗎？ </button> </p>
+  <div id="talla_chat">
+</div>
+</div>
+<script>
+      
+  var searchBox = sajari.init({
+    mode: "search-box",
+    project: "1588255093746585379", // Set this to your project.
+    collection: "brightcove-documenation", // Set this to your collection.
+    instantPipeline: "autocomplete", // Pipeline used as you type
+    inputPlaceholder: "Search", // Input element placeholder
+    maxSuggestions: 5, // Maximum number of suggestions to show
+    attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to
+  });
+  
+    searchBox("sub", "pipeline.search-sent", function (_, query) {
+      window.location = "/search.html?q=" + encodeURIComponent(query.q);
+    });
+  
+
+</script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/https-fix.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/setDate.js"></script>
+  
+  <script src="https://support.brightcove.com/site-assets/js/site/prism.js"></script>
+  
+  <script src="https://support.brightcove.com/site-assets/js/site/site.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/tabs.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/toc.js"></script>
+  <script src="/assets/js/sites_nav.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/bcls-utils.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/local-link-fix.js"></script>
+  <script src="/assets/js/feedback.js"></script>
+  
+  <script src="/assets/js/sajari-search-foot.js"></script>
+  
+  <!-- <script src="/assets/js/sajari-index.js"></script> -->
+  <script src="https://assets.talla.com/latest/embeddedjs/talla.js"></script>
+  <script src="/assets/js/talla-init.js"></script>
+  <style>
+    a.sj-paginator__page-number.sj-paginator__page-number--current.css-so0ov7 {
+      background-color: lightblue;
+    }
+    div.sj-tabs__tab {
+      margin-top: 3rem;
+      margin-left: .3rem;
+      border-top-left-radius: .4rem;
+      border-top-right-radius: .4rem;
+      background-color:#e8e8e8;
+    }
+
+    div.sj-tabs__tab.sj-tabs__tab--selected {
+      border-bottom-color: crimson;
+      background-color: #f8f8f8;
+    }
+
+    p.sj-results__result__description.css-p9jvyt {
+      font-size: 1rem;
+    }
+
+    .sj-result__text.css-31l7gp h3 {
+      color: navy;
+      font-size: 1.4rem;
+    }
+    </style>
+
+</body>
+
+</html>

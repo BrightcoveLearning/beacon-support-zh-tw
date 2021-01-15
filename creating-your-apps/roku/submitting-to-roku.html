@@ -1,0 +1,1285 @@
+﻿<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="在本主題中，您將學習如何將裝置應用程式提交至 Roku 商店。" />
+
+    <title>將應用程式提交至 Roku 商店</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-ultra.eot" type="font/eot">
+    <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-ultra.woff" type="font/woff">
+    <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-super.eot" type="font/eot">
+    <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-super.woff" type="font/woff">
+    <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-black.eot" type="font/eot">
+    <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-black.woff" type="font/woff">
+    <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-bold.eot" type="font/eot">
+    <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-bold.woff" type="font/woff">
+    <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-medium.eot" type="font/eot">
+    <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-medium.woff" type="font/woff">
+    <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&amp;display=swap">
+      <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://support.brightcove.com/site-assets/css/site/prism.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://support.brightcove.com/site-assets/css/site/styles.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://support.brightcove.com/site-assets/css/site/landing-page.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://support.brightcove.com/site-assets/css/site/tabs.css"
+    />
+    <link rel="stylesheet" href="/assets/css/local.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/381443caa8.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://support.brightcove.com/site-assets/js/site/google-analytics.js"></script>
+    <script src="/assets/js/sajari-head.js"></script>
+  </head>
+
+  <body class="body"></body>
+</html>
+
+<header>
+  <div class="div-header">
+    <a href="/"><img class="product-logo" src="https://support.brightcove.com/site-assets/images/site/product-logos/Beacon_Logo.svg" alt="產品標誌" style="max-height: 100px;max-width: 232px;"/></a>
+<!-- GTranslate: https://gtranslate.io/ -->
+<select onchange="doGTranslate(this);"><option value="">選擇語言</option><option value="en|en" translate="No">English</option><option value="en|zh-TW" translate="No">繁體中文</option><option value="en|fr" translate="No">Français</option><option value="en|de" translate="No">Deutsche</option><option value="en|ja" translate="No">日本語</option><option value="en|ko" translate="No">한국어</option><option value="en|es" translate="No">Español</option></select>
+
+<script>
+/* <![CDATA[ */
+function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
+/* ]]> */
+</script>
+
+    <select id="site_select" class="bcls-select" style="margin-right: 1rem;">
+      <option value="">其他布萊特灣文件</option>
+      
+        
+          <option value="https://support.brightcove.com">文件首頁</option>
+        
+      
+        
+          <option value="https://audience.support.brightcove.com">布萊特灣觀眾</option>
+        
+      
+        
+          <option value="https://beacon.support.brightcove.com">布萊特灣燈塔</option>
+        
+      
+        
+          <option value="https://campaign.support.brightcove.com">布萊特灣戰役</option>
+        
+      
+        
+          <option value="https://engage.support.brightcove.com">布萊特灣參與</option>
+        
+      
+        
+          <option value="https://live.support.brightcove.com">Brightcove Live</option>
+        
+      
+        
+          <option value="https://gallery.support.brightcove.com">Brightcove 圖庫</option>
+        
+      
+        
+          <option value="https://ssai.support.brightcove.com">布萊特灣</option>
+        
+      
+        
+          <option value="https://social.support.brightcove.com">布萊特灣社會</option>
+        
+      
+        
+          <option value="https://studio.support.brightcove.com">視訊雲端工作室</option>
+        
+      
+        
+          <option value="https://player.support.brightcove.com">布萊特灣球員開發</option>
+        
+      
+        
+          <option value="https://apis.support.brightcove.com">視訊雲端平台 API</option>
+        
+      
+        
+          <option value="https://sdks.support.brightcove.com">視訊雲端裝置開發套件</option>
+        
+      
+        
+          <option value="https://integrations.support.brightcove.com">整合與 CMS 連接器</option>
+        
+      
+        
+          <option value="https://general.support.brightcove.com">視訊雲端一般資訊</option>
+        
+      
+        
+          <option value="https://zencoder.support.brightcove.com">Zencoder</option>
+        
+      
+    </select>
+
+
+    <span class="secondary-nav"><a href="https://supportportal.brightcove.com/s/login/?"><img src="https://support.brightcove.com/site-assets/images/site/support.png" alt="支持"/>聯繫支持</a><span style="vertical-align: top;margin-left:1em;margin-right:1em;">|</span><a href="https://status.brightcove.com/"><img src="https://support.brightcove.com/site-assets/images/site/status.png" alt="系統狀態"/>系統狀況</a></span><br/>
+    
+  </div>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb arr-right">
+      
+      <li class="breadcrumb-item"><a href="/">首頁</a></li>
+      
+      
+      
+      <li class="breadcrumb-item"><a href="/creating-your-apps/roku/">六</a></li>
+      
+      <li class="breadcrumb-item active" aria-current="page">將應用程式提交至 Roku 商店</li>
+    </ol>
+  </nav>
+</header>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3 left-side-bar">
+      <nav class="sidenav" id="side_nav">
+        
+        
+        <h5><a href="/index.html">首頁</a></h5>
+        
+        
+        
+        <h5 class="submenu-header"><a href="/getting-started/index.html">開始使<strong>用 + </strong></a></h5>
+        <ul class="sidenav-submenu" style="display:none;">
+          
+          
+          <li><a href="/getting-started/learning-guide-bc-beacon.html">學習指南</a></li>
+          
+          
+          
+          <li><a href="/getting-started/implementation-phases.html">實施階段</a></li>
+          
+          
+          
+          <li><a href="/getting-started/app-design-considerations.html">應用程式設計考量</a></li>
+          
+          
+          
+          <li><a href="/getting-started/creating-your-app-design-info-architecture.html">應用程式設計-資訊架構</a></li>
+          
+          
+          
+          <li><a href="/getting-started/creating-your-app-design-layout-options.html">應用程式設計-佈局選項</a></li>
+          
+          
+          
+          <li><a href="/getting-started/design-best-practices.html">設計最佳實務</a></li>
+          
+          
+        </ul>
+        
+        
+        
+        <h5 class="submenu-header"><a href="/syncing-with-video-cloud/index.html"><strong>與視訊雲端同步</strong></a></h5>
+        <ul class="sidenav-submenu" style="display:none;">
+          
+          
+          <li><a href="/syncing-with-video-cloud/vc-custom-fields.html">建立視訊雲端自訂欄位</a></li>
+          
+          
+          
+          <li><a href="/syncing-with-video-cloud/forcing-a-sync.html">強制同步</a></li>
+          
+          
+        </ul>
+        
+        
+        
+        <h5 class="submenu-header"><a href="/using-brightcove-beacon/index.html">使用布萊特灣信標<strong> + </strong></a></h5>
+        <ul class="sidenav-submenu" style="display:none;">
+          
+          
+          <li><a href="/using-brightcove-beacon/adding-to-page.html">將輪播新增至頁面</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/creating-a-channel.html">建立通道</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/electronic-program-guides.html">建立電子程式指南 (EPG) </a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/creating-a-page.html">建立新頁面</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/creating-a-playlist.html">建立播放清單</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/creating-subscription-package.html">建立訂閱套件</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/promo-codes.html">建立促銷代碼</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/series-seasons-episodes.html">建立系列/季節/集</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/configuring-server-side-ad-settings.html">設定伺服器端廣告設定</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/implementing-authvod.html">實作驗證</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/live-ssai.html">實施即時 SSAI </a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/vod-ssai.html">實施 VOD SSAI </a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/including-non-configurable-pages.html">包括無法設定的頁面</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/introducing-pages.html">介紹頁面</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/streaming-live-event.html">串流即時事件</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/streaming-vods-to-a-channel.html">將 VOD 串流至頻道</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/monetization-options.html">瞭解營利選項</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/using-subscription-package.html">使用訂閱套件</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/tools.html">使用工具</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/viewing-analytics-data.html">檢視分析資料</a></li>
+          
+          
+        </ul>
+        
+        
+        
+        <h5 class="submenu-header"><a href="/creating-your-apps/index.html">建立您的應用程式<strong> + </strong></a></h5>
+        <ul class="sidenav-submenu" style="display:none;">
+          
+          
+          <li class="submenu-header">
+            <a href="/creating-your-apps/android/index.html">安卓<strong> + </strong></a>
+            <ul class="sidenav-subsubmenu" style="display:none;">
+              
+              <li><a href="/creating-your-apps/android/submitting-to-android.html">將新應用程式提交至 Android 商店</a></li>
+              
+              <li><a href="/creating-your-apps/android/updating-android-apps-to-bcb.html">更新 Android 應用程序到布萊特灣信標</a></li>
+              
+              <li><a href="/creating-your-apps/android/adding-subscriptions-in-android.html">新增訂閱至安卓</a></li>
+              
+              <li><a href="/creating-your-apps/android/improving-relevance-android.html">改善安卓遊戲商店中的搜尋關聯性</a></li>
+              
+              <li><a href="/creating-your-apps/android/installing-android-test-build.html">安裝一個安卓測試構建</a></li>
+              
+            </ul>
+          </li>
+          
+          
+          
+          <li class="submenu-header">
+            <a href="/creating-your-apps/fire-tv/index.html">火電視<strong> + </strong></a>
+            <ul class="sidenav-subsubmenu" style="display:none;">
+              
+              <li><a href="/creating-your-apps/fire-tv/installing-fire-tv-test-build.html">安裝防火電視測試組建</a></li>
+              
+              <li><a href="/creating-your-apps/fire-tv/submitting-to-amazon.html">提交到亞馬遜商店</a></li>
+              
+            </ul>
+          </li>
+          
+          
+          
+          <li class="submenu-header">
+            <a href="/creating-your-apps/ios-tvos/index.html">IOS /電訊系統/電視系統<strong> + </strong></a>
+            <ul class="sidenav-subsubmenu" style="display:none;">
+              
+              <li><a href="/creating-your-apps/ios-tvos/installing-ios-test-build.html">安裝IOS/tvOS 測試組建</a></li>
+              
+              <li><a href="/creating-your-apps/ios-tvos/submitting-to-apple.html">提交至蘋果商店</a></li>
+              
+            </ul>
+          </li>
+          
+          
+          
+          <li class="submenu-header">
+            <a href="/creating-your-apps/panasonic/index.html">松下<strong> + </strong></a>
+            <ul class="sidenav-subsubmenu" style="display:none;">
+              
+              <li><a href="/creating-your-apps/panasonic/submitting-to-panasonic.html">提交至松下商店</a></li>
+              
+            </ul>
+          </li>
+          
+          
+          
+          <li class="submenu-header">
+            <a href="/creating-your-apps/roku/index.html">六<strong> + </strong></a>
+            <ul class="sidenav-subsubmenu" style="display:none;">
+              
+              <li><a href="/creating-your-apps/roku/configuring-inchannel-products.html">在 Roku 中設定通路內產品</a></li>
+              
+              <li><a href="/creating-your-apps/roku/installing-roku-test-build.html">安裝 Roku 測試組建</a></li>
+              
+              <li><a href="/creating-your-apps/roku/submitting-to-roku.html">提交至六商店</a></li>
+              
+            </ul>
+          </li>
+          
+          
+          
+          <li class="submenu-header">
+            <a href="/creating-your-apps/samsung/index.html">三星<strong> + </strong></a>
+            <ul class="sidenav-subsubmenu" style="display:none;">
+              
+              <li><a href="/creating-your-apps/samsung/samsung-partner.html">成為三星合作夥伴</a></li>
+              
+              <li><a href="/creating-your-apps/samsung/submitting-to-samsung.html">提交至三星商店</a></li>
+              
+            </ul>
+          </li>
+          
+          
+          
+          <li><a href="/creating-your-apps/common-required-info.html">一般必要資訊</a></li>
+          
+          
+          
+          <li><a href="/creating-your-apps/device-apps-validation-guide.html">裝置應用程式驗證指南</a></li>
+          
+          
+        </ul>
+        
+        
+        
+        <h5 class="submenu-header"><a href="/references/index.html">參考資料<strong> + </strong></a></h5>
+        <ul class="sidenav-submenu" style="display:none;">
+          
+          
+          <li><a href="/references/common-configuration-settings.html">一般組態設定</a></li>
+          
+          
+          
+          <li><a href="/references/creating-stripe-account.html">建立等量帳戶</a></li>
+          
+          
+          
+          <li><a href="/references/glossary.html">詞彙</a></li>
+          
+          
+          
+          <li><a href="/references/image-requirements.html">圖片及其規格</a></li>
+          
+          
+          
+          <li><a href="/references/known-issues.html">已知問題</a></li>
+          
+          
+          
+          <li><a href="/references/product-updates.html">產品更新</a></li>
+          
+          
+        </ul>
+        
+        
+        
+        <h5 class="submenu-header"><a href="/training/index.html">訓練<strong> + </strong></a></h5>
+        <ul class="sidenav-submenu" style="display:none;">
+          
+          
+          <li><a href="/training/training-demand-custom-fields.html">使用視訊雲端視訊/自訂欄位</a></li>
+          
+          
+          
+          <li><a href="/training/training-demand-design-layout.html">設計應用程式配置</a></li>
+          
+          
+          
+          <li><a href="/training/training-demand-playlists.html">建立和使用播放清單</a></li>
+          
+          
+          
+          <li><a href="/training/training-demand-series-seasons-episodes.html">創建系列，季節和劇集</a></li>
+          
+          
+          
+          <li><a href="/training/training-demand-vod-ssai.html">實作 VOD 伺服器端廣告</a></li>
+          
+          
+          
+          <li><a href="/training/training-demand-publish-android-app.html">在 Play 商店發布安卓應用程序</a></li>
+          
+          
+          
+          <li><a href="/training/training-demand-viewing-analytics.html">檢視分析資料</a></li>
+          
+          
+        </ul>
+        
+        
+        
+        <h5 class="submenu-header"><a href="/support/index.html">支援<strong> + </strong></a></h5>
+        <ul class="sidenav-submenu" style="display:none;">
+          
+          
+          <li><a href="/support/brightcove-answer.html">布萊特灣答案</a></li>
+          
+          
+          
+          <li><a href="/support/viewing-brightcove-system-status-page.html">檢視布萊特灣系統狀態頁面</a></li>
+          
+          
+          
+          <li><a href="/support/contact-sales.html">聯絡銷售人員</a></li>
+          
+          
+          
+          <li><a href="/support/opening-case-with-brightcove-support.html">開啟支援案例</a></li>
+          
+          
+        </ul>
+        
+        
+      </nav>
+    </div>
+    <div class="col-lg-7" style="background-color: white;color: #333333;margin-top: -1em;margin-bottom: -1em;padding-bottom:1em;">
+      <!-- bootstrap layout -->
+<p id="bc_veggie_burger_wrapper" style="display: none;"><img id="bc_veggie_burger" src="/assets/images/feather/menu.svg" alt="導覽功能表"/></p>
+
+<!-- search bar -->
+<div id="nav-search-box" style="margin-top: 1rem;"></div>
+<!-- in-page navigation for narrow screens -->
+<details class="centered-inpage-nav" id="centered_inpage_nav">
+  <summary><h6 class="toc">頁面內容</h6></summary>
+  <nav id="centered_toc"></nav>
+  <ul id="centered_in_page_toc" class="list-none"></ul>
+</details>
+<!-- open in new tab/window -->
+<a id="open_new_tab" href="#" target="_blank" style="display: none;"><img src="/assets/images/feather/external-link.svg" alt="在新分頁中開啟" style="margin-top:4em;width: 1.5em;"/></a>
+
+
+<h1>將應用程式提交至 Roku 商店</h1>
+<article class="bcls-article">
+  <summary>在本主題中，您將學習如何將裝置應用程式提交至 Roku 商店。</summary>
+
+  <section class="bcls-section">
+    <h2 id="Introduction">簡介</h2>
+    <p>
+      有了 Bright湾信標，您將收到一個生成的設備應用程序，該應用程序可以添加到 Roku 頻道商店。
+    </p>
+    <ul>
+      <li>
+        店鋪詳細信息：<a href="https://developer.roku.com/overview"> https://developer.roku.com/overview</a>
+      </li>
+      <li>
+        開發者帳戶設置：<a href="https://my.roku.com/signup"> https://my.roku.com/signup</a>
+      </li>
+      <li>
+        實施Roku搜索：<a href="https://developer.roku.com/en-gb/docs/developer-program/discovery/search/implementing-search.md"> https://developer.roku.com/zh-CN/docs/developer-program/discovery/search/implementing-search.md</a>
+      </li>
+      <li>核准的建議前置時間：三星期</li>
+    </ul>
+    <aside class="bcls-aside bcls-aside--warning language-editable">
+      請注意，您的頻道發佈後最多可能需要 48 小時才能在所有裝置上搜尋。從六宮網站：<a href="https://partnersuccess.roku.com/hc/en-us/articles/360007222714" target="_blank">我的頻道剛剛發布，為什麼不能在搜索中找到它？</a>
+    </aside>
+    <h3>Roku 的必要資訊：</h3>
+    <ul>
+      <li>
+        海報和螢幕截圖需求
+        <ul>
+          <li>頻道海報</li>
+          <li>螢幕擷取畫面，最高可達</li>
+        </ul>
+      </li>
+      <li>開發人員電郵</li>
+      <li>更多資訊的偏好網址</li>
+      <li>行政聯絡人 (姓名/電話/電郵)</li>
+      <li>技術聯絡人 (姓名/電話/電子郵件)</li>
+      <li>用戶端設定商店 QA 的應用程式登入</li>
+    </ul>
+    <!-- <figure class="bcls-figure">
+        <img class="bcls-image--no-border" width="350" src="//beacon.support.brightcove.com/assets/images/pages/home-example.png" alt="Home with carousels">
+        <figcaption class="bcls-caption--image">Home with carousels</figcaption>
+      </figure> -->
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Getting_started">入門</h2>
+    <p>若要存取 Roku 開發人員頁面，請依照下列步驟執行：</p>
+
+    <ol class="bcls-tasklist-restart">
+      <li>
+        <p>
+          在瀏覽器中，導航到<a href="https://my.roku.com/index">Roku登錄</a>頁。
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" src="/assets/images/creating-your-apps/roku/roku-login.png" alt="六登入"/>
+          <figcaption class="bcls-caption--image">六登入</figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>
+          使用您的帳戶登入或建立新帳戶。
+        </p>
+      </li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Adding_a_channel">新增通道</h2>
+    <p>瞭解如何新增頻道。</p>
+
+    <ol class="bcls-tasklist-restart">
+      <li>在頂端導覽中，按一下設定檔圖示。</li>
+      <li> <p>在下拉式功能表中，按一下開<strong>發人員</strong>選項。  </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" src="/assets/images/creating-your-apps/roku/profile-developer-option.png" alt="開發人員選項" width="400" height="600"/>
+          <figcaption class="bcls-caption--image">開發人員選項</figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>
+          從頂端導覽中，選取<strong>儀表板</strong>連結。
+        </p>
+      </li>
+      <li>
+        <p>
+          您可以從儀表板管理頻道。選擇<strong>添加頻道</strong>按鈕。
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" src="/assets/images/creating-your-apps/roku/add-channel-button.png" alt="管理頻道"/>
+          <figcaption class="bcls-caption--image">管理頻道</figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>
+          當。。。的時候<strong>開發人員SDK</strong>選項被選中，您將看到公共或非認證頻道的選項。
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" src="/assets/images/creating-your-apps/roku/developer-sdk-channel.png" alt="開發人員 SDK 頻道"/>
+          <figcaption class="bcls-caption--image">
+            開發人員 SDK 頻道
+          </figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>
+          選擇<strong>上市</strong>當您希望渠道進入商店時。選擇<strong>未經認證</strong>當您要創建測試渠道時。
+        </p>
+        <aside class="bcls-aside bcls-aside--warning">
+          頻道名稱在兩者之間必須唯一<strong>上市</strong>和<strong>未經認證</strong>渠道。
+        </aside>
+        <p>
+          我們建議您採取以下內容：
+        </p>
+        <ul>
+          <li>
+            建立你的<strong>上市</strong>頻道名稱，例如<strong>目的地</strong>。
+          </li>
+          <li>
+            <p>
+              創建一個<strong>未經認證</strong>後綴為<strong>質量檢查</strong>。因此，在這種情況下，它將被命名為<strong>目的地質量檢查</strong>。
+            </p>
+          </li>
+        </ul>
+        <p>
+          首先，我們正在創建公共渠道。
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" src="/assets/images/creating-your-apps/roku/channel-public.png" alt="公共頻道"/>
+          <figcaption class="bcls-caption--image">公共頻道</figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>
+          接下來，我們正在創建測試通道。
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" src="/assets/images/creating-your-apps/roku/channel-qa.png" alt="測試頻道"/>
+          <figcaption class="bcls-caption--image">測試頻道</figcaption>
+        </figure>
+      </li>
+    </ol>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Channel_properties">通道屬性</h2>
+    <p>屬性與每個通道相關聯。</p>
+
+    <ol class="bcls-tasklist-restart">
+      <li>
+        <p>
+          返回您的開發人員信息中心，然後選擇<strong>管理我的頻道</strong>鏈接。
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" src="/assets/images/creating-your-apps/roku/manage-properties.png" alt="管理屬性"/>
+          <figcaption class="bcls-caption--image">管理屬性</figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>
+          對於您的頻道，選擇<strong>預覽和更新</strong>按鈕。
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" src="/assets/images/creating-your-apps/roku/update-properties.png" alt="更新屬性"/>
+          <figcaption class="bcls-caption--image">更新屬性</figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>
+          展開<strong>預覽和發布</strong>下拉菜單，然後選擇<strong>物產</strong>。
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" width="75%" src="/assets/images/creating-your-apps/roku/properties/properties-dropdown.png" alt="屬性下拉式功能表"/>
+          <figcaption class="bcls-caption--image">
+            屬性下拉式功能表
+          </figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>
+          您應該會看到通道屬性的清單。在左側，您會看到「通路商店」所在國家/地區的清單，顯示您的頻道。進行測試時，您可以選取所有國家/地區。針對您的直播頻道，請選擇您要觀看頻道的國家/地區。
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" width="75%" src="/assets/images/creating-your-apps/roku/properties/countries.png" alt="通路商店國家"/>
+          <figcaption class="bcls-caption--image">
+            通路商店國家
+          </figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>
+          有關輔助功能和合規性，請選擇<strong>是</strong>。所有布萊特灣信標應用程式都符合這些需求。
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" width="75%" src="/assets/images/creating-your-apps/roku/properties/accessibility.png" alt="無障礙"/>
+          <figcaption class="bcls-caption--image">無障礙</figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>
+          根據您的內容，選擇適當的內容分級。
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" width="75%" src="/assets/images/creating-your-apps/roku/properties/content-rating.png" alt="內容分級"/>
+          <figcaption class="bcls-caption--image">內容分級</figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>
+          選擇是否需要客戶帳戶才能存取您的頻道功能。
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" width="75%" src="/assets/images/creating-your-apps/roku/properties/customer-account.png" alt="客戶帳戶"/>
+          <figcaption class="bcls-caption--image">客戶帳戶</figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>
+          輸入與整個應用程式相關聯之隱私權政策的 URL。
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" width="75%" src="/assets/images/creating-your-apps/roku/properties/privacy-policy.png" alt="隱私權政策"/>
+          <figcaption class="bcls-caption--image">隱私權政策</figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>
+          「虛榮存取碼」是由 Roku 自動產生的。您可以保留此值。
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" width="75%" src="/assets/images/creating-your-apps/roku/properties/vanity-code.png" alt="虛榮代碼"/>
+          <figcaption class="bcls-caption--image">虛榮代碼</figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>
+          選取您要支援的語言。
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" width="75%" src="/assets/images/creating-your-apps/roku/properties/langugages.png" alt="語言"/>
+          <figcaption class="bcls-caption--image">語言</figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>
+          對於<strong>必備功能</strong>，首先選擇<strong>分類</strong>最能描述您的頻道。
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" width="75%" src="/assets/images/creating-your-apps/roku/properties/classification.png" alt="分類"/>
+          <figcaption class="bcls-caption--image">分類</figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>
+          然後，指定您的應用程式是否需要網際網路連線。完成頻道屬性的更新後，選擇<strong>保存</strong>按鈕。
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" width="75%" src="/assets/images/creating-your-apps/roku/properties/internet.png" alt="網際網路連線"/>
+          <figcaption class="bcls-caption--image">
+            網際網路連線
+          </figcaption>
+        </figure>
+      </li>
+    </ol>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Channel_store_info">通路商店資訊</h2>
+    <p>在這裡，您將為您的頻道添加說明和圖標。</p>
+
+    <ol class="bcls-tasklist-restart">
+      <li>
+        <p>
+          返回“預覽和發布”頁面，展開<strong>預覽和發布</strong>下拉菜單，然後選擇<strong>頻道商店信息</strong>。
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" width="75%" src="/assets/images/creating-your-apps/roku/store-info/dropdown-menu.png" alt="「銷售通路商店資訊」下拉"/>
+          <figcaption class="bcls-caption--image">
+            「銷售通路商店資訊」下拉
+          </figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>
+          在「通路商店資訊」中，輸入下列欄位值：
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" src="/assets/images/creating-your-apps/roku/store-info/store-info-screen.png" alt="銷售通路商店資訊"/>
+          <figcaption class="bcls-caption--image">
+            銷售通路商店資訊
+          </figcaption>
+        </figure>
+        <ul>
+          <li>
+            <strong>頻道名稱</strong> -這應該已經用您的頻道名稱填充了。
+          </li>
+          <li>
+            <strong>描述</strong> -添加有關渠道的詳細說明，該詳細說明將出現在“渠道存儲”說明中。（300 個字元）
+          </li>
+          <li>
+            <strong>網頁說明</strong> -輸入您的頻道在美國基於網絡營銷的頻道說明。這不會顯示在裝置上。(1500 個字元)
+          </li>
+          <li>
+            <strong>頻道海報</strong> -添加將在Roku頻道商店中顯示的海報圖像。(540 x 405 張相同工具或 PNG 格式)
+          </li>
+          <li>
+            <strong>描述性類別</strong> -選擇要顯示頻道的類別。(範例：體育、戲劇、喜劇等)
+          </li>
+          <li>
+            <strong>國內地區</strong> -選擇將您的頻道視為本地和/或本地頻道的國家/地區。您的頻道會出現在包含您頻道的所有地區頻道商店的「國際」類別中，但與您國內地區相關聯的「通路商店」除外。
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>
+          添加完頻道存儲信息後，選擇<strong>保存</strong>按鈕。
+        </p>
+      </li>
+    </ol>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Monetization">營利</h2>
+    <p>您可以在這裡新增頻道的營利資訊。</p>
+
+    <ol class="bcls-tasklist-restart">
+      <li>
+        <p>
+          返回“預覽和發布”頁面，展開<strong>預覽和發布</strong>下拉菜單，然後選擇<strong>營利</strong>。
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" width="75%" src="/assets/images/creating-your-apps/roku/monetization/monetization-option.png" alt="營利下拉式功能表"/>
+          <figcaption class="bcls-caption--image">
+            營利下拉式功能表
+          </figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>
+          指定您的頻道是否包含新增或支援訂閱模式。</p>
+          <aside class="bcls-aside bcls-aside--information">請注意，即使您使用的是Brightcove SSAI，也需要註冊Roku的<strong>合作夥伴支出計劃</strong>。這是一個 Roku 商店的要求，使廣告播放過程中的廣告回調。</aside>
+        
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" src="/assets/images/creating-your-apps/roku/monetization/monetization-page.png" alt="營利"/>
+          <figcaption class="bcls-caption--image">營利</figcaption>
+        </figure>
+        <p>
+          對於訂閱頻道，您將包括以下資訊：
+        </p>
+        <ul>
+          <li>
+            <strong>購買類型</strong> -如何為頻道計費。（一次，每月，每年等）
+          </li>
+          <li>
+            <strong>價格層</strong> -從下拉菜單中選擇一個值。歐盟通路商店國家/地區的購買價格包含增值稅。所得款項是根據稅前（淨）價格計算。
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>
+          添加獲利信息後，請選擇<strong>保存</strong>按鈕。
+        </p>
+      </li>
+    </ol>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Screenshots">螢幕擷取畫面</h2>
+    <p>您可以在這裡新增螢幕擷取畫面至您的頻道。</p>
+
+    <ol class="bcls-tasklist-restart">
+      <li>
+        <p>
+          返回“預覽和發布”頁面，展開<strong>預覽和發布</strong>下拉菜單，然後選擇<strong>屏幕截圖</strong>。
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" width="75%" src="/assets/images/creating-your-apps/roku/screenshots/screenshots-menu.png" alt="螢幕截圖下拉式功能表"/>
+          <figcaption class="bcls-caption--image">
+            螢幕截圖下拉式功能表
+          </figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>
+          新增顯示在「頻道商店」中的螢幕擷取畫面。
+        </p>
+        <p>
+          您最多可以新增 6 張螢幕擷取畫面。每個檔案必須是 1920 x 1080 個 JPEG 檔案或 PNG 檔案。
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" src="/assets/images/creating-your-apps/roku/screenshots/screenshots-page.png" alt="螢幕擷取畫面"/>
+          <figcaption class="bcls-caption--image">螢幕擷取畫面</figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>
+          添加完屏幕截圖後，請選擇<strong>保存</strong>按鈕。
+        </p>
+      </li>
+    </ol>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Support_information">支援資訊</h2>
+    <p>提供聯絡資訊，協助您獲得頻道的支援。</p>
+
+    <ol class="bcls-tasklist-restart">
+      <li>
+        <p>
+          返回“預覽和發布”頁面，展開<strong>預覽和發布</strong>下拉菜單，然後選擇<strong>支持信息</strong>。
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" width="75%" src="/assets/images/creating-your-apps/roku/support-info/support-menu.png" alt="支援資訊下拉式功能表"/>
+          <figcaption class="bcls-caption--image">
+            支援資訊下拉式功能表
+          </figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>
+          針對支援資訊，請輸入下列欄位值：
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" src="/assets/images/creating-your-apps/roku/support-info/support-page.png" alt="支援資訊"/>
+          <figcaption class="bcls-caption--image">
+            支援資訊
+          </figcaption>
+        </figure>
+        <ul>
+          <li>
+            <strong>開發者電子郵件</strong> -輸入您的開發者電子郵件地址。如果不正確，請更新您的聯絡資料。
+          </li>
+          <li>
+            <strong>首選網址</strong> -指定頻道的網址。這可能會被 Roku 網站或電子報用於鏈接到您的頻道。
+          </li>
+          <li>
+            <strong>最終用戶支持聯繫方式</strong> -提供網頁，電子郵件地址或電話號碼，或多個。當您的頻道聯繫客戶服務時，Roku 將使用此功能。(300 個字元) 這是必要的。
+          </li>
+          <li>
+            <p>
+              <strong>測試帳戶和深層鏈接參數</strong> -告訴Brightcove您想打開哪些資產作為深層鏈接，我們將更新深層鏈接參數。如果您不想設置帳戶共享，那麼 Brightcove 將為您提供參數。
+            </p>
+            <p>
+              您也將提供 3 個測試帳戶的認證。這些帳戶將用於客戶支援、示範和品質保證。(1500 個字元) 如果您有不同的訂閱帳戶，您必須在這裡列出這些帳戶，才能存取所有訂閱項目。
+            </p>
+          </li>
+          <li>
+            <strong>行政聯繫</strong> -提供您應用的管理聯繫信息。
+          </li>
+          <li>
+            <strong>技術聯繫方式</strong> -提供您應用的技術聯繫信息。
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>
+          添加完支持信息後，選擇<strong>保存</strong>按鈕。
+        </p>
+      </li>
+    </ol>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Package_upload">套件上傳</h2>
+    <p>將套件上傳至您的頻道。</p>
+
+    <ol class="bcls-tasklist-restart">
+      <li>
+        <p>
+          返回“預覽和發布”頁面，展開<strong>預覽和發布</strong>下拉菜單，然後選擇<strong>包上傳</strong>。
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" width="75%" src="/assets/images/creating-your-apps/roku/package/package-menu.png" alt="套件上傳下拉式功能表"/>
+          <figcaption class="bcls-caption--image">
+            套件上傳下拉式功能表
+          </figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>
+          首先，您需要驗證您的電子郵件地址。然後，您將能夠上傳。
+        </p>
+      </li>
+      <li>
+        <p>
+          對於套件上傳，輸入下列欄位值：
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" src="/assets/images/creating-your-apps/roku/package/package-page.png" alt="套件上傳"/>
+          <figcaption class="bcls-caption--image">套件上傳</figcaption>
+        </figure>
+        <ul>
+          <li>
+            <strong>頻道版本</strong> -指定您的應用版本，從1.0版開始。
+          </li>
+          <li>
+            <strong>最低固件</strong> -選擇Roku固件版本。此套件只會在支援最低韌體版本或更新版本的裝置上執行。我們推薦的最新穩定版本是 Roku v9.2 bl。
+          </li>
+          <li>
+            <strong>打包文件</strong> -包文件可以由您或Brightcove上傳。這個檔案將具有類似的名稱：信標公斤。
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>
+          完成添加包上傳信息後，請選擇<strong>保存</strong>按鈕。
+        </p>
+      </li>
+    </ol>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Static_analysis">靜態分析</h2>
+    <p>建立關於頻道的分析報告。</p>
+
+    <ol class="bcls-tasklist-restart">
+      <li>
+        <p>
+          返回“預覽和發布”頁面，展開<strong>預覽和發布</strong>下拉菜單，然後選擇<strong>靜態分析</strong>。
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" width="75%" src="/assets/images/creating-your-apps/roku/static-analysis/static-analysis-menu.png" alt="靜態分析下拉式功能表"/>
+          <figcaption class="bcls-caption--image">
+            靜態分析下拉式功能表
+          </figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>
+          當您在上一節中上傳套件時，系統會分析您的套件結構或語法中的錯誤。表格可能會顯示錯誤和警告。
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" src="/assets/images/creating-your-apps/roku/static-analysis/static-analysis-page.png" alt="靜態分析"/>
+          <figcaption class="bcls-caption--image">靜態分析</figcaption>
+        </figure>
+      </li>
+    </ol>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Preview_and_publish">預覽和發佈</h2>
+    <p>
+      填寫完與您的頻道相關的所有表格後，系統會顯示<strong>預覽和發布</strong>屏幕。
+    </p>
+
+    <ol class="bcls-tasklist-restart">
+      <li>
+        <p>
+          返回“預覽和發布”頁面，展開<strong>預覽和發布</strong>下拉菜單，然後選擇<strong>預覽和發布</strong>。
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" width="75%" src="/assets/images/creating-your-apps/roku/publish/publish-menu.png" alt="預覽與發佈下拉式功能表"/>
+          <figcaption class="bcls-caption--image">
+            預覽與發佈下拉式功能表
+          </figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>
+          此頁面提供您頻道的摘要預覽。
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" src="/assets/images/creating-your-apps/roku/publish/publish-page.png" alt="預覽並發布"/>
+          <figcaption class="bcls-caption--image">
+            預覽並發布
+          </figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>
+          準備好後，選擇<strong>提交</strong>按鈕發布您的頻道。
+        </p>
+      </li>
+      <li>
+        <p>
+          Roku 商店會檢查您的應用程式，看看是否有任何問題。如果您的頻道由於任何原因被拒絕，則會將電子郵件發送到<strong>開發者電子郵件</strong>您在<strong>支持信息</strong>屏幕。檢閱拒絕的原因，並建立 Brightcove 支援票證，以解決問題。
+        </p>
+      </li>
+    </ol>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Updating_your_channel">更新您的頻道</h2>
+    <p>如果您想要更新現有的應用程式，請依照下列步驟操作：</p>
+
+    <ol class="bcls-tasklist-restart">
+      <li>
+        <p>
+          建立新的 Roku 套件。
+        </p>
+        <p>
+          給新軟件包一個唯一的 ID 和密碼。為布萊特灣提供新的軟件包以及這個包的鑰匙。我們需要新的信息來提交新的包裹到商店。
+        </p>
+        <p>
+          請記住，如果您想要變更頻道名稱，這些名稱必須在「通路商店」中是唯一的。
+        </p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" width="75%" src="/assets/images/creating-your-apps/roku/updating-channel/manage-channels.png" alt="管理頻道"/>
+          <figcaption class="bcls-caption--image">管理頻道</figcaption>
+        </figure>
+      </li>
+    </ol>
+  </section>
+</article>
+
+<!-- complete bootstrap layout -->
+    </div>
+    <div class="col-sm-2 right-side-bar">
+      
+      <nav class="right-side-nav" id="right_side_nav">
+        <h6 class="toc">頁面內容</h6>
+        <ul id="in_page_nav" class="list-none"></ul>
+      </nav>
+      
+    </div>
+  </div>
+</div>
+
+<hr>
+<div class="last-updated">
+  頁面最後更新日期為 7 月 9 日
+</div>
+
+
+
+<footer class="bcls-footer" role="contentinfo">
+  <div class="row">
+    <div class="region region-footer-top-center col-md-12">
+      <nav role="navigation" aria-labelledby="block-brightcovesupport-menu" id="block-brightcovesupport" class="footer-menu">
+
+        <h2>布萊特灣支援</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://status.brightcove.com">系統狀態</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?">聯絡支援</a>
+          </li>
+          <li>
+            <a href="https://support.brightcove.com/">文獻資料</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-training-menu" id="block-training" class="footer-menu">
+
+        <h2>訓練</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://studio.support.brightcove.com/training/online-training-courses.html">線上課程</a>
+          </li>
+          <li>
+            <a href="https://studio.support.brightcove.com/training/register-training.html">註冊課程</a>
+          </li>
+          <li>
+            <a href="https://university.brightcove.com/">布萊特灣大學</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-brightcove-menu" class="footer-menu">
+
+        <h2>Brightcove</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://www.brightcove.com">亮麗</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?">聯絡我們</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="row">
+    <div class="region region-footer-bottom-center col-md-12">
+      <div class="bcls-copyright footer-menu">
+        <table>
+          <tr>
+            <td>
+              <div id="bc_copyright" class="field field--name-field-copyright-year field--type-string field--label-hidden field--item" style="float: left;"> 布萊特灣公司版權所有</div>
+            </td>
+            <td><a href="https://www.brightcove.com/en/legal/privacy">私隱</a> | 條<a href="https://www.brightcove.com/en/terms-and-conditions">款及細則</a></td>
+            <td>
+              <div class="gf-links-cols footer-menu">
+                <div class="gf-social"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" newtab="newtab" class="gf-social-linkedin"><i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i></a><a href="https://twitter.com/brightcove" title="Twitter" newtab="newtab" class="gf-social-twitter"><i class="fab fa-twitter" style="font-size: 1.5rem;"></i></a><a href="https://www.facebook.com/Brightcove" title="Facebook" newtab="newtab" class="gf-social-facebook"><i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i></a>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</footer>
+<div id="talla_wrapper">
+  <p style="text-align: right;position: relative;"><button style="background:rgb(2, 28, 146);color:Snow;padding:.3rem;position:fixed;right:0;bottom:1em;z-index:9999999" onclick="javascript:displayChat()">有問題嗎？ </button> </p>
+  <div id="talla_chat">
+</div>
+</div>
+<script>
+      
+  var searchBox = sajari.init({
+    mode: "search-box",
+    project: "1588255093746585379", // Set this to your project.
+    collection: "brightcove-documenation", // Set this to your collection.
+    instantPipeline: "autocomplete", // Pipeline used as you type
+    inputPlaceholder: "Search", // Input element placeholder
+    maxSuggestions: 5, // Maximum number of suggestions to show
+    attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to
+  });
+  
+    searchBox("sub", "pipeline.search-sent", function (_, query) {
+      window.location = "/search.html?q=" + encodeURIComponent(query.q);
+    });
+  
+
+</script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/https-fix.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/setDate.js"></script>
+  
+  <script src="https://support.brightcove.com/site-assets/js/site/prism.js"></script>
+  
+  <script src="https://support.brightcove.com/site-assets/js/site/site.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/tabs.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/toc.js"></script>
+  <script src="/assets/js/sites_nav.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/bcls-utils.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/local-link-fix.js"></script>
+  <script src="/assets/js/feedback.js"></script>
+  
+  <script src="/assets/js/sajari-search-foot.js"></script>
+  
+  <!-- <script src="/assets/js/sajari-index.js"></script> -->
+  <script src="https://assets.talla.com/latest/embeddedjs/talla.js"></script>
+  <script src="/assets/js/talla-init.js"></script>
+  <style>
+    a.sj-paginator__page-number.sj-paginator__page-number--current.css-so0ov7 {
+      background-color: lightblue;
+    }
+    div.sj-tabs__tab {
+      margin-top: 3rem;
+      margin-left: .3rem;
+      border-top-left-radius: .4rem;
+      border-top-right-radius: .4rem;
+      background-color:#e8e8e8;
+    }
+
+    div.sj-tabs__tab.sj-tabs__tab--selected {
+      border-bottom-color: crimson;
+      background-color: #f8f8f8;
+    }
+
+    p.sj-results__result__description.css-p9jvyt {
+      font-size: 1rem;
+    }
+
+    .sj-result__text.css-31l7gp h3 {
+      color: navy;
+      font-size: 1.4rem;
+    }
+    </style>
+
+</body>
+
+</html>

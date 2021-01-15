@@ -1,0 +1,1298 @@
+﻿<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="在本主題中，您將學習如何將您的火電視應用程序提交到亞馬遜應用程序。" />
+
+    <title>向亞馬遜應用程式商店提交應用程式</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-ultra.eot" type="font/eot">
+    <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-ultra.woff" type="font/woff">
+    <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-super.eot" type="font/eot">
+    <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-super.woff" type="font/woff">
+    <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-black.eot" type="font/eot">
+    <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-black.woff" type="font/woff">
+    <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-bold.eot" type="font/eot">
+    <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-bold.woff" type="font/woff">
+    <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-medium.eot" type="font/eot">
+    <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-medium.woff" type="font/woff">
+    <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&amp;display=swap">
+      <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://support.brightcove.com/site-assets/css/site/prism.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://support.brightcove.com/site-assets/css/site/styles.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://support.brightcove.com/site-assets/css/site/landing-page.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://support.brightcove.com/site-assets/css/site/tabs.css"
+    />
+    <link rel="stylesheet" href="/assets/css/local.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/381443caa8.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://support.brightcove.com/site-assets/js/site/google-analytics.js"></script>
+    <script src="/assets/js/sajari-head.js"></script>
+  </head>
+
+  <body class="body"></body>
+</html>
+
+<header>
+  <div class="div-header">
+    <a href="/"><img class="product-logo" src="https://support.brightcove.com/site-assets/images/site/product-logos/Beacon_Logo.svg" alt="產品標誌" style="max-height: 100px;max-width: 232px;"/></a>
+<!-- GTranslate: https://gtranslate.io/ -->
+<select onchange="doGTranslate(this);"><option value="">選擇語言</option><option value="en|en" translate="No">English</option><option value="en|zh-TW" translate="No">繁體中文</option><option value="en|fr" translate="No">Français</option><option value="en|de" translate="No">Deutsche</option><option value="en|ja" translate="No">日本語</option><option value="en|ko" translate="No">한국어</option><option value="en|es" translate="No">Español</option></select>
+
+<script>
+/* <![CDATA[ */
+function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
+/* ]]> */
+</script>
+
+    <select id="site_select" class="bcls-select" style="margin-right: 1rem;">
+      <option value="">其他布萊特灣文件</option>
+      
+        
+          <option value="https://support.brightcove.com">文件首頁</option>
+        
+      
+        
+          <option value="https://audience.support.brightcove.com">布萊特灣觀眾</option>
+        
+      
+        
+          <option value="https://beacon.support.brightcove.com">布萊特灣燈塔</option>
+        
+      
+        
+          <option value="https://campaign.support.brightcove.com">布萊特灣戰役</option>
+        
+      
+        
+          <option value="https://engage.support.brightcove.com">布萊特灣參與</option>
+        
+      
+        
+          <option value="https://live.support.brightcove.com">Brightcove Live</option>
+        
+      
+        
+          <option value="https://gallery.support.brightcove.com">Brightcove 圖庫</option>
+        
+      
+        
+          <option value="https://ssai.support.brightcove.com">布萊特灣</option>
+        
+      
+        
+          <option value="https://social.support.brightcove.com">布萊特灣社會</option>
+        
+      
+        
+          <option value="https://studio.support.brightcove.com">視訊雲端工作室</option>
+        
+      
+        
+          <option value="https://player.support.brightcove.com">布萊特灣球員開發</option>
+        
+      
+        
+          <option value="https://apis.support.brightcove.com">視訊雲端平台 API</option>
+        
+      
+        
+          <option value="https://sdks.support.brightcove.com">視訊雲端裝置開發套件</option>
+        
+      
+        
+          <option value="https://integrations.support.brightcove.com">整合與 CMS 連接器</option>
+        
+      
+        
+          <option value="https://general.support.brightcove.com">視訊雲端一般資訊</option>
+        
+      
+        
+          <option value="https://zencoder.support.brightcove.com">Zencoder</option>
+        
+      
+    </select>
+
+
+    <span class="secondary-nav"><a href="https://supportportal.brightcove.com/s/login/?"><img src="https://support.brightcove.com/site-assets/images/site/support.png" alt="支持"/>聯繫支持</a><span style="vertical-align: top;margin-left:1em;margin-right:1em;">|</span><a href="https://status.brightcove.com/"><img src="https://support.brightcove.com/site-assets/images/site/status.png" alt="系統狀態"/>系統狀況</a></span><br/>
+    
+  </div>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb arr-right">
+      
+      <li class="breadcrumb-item"><a href="/">首頁</a></li>
+      
+      
+      
+      <li class="breadcrumb-item"><a href="/creating-your-apps/fire-tv/">消防電視</a></li>
+      
+      <li class="breadcrumb-item active" aria-current="page">向亞馬遜應用程式商店提交應用程式</li>
+    </ol>
+  </nav>
+</header>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3 left-side-bar">
+      <nav class="sidenav" id="side_nav">
+        
+        
+        <h5><a href="/index.html">首頁</a></h5>
+        
+        
+        
+        <h5 class="submenu-header"><a href="/getting-started/index.html">開始使<strong>用 + </strong></a></h5>
+        <ul class="sidenav-submenu" style="display:none;">
+          
+          
+          <li><a href="/getting-started/learning-guide-bc-beacon.html">學習指南</a></li>
+          
+          
+          
+          <li><a href="/getting-started/implementation-phases.html">實施階段</a></li>
+          
+          
+          
+          <li><a href="/getting-started/app-design-considerations.html">應用程式設計考量</a></li>
+          
+          
+          
+          <li><a href="/getting-started/creating-your-app-design-info-architecture.html">應用程式設計-資訊架構</a></li>
+          
+          
+          
+          <li><a href="/getting-started/creating-your-app-design-layout-options.html">應用程式設計-佈局選項</a></li>
+          
+          
+          
+          <li><a href="/getting-started/design-best-practices.html">設計最佳實務</a></li>
+          
+          
+        </ul>
+        
+        
+        
+        <h5 class="submenu-header"><a href="/syncing-with-video-cloud/index.html"><strong>與視訊雲端同步</strong></a></h5>
+        <ul class="sidenav-submenu" style="display:none;">
+          
+          
+          <li><a href="/syncing-with-video-cloud/vc-custom-fields.html">建立視訊雲端自訂欄位</a></li>
+          
+          
+          
+          <li><a href="/syncing-with-video-cloud/forcing-a-sync.html">強制同步</a></li>
+          
+          
+        </ul>
+        
+        
+        
+        <h5 class="submenu-header"><a href="/using-brightcove-beacon/index.html">使用布萊特灣信標<strong> + </strong></a></h5>
+        <ul class="sidenav-submenu" style="display:none;">
+          
+          
+          <li><a href="/using-brightcove-beacon/adding-to-page.html">將輪播新增至頁面</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/creating-a-channel.html">建立通道</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/electronic-program-guides.html">建立電子程式指南 (EPG) </a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/creating-a-page.html">建立新頁面</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/creating-a-playlist.html">建立播放清單</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/creating-subscription-package.html">建立訂閱套件</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/promo-codes.html">建立促銷代碼</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/series-seasons-episodes.html">建立系列/季節/集</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/configuring-server-side-ad-settings.html">設定伺服器端廣告設定</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/implementing-authvod.html">實作驗證</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/live-ssai.html">實施即時 SSAI </a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/vod-ssai.html">實施 VOD SSAI </a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/including-non-configurable-pages.html">包括無法設定的頁面</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/introducing-pages.html">介紹頁面</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/streaming-live-event.html">串流即時事件</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/streaming-vods-to-a-channel.html">將 VOD 串流至頻道</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/monetization-options.html">瞭解營利選項</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/using-subscription-package.html">使用訂閱套件</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/tools.html">使用工具</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/viewing-analytics-data.html">檢視分析資料</a></li>
+          
+          
+        </ul>
+        
+        
+        
+        <h5 class="submenu-header"><a href="/creating-your-apps/index.html">建立您的應用程式<strong> + </strong></a></h5>
+        <ul class="sidenav-submenu" style="display:none;">
+          
+          
+          <li class="submenu-header">
+            <a href="/creating-your-apps/android/index.html">安卓<strong> + </strong></a>
+            <ul class="sidenav-subsubmenu" style="display:none;">
+              
+              <li><a href="/creating-your-apps/android/submitting-to-android.html">將新應用程式提交至 Android 商店</a></li>
+              
+              <li><a href="/creating-your-apps/android/updating-android-apps-to-bcb.html">更新 Android 應用程序到布萊特灣信標</a></li>
+              
+              <li><a href="/creating-your-apps/android/adding-subscriptions-in-android.html">新增訂閱至安卓</a></li>
+              
+              <li><a href="/creating-your-apps/android/improving-relevance-android.html">改善安卓遊戲商店中的搜尋關聯性</a></li>
+              
+              <li><a href="/creating-your-apps/android/installing-android-test-build.html">安裝一個安卓測試構建</a></li>
+              
+            </ul>
+          </li>
+          
+          
+          
+          <li class="submenu-header">
+            <a href="/creating-your-apps/fire-tv/index.html">火電視<strong> + </strong></a>
+            <ul class="sidenav-subsubmenu" style="display:none;">
+              
+              <li><a href="/creating-your-apps/fire-tv/installing-fire-tv-test-build.html">安裝防火電視測試組建</a></li>
+              
+              <li><a href="/creating-your-apps/fire-tv/submitting-to-amazon.html">提交到亞馬遜商店</a></li>
+              
+            </ul>
+          </li>
+          
+          
+          
+          <li class="submenu-header">
+            <a href="/creating-your-apps/ios-tvos/index.html">IOS /電訊系統/電視系統<strong> + </strong></a>
+            <ul class="sidenav-subsubmenu" style="display:none;">
+              
+              <li><a href="/creating-your-apps/ios-tvos/installing-ios-test-build.html">安裝IOS/tvOS 測試組建</a></li>
+              
+              <li><a href="/creating-your-apps/ios-tvos/submitting-to-apple.html">提交至蘋果商店</a></li>
+              
+            </ul>
+          </li>
+          
+          
+          
+          <li class="submenu-header">
+            <a href="/creating-your-apps/panasonic/index.html">松下<strong> + </strong></a>
+            <ul class="sidenav-subsubmenu" style="display:none;">
+              
+              <li><a href="/creating-your-apps/panasonic/submitting-to-panasonic.html">提交至松下商店</a></li>
+              
+            </ul>
+          </li>
+          
+          
+          
+          <li class="submenu-header">
+            <a href="/creating-your-apps/roku/index.html">六<strong> + </strong></a>
+            <ul class="sidenav-subsubmenu" style="display:none;">
+              
+              <li><a href="/creating-your-apps/roku/configuring-inchannel-products.html">在 Roku 中設定通路內產品</a></li>
+              
+              <li><a href="/creating-your-apps/roku/installing-roku-test-build.html">安裝 Roku 測試組建</a></li>
+              
+              <li><a href="/creating-your-apps/roku/submitting-to-roku.html">提交至六商店</a></li>
+              
+            </ul>
+          </li>
+          
+          
+          
+          <li class="submenu-header">
+            <a href="/creating-your-apps/samsung/index.html">三星<strong> + </strong></a>
+            <ul class="sidenav-subsubmenu" style="display:none;">
+              
+              <li><a href="/creating-your-apps/samsung/samsung-partner.html">成為三星合作夥伴</a></li>
+              
+              <li><a href="/creating-your-apps/samsung/submitting-to-samsung.html">提交至三星商店</a></li>
+              
+            </ul>
+          </li>
+          
+          
+          
+          <li><a href="/creating-your-apps/common-required-info.html">一般必要資訊</a></li>
+          
+          
+          
+          <li><a href="/creating-your-apps/device-apps-validation-guide.html">裝置應用程式驗證指南</a></li>
+          
+          
+        </ul>
+        
+        
+        
+        <h5 class="submenu-header"><a href="/references/index.html">參考資料<strong> + </strong></a></h5>
+        <ul class="sidenav-submenu" style="display:none;">
+          
+          
+          <li><a href="/references/common-configuration-settings.html">一般組態設定</a></li>
+          
+          
+          
+          <li><a href="/references/creating-stripe-account.html">建立等量帳戶</a></li>
+          
+          
+          
+          <li><a href="/references/glossary.html">詞彙</a></li>
+          
+          
+          
+          <li><a href="/references/image-requirements.html">圖片及其規格</a></li>
+          
+          
+          
+          <li><a href="/references/known-issues.html">已知問題</a></li>
+          
+          
+          
+          <li><a href="/references/product-updates.html">產品更新</a></li>
+          
+          
+        </ul>
+        
+        
+        
+        <h5 class="submenu-header"><a href="/training/index.html">訓練<strong> + </strong></a></h5>
+        <ul class="sidenav-submenu" style="display:none;">
+          
+          
+          <li><a href="/training/training-demand-custom-fields.html">使用視訊雲端視訊/自訂欄位</a></li>
+          
+          
+          
+          <li><a href="/training/training-demand-design-layout.html">設計應用程式配置</a></li>
+          
+          
+          
+          <li><a href="/training/training-demand-playlists.html">建立和使用播放清單</a></li>
+          
+          
+          
+          <li><a href="/training/training-demand-series-seasons-episodes.html">創建系列，季節和劇集</a></li>
+          
+          
+          
+          <li><a href="/training/training-demand-vod-ssai.html">實作 VOD 伺服器端廣告</a></li>
+          
+          
+          
+          <li><a href="/training/training-demand-publish-android-app.html">在 Play 商店發布安卓應用程序</a></li>
+          
+          
+          
+          <li><a href="/training/training-demand-viewing-analytics.html">檢視分析資料</a></li>
+          
+          
+        </ul>
+        
+        
+        
+        <h5 class="submenu-header"><a href="/support/index.html">支援<strong> + </strong></a></h5>
+        <ul class="sidenav-submenu" style="display:none;">
+          
+          
+          <li><a href="/support/brightcove-answer.html">布萊特灣答案</a></li>
+          
+          
+          
+          <li><a href="/support/viewing-brightcove-system-status-page.html">檢視布萊特灣系統狀態頁面</a></li>
+          
+          
+          
+          <li><a href="/support/contact-sales.html">聯絡銷售人員</a></li>
+          
+          
+          
+          <li><a href="/support/opening-case-with-brightcove-support.html">開啟支援案例</a></li>
+          
+          
+        </ul>
+        
+        
+      </nav>
+    </div>
+    <div class="col-lg-7" style="background-color: white;color: #333333;margin-top: -1em;margin-bottom: -1em;padding-bottom:1em;">
+      <!-- bootstrap layout -->
+<p id="bc_veggie_burger_wrapper" style="display: none;"><img id="bc_veggie_burger" src="/assets/images/feather/menu.svg" alt="導覽功能表"/></p>
+
+<!-- search bar -->
+<div id="nav-search-box" style="margin-top: 1rem;"></div>
+<!-- in-page navigation for narrow screens -->
+<details class="centered-inpage-nav" id="centered_inpage_nav">
+  <summary><h6 class="toc">頁面內容</h6></summary>
+  <nav id="centered_toc"></nav>
+  <ul id="centered_in_page_toc" class="list-none"></ul>
+</details>
+<!-- open in new tab/window -->
+<a id="open_new_tab" href="#" target="_blank" style="display: none;"><img src="/assets/images/feather/external-link.svg" alt="在新分頁中開啟" style="margin-top:4em;width: 1.5em;"/></a>
+
+
+<h1>向亞馬遜應用程式商店提交應用程式</h1>
+<article class="bcls-article">
+  <summary>在本主題中，您將學習如何將您的火電視應用程序提交到亞馬遜應用程序。</summary>
+  <section class="bcls-section">
+    <h2 id="overview">概覽</h2>
+    <p>
+      本文件將幫助您提交您的布萊特灣信標應用程序到亞馬遜應用商店。
+    </p>
+    <p>該過程的高級視圖是：</p>
+    <ol>
+      <li>在亞馬遜開發人員控制台中添加一個新的 Android 應用程序。</li>
+      <li>設定新 Fire TV 應用程式的供應情況和價格。</li>
+      <li>
+        在亞馬遜應用程序商店中添加消防電視應用程序的文本描述。
+      </li>
+      <li>為 Fire TV 應用程式新增圖示和影像。</li>
+      <li>為您的 Fire TV 應用程式選取內容分級。</li>
+      <li>上傳由布萊特灣提供的 APK 文件。</li>
+    </ol>
+    <p>
+      本文件的其餘部分將提供上述每個步驟的詳細資料。
+    </p>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Amazon">亞馬遜資源</h2>
+    <ul>
+      <li>
+        Appstore詳細信息：<a href="https://developer.amazon.com/home.html"> https://developer.amazon.com/home.html</a>（需要Amazon開發者帳戶-免費）
+      </li>
+      <li>
+        消防電視應用提交指南：<a href="https://developer.amazon.com/docs/fire-tv/submitting-your-app-to-the-amazon-appstore.html"> https://developer.amazon.com/docs/fire-tv/submitting-your-app-to-the-amazon-appstore.html</a>更一般地：<a href="https://developer.amazon.com/apps-and-games/app-submission"> https://developer.amazon.com/apps-and-games/app-submission</a>
+      </li>
+      <li>核准的建議前置時間：三星期</li>
+    </ul>
+  </section>
+  <section class="bcls-section">
+    <h2 id="information_amazon">亞馬遜所需資訊</h2>
+    <ul>
+      <li>消防電視應用程序圖標（1280 x 720px PNG（無透明度））。</li>
+      <li>
+        三到十張截圖（1920 x 1080 像素 JPG 或 PNG（橫向，無透明度）。
+        <ul>
+          <li>
+            在 UI 中檢視時，這些影像不得出現扭曲、拉伸或像素化。
+          </li>
+          <li>
+            請在您提交應用程式時提供 Fire TV 螢幕擷取畫面，或使用可以代表您應用程式一般適用於所有裝置的螢幕擷取畫面。
+          </li>
+          <li>
+            請注意，如果您在提交過程中沒有為您的應用程序提供 Amazon Fire TV 特定屏幕截圖，則您提供的任何手機或平板電腦屏幕截圖都將用於在 Fire TV 應用程序商店中代表您的應用程序。
+          </li>
+        </ul>
+      </li>
+      <li>
+        背景圖片 1920 x 1080 像素 JPG 或 PNG（橫向，無透明度）。
+      </li>
+      <li>APK 套件從布萊特灣提供。</li>
+      <li>顯示標題。</li>
+      <li>簡短描述。</li>
+      <li>完整描述。</li>
+      <li>
+        產品功能的重點（Fire TV 應用程序的最多 10 個關鍵功能）。
+      </li>
+      <li>
+        關鍵字 (用來增加應用程式可探索性的搜尋字詞)。
+      </li>
+    </ul>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Submitting_your_first_FireTV">
+      將您的 FireTV 應用程序提交到亞馬遜應用程序商店
+    </h2>
+    <p>
+      按照這些步驟提交您的 FireTV 應用程序到亞馬遜應用程序商店。
+    </p>
+
+    <ol class="bcls-tasklist-restart">
+      <li>
+        輸入<a href="https://developer.amazon.com/settings/console/home" target="_blank">Amazon開發人員控制台</a>。您將需要<a href="https://www.amazon.com/ap/register?clientContext=134-1654773-5582608&amp;openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&amp;siteState=clientContext%3D131-8250356-2896517%2CsourceUrl%3Dhttps%253A%252F%252Fdeveloper.amazon.com%252Fsettings%252Fconsole%252Fregistration%253Freturn_to%253D%252Fapps-and-games%2Csignature%3DcFhxbzDeo5JuzCUqkMHotnfOUw0j3D&amp;marketPlaceId=ATVPDKIKX0DER&amp;language=en_US&amp;pageId=amzn_developer_portal&amp;openid.return_to=https%3A%2F%2Fdeveloper.amazon.com%2Fsettings%2Fconsole%2Fregistration%3Freturn_to%3D%252Fapps-and-games&amp;prevRID=Y35GF8Q90QBTXRBDCQHV&amp;openid.assoc_handle=mas_dev_portal&amp;openid.mode=checkid_setup&amp;prepopulatedLoginId=&amp;failedSignInCount=0&amp;openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&amp;openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0" target="_blank">創建一個Amazon Developer帳戶</a>為了使用控制台。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/creating-your-apps/amazon/1-dev-console.png"/>
+        </figure>
+      </li>
+      <li>
+        在裡面<strong>亞馬遜應用商店</strong>部分，點擊<strong>新增應用程式</strong>按鈕。
+      </li>
+      <li>
+        從下拉菜單中選擇<strong>安卓</strong>。（目前布萊特灣僅支持 Fire TV 應用程序提交的 Android 版本。）
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" width="400" height="700" src="/assets/images/creating-your-apps/amazon/2-add-new-app.png"/>
+        </figure>
+      </li>
+      <li>
+        的<strong>提交新應用</strong>表格將顯示。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" width="700" height="700" src="/assets/images/creating-your-apps/amazon/3-app-sub-form.png"/>
+        </figure>
+      </li>
+      <li>輸入您的<strong>應用標題。</strong></li>
+      <li>
+        選擇一個<strong>應用程式SKU</strong>。這是您自己定義的應用程序唯一的字符串。SKU（庫存單位）成為您應用的ID，用於您自己的跟踪目的，例如：<em> com.amazon.example.myapp.v1</em>。
+      </li>
+      <li>
+        選擇一個<strong>應用類別</strong>。通過正確分類您的應用程序，用戶將能夠更輕鬆地找到您的應用程序，從而增加您的應用程序的下載量。有關更多信息，請查看<a href="https://developer.amazon.com/docs/app-submission/categories.html" target="_blank">亞馬遜類別文檔</a>。
+      </li>
+      <li>
+        您可以標記<strong>使用我的默認支持信息</strong>複選框，或為Fire TV應用程序的客戶支持聯繫人介紹不同的信息詳細信息（電子郵件，電話，網站）。
+      </li>
+      <li>點擊保<strong>存</strong>按鈕。</li>
+      <li>
+        保存後，您將進入Fire TV應用設置，然後<strong>一般信息</strong>標籤。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" width="900" height="700" src="/assets/images/creating-your-apps/amazon/4-dashboard.png"/>
+        </figure>
+      </li>
+      <li>
+        在此標籤中，您將可以看到<strong>應用提交API密鑰</strong>由Amazon自動生成，以及在創建Fire TV應用時提供的所有信息。
+      </li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Availability_&_Pricing">
+      完成可用性與定價資訊
+    </h2>
+    <p>
+      在本節中，您將能夠設定 Fire TV 應用程式的定價和可用性。請記住，您選擇的價格必須與 Brightve Beacon 平台中設定的價格相符。
+    </p>
+    <ol class="bcls-tasklist-restart">
+      <li>
+        點擊<strong>供貨與定價</strong>標籤。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/creating-your-apps/amazon/5-availability-pricing.png"/>
+        </figure>
+      </li>
+      <li>
+        在第一個區段中，您可以選擇您希望 Fire TV 應用程式可供使用的位置：
+        <ul>
+          <li>
+            <strong>在亞馬遜銷售應用程序的所有國家和地區。</strong>
+          </li>
+          <li><strong>僅在選定的國家和地區。</strong></li>
+        </ul>
+      </li>
+      <li>
+        如果選擇<strong>僅在選定的國家和地區</strong>，此選項將允許您選擇哪些國家或地區可以在Amazon商店中找到您的Fire TV應用。在下面顯示的示例中，所有<strong>北美</strong>和三個國家<strong>歐洲</strong>已為Fire TV應用選擇。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" width="700" height="700" src="/assets/images/creating-your-apps/amazon/6-select-regions.png"/>
+        </figure>
+      </li>
+      <li>
+        要從該區域中選擇一個特定的國家，請單擊<strong>+選擇國家/地區</strong>按鈕。
+      </li>
+      <li>
+        從您選擇的地區選擇您希望 Fire TV 應用程式發佈的國家/地區。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" width="500" height="600" src="/assets/images/creating-your-apps/amazon/7-select-countries.png"/>
+        </figure>
+      </li>
+      <li>按一下「<strong>新增</strong>」按鈕。</li>
+      <li>
+        下一個選項將允許您選擇是否將Fire TV應用設置為<strong>自由</strong>要么<strong>已付費</strong>。通常，默認的Brightcove Beacon應用設置為<strong>自由</strong>。
+      </li>
+      <li>
+        如果選擇<strong>已付費</strong>， 你不得不<strong>設定基準價格</strong>和一種貨幣。如果您想要為您的 Fire TV 應用程式指定價格，請聯絡您的布萊特灣信標客戶代表）。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" width="700" height="400" src="/assets/images/creating-your-apps/amazon/8-price-app.png"/>
+        </figure>
+      </li>
+      <li>
+        (選擇性) 將此欄位留白，在您的 Fire TV 應用程式獲得核准後立即開始發佈程序。若要將發佈程序的開始延遲到未來的時間和日期，請指定 Fire TV 應用程式的發佈日期。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" width="700" height="400" src="/assets/images/creating-your-apps/amazon/9-publishing-time.png"/>
+        </figure>
+      </li>
+      <li>按一下「<strong>儲存</strong>」按鈕。</li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="IAP_Subscription">
+      建立應用程式內購買 (IAP) 訂閱
+    </h2>
+    <p>
+      在本節中，您將學習如何為 Fire TV 應用程式建立應用程式內購買訂閱。
+    </p>
+    <ol class="bcls-tasklist-restart">
+      <li>
+        保存您的<strong>供貨與定價</strong>設置，另外一個字段用於<strong>添加IAP</strong>（應用內購買）將會出現。
+      </li>
+      <li>
+        點擊<strong>添加IAP</strong>按鈕將應用內購買添加為訂閱。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" width="700" height="400" src="/assets/images/creating-your-apps/amazon/10-in-app-purchase.png"/>
+        </figure>
+      </li>
+      <li>
+        你看<strong>應用內商品</strong>標籤。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" width="700" height="300" src="/assets/images/creating-your-apps/amazon/11-in-app-items.png"/>
+        </figure>
+      </li>
+      <li>
+        目前，您將沒有任何應用程序內項目。要在<strong>添加單個IAP</strong>按鈕。
+      </li>
+      <li>
+        請注意，您有三種不同類型的應用程式內購買可供選取。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" width="200" height="200" src="/assets/images/creating-your-apps/amazon/12-add-iap.png"/>
+        </figure>
+        <ul>
+          <li>
+            <strong>添加消耗品：</strong>消耗品包括您在應用程式內銷售的任何類型的內容，這些內容會在應用程式本身內使用。這種類型的內容只能在購買該內容的裝置上使用。
+          </li>
+          <li>
+            <strong>添加權利：</strong>權利包括您在應用程式中銷售的任何類型需要存取權限的內容。客戶登入 Amazon 應用程式用戶端的任何地方都可以使用此類內容。內容的權利不會過期。
+          </li>
+          <li>
+            <strong>添加訂閱：</strong>訂閱包含下列任何類型的內容：
+            <ul>
+              <li>攜帶權利</li>
+              <li>受一段時間的約束</li>
+              <li>週期結束時自動續約</li>
+              <li>
+                可在註冊至客戶 Amazon 帳戶的所有合格裝置上使用
+              </li>
+            </ul>
+          </li>
+          您的應用程式可以為其定義多個訂閱，每個訂閱都有多個期間。
+        </ul>
+      </li>
+      <li>
+        請選擇您偏好的 IAP，或聯絡您的 Brightcove Beacon 客戶代表，以瞭解哪些選項最適合您的內容。
+      </li>
+      <li>
+        在這個例子中<strong>訂閱</strong>被選中。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" width="700" height="400" src="/assets/images/creating-your-apps/amazon/13-subscription.png"/>
+        </figure>
+      </li>
+      <li>給一個<strong>標題</strong>您的新訂閱。</li>
+      <li>
+        選擇<strong> SKU </strong>。SKU（庫存單位）成為您訂閱的ID，用於您自己的跟踪目的，例如<em>subscription.gold</em>。
+      </li>
+      <li>按一下「<strong>儲存</strong>」按鈕。</li>
+      <li>
+        保存您的IAP後，系統將提示您<strong>認購期</strong>標籤。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" width="700" height="300" src="/assets/images/creating-your-apps/amazon/14-subscription-details.png"/>
+        </figure>
+      </li>
+      <li>
+        選擇一個<strong>認購期</strong>。您可以選擇向使用者收取訂閱費用的時間。例如：<strong>每月，每週，每年</strong>等
+      </li>
+      <li>
+        選擇<strong> SKU </strong>。SKU（庫存單位）成為您訂閱期間的ID，用於您自己的跟踪目的，例如<em>每月訂閱</em>。
+      </li>
+      <li>
+        （可選）選擇是否要提供<strong>免費試用</strong>您的訂閱。例如：<strong>7天1個月</strong>等
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" width="500" height="300" src="/assets/images/creating-your-apps/amazon/14.5-free-trial.png"/>
+        </figure>
+      </li>
+      <li>
+        選取您是否要為此訂閱收費。要充電，請選擇<strong>是的，我的基本標價是...</strong>選項。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" width="700" height="300" src="/assets/images/creating-your-apps/amazon/15-subscription-price.png"/>
+        </figure>
+      </li>
+      <li>輸入您的訂閱價格和貨幣類型。</li>
+      <li>
+        的<strong>計算價格</strong>設置將出現，這將使您可以決定是否要讓亞馬遜為您計算標價，還是您手動設置價格。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" width="700" height="300" src="/assets/images/creating-your-apps/amazon/16-currency-prices.png"/>
+        </figure>
+      </li>
+      <li>按一下「<strong>儲存</strong>」按鈕。</li>
+      <li>
+        轉到<strong>描述</strong>標籤，然後向新訂閱添加說明。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" width="700" height="300" src="/assets/images/creating-your-apps/amazon/18-subscription.png"/>
+        </figure>
+      </li>
+      <li>按一下「<strong>儲存</strong>」按鈕。</li>
+      <li>
+        完成所有IAP設置後，<strong>提交應用內商品</strong>按鈕將被啟用。點擊按鈕將您的 IAP 發送給亞馬遜核准。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" width="700" height="400" src="/assets/images/creating-your-apps/amazon/19-submit-item.png"/>
+        </figure>
+      </li>
+      <li>
+        點擊<strong>提交應用內商品</strong>按鈕，您將可以在<strong>應用內商品</strong>標籤列表。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" width="700" height="300" src="/assets/images/creating-your-apps/amazon/20-subscription-approved.png"/>
+        </figure>
+      </li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="description_information">填寫說明資訊</h2>
+    <p>
+      在本節中，您將能夠添加所有的火電視應用程序文本描述，這將是在亞馬遜商店中可見的用戶。
+    </p>
+    <ol class="bcls-tasklist-restart">
+      <li>
+        點擊<strong>當前版本</strong>標籤，然後選擇<strong>描述</strong>消防電視應用程序菜單中的標籤。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" width="700" height="300" src="/assets/images/creating-your-apps/amazon/21-subscription-menu.png"/>
+        </figure>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" width="700" height="300" src="/assets/images/creating-your-apps/amazon/21.5-text-descriptions.png"/>
+        </figure>
+      </li>
+      <li>
+        在表格中填寫以下內容：
+        <ul>
+          <li>
+            <strong>簡短的介紹</strong>：您應用程式的簡短說明，顯示在行動裝置上。
+          </li>
+          <li>
+            <strong>詳細描述</strong>：您應用程式的詳細描述，適用於 App Store 網站。
+          </li>
+          <li>
+            <strong>產品功能項目符號</strong>：您的應用程式最多 10 個關鍵功能，每行一個功能。這些功能會出現在 App Store 網站上，格式化為項目符號清單。
+          </li>
+          <li>
+            （可選的）<strong>關鍵詞</strong>：用來增加應用程式的可搜尋性的搜尋字詞，請使用逗號或空格來分隔您的字詞。
+          </li>
+        </ul>
+      </li>
+      <li>
+        默認情況下，描述將以英語顯示，但是您可以通過單擊<strong>添加本地化描述</strong>按鈕。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" width="700" height="300" src="/assets/images/creating-your-apps/amazon/22-translations.png"/>
+        </figure>
+      </li>
+      <li>
+        隨即會出現一個表單，讓您選取要新增的翻譯語言。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" width="400" height="400" src="/assets/images/creating-your-apps/amazon/23-languages.png"/>
+        </figure>
+      </li>
+      <li>按一下「<strong>新增</strong>」按鈕。</li>
+      <li>
+        在表單頂端，您可以在語言表單之間進行選取，並新增每個語言說明。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" width="700" height="400" src="/assets/images/creating-your-apps/amazon/24-spanish-description.png"/>
+        </figure>
+      </li>
+      <li>按一下「<strong>儲存</strong>」按鈕。</li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="images_information">完整的影像和多媒體資訊</h2>
+    <p>
+      在本節中，您將學習如何上傳 Fire TV 應用程式的影像。
+    </p>
+
+    <ol class="bcls-tasklist-restart">
+      <li>
+        點擊<strong>圖像與多媒體</strong>標籤。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" width="700" height="400" src="/assets/images/creating-your-apps/amazon/25-images-media.png"/>
+        </figure>
+      </li>
+      <li>
+        點擊<strong>表和電話資產</strong>部分。雖然您的應用程式是針對 Fire TV 而非平板電腦和手機，但亞馬遜要求提供這些圖片。您可以使用與 Fire TV 應用程式相同的影像大小。
+        <table class="bcls-table">
+          <thead class="bcls-table__head">
+            <tr>
+              <th>影像</th>
+              <th>需求</th>
+              <th>強制性/選擇性</th>
+            </tr>
+          </thead>
+          <tbody class="bcls-table__body">
+            <tr>
+              <td>圖示</td>
+              <td>
+                PNG (無透明度)
+                <table>
+                  <tr>
+                    <td>寬度：1280 像素</td>
+                    <td>高度：720px</td>
+                  </tr>
+                </table>
+              </td>
+              <td>
+                強制性
+              </td>
+            </tr>
+            <tr>
+              <td>螢幕擷取畫面</td>
+              <td>
+                介於 3 至 10 JPG 或 PNG 之間 (無透明度、橫向)
+                <table>
+                  <tr>
+                    <td>寬度：1920 像素</td>
+                    <td>高度：1080 像素</td>
+                  </tr>
+                </table>
+              </td>
+              <td>
+                強制性
+              </td>
+            </tr>
+            <tr>
+              <td>背景影像</td>
+              <td>
+                JPG 或 PNG (無透明度、橫向)
+
+                <table>
+                  <tr>
+                    <td>寬度：1920 像素</td>
+                    <td>高度：1080 像素</td>
+                  </tr>
+                </table>
+              </td>
+              <td>
+                強制性
+              </td>
+            </tr>
+            <tr>
+              <td>特色內容標誌</td>
+              <td>
+                PNG (透明度選擇性)
+                <table>
+                  <tr>
+                    <td>寬度：640 像素</td>
+                    <td>高度：260 像素</td>
+                  </tr>
+                </table>
+              </td>
+              <td>
+                選用
+              </td>
+            </tr>
+            <tr>
+              <td>精選內容背景</td>
+              <td>
+                JPG 或 PNG (無透明度)
+                <table>
+                  <tr>
+                    <td>寬度：1920 像素</td>
+                    <td>高度：720px</td>
+                  </tr>
+                </table>
+              </td>
+              <td>
+                選用
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </li>
+      <li>
+        上載圖片<strong>圖示</strong>通過單擊右側的框。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" width="700" height="300" src="/assets/images/creating-your-apps/amazon/26-upload-images.png"/>
+        </figure>
+      </li>
+      <li>
+        按一下右側方塊中的方塊，即可上傳<strong>螢幕擷取畫面</strong>的影像。
+      </li>
+      <li>
+        點擊<strong>消防電視資產</strong>部分。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" width="700" height="300" src="/assets/images/creating-your-apps/amazon/26.5-firetv-images.png"/>
+        </figure>
+      </li>
+      <li>
+        上載圖片<strong>應用程式圖示</strong>通過單擊右側的框。
+      </li>
+      <li>
+        按一下右側方塊中的方塊，即可上傳<strong>螢幕擷取畫面</strong>的影像。
+      </li>
+      <li>
+        上載圖片<strong>背景圖片</strong>通過單擊右側的框。
+      </li>
+      <li>
+        （可選）上傳圖片<strong>特色內容徽標</strong>通過單擊右側的框。
+      </li>
+      <li>
+        （可選）上傳圖片<strong>特色內容背景</strong>通過單擊右側的框。
+      </li>
+      <li>
+        上傳完所有圖片後，您可以點擊<strong>在電視上預覽圖像</strong>按鈕可直觀了解您的Fire TV應用在Appstore中的外觀。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" width="700" height="300" src="/assets/images/creating-your-apps/amazon/27-preview-image-button.png"/>
+        </figure>
+      </li>
+      <li>按一下「<strong>儲存</strong>」按鈕。</li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="content_rating">完整的內容分級資訊</h2>
+    <p>
+      內容分級區段要求您將在 Fire TV 應用程式中呈現的內容類型進行分類。Amazon 分類會將內容分成以下三種類型：
+    </p>
+    <ul>
+      <li>
+        <strong>中等：</strong>發生一次或很少發生，並不是應用程序的整體目的和/或意圖的基礎。
+      </li>
+      <li>
+        <strong>強大：</strong>定期發生，並且是應用程序的整體目的和/或意圖的基本。
+      </li>
+      <li><strong>沒有：</strong>不會發生在應用程式中。</li>
+    </ul>
+
+    <p>
+      學科的類型是<strong>暴力，學術，卡通暴力</strong>。
+    </p>
+    <ol class="bcls-tasklist-restart">
+      <li>
+        點擊<strong>內容分級</strong>標籤。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" width="700" height="300" src="/assets/images/creating-your-apps/amazon/28.5-content-rating-tab.png"/>
+        </figure>
+      </li>
+      <li>
+        為每個主題選擇類別類型。所有這些資訊都對應於 Fire TV 應用程式的內容類型。如果您不確定該回答什麼，請聯絡您的布萊特灣信標客戶代表。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" width="700" height="300" src="/assets/images/creating-your-apps/amazon/29-category-subjects.png"/>
+        </figure>
+      </li>
+      <li>
+        在裡面<strong>附加信息</strong>部分，回應<strong>是</strong>要么<strong>沒有</strong>取決於您的Fire TV應用程序包含的功能。所有這些資訊都對應於 Fire TV 應用程式可能會或可能不會提供的額外資訊和功能。如果您不確定該回答什麼，請聯絡您的布萊特灣信標客戶代表。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" width="700" height="300" src="/assets/images/creating-your-apps/amazon/30-additional-info.png"/>
+        </figure>
+      </li>
+      <li>
+        如果您的Fire TV應用收集了個人信息，則應添加一個<strong>隱私權政策網址</strong>查看您的用戶隱私政策聲明。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" width="700" height="300" src="/assets/images/creating-your-apps/amazon/31-policy-url.png"/>
+        </figure>
+      </li>
+      <li>點擊保<strong>存</strong>按鈕。</li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="apk_information">
+      完整的安卓軟件包套件（APK）文件信息
+    </h2>
+    <p>
+      的<strong>APK文件</strong>部分是應上傳Android應用文件的位置。APK 是從布萊特灣提供給您的。
+    </p>
+    <ol class="bcls-tasklist-restart">
+      <li>
+        點擊<strong>APK文件</strong>標籤。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" width="700" height="300" src="/assets/images/creating-your-apps/amazon/31.4-apk-tab.png"/>
+        </figure>
+      </li>
+      <li>
+        在裡面<strong>是否應用Amazon DRM？</strong>選項，選擇<strong>沒有</strong>。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" width="700" height="400" src="/assets/images/creating-your-apps/amazon/31.5-upload-apk.png"/>
+        </figure>
+      </li>
+      <li>
+        在裡面<strong>APK文件</strong>部分，單擊右側的框，然後上傳Brightcove提供給您的APK文件。
+      </li>
+      <li>
+        文件上傳後，您將能夠在屏幕上看到您的文件。點擊<strong>視圖</strong>按鈕。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" width="700" height="400" src="/assets/images/creating-your-apps/amazon/31.6-apk-file.png"/>
+        </figure>
+      </li>
+      <li>
+        的<strong>設備支持</strong>將會打開一個窗口，您可以在其中選擇將支持Fire TV應用程序的設備。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" width="400" height="300" src="/assets/images/creating-your-apps/amazon/31.7-unabled-devices.png"/>
+        </figure>
+      </li>
+      <li>
+        點擊<strong>亞馬遜消防電視</strong>標籤，然後選擇所有設備。Brightcove Beacon僅適用於Amazon Fire TV，因此請不要選擇<strong>亞馬遜消防平板電腦和手機</strong>和<strong>非亞馬遜設備</strong>標籤。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" width="400" height="300" src="/assets/images/creating-your-apps/amazon/31.8-enabled-devices.png"/>
+        </figure>
+      </li>
+      <li>關上<strong>設備支持</strong>窗口。</li>
+      <li>
+        在裡面<strong>添加其他詳細信息</strong>部分，從列表中選擇至少一種語言支持。這是使用者通訊以尋求支援的語言。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" width="700" height="500" src="/assets/images/creating-your-apps/amazon/32-language-support.png"/>
+        </figure>
+      </li>
+      <li>
+        為了<strong>測試說明</strong>字段，向Amazon測試團隊提供特殊說明，例如測試視頻流所需的登錄憑證，或說明如何使用不同訂閱級別的註釋。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" width="700" height="400" src="/assets/images/creating-your-apps/amazon/33-testing-instructions.png"/>
+        </figure>
+      </li>
+      <li>
+        標記<strong>出口合規</strong>和<strong>使用Amazon Maps重定向</strong>複選框。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" width="700" height="400" src="/assets/images/creating-your-apps/amazon/34-checkbox.png"/>
+        </figure>
+      </li>
+      <li>按一下「<strong>儲存</strong>」按鈕。</li>
+      <li>
+        保存後，<strong>審查狀態</strong>標籤將出現在菜單中。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" width="700" height="300" src="/assets/images/creating-your-apps/amazon/39-review-status.png"/>
+        </figure>
+      </li>
+      <li>
+        您將能夠查看 Fire TV 應用程式的相關資訊，作為您的最後一個活動和提交記錄。如果沒有任何錯誤，請點擊<strong>提交應用</strong>屏幕左上角的按鈕提交您的Fire TV應用。
+      </li>
+    </ol>
+
+    <p>
+      現在，你只需要等待亞馬遜批准消防電視應用程序，並在亞馬遜應用程序商店發布它。
+    </p>
+  </section>
+</article>
+
+<!-- complete bootstrap layout -->
+    </div>
+    <div class="col-sm-2 right-side-bar">
+      
+      <nav class="right-side-nav" id="right_side_nav">
+        <h6 class="toc">頁面內容</h6>
+        <ul id="in_page_nav" class="list-none"></ul>
+      </nav>
+      
+    </div>
+  </div>
+</div>
+
+<hr>
+<div class="last-updated">
+  頁面最後更新日期為 6 月 12 日
+</div>
+
+
+
+<footer class="bcls-footer" role="contentinfo">
+  <div class="row">
+    <div class="region region-footer-top-center col-md-12">
+      <nav role="navigation" aria-labelledby="block-brightcovesupport-menu" id="block-brightcovesupport" class="footer-menu">
+
+        <h2>布萊特灣支援</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://status.brightcove.com">系統狀態</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?">聯絡支援</a>
+          </li>
+          <li>
+            <a href="https://support.brightcove.com/">文獻資料</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-training-menu" id="block-training" class="footer-menu">
+
+        <h2>訓練</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://studio.support.brightcove.com/training/online-training-courses.html">線上課程</a>
+          </li>
+          <li>
+            <a href="https://studio.support.brightcove.com/training/register-training.html">註冊課程</a>
+          </li>
+          <li>
+            <a href="https://university.brightcove.com/">布萊特灣大學</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-brightcove-menu" class="footer-menu">
+
+        <h2>Brightcove</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://www.brightcove.com">亮麗</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?">聯絡我們</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="row">
+    <div class="region region-footer-bottom-center col-md-12">
+      <div class="bcls-copyright footer-menu">
+        <table>
+          <tr>
+            <td>
+              <div id="bc_copyright" class="field field--name-field-copyright-year field--type-string field--label-hidden field--item" style="float: left;"> 布萊特灣公司版權所有</div>
+            </td>
+            <td><a href="https://www.brightcove.com/en/legal/privacy">私隱</a> | 條<a href="https://www.brightcove.com/en/terms-and-conditions">款及細則</a></td>
+            <td>
+              <div class="gf-links-cols footer-menu">
+                <div class="gf-social"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" newtab="newtab" class="gf-social-linkedin"><i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i></a><a href="https://twitter.com/brightcove" title="Twitter" newtab="newtab" class="gf-social-twitter"><i class="fab fa-twitter" style="font-size: 1.5rem;"></i></a><a href="https://www.facebook.com/Brightcove" title="Facebook" newtab="newtab" class="gf-social-facebook"><i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i></a>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</footer>
+<div id="talla_wrapper">
+  <p style="text-align: right;position: relative;"><button style="background:rgb(2, 28, 146);color:Snow;padding:.3rem;position:fixed;right:0;bottom:1em;z-index:9999999" onclick="javascript:displayChat()">有問題嗎？ </button> </p>
+  <div id="talla_chat">
+</div>
+</div>
+<script>
+      
+  var searchBox = sajari.init({
+    mode: "search-box",
+    project: "1588255093746585379", // Set this to your project.
+    collection: "brightcove-documenation", // Set this to your collection.
+    instantPipeline: "autocomplete", // Pipeline used as you type
+    inputPlaceholder: "Search", // Input element placeholder
+    maxSuggestions: 5, // Maximum number of suggestions to show
+    attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to
+  });
+  
+    searchBox("sub", "pipeline.search-sent", function (_, query) {
+      window.location = "/search.html?q=" + encodeURIComponent(query.q);
+    });
+  
+
+</script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/https-fix.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/setDate.js"></script>
+  
+  <script src="https://support.brightcove.com/site-assets/js/site/prism.js"></script>
+  
+  <script src="https://support.brightcove.com/site-assets/js/site/site.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/tabs.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/toc.js"></script>
+  <script src="/assets/js/sites_nav.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/bcls-utils.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/local-link-fix.js"></script>
+  <script src="/assets/js/feedback.js"></script>
+  
+  <script src="/assets/js/sajari-search-foot.js"></script>
+  
+  <!-- <script src="/assets/js/sajari-index.js"></script> -->
+  <script src="https://assets.talla.com/latest/embeddedjs/talla.js"></script>
+  <script src="/assets/js/talla-init.js"></script>
+  <style>
+    a.sj-paginator__page-number.sj-paginator__page-number--current.css-so0ov7 {
+      background-color: lightblue;
+    }
+    div.sj-tabs__tab {
+      margin-top: 3rem;
+      margin-left: .3rem;
+      border-top-left-radius: .4rem;
+      border-top-right-radius: .4rem;
+      background-color:#e8e8e8;
+    }
+
+    div.sj-tabs__tab.sj-tabs__tab--selected {
+      border-bottom-color: crimson;
+      background-color: #f8f8f8;
+    }
+
+    p.sj-results__result__description.css-p9jvyt {
+      font-size: 1rem;
+    }
+
+    .sj-result__text.css-31l7gp h3 {
+      color: navy;
+      font-size: 1.4rem;
+    }
+    </style>
+
+</body>
+
+</html>

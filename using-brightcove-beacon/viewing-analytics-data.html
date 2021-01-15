@@ -1,0 +1,848 @@
+﻿<!doctype html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="robots" content="noindex,nofollow"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="在這個主題中，您將了解您的布萊特灣信標應用程式可以使用哪些分析資料，以及如何在 Google Analytics (分析) 中檢查該資料。">
+  
+  <title>檢視分析資料</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/prism.css">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/styles.css">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/landing-page.css">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/tabs.css">
+  <link rel="stylesheet" href="/assets/css/local.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/381443caa8.js" crossorigin="anonymous"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/google-analytics.js"></script>
+  <script src="/assets/js/sajari-head.js"></script>
+</head>
+
+<body class="body">
+
+<header>
+  <div class="div-header">
+    <a href="/"><img class="product-logo" src="https://support.brightcove.com/site-assets/images/site/product-logos/Beacon_Logo.svg" alt="產品標誌" style="max-height: 100px;max-width: 232px;"/></a>
+<!-- GTranslate: https://gtranslate.io/ -->
+<select onchange="doGTranslate(this);"><option value="">選擇語言</option><option value="en|en" translate="No">English</option><option value="en|zh-TW" translate="No">繁體中文</option><option value="en|fr" translate="No">Français</option><option value="en|de" translate="No">Deutsche</option><option value="en|ja" translate="No">日本語</option><option value="en|ko" translate="No">한국어</option><option value="en|es" translate="No">Español</option></select>
+
+<script>
+/* <![CDATA[ */
+function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
+/* ]]> */
+</script>
+
+    <select id="site_select" class="bcls-select" style="margin-right: 1rem;">
+      <option value="">其他布萊特灣文件</option>
+      
+        
+          <option value="https://support.brightcove.com">文件首頁</option>
+        
+      
+        
+          <option value="https://audience.support.brightcove.com">布萊特灣觀眾</option>
+        
+      
+        
+          <option value="https://beacon.support.brightcove.com">布萊特灣燈塔</option>
+        
+      
+        
+          <option value="https://campaign.support.brightcove.com">布萊特灣戰役</option>
+        
+      
+        
+          <option value="https://engage.support.brightcove.com">布萊特灣參與</option>
+        
+      
+        
+          <option value="https://live.support.brightcove.com">Brightcove Live</option>
+        
+      
+        
+          <option value="https://gallery.support.brightcove.com">Brightcove 圖庫</option>
+        
+      
+        
+          <option value="https://ssai.support.brightcove.com">布萊特灣</option>
+        
+      
+        
+          <option value="https://social.support.brightcove.com">布萊特灣社會</option>
+        
+      
+        
+          <option value="https://studio.support.brightcove.com">視訊雲端工作室</option>
+        
+      
+        
+          <option value="https://player.support.brightcove.com">布萊特灣球員開發</option>
+        
+      
+        
+          <option value="https://apis.support.brightcove.com">視訊雲端平台 API</option>
+        
+      
+        
+          <option value="https://sdks.support.brightcove.com">視訊雲端裝置開發套件</option>
+        
+      
+        
+          <option value="https://integrations.support.brightcove.com">整合與 CMS 連接器</option>
+        
+      
+        
+          <option value="https://general.support.brightcove.com">視訊雲端一般資訊</option>
+        
+      
+        
+          <option value="https://zencoder.support.brightcove.com">Zencoder</option>
+        
+      
+    </select>
+
+
+    <span class="secondary-nav"><a href="https://supportportal.brightcove.com/s/login/?"><img src="https://support.brightcove.com/site-assets/images/site/support.png" alt="支持"/>聯繫支持</a><span style="vertical-align: top;margin-left:1em;margin-right:1em;">|</span><a href="https://status.brightcove.com/"><img src="https://support.brightcove.com/site-assets/images/site/status.png" alt="系統狀態"/>系統狀況</a></span><br/>
+    
+  </div>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb arr-right">
+      
+      <li class="breadcrumb-item"><a href="/">首頁</a></li>
+      
+      
+      
+      <li class="breadcrumb-item"><a href="/using-brightcove-beacon/">使用布萊特灣信標</a></li>
+      
+      <li class="breadcrumb-item active" aria-current="page">檢視分析資料</li>
+    </ol>
+  </nav>
+</header>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3 left-side-bar">
+      <nav class="sidenav" id="side_nav">
+        
+        
+        <h5><a href="/index.html">首頁</a></h5>
+        
+        
+        
+        <h5 class="submenu-header"><a href="/getting-started/index.html">開始使<strong>用 + </strong></a></h5>
+        <ul class="sidenav-submenu" style="display:none;">
+          
+          
+          <li><a href="/getting-started/learning-guide-bc-beacon.html">學習指南</a></li>
+          
+          
+          
+          <li><a href="/getting-started/implementation-phases.html">實施階段</a></li>
+          
+          
+          
+          <li><a href="/getting-started/app-design-considerations.html">應用程式設計考量</a></li>
+          
+          
+          
+          <li><a href="/getting-started/creating-your-app-design-info-architecture.html">應用程式設計-資訊架構</a></li>
+          
+          
+          
+          <li><a href="/getting-started/creating-your-app-design-layout-options.html">應用程式設計-佈局選項</a></li>
+          
+          
+          
+          <li><a href="/getting-started/design-best-practices.html">設計最佳實務</a></li>
+          
+          
+        </ul>
+        
+        
+        
+        <h5 class="submenu-header"><a href="/syncing-with-video-cloud/index.html"><strong>與視訊雲端同步</strong></a></h5>
+        <ul class="sidenav-submenu" style="display:none;">
+          
+          
+          <li><a href="/syncing-with-video-cloud/vc-custom-fields.html">建立視訊雲端自訂欄位</a></li>
+          
+          
+          
+          <li><a href="/syncing-with-video-cloud/forcing-a-sync.html">強制同步</a></li>
+          
+          
+        </ul>
+        
+        
+        
+        <h5 class="submenu-header"><a href="/using-brightcove-beacon/index.html">使用布萊特灣信標<strong> + </strong></a></h5>
+        <ul class="sidenav-submenu" style="display:none;">
+          
+          
+          <li><a href="/using-brightcove-beacon/adding-to-page.html">將輪播新增至頁面</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/creating-a-channel.html">建立通道</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/electronic-program-guides.html">建立電子程式指南 (EPG) </a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/creating-a-page.html">建立新頁面</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/creating-a-playlist.html">建立播放清單</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/creating-subscription-package.html">建立訂閱套件</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/promo-codes.html">建立促銷代碼</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/series-seasons-episodes.html">建立系列/季節/集</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/configuring-server-side-ad-settings.html">設定伺服器端廣告設定</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/implementing-authvod.html">實作驗證</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/live-ssai.html">實施即時 SSAI </a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/vod-ssai.html">實施 VOD SSAI </a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/including-non-configurable-pages.html">包括無法設定的頁面</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/introducing-pages.html">介紹頁面</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/streaming-live-event.html">串流即時事件</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/streaming-vods-to-a-channel.html">將 VOD 串流至頻道</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/monetization-options.html">瞭解營利選項</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/using-subscription-package.html">使用訂閱套件</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/tools.html">使用工具</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/viewing-analytics-data.html">檢視分析資料</a></li>
+          
+          
+        </ul>
+        
+        
+        
+        <h5 class="submenu-header"><a href="/creating-your-apps/index.html">建立您的應用程式<strong> + </strong></a></h5>
+        <ul class="sidenav-submenu" style="display:none;">
+          
+          
+          <li class="submenu-header">
+            <a href="/creating-your-apps/android/index.html">安卓<strong> + </strong></a>
+            <ul class="sidenav-subsubmenu" style="display:none;">
+              
+              <li><a href="/creating-your-apps/android/submitting-to-android.html">將新應用程式提交至 Android 商店</a></li>
+              
+              <li><a href="/creating-your-apps/android/updating-android-apps-to-bcb.html">更新 Android 應用程序到布萊特灣信標</a></li>
+              
+              <li><a href="/creating-your-apps/android/adding-subscriptions-in-android.html">新增訂閱至安卓</a></li>
+              
+              <li><a href="/creating-your-apps/android/improving-relevance-android.html">改善安卓遊戲商店中的搜尋關聯性</a></li>
+              
+              <li><a href="/creating-your-apps/android/installing-android-test-build.html">安裝一個安卓測試構建</a></li>
+              
+            </ul>
+          </li>
+          
+          
+          
+          <li class="submenu-header">
+            <a href="/creating-your-apps/fire-tv/index.html">火電視<strong> + </strong></a>
+            <ul class="sidenav-subsubmenu" style="display:none;">
+              
+              <li><a href="/creating-your-apps/fire-tv/installing-fire-tv-test-build.html">安裝防火電視測試組建</a></li>
+              
+              <li><a href="/creating-your-apps/fire-tv/submitting-to-amazon.html">提交到亞馬遜商店</a></li>
+              
+            </ul>
+          </li>
+          
+          
+          
+          <li class="submenu-header">
+            <a href="/creating-your-apps/ios-tvos/index.html">IOS /電訊系統/電視系統<strong> + </strong></a>
+            <ul class="sidenav-subsubmenu" style="display:none;">
+              
+              <li><a href="/creating-your-apps/ios-tvos/installing-ios-test-build.html">安裝IOS/tvOS 測試組建</a></li>
+              
+              <li><a href="/creating-your-apps/ios-tvos/submitting-to-apple.html">提交至蘋果商店</a></li>
+              
+            </ul>
+          </li>
+          
+          
+          
+          <li class="submenu-header">
+            <a href="/creating-your-apps/panasonic/index.html">松下<strong> + </strong></a>
+            <ul class="sidenav-subsubmenu" style="display:none;">
+              
+              <li><a href="/creating-your-apps/panasonic/submitting-to-panasonic.html">提交至松下商店</a></li>
+              
+            </ul>
+          </li>
+          
+          
+          
+          <li class="submenu-header">
+            <a href="/creating-your-apps/roku/index.html">六<strong> + </strong></a>
+            <ul class="sidenav-subsubmenu" style="display:none;">
+              
+              <li><a href="/creating-your-apps/roku/configuring-inchannel-products.html">在 Roku 中設定通路內產品</a></li>
+              
+              <li><a href="/creating-your-apps/roku/installing-roku-test-build.html">安裝 Roku 測試組建</a></li>
+              
+              <li><a href="/creating-your-apps/roku/submitting-to-roku.html">提交至六商店</a></li>
+              
+            </ul>
+          </li>
+          
+          
+          
+          <li class="submenu-header">
+            <a href="/creating-your-apps/samsung/index.html">三星<strong> + </strong></a>
+            <ul class="sidenav-subsubmenu" style="display:none;">
+              
+              <li><a href="/creating-your-apps/samsung/samsung-partner.html">成為三星合作夥伴</a></li>
+              
+              <li><a href="/creating-your-apps/samsung/submitting-to-samsung.html">提交至三星商店</a></li>
+              
+            </ul>
+          </li>
+          
+          
+          
+          <li><a href="/creating-your-apps/common-required-info.html">一般必要資訊</a></li>
+          
+          
+          
+          <li><a href="/creating-your-apps/device-apps-validation-guide.html">裝置應用程式驗證指南</a></li>
+          
+          
+        </ul>
+        
+        
+        
+        <h5 class="submenu-header"><a href="/references/index.html">參考資料<strong> + </strong></a></h5>
+        <ul class="sidenav-submenu" style="display:none;">
+          
+          
+          <li><a href="/references/common-configuration-settings.html">一般組態設定</a></li>
+          
+          
+          
+          <li><a href="/references/creating-stripe-account.html">建立等量帳戶</a></li>
+          
+          
+          
+          <li><a href="/references/glossary.html">詞彙</a></li>
+          
+          
+          
+          <li><a href="/references/image-requirements.html">圖片及其規格</a></li>
+          
+          
+          
+          <li><a href="/references/known-issues.html">已知問題</a></li>
+          
+          
+          
+          <li><a href="/references/product-updates.html">產品更新</a></li>
+          
+          
+        </ul>
+        
+        
+        
+        <h5 class="submenu-header"><a href="/training/index.html">訓練<strong> + </strong></a></h5>
+        <ul class="sidenav-submenu" style="display:none;">
+          
+          
+          <li><a href="/training/training-demand-custom-fields.html">使用視訊雲端視訊/自訂欄位</a></li>
+          
+          
+          
+          <li><a href="/training/training-demand-design-layout.html">設計應用程式配置</a></li>
+          
+          
+          
+          <li><a href="/training/training-demand-playlists.html">建立和使用播放清單</a></li>
+          
+          
+          
+          <li><a href="/training/training-demand-series-seasons-episodes.html">創建系列，季節和劇集</a></li>
+          
+          
+          
+          <li><a href="/training/training-demand-vod-ssai.html">實作 VOD 伺服器端廣告</a></li>
+          
+          
+          
+          <li><a href="/training/training-demand-publish-android-app.html">在 Play 商店發布安卓應用程序</a></li>
+          
+          
+          
+          <li><a href="/training/training-demand-viewing-analytics.html">檢視分析資料</a></li>
+          
+          
+        </ul>
+        
+        
+        
+        <h5 class="submenu-header"><a href="/support/index.html">支援<strong> + </strong></a></h5>
+        <ul class="sidenav-submenu" style="display:none;">
+          
+          
+          <li><a href="/support/brightcove-answer.html">布萊特灣答案</a></li>
+          
+          
+          
+          <li><a href="/support/viewing-brightcove-system-status-page.html">檢視布萊特灣系統狀態頁面</a></li>
+          
+          
+          
+          <li><a href="/support/contact-sales.html">聯絡銷售人員</a></li>
+          
+          
+          
+          <li><a href="/support/opening-case-with-brightcove-support.html">開啟支援案例</a></li>
+          
+          
+        </ul>
+        
+        
+      </nav>
+    </div>
+    <div class="col-lg-7" style="background-color: white;color: #333333;margin-top: -1em;margin-bottom: -1em;padding-bottom:1em;">
+      <!-- bootstrap layout -->
+<p id="bc_veggie_burger_wrapper" style="display: none;"><img id="bc_veggie_burger" src="/assets/images/feather/menu.svg" alt="導覽功能表"/></p>
+
+<!-- search bar -->
+<div id="nav-search-box" style="margin-top: 1rem;"></div>
+<!-- in-page navigation for narrow screens -->
+<details class="centered-inpage-nav" id="centered_inpage_nav">
+  <summary><h6 class="toc">頁面內容</h6></summary>
+  <nav id="centered_toc"></nav>
+  <ul id="centered_in_page_toc" class="list-none"></ul>
+</details>
+<!-- open in new tab/window -->
+<a id="open_new_tab" href="#" target="_blank" style="display: none;"><img src="/assets/images/feather/external-link.svg" alt="在新分頁中開啟" style="margin-top:4em;width: 1.5em;"/></a>
+
+
+<h1>檢視分析資料</h1>
+<article class="bcls-article">
+    <summary>在這個主題中，您將了解您的布萊特灣信標應用程式可以使用哪些分析資料，以及如何在 Google Analytics (分析) 中檢查該資料。</summary>
+    <section class="bcls-section">
+        <aside class="bcls-aside bcls-aside--information language-editable">布萊特灣信標不會將完整的分析傳送回視訊雲端。只有視訊啟動會回報至視訊雲端分析。</aside>
+        <h2 id="Introduction">簡介</h2>
+        <p>毫無疑問，您一定會想知道觀眾在您的布萊特灣信標應用程式中觀看的內容。要做到這一點，你將使用谷歌分析。布萊特灣將加載自定義的儀表板和自定義的谷歌數據工作室報告到您的谷歌分析帳戶。這兩種工具都能讓您深入了解客戶如何使用您的 Brightcove Beacon 應用程式。</p>
+        <p>除了自訂的儀表板和報表之外，您還可以使用 Google Analytics (分析) 中的標準分析工具來檢視客戶行為。您可以使用谷歌收集的標準分析數據，另外 Brightcove 添加了其他實體使用，在本文件後面詳細說明。例如，<strong>電影</strong>在播放電影，默認的Google Analytics（分析）度量標準以及計算觀看時間（由Brightcove添加的度量標準）時調度事件。因此，在谷歌 Analytics 中，您可以通過觀眾播放電影的次數和總觀看時間看到「最多觀看」的電影。由 Brightcove 添加這些實體在前一段中提到的自定義儀表板和報告廣泛使用。</p>
+    </section>
+    <section class="bcls-section">
+        <h2 id="Viewing_the_Dashboard">檢視儀表板</h2>
+        <p>若要查看 Brightcove 安裝的 Google Analytics 儀表板，更重要的是儀表板顯示的數據，請按照下列步驟操作：</p>
+        <ol class="bcls-tasklist-restart">
+            <li>登錄<a href="https://analytics.google.com">谷歌分析</a>。</li>
+            <li>點擊下拉菜單（屏幕截圖中以黃色突出顯示）以查看您的所有谷歌 Analytics 帳戶。
+                <figure class="bcls-figure">
+                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/click-accounts.png" alt="信標分析帳戶"/>
+                </figure>
+            </li>
+            <li>從三個面板的下拉式清單中，選取：
+                <ol type="a">
+                    <li>您的布萊特灣信標帳戶</li>
+                    <li>您想要分析的應用程式</li>
+                    <li>您的視圖（每個應用程序只有一個視圖）</li>
+                </ol>
+                <figure class="bcls-figure">
+                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/app-groups.png" alt="信標分析應用程式群組"/>
+                </figure>
+            </li>
+            <li>在左側導航欄中，點擊<strong>客制化</strong>選項，然後打開<strong>儀表板</strong>以查看當前視圖的自定義儀表板。
+                <figure class="bcls-figure">
+                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/select-dashboards.png" alt="選取儀表板"/>
+                </figure>
+            </li>
+            <li>如果儀表板沒有出現，您必須從清單中選取它：
+                <figure class="bcls-figure">
+                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/click-on-report.png" alt="選取儀表板"/>
+                </figure>
+            </li>
+            <li>您的儀表板會出現在畫面的右側。範例儀表板如下所示：
+                <figure class="bcls-figure">
+                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/dashboard.png" alt="儀表板"/>
+                </figure>
+            </li>
+        </ol>
+    </section>
+    <section class="bcls-section">
+        <h2 id="Viewing_the_Data_Studio_report">檢視資料工作室報表</h2>
+        <p>根據谷歌：「Data Studio 是一個免費的工具，可將您的資料轉換為資訊豐富、易於閱讀、容易分享，以及完全可自訂的儀表板和報表。「</p>
+        <p>要查看由布賴特灣安裝的自定義谷歌數據工作室報告，請按照下列步驟操作：</p>
+        <ol class="bcls-tasklist-restart">
+            <li>登錄到<a href="https://datastudio.google.com/">Google Data Studio（datastudio.google.com）</a>。</li>
+            <li>您會看到登陸頁面上列出的報表清單 (以黃色反白顯示)：
+                <figure class="bcls-figure">
+                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/data-studio-landing-page.png" alt="資料工作室登陸頁面"/>
+                </figure>
+            </li>
+            <li>按一下報告名稱以開啟它。</li>
+            <li>此處顯示範例報表的第一頁。報表左上角的注意是導覽 (以黃色反白顯示) 以查看其他頁面。
+                <figure class="bcls-figure">
+                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/data-studio-report.png" alt="資料工作室報告"/>
+                </figure>
+            </li>
+        </ol>
+    </section>
+    <section class="bcls-section">
+        <h2 id="Viewing_dimensions_and_metrics">檢視維度和量度</h2>
+        <aside class="bcls-aside bcls-aside--tip">如果您不熟悉分析維度和指標，這裡有一個非常簡單的解釋：
+            <ul>
+                <li>維度是資料的屬性。例如，視圖來自的城市是一個維度。單一維度可以包含許多值，就像您擁有視圖的所有城市的名稱。</li>
+                <li>指標是量化測量。因此，特定城市的會話數量將是一個指標。</li>
+            </ul>
+        </aside>
+        <p>布萊特灣為您的分析報告添加了默認的谷歌量值的功能。您可以使用預設的 Google Analytics 維度和量度、分析報表的建構區塊，以及 Brightcove 新增的眾多維度和一個量度。這些額外的維度和一個量度會用於本文件前兩個區段所示的儀表板和 Data Studio 報表中。</p>
+        <p> 請注意，布賴特灣新增的尺寸和量度不同於每種類型的布萊特灣信標應用程式。例如，iOS 移動數據添加了 16 個自定義維度，而網站應用程序添加了 20 個自定義維度。若要在 Google Analytics (分析) UI 中查看維度和量度清單，請依照下列步驟執行：</p>
+        <ol class="bcls-tasklist-restart">
+            <li>登錄<a href="https://analytics.google.com">谷歌分析</a>。</li>
+            <li>點擊下拉菜單（屏幕截圖中以黃色突出顯示）以查看您的所有谷歌 Analytics 帳戶。
+                <figure class="bcls-figure">
+                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/click-accounts.png" alt="信標分析帳戶"/>
+                </figure>
+            </li>
+            <li>從三個面板的下拉式清單中，選取：
+                <ol type="a">
+                    <li>您的布萊特灣信標帳戶</li>
+                    <li>您想要分析的應用程式</li>
+                    <li>您的視圖（每個應用程序只有一個視圖）</li>
+                </ol>
+                <figure class="bcls-figure">
+                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/app-groups.png" alt="信標分析應用程式群組"/>
+                </figure>
+            </li>
+            <li>在左側導航欄中，點擊<strong>管理員</strong>選項。
+                <figure class="bcls-figure">
+                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/admin-click.png" alt="按一下管理員"/>
+                </figure>
+            </li>
+            <li>請點擊<strong>自定義定義</strong>。
+                <figure class="bcls-figure">
+                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/click-custom-definitions.png" alt="按一下自訂定義"/>
+                </figure>
+            </li>
+            <li>當您單擊<strong>自定義定義</strong>您將看到以下鏈接<strong>自定義尺寸</strong>和<strong>自定義指標</strong>。
+                <figure class="bcls-figure">
+                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/list-custom-definitions.png" alt="列出自訂定義"/>
+                </figure>
+            </li>
+            <li>點擊<strong>自定義尺寸</strong>鏈接以查看此應用的尺寸。尺寸會隨應用程式而變更。
+                <figure class="bcls-figure">
+                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/dimensions-list.png" alt="列出自訂定義"/>
+                </figure>
+            </li>
+            <li>點擊<strong>自定義指標</strong>鏈接以查看單個主題，<strong>觀看時間</strong>。這是布萊特灣信標應用程式的唯一自訂度量。
+                <figure class="bcls-figure">
+                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/metrics-list.png" alt="列出自訂定義"/>
+                </figure>
+            </li>
+        </ol>
+    </section>
+    <section class="bcls-section">
+        <h2 id="Report_examples">報告範例</h2>
+        <p>本文件是為了讓你知道你可以從谷歌分析使用的信息。本文件並非意圖成為如何使用 Google Analytics 與您的布萊特灣信標應用程序的完整教學指南。話雖如此，文件的下一節將詳細說明如何查看一些關於您的 Brightcove Beacon 應用程序的常見報告。</p>
+    </section>
+    <section class="bcls-section">
+        <h2 id="Audience_information">觀眾資訊</h2>
+        <p>您可以依照下列步驟檢視對象的分析：</p>
+        <ol class="bcls-tasklist-restart">
+            <li>按照上述任何一個區段的前三個步驟，選擇您的應用程式/檢視。</li>
+            <li>在左側導航中，首先單擊<strong>聽眾</strong>然後<strong>總覽</strong>。
+                <p></p>
+                <figure class="bcls-figure">
+                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/audience-overview.png" alt="觀眾概觀"/>
+                </figure>
+            </li>
+            <li>在屏幕右側，您可以使用不同的指標（例如，<strong>語言</strong>，<strong>應用程式資訊</strong>和<strong>設備</strong>。您可以按一下特定量度以取得更多詳細資訊。
+                <figure class="bcls-figure">
+                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/audience-details.png" alt="觀眾詳細資料"/>
+                </figure>
+            </li>
+        </ol>
+    </section>
+    <section class="bcls-section">
+        <h2 id="Screen_views_information">螢幕檢視資訊</h2>
+        <p>當然，您會想知道觀眾在您的應用程式中執行的動作。為此的選項是<strong>行為</strong>。請按照以下步驟查看<strong>屏幕瀏覽</strong>信息：</p>
+        <ol class="bcls-tasklist-restart">
+            <li>在左側導航欄中，點擊<strong>行為</strong>→<strong>網站內容</strong>→所有頁面。
+                <p></p>
+                <figure class="bcls-figure">
+                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/behavior-screens.png" alt="行為畫面"/>
+                </figure>
+            </li>
+            <li>在畫面右側，您會看到最常檢視的畫面清單。
+                <figure class="bcls-figure">
+                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/screens-details.png" alt="畫面詳細資料"/>
+                </figure>
+            </li>
+        </ol>
+    </section>
+    <section class="bcls-section">
+        <h2 id="Played_and_time_watched_information">播放和觀看時間資訊</h2>
+        <p>仍在<strong>行為</strong>選項，您可以查看視頻資產點擊播放按鈕的次數，以及實際觀看該資產的時間。請依照下列步驟取得該資訊：</p>
+        <ol class="bcls-tasklist-restart">
+            <li>雖然仍在<strong>行為</strong>選項，單擊<strong>活動→熱門活動</strong>。</li>
+            <li>在裡面<strong>活動類別</strong>列表中，單擊<strong>播放電影</strong>
+                <figure class="bcls-figure">
+                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/event-category-play-movie.png" alt="事件類別播放影片"/>
+                </figure>
+            </li>
+            <li>在裡面<strong>活動類別</strong>列表中，單擊<strong>電影</strong>。
+                <figure class="bcls-figure">
+                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/event-category.png" alt="事件類別"/>
+                </figure>
+            </li>
+            <li>在裡面<strong>均勻動作</strong>列表中，單擊<strong>玩</strong>。
+                <figure class="bcls-figure">
+                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/event-action.png" alt="事件動作"/>
+                </figure>
+            </li>
+            <li>請注意，清單會顯示每個資產按一下播放按鈕的次數。
+                <figure class="bcls-figure">
+                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/play-movies-details.png" alt="播放影片詳細資料"/>
+                </figure>
+            </li>
+            <li>請注意，您可以透過將適當的資料行新增至表格，以查看一或多個自訂維度的資訊。為此，請點擊<strong>次級尺寸</strong>下拉菜單中，您可以在其中看到<strong>自定義尺寸</strong>組。
+                <figure class="bcls-figure">
+                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/secondary-dimension-dropdown.png" alt="次要維度下拉清單"/>
+                </figure>
+            </li>
+            <li>您現在可以打開<strong>自定義尺寸</strong>分組並選擇一個尺寸。
+                <figure class="bcls-figure">
+                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/choose-custom-definition.png" alt="選擇自訂定義"/>
+                </figure>
+            </li>
+            <li>查看示例表<strong>類型</strong>自定義維度已添加。
+                <figure class="bcls-figure">
+                    <img class="bcls-image" src="/assets/images/using-bcb/using-beacon-analytics/language-in-table.png" alt="表格中的語言"/>
+                </figure>
+            </li>
+            <li>請注意<strong>事件動作</strong>您還可以看到列表<strong>觀看時間</strong>，當然會使用您的自定義指標<strong>觀看時間</strong>。</li>
+        </ol>
+    </section>
+    <section class="bcls-section">
+        <h2 id="Google_Analytics_learning_resources">谷歌分析學習資源</h2>
+        <p>您剛剛刮傷了谷歌分析在本文檔中的表面。您可以將所選資產的每日或每週摘要資訊放在一起的自訂報告。一個開始學習更多有關Google Analytics（分析）的旅程的好地方可能是<a href="https://analytics.google.com/analytics/academy/">Google Analytics Academy</a>和/或<a href="https://developers.google.com/analytics">Google Analytics（分析）文檔</a>。</p>
+    </section>
+</article>
+<!-- complete bootstrap layout -->
+    </div>
+    <div class="col-sm-2 right-side-bar">
+      
+      <nav class="right-side-nav" id="right_side_nav">
+        <h6 class="toc">頁面內容</h6>
+        <ul id="in_page_nav" class="list-none"></ul>
+      </nav>
+      
+    </div>
+  </div>
+</div>
+
+<hr>
+<div class="last-updated">
+  頁面最後更新日期為 10 月 26 日
+</div>
+
+
+
+<footer class="bcls-footer" role="contentinfo">
+  <div class="row">
+    <div class="region region-footer-top-center col-md-12">
+      <nav role="navigation" aria-labelledby="block-brightcovesupport-menu" id="block-brightcovesupport" class="footer-menu">
+
+        <h2>布萊特灣支援</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://status.brightcove.com">系統狀態</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?">聯絡支援</a>
+          </li>
+          <li>
+            <a href="https://support.brightcove.com/">文獻資料</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-training-menu" id="block-training" class="footer-menu">
+
+        <h2>訓練</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://studio.support.brightcove.com/training/online-training-courses.html">線上課程</a>
+          </li>
+          <li>
+            <a href="https://studio.support.brightcove.com/training/register-training.html">註冊課程</a>
+          </li>
+          <li>
+            <a href="https://university.brightcove.com/">布萊特灣大學</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-brightcove-menu" class="footer-menu">
+
+        <h2>Brightcove</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://www.brightcove.com">亮麗</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?">聯絡我們</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="row">
+    <div class="region region-footer-bottom-center col-md-12">
+      <div class="bcls-copyright footer-menu">
+        <table>
+          <tr>
+            <td>
+              <div id="bc_copyright" class="field field--name-field-copyright-year field--type-string field--label-hidden field--item" style="float: left;"> 布萊特灣公司版權所有</div>
+            </td>
+            <td><a href="https://www.brightcove.com/en/legal/privacy">私隱</a> | 條<a href="https://www.brightcove.com/en/terms-and-conditions">款及細則</a></td>
+            <td>
+              <div class="gf-links-cols footer-menu">
+                <div class="gf-social"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" newtab="newtab" class="gf-social-linkedin"><i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i></a><a href="https://twitter.com/brightcove" title="Twitter" newtab="newtab" class="gf-social-twitter"><i class="fab fa-twitter" style="font-size: 1.5rem;"></i></a><a href="https://www.facebook.com/Brightcove" title="Facebook" newtab="newtab" class="gf-social-facebook"><i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i></a>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</footer>
+<div id="talla_wrapper">
+  <p style="text-align: right;position: relative;"><button style="background:rgb(2, 28, 146);color:Snow;padding:.3rem;position:fixed;right:0;bottom:1em;z-index:9999999" onclick="javascript:displayChat()">有問題嗎？ </button> </p>
+  <div id="talla_chat">
+</div>
+</div>
+<script>
+      
+  var searchBox = sajari.init({
+    mode: "search-box",
+    project: "1588255093746585379", // Set this to your project.
+    collection: "brightcove-documenation", // Set this to your collection.
+    instantPipeline: "autocomplete", // Pipeline used as you type
+    inputPlaceholder: "Search", // Input element placeholder
+    maxSuggestions: 5, // Maximum number of suggestions to show
+    attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to
+  });
+  
+    searchBox("sub", "pipeline.search-sent", function (_, query) {
+      window.location = "/search.html?q=" + encodeURIComponent(query.q);
+    });
+  
+
+</script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/https-fix.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/setDate.js"></script>
+  
+  <script src="https://support.brightcove.com/site-assets/js/site/prism.js"></script>
+  
+  <script src="https://support.brightcove.com/site-assets/js/site/site.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/tabs.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/toc.js"></script>
+  <script src="/assets/js/sites_nav.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/bcls-utils.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/local-link-fix.js"></script>
+  <script src="/assets/js/feedback.js"></script>
+  
+  <script src="/assets/js/sajari-search-foot.js"></script>
+  
+  <!-- <script src="/assets/js/sajari-index.js"></script> -->
+  <script src="https://assets.talla.com/latest/embeddedjs/talla.js"></script>
+  <script src="/assets/js/talla-init.js"></script>
+  <style>
+    a.sj-paginator__page-number.sj-paginator__page-number--current.css-so0ov7 {
+      background-color: lightblue;
+    }
+    div.sj-tabs__tab {
+      margin-top: 3rem;
+      margin-left: .3rem;
+      border-top-left-radius: .4rem;
+      border-top-right-radius: .4rem;
+      background-color:#e8e8e8;
+    }
+
+    div.sj-tabs__tab.sj-tabs__tab--selected {
+      border-bottom-color: crimson;
+      background-color: #f8f8f8;
+    }
+
+    p.sj-results__result__description.css-p9jvyt {
+      font-size: 1rem;
+    }
+
+    .sj-result__text.css-31l7gp h3 {
+      color: navy;
+      font-size: 1.4rem;
+    }
+    </style>
+
+</body>
+
+</html>
