@@ -1,0 +1,1028 @@
+﻿<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="在本主題中，您將學習如何將裝置應用程式提交至 Android 商店。" />
+
+    <title>將新應用程式提交至 Android 商店</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&amp;display=swap">
+      <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://support.brightcove.com/site-assets/css/site/prism.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://support.brightcove.com/site-assets/css/site/styles.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://support.brightcove.com/site-assets/css/site/landing-page.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://support.brightcove.com/site-assets/css/site/tabs.css"
+    />
+    <link rel="stylesheet" href="/assets/css/local.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/381443caa8.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://support.brightcove.com/site-assets/js/site/google-analytics.js"></script>
+    <script src="/assets/js/sajari-head.js"></script>
+  </head>
+
+  <body class="body"></body>
+</html>
+
+<header>
+  <div class="div-header">
+    <a href="/"><img class="product-logo" src="https://support.brightcove.com/site-assets/images/site/product-logos/Beacon_Logo.svg" alt="產品標誌" style="max-height: 100px;max-width: 232px;"/></a>
+<!-- GTranslate: https://gtranslate.io/ -->
+<select onchange="doGTranslate(this);"><option value="">選擇語言</option><option value="en|en" translate="No">English</option><option value="en|zh-TW" translate="No">繁體中文</option><option value="en|fr" translate="No">Français</option><option value="en|de" translate="No">Deutsche</option><option value="en|ja" translate="No">日本語</option><option value="en|ko" translate="No">한국어</option><option value="en|es" translate="No">Español</option></select>
+
+<script>
+/* <![CDATA[ */
+function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
+/* ]]> */
+</script>
+
+Brightcove 
+
+    <span class="secondary-nav"><a href="https://supportportal.brightcove.com/s/login/?"><img src="https://support.brightcove.com/site-assets/images/site/support.png" alt="支持"/>聯繫支持</a><span style="vertical-align: top;margin-left:1em;margin-right:1em;">|</span><a href="https://status.brightcove.com/"><img src="https://support.brightcove.com/site-assets/images/site/status.png" alt="系統狀態"/>系統狀況</a></span><br/>
+    
+  </div>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb arr-right">
+      
+      <li class="breadcrumb-item"><a href="/">首頁</a></li>
+      
+      
+      
+      <li class="breadcrumb-item"><a href="/creating-your-apps/android/">安卓</a></li>
+      
+      <li class="breadcrumb-item active" aria-current="page">將新應用程式提交至 Android 商店</li>
+    </ol>
+  </nav>
+</header>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3 left-side-bar">
+      				<select id="site_select" class="bcls-select" style="margin-right: 1rem;">
+					<option value="">其他布萊特灣文件</option>
+					
+						
+							<option value="https://support.brightcove.com">文件首頁</option>
+						
+					
+						
+							<option value="https://audience.support.brightcove.com">布萊特灣觀眾</option>
+						
+					
+						
+							<option value="https://beacon.support.brightcove.com">布萊特灣燈塔</option>
+						
+					
+						
+							<option value="https://campaign.support.brightcove.com">布萊特灣戰役</option>
+						
+					
+						
+							<option value="https://engage.support.brightcove.com">布萊特灣參與</option>
+						
+					
+						
+							<option value="https://live.support.brightcove.com">Brightcove Live</option>
+						
+					
+						
+							<option value="https://gallery.support.brightcove.com">Brightcove 圖庫</option>
+						
+					
+						
+							<option value="https://ssai.support.brightcove.com">布萊特灣</option>
+						
+					
+						
+							<option value="https://social.support.brightcove.com">布萊特灣社會</option>
+						
+					
+						
+							<option value="https://studio.support.brightcove.com">視訊雲端工作室</option>
+						
+					
+						
+							<option value="https://player.support.brightcove.com">布萊特灣球員開發</option>
+						
+					
+						
+							<option value="https://apis.support.brightcove.com">視訊雲端平台 API</option>
+						
+					
+						
+							<option value="https://sdks.support.brightcove.com">視訊雲端裝置開發套件</option>
+						
+					
+						
+							<option value="https://integrations.support.brightcove.com">整合與 CMS 連接器</option>
+						
+					
+						
+							<option value="https://general.support.brightcove.com">視訊雲端一般資訊</option>
+						
+					
+						
+							<option value="https://zencoder.support.brightcove.com">Zencoder</option>
+						
+					
+				</select>
+						<nav class="sidenav" id="side_nav">
+
+        
+        
+        <h5><a href="/index.html">首頁</a></h5>
+        
+        
+        
+        <h5 class="submenu-header"><a href="/getting-started/index.html">開始使<strong>用 + </strong></a></h5>
+        <ul class="sidenav-submenu" style="display:none;">
+          
+          
+          <li><a href="/getting-started/learning-guide-bc-beacon.html">學習指南</a></li>
+          
+          
+          
+          <li><a href="/getting-started/implementation-phases.html">實施階段</a></li>
+          
+          
+          
+          <li><a href="/getting-started/app-design-considerations.html">應用程式設計考量</a></li>
+          
+          
+          
+          <li><a href="/getting-started/creating-your-app-design-info-architecture.html">應用程式設計-資訊架構</a></li>
+          
+          
+          
+          <li><a href="/getting-started/creating-your-app-design-layout-options.html">應用程式設計-佈局選項</a></li>
+          
+          
+          
+          <li><a href="/getting-started/design-best-practices.html">設計最佳實務</a></li>
+          
+          
+        </ul>
+        
+        
+        
+        <h5 class="submenu-header"><a href="/syncing-with-video-cloud/index.html"><strong>與視訊雲端同步</strong></a></h5>
+        <ul class="sidenav-submenu" style="display:none;">
+          
+          
+          <li><a href="/syncing-with-video-cloud/vc-custom-fields.html">建立視訊雲端自訂欄位</a></li>
+          
+          
+          
+          <li><a href="/syncing-with-video-cloud/forcing-a-sync.html">強制同步</a></li>
+          
+          
+        </ul>
+        
+        
+        
+        <h5 class="submenu-header"><a href="/using-brightcove-beacon/index.html">使用布萊特灣信標<strong> + </strong></a></h5>
+        <ul class="sidenav-submenu" style="display:none;">
+          
+          
+          <li><a href="/using-brightcove-beacon/adding-to-page.html">將輪播新增至頁面</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/creating-a-channel.html">建立通道</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/electronic-program-guides.html">建立電子程式指南 (EPG) </a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/creating-a-page.html">建立新頁面</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/creating-a-playlist.html">建立播放清單</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/creating-subscription-package.html">建立訂閱套件</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/promo-codes.html">建立促銷代碼</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/series-seasons-episodes.html">建立系列/季節/集</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/configuring-server-side-ad-settings.html">設定伺服器端廣告設定</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/implementing-authvod.html">實作驗證</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/live-ssai.html">實施即時 SSAI </a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/vod-ssai.html">實施 VOD SSAI </a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/including-non-configurable-pages.html">包括無法設定的頁面</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/introducing-pages.html">介紹頁面</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/streaming-live-event.html">串流即時事件</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/streaming-vods-to-a-channel.html">將 VOD 串流至頻道</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/monetization-options.html">瞭解營利選項</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/using-subscription-package.html">使用訂閱套件</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/tools.html">使用工具</a></li>
+          
+          
+          
+          <li><a href="/using-brightcove-beacon/viewing-analytics-data.html">檢視分析資料</a></li>
+          
+          
+        </ul>
+        
+        
+        
+        <h5 class="submenu-header"><a href="/creating-your-apps/index.html">建立您的應用程式<strong> + </strong></a></h5>
+        <ul class="sidenav-submenu" style="display:none;">
+          
+          
+          <li class="submenu-header">
+            <a href="/creating-your-apps/android/index.html">安卓<strong> + </strong></a>
+            <ul class="sidenav-subsubmenu" style="display:none;">
+              
+              <li><a href="/creating-your-apps/android/submitting-to-android.html">將新應用程式提交至 Android 商店</a></li>
+              
+              <li><a href="/creating-your-apps/android/updating-android-apps-to-bcb.html">更新 Android 應用程序到布萊特灣信標</a></li>
+              
+              <li><a href="/creating-your-apps/android/adding-subscriptions-in-android.html">新增訂閱至安卓</a></li>
+              
+              <li><a href="/creating-your-apps/android/improving-relevance-android.html">改善安卓遊戲商店中的搜尋關聯性</a></li>
+              
+              <li><a href="/creating-your-apps/android/installing-android-test-build.html">安裝一個安卓測試構建</a></li>
+              
+            </ul>
+          </li>
+          
+          
+          
+          <li class="submenu-header">
+            <a href="/creating-your-apps/fire-tv/index.html">火電視<strong> + </strong></a>
+            <ul class="sidenav-subsubmenu" style="display:none;">
+              
+              <li><a href="/creating-your-apps/fire-tv/installing-fire-tv-test-build.html">安裝防火電視測試組建</a></li>
+              
+              <li><a href="/creating-your-apps/fire-tv/submitting-to-amazon.html">提交到亞馬遜商店</a></li>
+              
+            </ul>
+          </li>
+          
+          
+          
+          <li class="submenu-header">
+            <a href="/creating-your-apps/ios-tvos/index.html">IOS /電訊系統/電視系統<strong> + </strong></a>
+            <ul class="sidenav-subsubmenu" style="display:none;">
+              
+              <li><a href="/creating-your-apps/ios-tvos/installing-ios-test-build.html">安裝IOS/tvOS 測試組建</a></li>
+              
+              <li><a href="/creating-your-apps/ios-tvos/submitting-to-apple.html">提交至蘋果商店</a></li>
+              
+            </ul>
+          </li>
+          
+          
+          
+          <li class="submenu-header">
+            <a href="/creating-your-apps/panasonic/index.html">松下<strong> + </strong></a>
+            <ul class="sidenav-subsubmenu" style="display:none;">
+              
+              <li><a href="/creating-your-apps/panasonic/submitting-to-panasonic.html">提交至松下商店</a></li>
+              
+            </ul>
+          </li>
+          
+          
+          
+          <li class="submenu-header">
+            <a href="/creating-your-apps/roku/index.html">六<strong> + </strong></a>
+            <ul class="sidenav-subsubmenu" style="display:none;">
+              
+              <li><a href="/creating-your-apps/roku/configuring-inchannel-products.html">在 Roku 中設定通路內產品</a></li>
+              
+              <li><a href="/creating-your-apps/roku/installing-roku-test-build.html">安裝 Roku 測試組建</a></li>
+              
+              <li><a href="/creating-your-apps/roku/submitting-to-roku.html">提交至六商店</a></li>
+              
+            </ul>
+          </li>
+          
+          
+          
+          <li class="submenu-header">
+            <a href="/creating-your-apps/samsung/index.html">三星<strong> + </strong></a>
+            <ul class="sidenav-subsubmenu" style="display:none;">
+              
+              <li><a href="/creating-your-apps/samsung/samsung-partner.html">成為三星合作夥伴</a></li>
+              
+              <li><a href="/creating-your-apps/samsung/submitting-to-samsung.html">提交至三星商店</a></li>
+              
+            </ul>
+          </li>
+          
+          
+          
+          <li><a href="/creating-your-apps/common-required-info.html">一般必要資訊</a></li>
+          
+          
+          
+          <li><a href="/creating-your-apps/device-apps-validation-guide.html">裝置應用程式驗證指南</a></li>
+          
+          
+        </ul>
+        
+        
+        
+        <h5 class="submenu-header"><a href="/references/index.html">參考資料<strong> + </strong></a></h5>
+        <ul class="sidenav-submenu" style="display:none;">
+          
+          
+          <li><a href="/references/common-configuration-settings.html">一般組態設定</a></li>
+          
+          
+          
+          <li><a href="/references/creating-stripe-account.html">建立等量帳戶</a></li>
+          
+          
+          
+          <li><a href="/references/glossary.html">詞彙</a></li>
+          
+          
+          
+          <li><a href="/references/image-requirements.html">圖片及其規格</a></li>
+          
+          
+          
+          <li><a href="/references/known-issues.html">已知問題</a></li>
+          
+          
+          
+          <li><a href="/references/product-updates.html">產品更新</a></li>
+          
+          
+        </ul>
+        
+        
+        
+        <h5 class="submenu-header"><a href="/training/index.html">訓練<strong> + </strong></a></h5>
+        <ul class="sidenav-submenu" style="display:none;">
+          
+          
+          <li><a href="/training/training-demand-custom-fields.html">使用視訊雲端視訊/自訂欄位</a></li>
+          
+          
+          
+          <li><a href="/training/training-demand-design-layout.html">設計應用程式配置</a></li>
+          
+          
+          
+          <li><a href="/training/training-demand-playlists.html">建立和使用播放清單</a></li>
+          
+          
+          
+          <li><a href="/training/training-demand-series-seasons-episodes.html">創建系列，季節和劇集</a></li>
+          
+          
+          
+          <li><a href="/training/training-demand-vod-ssai.html">實作 VOD 伺服器端廣告</a></li>
+          
+          
+          
+          <li><a href="/training/training-demand-publish-android-app.html">在 Play 商店發布安卓應用程序</a></li>
+          
+          
+          
+          <li><a href="/training/training-demand-viewing-analytics.html">檢視分析資料</a></li>
+          
+          
+        </ul>
+        
+        
+        
+        <h5 class="submenu-header"><a href="/support/index.html">支援<strong> + </strong></a></h5>
+        <ul class="sidenav-submenu" style="display:none;">
+          
+          
+          
+          
+          
+          
+          <li><a href="/support/viewing-brightcove-system-status-page.html">檢視布萊特灣系統狀態頁面</a></li>
+          
+          
+          
+          <li><a href="/support/contact-sales.html">聯絡銷售人員</a></li>
+          
+          
+          
+          <li><a href="/support/opening-case-with-brightcove-support.html">開啟支援案例</a></li>
+          
+          
+        </ul>
+        
+        
+      </nav>
+    </div>
+    <div class="col-lg-7" style="background-color: white;color: #333333;margin-top: -1em;margin-bottom: -1em;padding-bottom:1em;">
+      <!-- bootstrap layout -->
+<p id="bc_veggie_burger_wrapper" style="display: none;"><img id="bc_veggie_burger" src="/assets/images/feather/menu.svg" alt="導覽功能表"/></p>
+
+<!-- search bar -->
+<div id="nav-search-box" style="margin-top: 1rem;"></div>
+<!-- in-page navigation for narrow screens -->
+<details class="centered-inpage-nav" id="centered_inpage_nav">
+  <summary><h6 class="toc">頁面內容</h6></summary>
+  <nav id="centered_toc"></nav>
+  <ul id="centered_in_page_toc" class="list-none"></ul>
+</details>
+<!-- open in new tab/window -->
+<a id="open_new_tab" href="#" target="_blank" style="display: none;"><img src="/assets/images/feather/external-link.svg" alt="在新分頁中開啟" style="margin-top:4em;width: 1.5em;"/></a>
+
+
+<h1>將新應用程式提交至 Android 商店</h1>
+<article class="bcls-article">
+  <summary>在本主題中，您將學習如何將裝置應用程式提交至 Android 商店。</summary>
+  <section class="bcls-section">
+    <aside class="bcls-aside bcls-aside--information language-editable">
+      如果您要查找有關如何將現有應用程序更新為Brightcove Beacon應用程序的信息，請參閱<a href="/creating-your-apps/updating-android-apps-to-bcb.html">將Android應用程序更新為Brightcove Beacon</a>文件。
+    </aside>
+
+    <h2 id="Introduction">簡介</h2>
+    <p>
+      本文件將協助您將您的布萊特灣信標應用程式提交至 Google Play 商店。本文件的前三節 (不包括本文件) 列出您開始完成提交程序時所需的資訊/資產。
+    </p>
+    <p>
+      下面這些列表是提交過程中的逐步指導。建立帳戶後，您將前往儀表板，您將提供提交資訊。儀表板顯示如下，您需要輸入資訊的區域會以黃色反白顯示：
+      <figure class="bcls-figure">
+        <img class="bcls-image" src="/assets/images/creating-your-apps/android/dashboard.png" alt="儀表板"/>
+      </figure>
+    </p>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Android_Mobile_&_Android_TV">安卓手機及安卓電視</h2>
+    <p>
+      無論您是提交 Android 手機或安卓電視，都需要提供以下資訊/資產。
+    </p>
+    <ul>
+      <li>
+        店鋪概述：<a href="https://developer.android.com/distribute"> https://developer.android.com/distribute</a>
+      </li>
+      <li>
+        開發人員計劃概述：<a href="https://developers.google.com/"> https://developers.google.com/</a>
+      </li>
+      <li>
+        熟悉廣泛<strong>去做</strong>清單：<a href="https://developer.android.com/distribute/best-practices/launch/launch-checklist">啟動清單</a>
+      </li>
+      <li>
+        店鋪詳細信息：<a href="https://play.google.com/apps/publish/signup/"> https://play.google.com/apps/publish/signup/</a>（需要Google Play開發者計劃-會員資格，每次25美元）
+      </li>
+      <li>核准的建議前置時間：一周</li>
+      <li>您需要在商店中為 QA 設置設備應用程序登錄</li>
+      <li>
+        確保您的電視應用符合Google的<a href="https://developer.android.com/docs/quality-guidelines/tv-app-quality">電視應用程式品質</a>標準。
+      </li>
+      <li>
+        必須建立簽署金鑰，以用來簽署應用程式。建立簽署金鑰需要下列資訊：
+        <ul>
+          <li>密碼</li>
+          <li>名字和姓氏</li>
+          <li>組織單位名稱</li>
+          <li>組織名稱</li>
+          <li>城市名稱/地區</li>
+          <li>州/省名</li>
+          <li>此單位的兩個字母國家代碼</li>
+        </ul>
+        注意：行動裝置和電視應用程式的簽署金鑰必須相同，如果他們使用多個 APK 共用商店清單。
+      </li>
+    </ul>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Required_information_for_Android_Mobile">
+      安卓行動裝置的必要資訊
+    </h2>
+    <p>
+      這些是 Android Mobile 的特定要求，以上列出的聯合要求之上。
+    </p>
+    <ul>
+      <li>應用程式標題-50 個字元</li>
+      <li>簡短說明-80 個字元</li>
+      <li>完整說明-4000 個字元</li>
+      <li>
+        注意：所有這些元數據應該翻譯成所有語言（如果可用）。
+      </li>
+      <li>應用程式識別碼-例子-</li>
+      <li>密鑰庫簽署軟件包</li>
+      <li>應用程式類型</li>
+      <li>類別</li>
+      <li>
+        屏幕截圖（請參閱Google的<a href="https://support.google.com/googleplay/android-developer/answer/1078870">圖形資產，屏幕截圖和視頻</a>文檔以獲取更多信息）
+        <ul>
+          <li>標準-繁體中文 (英國)-zh-Gb</li>
+          <li>
+            JPEG 或 24 位元 PNG (無字母)。最小頁面長度：320 像素頁面長度上限：3840 像素。
+          </li>
+          <li>
+            您必須至少上傳一張7英寸屏幕截圖和一張10英寸屏幕截圖，以允許您的應用顯示在<strong>開發成平板電腦</strong>在Play商店中列出。如果您之前已經上傳過螢幕擷取畫面，請將它們移至下方適當的區域。
+          </li>
+        </ul>
+      </li>
+      <li>
+        高解析度圖示
+        <ul>
+          <li>標準-繁體中文 (英國)-zh-Gb</li>
+          <li>512</li>
+          <li>32 位元 PNG (含字母)</li>
+        </ul>
+      </li>
+      <li>
+        特徵圖形
+        <ul>
+          <li>標準-繁體中文 (英國)-zh-Gb</li>
+          <li>1024 億 x 500 小時</li>
+          <li>JPG 或 24 位元 PNG (無字母)</li>
+        </ul>
+      </li>
+      <li>
+        圖誌圖示
+        <ul>
+          <li>192 x192 應用程序圖標（一個正方形和一輪）</li>
+          <li>用戶端設定商店 QA 的應用程式登入</li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Required_information_for_Android_TV">
+      安卓電視的必要資訊
+    </h2>
+    <p>
+      這些是 Android TV 的特定要求，除了上述聯合要求之外。
+    </p>
+
+    <ul>
+      <li>使用生成的簽名創建的 APK 包</li>
+      <li>標題</li>
+      <li>簡短描述</li>
+      <li>完整說明</li>
+      <li>
+        螢幕擷取畫面
+        <ul>
+          <li>JPEG 或 24 位元 PNG (無字母)。最多可上載 8 個</li>
+          <li>1280x720</li>
+        </ul>
+      </li>
+      <li>
+        高解析度圖示
+        <ul>
+          <li>512</li>
+          <li>32 位元 PNG (含字母)</li>
+        </ul>
+      </li>
+      <li>
+        橫幅
+        <ul>
+          <li>320 x 180</li>
+          <li>24 位元 PNG</li>
+        </ul>
+      </li>
+      <li>
+        冰箱啟動器
+        <ul>
+          <li>256</li>
+          <li>24 位元 PNG</li>
+        </ul>
+      </li>
+      <li>
+        特徵圖形
+        <ul>
+          <li>1024 瓦 x 500 小時</li>
+          <li>JPG 或 24 位元 PNG (無字母)</li>
+        </ul>
+      </li>
+      <li>用戶端設定商店 QA 的應用程式登入</li>
+    </ul>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Getting_started_in_the_dashboard">
+      開始使用儀表板
+    </h2>
+    <ol class="bcls-tasklist">
+      <li>
+        瀏覽到<a href="https://play.google.com/apps/publish/signup/">Google Play控制台註冊頁面</a>並創建您的帳戶。這將包括支付 25 美元的費用。完成註冊過程後，您將看到<strong>Google Play控制台</strong>：
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/welcome.png" alt="建立應用程式"/>
+        </figure>
+      </li>
+      <li>點擊<strong>創建申請</strong>按鈕。</li>
+      <li>
+        供應<strong>預設語言</strong>和應用<strong>標題</strong>。
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/language-title.png" alt="語言標題頁"/>
+        </figure>
+      </li>
+      <li>
+        點擊<strong>創造</strong>按鈕。您將被移入<strong>店鋪列表</strong>部分。
+      </li>
+    </ol>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Complete_Store_listing_information">
+      完成<em>店鋪列表</em>信息
+    </h2>
+    <p>
+      的<strong>店鋪列表</strong>本節相當冗長。不同的部分將以不同的步驟顯示。
+    </p>
+    <ol class="bcls-tasklist-restart">
+      <li>
+        輸入<strong>簡短的介紹</strong>和<strong>詳細描述</strong>。
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/store-listing-details.png" alt="商店清單詳細資料"/>
+        </figure>
+      </li>
+      <li>
+        依照表單中的要求提供圖形資產。您不需要輸入圖像<em>穿戴式操作系統</em>。
+        <aside class="bcls-aside bcls-aside--tip language-editable">
+          的<em>電視橫幅</em>和<em>白日夢360度立體影像</em>對於Brightcove Beacon而言並不重要。只有在您使用 YouTube 宣傳應用程式時，才需要使用 YouTube 宣傳影片。
+        </aside>
+
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/store-listing-graphic-assets.png" alt="商店清單圖形資產"/>
+        </figure>
+      </li>
+      <li>
+        完成<strong>分類</strong>部分。
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/store-listing-categorization.png" alt="商店刊登分類"/>
+        </figure>
+      </li>
+      <li>
+        完成<strong>聯繫方式</strong>部分。
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/store-listing-contact-details.png" alt="商店資訊聯絡資料"/>
+        </figure>
+      </li>
+      <li>點擊<strong>保存草稿</strong>按鈕。</li>
+    </ol>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Complete_App_releases_information">
+      完成<em>應用發布</em>信息
+    </h2>
+    <p>
+      在這個<strong>應用發布</strong>部分，您將創建一個<strong>封閉軌道</strong>以便在您的應用上線之前對其進行測試。封閉音軌可讓您選擇一些人來測試您的應用程式。
+    </p>
+    <ol class="bcls-tasklist-restart">
+      <li>
+        點擊<strong>應用發布</strong>左側導航中的鏈接。
+      </li>
+      <li>
+        點擊<strong>創建封閉的軌跡</strong>鏈接，下面以黃色突出顯示。
+        <aside class="bcls-aside bcls-aside--tip language-editable">
+          經過測試之後，您就可以發布應用了，您可以使用<strong>應用發布</strong>部分，但選擇<strong>生產軌道</strong>上傳您要實時推送的應用。
+        </aside>
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/app-releases.png" alt="應用程式版本"/>
+        </figure>
+      </li>
+      <li>
+        輸入已關閉音軌的名稱。
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/app-releases-create-track.png" alt="建立音軌"/>
+        </figure>
+      </li>
+      <li>點擊<strong>建立追踪</strong>按鈕。</li>
+      <li>
+        若要建立音軌，您需要執行下列工作：
+        <ol type="A">
+          <li>上傳 APK（由布萊特灣提供給您）</li>
+          <li>提供發行名稱，例如<em>2.1</em>。</li>
+          <li>
+            提供您所支援的語言版本說明。
+          </li>
+          <li>儲存或檢閱提供的資訊。</li>
+        </ol>
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/app-releases-apks.png" alt="提交 apk"/>
+        </figure>
+      </li>
+      <!-- <li>???????????HOW TO DISTRIBUTE???????????????</li> -->
+    </ol>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Complete_Content_rating_information">
+      完成<em>內容分級</em>信息
+    </h2>
+    <p>
+      移入<strong>內容分級</strong>使用左側導航欄。在本節中，您完成了一份問卷，並根據您的回覆，將分級指派給您的應用程式及其內容。有關完整信息，請參見<a href="https://support.google.com/googleplay/android-developer/answer/188189">應用和遊戲的內容分級</a>文件。
+    </p>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/creating-your-apps/android/content-rating.png" alt="內容分級"/>
+    </figure>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Complete_App_content_information">
+      完成<em>應用內容</em>信息
+    </h2>
+    <p>
+      移入<strong>應用內容</strong>使用左側導航欄。在本節中，您可以提供下列相關資訊：
+    </p>
+    <ul>
+      <li>您想要的隱私權政策</li>
+      <li>如果廣告將在您的內容中使用</li>
+      <li>如果您的應用程式有限制的部分</li>
+      <li>應用程式的目標受眾</li>
+    </ul>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/creating-your-apps/android/app-content.png" alt="應用程式內容"/>
+    </figure>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Complete_Pricing_distribution_information">
+      完成<em>定價與發行</em>信息
+    </h2>
+    <p>在本節中，您可以提供下列相關資訊：</p>
+    <ul>
+      <li>如果應用程序是免費的</li>
+      <li>地理限制</li>
+      <li>應用程式可在其上運作的 Android 裝置</li>
+      <li>谷歌如何處理應用程序的同意</li>
+    </ul>
+    <p>
+      的<strong>定價與發行</strong>本節相當冗長。不同的部分將以不同的步驟顯示。
+    </p>
+    <ol class="bcls-tasklist-restart">
+      <li>
+        點擊<strong>定價與分配</strong>左側導航中的鏈接。
+      </li>
+      <li>
+        按一下正確的按鈕，確定您的應用程式是否免費。請注意，這是免費的安裝應用程序。如果您打算通過廣告或訂閱而非每安裝費用來獲取收入，請單擊<strong>自由</strong>。
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/pricing-distribution.png" alt="定價分配"/>
+        </figure>
+      </li>
+      <li>
+        配置<strong>國別</strong>部分以反映您具有或不具有的任何地理位置限制。
+      </li>
+      <li>
+        您不必在<strong>設備類別</strong>部分。
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/pd-device-categories.png" alt="裝置類別"/>
+        </figure>
+      </li>
+      <li>
+        您不必在<strong>用戶程序</strong>部分。
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/pd-user-programs.png" alt="使用者程式"/>
+        </figure>
+      </li>
+      <li>
+        閱讀有關每個問題的適當信息<strong>同意</strong>部分，然後選中或取消選中相應的框。
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/pd-consent.png" alt="同意"/>
+        </figure>
+      </li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Adding_subscriptions">新增訂閱</h2>
+    <p>
+      如果您要向您的Android應用添加訂閱，請參見<a href="/creating-your-apps/adding-subscriptions-in-android.html">向Android添加訂閱</a>文檔以獲取完整說明。
+    </p>
+  </section>
+</article>
+
+<!-- complete bootstrap layout -->
+    </div>
+    <div class="col-sm-2 right-side-bar">
+      
+      <nav class="right-side-nav" id="right_side_nav">
+        <h6 class="toc">頁面內容</h6>
+        <ul id="in_page_nav" class="list-none"></ul>
+      </nav>
+      
+    </div>
+  </div>
+</div>
+
+<hr>
+<div class="last-updated">
+  頁面最後更新日期為 6 月 12 日
+</div>
+
+
+
+<footer class="bcls-footer" role="contentinfo">
+  <div class="row">
+    <div class="region region-footer-top-center col-md-12">
+      <nav role="navigation" aria-labelledby="block-brightcovesupport-menu" id="block-brightcovesupport" class="footer-menu">
+
+        <h2>布萊特灣支援</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://status.brightcove.com">系統狀態</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?">聯絡支援</a>
+          </li>
+          <li>
+            <a href="https://support.brightcove.com/">文獻資料</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-training-menu" id="block-training" class="footer-menu">
+
+        <h2>訓練</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://studio.support.brightcove.com/training/online-training-courses.html">線上課程</a>
+          </li>
+          <li>
+            <a href="https://studio.support.brightcove.com/training/register-training.html">註冊課程</a>
+          </li>
+          <li>
+            <a href="https://university.brightcove.com/">布萊特灣大學</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-brightcove-menu" class="footer-menu">
+
+        <h2>Brightcove</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://www.brightcove.com">亮麗</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?">聯絡我們</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="row">
+    <div class="region region-footer-bottom-center col-md-12">
+      <div class="bcls-copyright footer-menu">
+        <table>
+          <tr>
+            <td>
+              <div id="bc_copyright" class="field field--name-field-copyright-year field--type-string field--label-hidden field--item" style="float: left;"> 布萊特灣公司版權所有</div>
+            </td>
+            <td><a href="https://www.brightcove.com/en/legal/privacy">私隱</a> | 條<a href="https://www.brightcove.com/en/terms-and-conditions">款及細則</a></td>
+            <td>
+              <div class="gf-links-cols footer-menu">
+                <div class="gf-social"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" newtab="newtab" class="gf-social-linkedin"><i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i></a><a href="https://twitter.com/brightcove" title="Twitter" newtab="newtab" class="gf-social-twitter"><i class="fab fa-twitter" style="font-size: 1.5rem;"></i></a><a href="https://www.facebook.com/Brightcove" title="Facebook" newtab="newtab" class="gf-social-facebook"><i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i></a>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</footer>
+<div id="talla_wrapper">
+  <p style="text-align: right;position: relative;"><button style="background:rgb(2, 28, 146);color:Snow;padding:.3rem;position:fixed;right:0;bottom:1em;z-index:9999999" onclick="javascript:displayChat()">有問題嗎？ </button> </p>
+  <div id="talla_chat">
+</div>
+</div>
+<script>
+      
+  var searchBox = sajari.init({
+    mode: "search-box",
+    project: "1588255093746585379", // Set this to your project.
+    collection: "brightcove-documenation", // Set this to your collection.
+    instantPipeline: "autocomplete", // Pipeline used as you type
+    inputPlaceholder: "Search", // Input element placeholder
+    maxSuggestions: 5, // Maximum number of suggestions to show
+    attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to
+  });
+  
+    searchBox("sub", "pipeline.search-sent", function (_, query) {
+      window.location = "/search.html?q=" + encodeURIComponent(query.q);
+    });
+  
+
+</script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/https-fix.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/setDate.js"></script>
+  
+  <script src="https://support.brightcove.com/site-assets/js/site/prism.js"></script>
+  
+  <script src="https://support.brightcove.com/site-assets/js/site/site.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/tabs.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/toc.js"></script>
+  <script src="/assets/js/sites_nav.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/bcls-utils.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/local-link-fix.js"></script>
+  <script src="/assets/js/feedback.js"></script>
+  
+  <script src="/assets/js/sajari-search-foot.js"></script>
+  
+  <!-- <script src="/assets/js/sajari-index.js"></script> -->
+  <script src="https://assets.talla.com/latest/embeddedjs/talla.js"></script>
+  <script src="/assets/js/talla-init.js"></script>
+  <style>
+    a.sj-paginator__page-number.sj-paginator__page-number--current.css-so0ov7 {
+      background-color: lightblue;
+    }
+    div.sj-tabs__tab {
+      margin-top: 3rem;
+      margin-left: .3rem;
+      border-top-left-radius: .4rem;
+      border-top-right-radius: .4rem;
+      background-color:#e8e8e8;
+    }
+
+    div.sj-tabs__tab.sj-tabs__tab--selected {
+      border-bottom-color: crimson;
+      background-color: #f8f8f8;
+    }
+
+    p.sj-results__result__description.css-p9jvyt {
+      font-size: 1rem;
+    }
+
+    .sj-result__text.css-31l7gp h3 {
+      color: navy;
+      font-size: 1.4rem;
+    }
+    </style>
+
+</body>
+
+</html>
