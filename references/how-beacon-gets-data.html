@@ -1,0 +1,41 @@
+---
+title:“Brightcove信標如何獲取數據"的
+description:“在本主題中，您將學習Brightcove Beacon如何獲取用於構建其應用程序的各種類型的數據。還包括涵蓋身份驗證細節的信息。”
+parent: "references"
+layout: "staging"
+---
+ <h1>{{ page.title }}</h1>
+<article class="bcls-article">
+    <summary>{{ page.description }}</summary>
+
+    <section class="bcls-section">
+        <h2 id="Introduction">介紹</h2>
+        <p>本文檔的第一部分描述了 Brightcove Beacon 如何獲取常見數據，例如視頻、播放列表和直播事件。最後一部分詳細介紹瞭如何使用 Open ID Connect (OIDC) 和權利來授權 Brightcove Beacon 獲取數據。</p>
+    </section>
+
+    <section class="bcls-section">
+        <h2 id="Ingestion_and_custom_fields">視頻攝取和自定義字段</h2>
+        <p>在 Brightcove Beacon 可以使用視頻資產之前，需要先將視頻資產攝取到視頻雲中。根據視頻的使用方式（例如連續播放或需要投放廣告），視頻雲<strong>自定義字段</strong>可用於將視頻與那些特殊要求相關聯。這<a href="/syncing-with-video-cloud/vc-custom-fields.html">創建視頻云自定義字段</a>文檔詳細介紹瞭如何創建所需的自定義字段以及如何分配這些字段值。</p>
+        <p>將視頻放入視頻雲後，Brightcove Beacon可以從視頻雲目錄中提取與視頻相關的信息，例如元數據，圖像和位置。視頻實際上保留在視頻雲中，並將由視頻雲播放交付基礎設施提供服務。在 Brightcove Beacon UI 中，您可以手動攝取視頻雲視頻' 信息或等待後台進程這樣做。</p>
+    </section>
+
+    <section class="bcls-section">
+        <h2 id="Playlists">播放清單</h2>
+        <p>除了在Video Cloud中創建視頻資產外，還建議您在Video Cloud中創建視頻播放列表。您可以在 Video Cloud 中創建兩種類型的播放列表，<strong>手動的</strong>和<strong>聰明的</strong> .有關在Video Cloud中實現播放列表的完整詳細信息，請參見<a href="https://studio.support.brightcove.com/media/creating-and-managing-playlists.html">創建和管理播放列表</a>文檔。</p>
+        <p>如果您希望創建一個播放列表，其中包含視頻以外的其他資源，例如包括電視連續劇或現場活動，則必須在Brightcove Beacon中創建這些播放列表。</p>
+    </section>
+
+    <section class="bcls-section">
+        <h2 id="Channels_and_live_events">頻道和現場活動</h2>
+        <p>對於頻道和實時事件，需要在視頻雲中創建實時作業，然後在Brightcove Beacon中手動配置。有關詳細信息，請參見<a href="/using-brightcove-beacon/streaming-live-event.html">直播現場直播</a>和<a href="/using-brightcove-beacon/creating-a-channel.html">建立頻道</a>文件。</p>
+    </section>
+
+    <section class="bcls-section">
+        <h2 id="Series, seasons and episodes">系列、季節和劇集</h2>
+        <p>對於情景數據，您需要同時使用Brightcove信標和視頻雲。您首先必須在 Brightcove Beacon 中創建系列和相應的季節。實際的視頻劇集被攝取到 Video Cloud 中，然後使用自定義字段將視頻分配到正確的系列/季節。</p>
+        <p>有關詳細信息，請參見<a href="/using-brightcove-beacon/series-seasons-episodes.html">創建系列/季節/劇集</a>文檔。</p>
+    </section>
+
+
+
+</article>

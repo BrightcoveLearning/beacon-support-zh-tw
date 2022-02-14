@@ -1,0 +1,43 @@
+---
+title:將預告片添加到 Beacon 電影描
+description:本主題說明如何為電影添加預告片。
+parent: Using Brightcove Beacon
+---
+ <h1>{{ page.title }}</h1>
+<article class="bcls-article">
+  <summary>{{ page.description }}</summary>
+  <section class="bcls-section">
+    <h2 id="Adding_a_trailer">添加預告片</h2>
+    <p>為 Beacon 電影添加預告片很簡單。請按照以下步驟操作。</p>
+    <ol class="bcls-tasklist-restart">
+      <li>將預告片視頻上傳到您的 Video Cloud 帳戶。</li>
+      <li>
+        你做<strong>不是</strong>需要在預告片視頻中添加特殊的 Beacon 自定義字段。您所需要的只是<strong>視頻編號</strong>：
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/using-bcb/add-trailer-movie/get-trailer-video-id.png" alt="Get Video ID">
+          <figcaption class="bcls-caption--image">獲取視頻 ID</figcaption>
+        </figure>
+      </li>
+      <li>
+        對於用於 Beacon 電影的視頻，<a href="/assets/images/syncing-with-vc/vc-custom-fields">添加以下自定義字段</a>：
+        <table class="bcls-table">
+          <caption class="bcls-caption--table">預告片自定義字段</caption>
+          <thead class="bcls-table__head">
+              <tr>
+                  <th>顯示名稱</th>
+                  <th>內部名稱</th>
+                  <th>價值</th>
+              </tr>
+          </thead>
+          <tbody class="bcls-table__body">
+              <tr>
+                  <td translate="no">beacon.trailer.id</td>
+                  <td translate="no">beacon_trailer_id</td>
+                  <td translate="no">（預告片的視頻ID）</td>
+              </tr>
+          </tbody>
+      </table>
+      </li>
+    </ol>
+  </section>
+</article>

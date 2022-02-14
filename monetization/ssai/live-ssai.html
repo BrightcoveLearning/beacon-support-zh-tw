@@ -1,0 +1,278 @@
+---
+title:“實施實時SSAI"
+description:在本主題中，您將學習如何在 Brightcove Beacon 中管理和創建實時服務器端廣告配置。
+parent: SSAI 
+grandparent: Monetization
+---
+ <h1>{{ page.title }}</h1>
+<article class="bcls-article">
+  <summary>{{ page.description }}</summary>
+
+  <section class="bcls-section">
+    <h2 id="overview">概述</h2>
+
+    <p>
+      Brightcove Beacon在實時事件中支持服務器端廣告插入（SSAI），因此可以在實時流中請求並顯示服務器端廣告。注意：如果您將冗餘與SSAI一起使用，則必須同時將廣告插入該組中的所有作業。 
+    </p>
+    <p>該過程的高級視圖是：</p>
+    <ol>
+      <li>在Studio中創建廣告配置。</li>
+      <li>為您的現場直播活動創建一個填充板。</li>
+      <li>創建啟用了SSAI的直播活動。</li>
+      <li>將實時事件發佈到Brightcove Beacon。</li>
+    </ol>
+    <aside class="bcls-aside bcls-aside--information">本文件是對<a href="https://beacon.support.brightcove.com/using-brightcove-beacon/streaming-live-event.html" target="_blank">直播活動</a>指導您將 SSAI 添加到現場活動的文檔。有關如何創建事件的詳細信息，請參閱有關<a href="https://beacon.support.brightcove.com/using-brightcove-beacon/streaming-live-event.html#create" target="_blank">在 Brightcove Beacon 中創建現場活動</a> .</aside>
+
+    <p>SSAI 在 Live 活動期間提供以下主要功能：</p>
+    <ul>
+      <li>
+        由於廣告是在服務器端拼接到直播視頻流中的，因此它們不受廣告攔截器的影響。
+      </li>
+      <li>
+        廣告會插入從編碼器發送的提示點，或者您可以使用實時模塊控制室創建即時提示點。
+      </li>
+      <li>
+        你可以配置<a href="https://live.support.brightcove.com/live-module/implementing-server-side-ads-live-module.html#fill_slate" target="_blank">填充石板</a>填補任何未使用的廣告時間。
+      </li>
+    </ul>
+  </section>
+  <section class="bcls-section">
+    <h2 id="configuring-ssai">配置服務器端廣告設置</h2>
+    <p>
+      在這裡，您將創建一個SSAI廣告配置，用作將在Brightcove Beacon Live事件中顯示的廣告集。
+    </p>
+    <ol class="bcls-tasklist">
+      <li>登錄到Studio。</li>
+      <li>
+        在導航標題中，單擊<strong>行政</strong>然後選擇<strong>服務器端廣告設置</strong>。將顯示所有廣告配置的列表。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/1-studio-ssai-settings.png" />
+        </figure>
+      </li>
+      <li>
+        要創建新的廣告配置，請點擊<strong>創建廣告配置</strong>按鈕。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/2-create-ad-configuration.png" />
+        </figure>
+        <aside class="bcls-aside bcls-aside--information">還可以使用 Live API 管理服務器端直播廣告配置。有關信息，請參閱<a href="https://live.support.brightcove.com/live-api/ssai/live-api-server-side-ad-insertion-ssai.html#Create_an_ad_configuration" target="_blank">Brightcove Live API：服務器端廣告插入 (SSAI)</a> .</aside>
+      </li>
+      <li>
+        從下拉菜單中選擇<strong>居住</strong>作為一種。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/3-ad-config-live.png" />
+        </figure>
+      </li>
+      <li>
+        檢查以確保您看到了<strong>服務器端廣告設置</strong>形式。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/4-ad-config-form.png" />
+        </figure>
+      </li>
+      <li>給您的廣告配置一個<strong>名稱</strong>。</li>
+      <li>
+        選擇<strong>廣告服務器響應</strong>：
+        <ul>
+          <li><strong>廣闊的</strong></li>
+          <li><strong>DFP（廣告規則）</strong></li>
+          <li><strong>智能 XML</strong></li>
+        </ul>
+        <aside class="bcls-aside bcls-aside--information">請與您的廣告運營經理核實以選擇正確的值。</aside>
+      </li>
+      <li>輸入<strong>廣告代碼（服務器網址）</strong>。</li>
+      <li>點擊<strong>保存</strong>按鈕。</li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="configuring-slate">配置填充板</h2>
+    <p>
+      填充板岩是當實時流廣告中斷中的空白無法用動態投放的廣告填充時將顯示的視頻。如果請求的廣告短於廣告休息時間，則會顯示填充列表，因此觀眾不會看到空白的播放器。
+    </p>
+    <aside class="bcls-aside bcls-aside--information">在請求服務器端廣告之前，您應該至少配置一個填充選項板。</aside>
+    <p>要添加填充石板，請按照下列步驟操作：</p>
+    <ol class="bcls-tasklist">
+      <li>
+        點擊<strong>行政</strong> &gt; <strong>實時設置</strong> Studio標頭中的鏈接。<aside class="bcls-aside bcls-aside--information">您必須是帳戶管理員才能訪問<strong>行政</strong>菜單。</aside>
+      </li>
+      <li>
+        點擊<strong>+添加填充板岩</strong>。您應該看到以下表格：
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/5-fill-slate.png" />
+        </figure>
+      </li>
+      <li>進入一個<strong>名稱</strong>為您的填充板岩。</li>
+      <li>輸入<strong>來源網址</strong>為石板。</li>
+      <li>點擊<strong>保存</strong>。slate 的攝取過程將開始。</li>
+    </ol>
+    <p>要刪除填充板，請單擊刪除按鈕 (<img alt="" src="/assets/images/using-bcb/live-ssai/node18588-delete-icon.png" />) 旁邊的填充石板。</p>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="creating-live-ssai">創建支持SSAI的現場活動</h2>
+    <p>
+      為了使直播活動能夠使用SSAI（服務器端廣告插入），<strong>啟用服務器端廣告插入（SSAI）</strong>創建事件時必須選擇設置，並且應選擇先前創建的填充板進行播放。
+    </p>
+    <p>
+      請按照以下步驟創建在Brightcove Beacon中支持SSAI廣告的事件：
+    </p>
+    <ol class="bcls-tasklist">
+      <li>打開<strong>居住</strong> Studio中的模塊。</li>
+      <li>來自<strong>管理活動</strong>頁面上，單擊<strong>建立活動</strong>。</li>
+      <li>
+        輸入您的活動詳細信息。有關使用“直播"模塊創建直播活動的完整信息，請參閱<a href="https://live.support.brightcove.com/live-module/creating-and-managing-live-events-using-live-module.html" target="_blank">使用實時模塊創建和管理實時事件</a>。
+      </li>
+      <li>點擊<strong>高級選項</strong>擴展高級選項。</li>
+      <li>查看<strong>啟用服務器端廣告插入（SSAI）</strong>。這將啟用服務器端廣告插入。</li>
+      <li>
+        選擇一個<strong>填充石板</strong> .當直播廣告時段中存在無法用動態提供的廣告填充的空白時，將顯示填充選項卡。
+      </li>
+      <li>
+        當。。。的時候<strong>廣告音頻</strong>設置被選中，廣告上的音頻電平將根據設置的調整進行標準化。這可以用來幫助確保廣告的音量不會明顯高於內容。Brightcove建議選擇此選項。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" width="450" height="700" src="/assets/images/using-bcb/live-ssai/6-ssai-check.png" />
+        </figure>
+      </li>
+      <li>點擊<strong>建立活動</strong></li>
+      <li>
+        這<strong>控制室</strong>頁面將打開，其中包含有關現場活動的詳細信息，包括<strong>流媒體端點（RTMP URL）</strong>和<strong>流名稱</strong> .這些值將由編碼器使用。
+      </li>
+      <li>
+        配置編碼器並開始直播。<aside class="bcls-aside bcls-aside--information">要在直播平台上開始流式傳輸，您需要一個編碼器，有關如何使用編碼器的信息，請閱讀以下文檔：
+          <p>
+            <a href="https://live.support.brightcove.com/get-started/step-step-using-live-module-telestream-wirecast.html" target="_blank">一步步：將直播模塊與 Telestream Wirecast 結合使用</a>
+          </p>
+          <p>
+            <a href="https://live.support.brightcove.com/get-started/step-step-using-live-module-open-broadcaster-software-obs.html" target="_blank">一步步：將直播模塊與 Open Broadcaster Software (OBS) 結合使用</a>
+          </p>
+        </aside>
+      </li>
+      <li>
+        默認情況下，<strong>控制室</strong>預覽播放器顯示無廣告流。廣告將不會顯示在<strong>控制室</strong>除非選擇了實時廣告配置。使用下面的下拉菜單選擇播放器的廣告配置。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/7-select-ad-config.png" />
+        </figure>
+      </li>
+      <li>
+        （可選）單擊加號按鈕 (<img alt="" src="/assets/images/using-bcb/live-ssai/node18753-plus-icon.png" />) 以選擇其他廣告配置。這樣做會在<strong>控制室</strong>頁。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/8-two-preview-players.png" />
+        </figure>
+        <p>
+          單擊預覽播放器下方的音量按鈕，以控制哪個播放器音頻流處於活動狀態。
+        </p>
+      </li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="creating-live-ssai">要求廣告</h2>
+    <p>
+      請按照以下步驟在直播中請求廣告<strong>控制室</strong>：
+    </p>
+    <ol class="bcls-tasklist">
+      <li>
+        點擊<strong>轉到廣告</strong>然後從下拉列表中選擇所需的廣告休息時間。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" width="350" height="500" src="/assets/images/using-bcb/live-ssai/9-gotoad.png" />
+        </figure>
+      </li>
+      <li>
+        點擊<strong>插</strong>將廣告時段插入實時流。如果廣告沒有佔據整個廣告休息時間，則將顯示填充板岩（在創建事件時選擇）。
+      </li>
+    </ol>
+    <p>
+      廣告將顯示在<strong>控制室</strong>預覽播放器以及使用實時模塊發布的播放器中。此示例顯示了 2 個廣告顯示在<strong>控制室</strong> .
+    </p>
+    <figure class="bcls-figure">
+      <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/10-adsplayer.png" />
+    </figure>
+  </section>
+  <section class="bcls-section">
+    <h2 id="requesting-ssai">在Brightcove Beacon中發布現場活動</h2>
+    <p>
+      要在 Brightcove Beacon 中使用服務器端廣告發布直播活動，請按照以下步驟操作：
+    </p>
+    <ol class="bcls-tasklist">
+      <li>現場直播<strong>控制室</strong>點擊<strong>發布和嵌入</strong>在左側導航欄中。</li>
+      <li>
+        選擇<strong>播放器配置</strong> .
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/11-controlroom.png" />
+        </figure>
+      </li>
+      <li>在裡面<strong>實時播放器選項</strong>選擇一個<strong>可用的播放器</strong>。</li>
+      <li>
+        選擇您的<strong>廣告配置</strong>之前在<strong>服務器端廣告設置</strong> .
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/12-select-player.png" />
+        </figure>
+      </li>
+      <li>
+        選擇您的<strong>可用的播放器</strong>和<strong>廣告設定</strong>，將生成一個新的Player URL。如圖中所示，複製URL的所選部分，從單詞開始<strong>居住</strong>。例子：<strong> live.xxxxxxx</strong>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/13-player-url.png" />
+        </figure>
+      </li>
+      <li>轉到Brightcove信標平台。</li>
+      <li>
+        在Brightcove Beacon的上方菜單中，單擊<strong>廣告</strong>標籤。
+      </li>
+      <li>
+        點擊<strong>添加新配置</strong>按鈕。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/14-newadconfig.png" />
+        </figure>
+      </li>
+      <li>
+        檢查以確保您看到了<strong>新廣告</strong>形式。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/15-newadconfig-settings.png" />
+        </figure>
+      </li>
+      <li>給您的新廣告配置一個<strong>名稱</strong>。</li>
+      <li>
+        在裡面<strong>實時廣告配置ID：</strong>，粘貼<strong>播放器網址ID</strong>您剛剛從Live Platform複製而來，例如：<strong> live.xxxxx</strong>。
+      </li>
+      <li>來自<strong>提供者</strong>菜單選擇<strong>Brightcove SSAI</strong>。</li>
+      <li>點擊<strong>製作新廣告</strong>按鈕。</li>
+      <li>
+        點擊上方菜單<strong>大事記</strong>標籤，然後創建或選擇您的直播活動。有關如何創建Brightcove Beacon直播活動的更多信息，請參見<a href="https://beacon.support.brightcove.com/using-brightcove-beacon/streaming-live-event.html" target="_blank">直播現場直播</a>文檔。<aside class="bcls-aside bcls-aside--information">為使直播活動在 Brightcove Beacon 中成功流式傳輸，<strong>作業編號</strong>和<strong>流視頻 ID</strong>必須與當前 Live 事件的 ID 匹配。</aside>
+      </li>
+      <li>
+        在您的Brightcove Beacon直播活動中，單擊<strong>權利與日程安排</strong>標籤。
+      </li>
+      <li>
+        在裡面<strong>權利類型</strong>下拉菜單，選擇<strong>廣告-AVOD</strong>。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/16-ad-avod.png" />
+        </figure>
+      </li>
+      <li>
+        在裡面<strong>廣告配置</strong>底部菜單中，選擇您先前創建的廣告配置。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/17-ad-configuration.png" />
+        </figure>
+      </li>
+      <li>點擊<strong>更新事件</strong>按鈕。</li>
+      <li>
+        點擊<strong>工具</strong>屏幕右上方的（扳手）按鈕。然後清除緩存。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/18-clear-cache.png" />
+        </figure>
+      </li>
+      <li>
+        打開您的Brightcove Beacon App並選擇您的事件（事件名稱和圖像上的圖片僅出於示例目的）。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" width="400" height="700" src="/assets/images/using-bcb/live-ssai/19-app-event.png" />
+        </figure>
+      </li>
+      <li>
+        在您的Brightcove Beacon應用中，點擊<strong>玩</strong>按鈕。您現在應該能夠看到您的直播事件流，以及 SSAI 從 Video Cloud 插入的廣告。
+      </li>
+    </ol>
+    <p>
+      活動結束後，您可以將其全部或部分保存為片段，該片段成為Video Cloud中的視頻資產或可以在Brightcove Beacon中顯示的可播放流。不會保存直播活動的廣告，但會註冊傳輸廣告的提示點，以便您可以在錄製的直播活動的後續 VOD 中添加新廣告。
+    </p>
+    <p>
+      有關如何創建剪輯的更多信息，請參閱<a href="https://beacon.support.brightcove.com/using-brightcove-beacon/streaming-live-event.html#Clip" target="_blank">從您的現場活動創建剪輯</a>部分來自 <em>直播活動</em> 文檔。
+    </p>
+  </section>
+</article>

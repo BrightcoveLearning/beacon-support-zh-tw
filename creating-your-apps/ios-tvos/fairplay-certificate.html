@@ -1,0 +1,144 @@
+---
+title: 'FairPlay 證書註冊'
+description: '在本主題中，您將了解 Apple 創建 FairPlay Streaming (FPS) DRM 證書的過程。'
+parent: 'iOS/tvOS' 
+grandparent: 'Creating Your Apps'
+---
+ <h1>{{ page.title }}</h1>
+<article class="bcls-article">
+  <summary>{{ page.description }}</summary>
+  <section class="bcls-section">
+    <h2 id="required-information">概述</h2>
+
+    <p> <a href="https://developer.apple.com/streaming/fps/" target="_blank">FairPlay流</a>是Apple的DRM解決方案，用於使用HLS（HTTP實時流傳輸）協議安全地傳輸流媒體。 </p>
+    <p>為了能夠使用蘋果的<strong>FairPlay 流媒體 (FPS)</strong> DRM，用戶應獲取<strong>FPS 部署包</strong>來自 Apple，並向您的 Brightcove 代表提供以下信息：
+        <ul>
+            <li>FPS 證書文件<strong>.der 或 .cer</strong></li>
+            <li>私鑰文件<strong>.pem</strong></li>
+            <li>私鑰密碼字符串</li>
+            <li>應用程序密鑰（ASK）字符串</li>
+
+        </ul>
+
+    </p>
+   
+
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="required-information">第1步：註冊蘋果開發者賬號併申請部署包</h2>
+
+    <ol class="bcls-tasklist">
+        <li>輸入您的Apple開發人員帳戶以獲取FPS部署軟件包。如果您沒有。<a href="https://developer.apple.com/support/enrollment/" target="_blank">註冊</a> .</li>
+        <li>單擊FairPlay Streaming網站底部的“請求部署軟件包"鏈接，然後使用您的Apple開發人員帳戶登錄。</li>
+    </ol>
+    <p>根據輸入表單申請“部署軟件包"後，在Apple確認後，您將獲得包含FPS憑證創建指南文檔的軟件包。  </p>
+    <aside class="bcls-aside bcls-aside--information">在申請過程中，會詢問您是否已完成密鑰服務器模塊（KSM）的實施和測試。請回答：“我正在使用第 3 方 DRM 服務，該公司已經構建並測試了密鑰服務器模塊”。</aside>
+
+  </section>
+  <section class="bcls-section">
+    <h2 id="required-information">第2步：創建私鑰和證書籤名請求（CSR） </h2>
+    <p>下一步是創建私鑰<strong>私鑰.pem</strong>文件和證書籤名請求<strong>證書文件</strong>參考包中的指南文件。 </p>
+    <aside class="bcls-aside bcls-aside--information">OpenSSL 必須安裝在執行此過程的 PC 或服務器環境中。</aside>
+
+    <p>以下步驟描述了生成 CSR 文件的 OpenSSL 方法：</p>
+
+    <ol class="bcls-tasklist-restart">
+        <li>打開OpenSSL命令行工具。</li>
+        <li>產生<strong>私鑰文件：privatekey.pem</strong>通過鍵入並運行以下命令。
+
+            <pre class="line-numbers">
+                <code class="command-line" translate="No">openssl genrsa -aes256 -out privatekey.pem 1024 </code></pre>   
+        </li>
+        <li>輸入私鑰的密碼，並將其保存以備後用。<aside class="bcls-aside bcls-aside--information">密碼應少於 32 個字符，不允許使用特殊字符。</aside>
+        </li>
+        <li>產生<strong>證書籤名請求</strong>通過鍵入並運行以下命令來添加文件。<aside class="bcls-aside bcls-aside--information">的內容<strong>-subj</strong>可以修改參數以適合您組織的信息。</aside>
+            <pre class="line-numbers">
+<code class="command-line" translate="No">openssl req -new -sha1 -key privatekey.pem -out certreq.csr -subj "/CN=SubjectName/OU=OrganizationalUnit/O=Organization/C=US"</code></pre>
+        </li>
+        <li>輸入<strong>私鑰</strong>密碼。 </li>
+        
+    </ol>
+
+  </section>
+  <section class="bcls-section">
+    <h2 id="required-information">第 3 步：在Apple Developer Portal上創建FPS證書</h2>
+    <ol class="bcls-tasklist">
+
+    <li>登錄到<strong>蘋果開發者門戶</strong>然後點擊<strong>證書，ID和配置文件</strong>在左側菜單上。
+        <figure class="bcls-figure">
+            <img
+              class="bcls-image--no-border"
+              alt=""
+              width="600"
+              height="1000"
+              src="/assets/images/creating-your-apps/fairplay-reg/left-menu.png"/>
+          </figure>
+    </li>
+    <li>在裡面<strong>證書</strong>副標題點擊  
+        <img
+          class="bcls-image--no-border"
+          alt=""
+          width="20"
+          height="20"
+          src="/assets/images/creating-your-apps/fairplay-reg/blue-button.png"/> 按鈕。
+
+          <figure class="bcls-figure">
+            <img
+              class="bcls-image--no-border"
+              alt=""
+              width="600"
+              height="600"
+              src="/assets/images/creating-your-apps/fairplay-reg/plus-button.png"/>
+          </figure>
+
+
+    </li>
+    <li>在<strong>創建一個新證書</strong>部分，選擇<strong>FairPlay流媒體證書</strong>選項。 
+      <figure class="bcls-figure">
+        <img
+          class="bcls-image--no-border"
+          alt=""
+          width="800"
+          height="600"
+          src="/assets/images/creating-your-apps/fairplay-reg/create-cert.png"/>
+      </figure>
+    </li>
+    <li>點擊<strong>繼續</strong>。</li>
+    <li>點擊<strong>選擇文件</strong>。 
+      <figure class="bcls-figure">
+        <img
+          class="bcls-image--no-border"
+          alt=""
+          width="800"
+          height="600"
+          src="/assets/images/creating-your-apps/fairplay-reg/upload-file.png"/>
+      </figure>
+    </li>
+    <li>選擇<strong>證書文件</strong>使用 OpenSSL 創建的文件。 </li>
+    <li>點擊<strong>繼續</strong>。</li>
+    <li> 複製<strong>應用密鑰</strong>由Apple提供，並安全存儲。如果ASK被盜，您將不再能夠使用FPS保護您的內容。 
+      <figure class="bcls-figure">
+        <img
+          class="bcls-image--no-border"
+          alt=""
+          width="800"
+          height="600"
+          src="/assets/images/creating-your-apps/fairplay-reg/ask-file.png"/>
+      </figure>
+    
+    
+    </li>
+    <li>將ASK粘貼在提供的空間中。</li>
+    <li>點擊<strong>繼續</strong></li>
+    <li>點擊<strong>產生</strong>出現彈出窗口時，請單擊，以確認您已經保存了應用程序安全密鑰。</li>
+    <li>點擊<strong>證明書</strong>在左側菜單中，以在列表中查看您的FairPlay流式證書。 </li>
+    <li>單擊您的證書。</li>
+    <li>點擊<strong>下載</strong>按鈕以保存FPS證書文件：<strong>公平競賽</strong>。</li>
+    <li>下載後<strong>FPS證書</strong>文件，請與您的Brightcove客戶經理聯繫以完成此過程。</li>
+  
+    </ol>
+
+  </section>
+
+</article>

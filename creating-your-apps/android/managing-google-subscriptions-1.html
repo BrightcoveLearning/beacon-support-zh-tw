@@ -1,0 +1,105 @@
+---
+title:“管理Google訂閱的第1部分"
+description:“在本主題中，您將學習如何創建和配置服務帳戶。這是在 Brightcove Beacon 應用程序和 Google 商店之間建立通信的更大過程的第一部分。”
+parent: "android"
+layout: staging
+---
+ <h1>{{ page.title }}</h1>
+<article class="bcls-article">
+  <summary>{{ page.description }}</summary>
+
+  <section class="bcls-section">
+    <h2 id="section-name">介紹</h2>
+    <p>本文檔將引導您使用 Google Play Console 創建服務帳戶，然後執行一些配置任務。</p>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Create_a_service_account">創建服務帳號</h2>
+    <p>執行以下步驟來創建服務帳戶：</p>
+    <ol class="bcls-tasklist">
+      <li>瀏覽到<a href="https://play.google.com/console">Google Play控制台</a>。</li>
+      <li>點擊右上角的<strong>轉到播放控制台</strong>。</li>
+      <li>在左側導航中，選擇<strong>設置→開發者帳戶→API訪問</strong>。
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/gpc-server-server-subscriptions/gpc-first-nav-steps.png" alt="Settings > Developer Account > API access" width="268">
+        </figure>
+      </li>
+      <li>點擊<strong>建立新的服務帳戶</strong>。
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/gpc-server-server-subscriptions/create-service-account.png" alt="create service account">
+        </figure>
+      </li>
+      <li>在出現的對話框中，單擊<strong>Google Cloud Platform</strong>。
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/gpc-server-server-subscriptions/create-new-service-account-dialog.png" alt="new service account dialog">
+        </figure>
+      </li>
+      <li>在您重定向到的頁面中，單擊<strong>+創建服務帳戶</strong>。
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/gpc-server-server-subscriptions/iam-admin-redirect.png" alt="service accounts">
+        </figure>
+      </li>
+      <li>在打開的對話框中，對於<strong>服務帳號名稱</strong>進入 <samp>安卓訂閱</samp> 然後點擊<strong>創建</strong> .
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/gpc-server-server-subscriptions/create-service-account-1.png" alt="enter service account name">
+        </figure>
+      </li>
+      <li>在第 2 步中，從下拉列表中選擇<strong>角色</strong>成為 <samp>所有者</samp> 然後點擊<strong>繼續</strong> .
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/gpc-server-server-subscriptions/create-service-account-2.png" alt="choose role">
+        </figure>
+      </li>
+      <li>在第3步中，單擊<strong>完畢</strong>。
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/gpc-server-server-subscriptions/create-service-account-3.png" alt="click done">
+        </figure>
+      </li>
+    </ol>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Configure_the_service_account">配置服務帳戶</h2>
+    <p>執行以下步驟來配置您的服務帳戶：</p>
+    <ol class="bcls-tasklist">
+      <li>對於剛剛創建的服務帳戶，在<strong>動作</strong>單擊三個垂直點。然後點擊<strong>管理密鑰</strong> .
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/gpc-server-server-subscriptions/manage-keys.png" alt="manage keys">
+        </figure>
+      </li>
+      <li>在裡面<strong>按鍵</strong>信息，選擇<strong>添加密鑰→創建新密鑰</strong>
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/gpc-server-server-subscriptions/create-new-key.png" alt="create new key">
+        </figure>
+      </li>
+      <li>從私鑰信息中，留下<strong>鑰匙類型</strong>成為 <samp>JSON格式</samp>，然後單擊<strong>創建</strong> .
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/gpc-server-server-subscriptions/create-json-private-key.png" alt="json private key">
+        </figure>
+      </li>
+      <li>確保您看到此消息顯示：
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/gpc-server-server-subscriptions/private-key-saved.png" alt="private key saved verification">
+        </figure>
+      </li>
+      <li>您需要將私鑰文件通過電子郵件發送給您的入職經理。</li>
+      <li>您可以關閉在步驟 5 中打開的選項卡，然後單擊<strong>完畢</strong>從啟動您的服務帳戶創建過程的對話框中。
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/gpc-server-server-subscriptions/click-done.png" alt="click done">
+        </figure>
+      </li>
+      <li>在裡面<strong>服務帳號</strong>部分，單擊<strong>授予訪問權限</strong>新創建的服務帳戶旁邊。
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/gpc-server-server-subscriptions/click-grant-access.png" alt="grant access">
+        </figure>
+      </li>
+      <li>來自<strong>邀請用戶</strong>頁面，在<strong>帳戶權限</strong>部分中，單擊<strong>管理員（所有權限）</strong>複選框。
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/gpc-server-server-subscriptions/admin-permissions.png" alt="grant admin permissions">
+        </figure>
+      </li>
+      <li>在頁面的右下角，單擊<span class="button-blue">邀請用戶</span>。</li>
+      <li>在打開的對話框中，單擊<span class="button-blue">發送邀請</span>。</li>
+    </ol>
+  </section>
+
+</article>

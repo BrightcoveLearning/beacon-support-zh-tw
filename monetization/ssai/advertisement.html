@@ -1,0 +1,73 @@
+---
+title:“製作廣告”
+description:“在本主題中，您將學習如何創建可以添加視頻內容的廣告配置。”
+parent: "Monetization"
+---
+ <h1>{{ page.title }}</h1>
+<article class="bcls-article">
+  <summary>{{ page.description }}</summary>
+
+  <section class="bcls-section">
+    <h2 id="Overview">概述</h2>
+    <p>要創建廣告配置，您需要執行以下操作：</p>
+    <ul>
+      <li>從您的廣告服務提供商處獲取廣告標籤服務器 URL。這將在 Video Cloud Studio 中用於創建您的 SSAI 廣告配置。</li>
+      <li>在 Video Cloud Studio 中，創建您的 SSAI 廣告配置。任務完成後，您將復制廣告服務器 ID 以在 Brightcove Beacon Classic 中創建廣告配置。</li>
+      <li>在 Brightcove Beacon Classic 中創建您的廣告配置，然後您就可以將其應用於您的視頻內容。</li>
+    </ul>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="section-name">創建 SSAI 廣告配置 ID</h2>
+    <p>按照以下步驟創建 SSAI 廣告配置：</p>
+    <ol class="bcls-tasklist-restart">
+      <li>在 Video Cloud Studio 中，導航到<strong>管理 → 服務器端廣告設置</strong> .</li>
+      <li>
+        來自<span class="blue-button">創建廣告配置</span>下拉，選擇<strong>點播</strong>
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/using-bcb/ad-targeting/create-vod-ad-config.png" alt="Create VOD Ad Config">
+          <figcaption class="bcls-caption--image">創建VOD廣告配置</figcaption>
+        </figure>
+      </li>
+      <li>為廣告配置添加名稱。
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/using-bcb/advertisement/ssai-config-vod.png" alt="SSAI Configuration VOD">
+          <figcaption class="bcls-caption--image">SSAI 配置點播</figcaption>
+        </figure>
+      </li>
+      <li>選擇您的廣告響應 - 建議使用 VMAP 或 VAST。如果您使用 VAST，則需要向視頻添加提示點以指定廣告插播位置應出現的位置。</li>
+      <li>粘貼您的廣告代碼。</li>
+      <li>點擊<strong>保存</strong>。</li>
+      <li>在表中找到您的新廣告配置並複制您的廣告配置 ID。您將需要此值用於 Beacon 廣告配置。
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/using-bcb/ad-targeting/copy-ad-config-id.png" alt="copy ad config ID">
+          <figcaption class="bcls-caption--image">複製廣告配置 ID</figcaption>
+        </figure>
+      </li>
+    </ol>
+  </section>
+
+
+  <section class="bcls-section">
+    <h2 id="Advertisement">創建廣告配置</h2>
+    <p>要創建廣告配置，請按照下列步驟操作：</p>
+    <ol class="bcls-tasklist">
+      <li>在 Brightcove Beacon Classic 中，在頂部導航中選擇<strong>廣告</strong> .
+        <figure class="bcls-figure"> <img class="bcls-image" src="/assets/images/using-bcb/advertisement/new-advertisement.png" alt="New advertisement" />
+          <figcaption class="bcls-caption--image">新廣告</figcaption>
+        </figure>
+      </li>
+      <li>
+        點擊<span class="button-teal">添加新配置</span> .
+      </li>
+      <li>命名廣告配置。</li>
+      <figure class="bcls-figure">
+        <img class="bcls-image" src="/assets/images/using-bcb/advertisement/advertising-configuration.png" alt="Beacon Ad Configuration Live">
+        <figcaption class="bcls-caption--image">信標廣告配置實時</figcaption>
+      </figure>
+      <li>為了<strong>提供者</strong>選擇<strong>Brightcove SSAI</strong></li>
+      <li>粘貼在<strong>SSAI 廣告配置 ID</strong>在上面的步驟中復製到<strong>VOD 廣告配置 ID</strong> .</li>
+      <li>點擊<span class="button-teal">創建新廣告</span> .</li>
+    </ol>
+  </section>
+</article>

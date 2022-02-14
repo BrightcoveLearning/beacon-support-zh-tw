@@ -1,0 +1,174 @@
+---
+title:“管理Google訂閱的第2部分"
+description:“在本主題中，您將學習如何配置 Google 訂閱' 發布者/訂閱者數據交換。這是在 Brightcove Beacon 應用程序和 Google 商店之間建立通信的更大過程的第二部分。”
+parent: "android"
+layout: "staging"
+---
+ <h1>{{ page.title }}</h1>
+<article class="bcls-article">
+  <summary>{{ page.description }}</summary>
+
+  <section class="bcls-section">
+    <aside class="bcls-aside bcls-aside--warning">完成本文檔中的步驟依賴於之前完成的工作<a href="/creating-your-apps/android/managing-google-subscriptions-1.html">管理 Google 訂閱第 1 部分</a> .</aside>
+    <h2 id="Introduction">介紹</h2>
+    <p>本文檔將指導您使用 Google Cloud Platform 創建一個<strong>發布/訂閱主題</strong>並將之前創建的服務帳戶添加到 Pub/Sub 主題。</p>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Create_a_Pub/Sub_topic">創建發布/訂閱主題</h2>
+    <p>執行以下步驟來創建發布/訂閱主題：</p>
+    <ol class="bcls-tasklist">
+      <li>瀏覽到 Google Cloud 平台的索引頁面 ( <a href="https://cloud.google.com/"> https://cloud.google.com</a>）。</li>
+      <li>點擊<strong>安慰</strong>屏幕右上角的鏈接。
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/gcp-pub-sub-subscription-notifications/first-page-click-console.png" alt="click console">
+        </figure>
+      </li>
+      <li>選擇正確的項目。您很可能已經圍繞您的應用命名了您的項目，例如<strong>信標</strong> .
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/gcp-pub-sub-subscription-notifications/choose-project.png" alt="choose project">
+        </figure>
+      </li>
+      <li>在裡面<strong>搜索</strong>， 進入 <samp>酒館</samp>，一旦出現，點擊<strong>發布/訂閱</strong> .
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/gcp-pub-sub-subscription-notifications/search-4-pub.png" alt="search for pub/sub">
+        </figure>
+      </li>
+      <li>來自<strong>發布/訂閱</strong>頁面上，單擊<strong>創建主題</strong>。
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/gcp-pub-sub-subscription-notifications/click-create-topic.png" alt="click create topic">
+        </figure>
+      </li>
+      <li>在裡面<strong>創建主題</strong>對話框，輸入<strong>主題 ID</strong>成為 <samp>潛艇</samp>，然後單擊<strong>創建主題</strong> .
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/gcp-pub-sub-subscription-notifications/create-topic-dialog.png" alt="sub for topic ID">
+        </figure>
+      </li>
+      <li>在出現的頁面上，單擊←返回到<strong>話題</strong>頁。
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/gpc-server-server-subscriptions/back-to-topics-left-arrow.png" alt="back to topics">
+        </figure>
+      </li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Add_a_member_to_the_topic">將成員添加到主題</h2>
+    <p>執行以下步驟以將服務帳戶添加為“發布/訂閱"主題的成員：</p>
+    <ol class="bcls-tasklist">
+      <li>來自<strong>話題</strong>頁面，用於<strong>潛艇</strong>主題，單擊<strong>更多操作</strong>（三個垂直點），然後從下拉列表中選擇<strong>查看權限</strong>。
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/gpc-server-server-subscriptions/more-actions-permissions.png" alt="view permissions">
+        </figure>
+      </li>
+      <li>在權限面板中，單擊<strong>新增會員</strong>。<figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/gpc-server-server-subscriptions/add-member.png" alt="click add member">
+        </figure>
+      </li>
+      <li>確認您正在查看以下表格：
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/gpc-server-server-subscriptions/empty-subs-member-form.png" alt="add member form">
+        </figure>
+      </li>
+      <li>要獲取所需的電子郵件地址，請瀏覽到<a href="https://console.cloud.google.com/iam-admin/serviceaccounts?project=pc-api-8769861187782665707-545">Google Cloud Console - 服務帳號</a>頁。您將在<a href="/creating-your-apps/android/managing-google-subscriptions-1.html">管理 Google 訂閱第 1 部分</a>文檔。複製該電子郵件地址<strong>Android訂閱</strong>（或您選擇的名稱）服務帳戶。
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/gpc-server-server-subscriptions/copy-email.png" alt="">
+        </figure>
+      </li>
+      <li>返回到<strong>新增成員</strong>形成<strong>Google Cloud Platform</strong>。</li>
+      <li>將檢索到的電子郵件地址粘貼到<strong>新成員</strong>文本域。</li>
+      <li>對於角色，選擇<strong>發布/訂閱→發布/訂閱發布者</strong>。</li>
+      <li>點擊<strong>發送通知電子郵件</strong>複選框，然後添加一條消息。</li>
+      <li>確認您的表格填寫如下：
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/gpc-server-server-subscriptions/new-member-completed-form.png" alt="filled in form">
+        </figure>
+      </li>
+      <li>點擊<strong>保存</strong>。</li>
+      <li>
+        <p>接下來，您將添加另一個成員電子郵件。這將有助於確保收到 google play 通知</p>
+        在權限面板中，單擊<strong>新增會員</strong>。<figure class="bcls-figure">
+        <img class="bcls-image" src="/assets/images/creating-your-apps/android/gpc-server-server-subscriptions/add-member.png" alt="click add member">
+      </figure>
+    </li>
+    <li>確認您正在查看以下表格：
+      <figure class="bcls-figure">
+        <img class="bcls-image" src="/assets/images/creating-your-apps/android/gpc-server-server-subscriptions/empty-subs-member-form.png" alt="add member form">
+      </figure>
+    </li>
+    <li>添加以下成員電子郵件：
+      <pre>
+<code class="language-html" translate="No">google-play-developer-notifications@system.gserviceaccount.com</code></pre>
+    </li>
+    <li>
+      將角色設置為<strong>發布/訂閱編輯器</strong> .
+      <figure class="bcls-figure">
+        <img class="bcls-image" src="/assets/images/creating-your-apps/android/gpc-server-server-subscriptions/member-email2.png" alt="add member2 form">
+      </figure>
+    </li>
+    <li>
+      接下來，選擇<strong>訂閱</strong> .
+      <figure class="bcls-figure">
+        <img class="bcls-image" src="/assets/images/creating-your-apps/android/gpc-server-server-subscriptions/select-subscriptions.png" alt="Select Subscriptions">
+      </figure>
+    </li>
+    <li>
+      選擇<strong>創建訂閱</strong> .
+      <figure class="bcls-figure">
+        <img class="bcls-image" src="/assets/images/creating-your-apps/android/gpc-server-server-subscriptions/create-subscription.png" alt="Create Subscription">
+      </figure>
+    </li>
+    <li>
+      進入一個<strong>訂閱號</strong>的價值 <samp>潛艇</samp>.來自<strong>選擇 Cloud Pub/Sub 主題</strong>下拉菜單，選擇一個主題。
+      <figure class="bcls-figure">
+        <img class="bcls-image" src="/assets/images/creating-your-apps/android/gpc-server-server-subscriptions/subscription-topic.png" alt="Subscription ID and topic">
+      </figure>
+    </li>
+    <li>點擊<strong>創造</strong>。</li>
+
+      <li>來自<strong>話題</strong>頁上，單擊<strong>潛艇</strong>話題。
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/gpc-server-server-subscriptions/click-on-subs.png" alt="click subs">
+        </figure>
+      </li>
+      <li>來自<strong>主題詳情</strong>，複製<strong>主題名稱</strong>（請注意，有一個內置的複制按鈕，用紅色框出）。
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/gpc-server-server-subscriptions/copy-topic-name.png" alt="copy topic name">
+        </figure>
+      </li>
+      <li>將此名稱發送給您的入職經理。
+      </li>
+    </ol>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Verify_your_setup">驗證您的設置</h2>
+    <aside class="bcls-aside bcls-aside--information">此部分通常由 Brightcove 入職或 cms 團隊完成。</aside>
+    <p>按照以下步驟驗證發布者/訂閱者數據交換的通知。</p>
+    <ol class="bcls-tasklist-restart">
+      <li>在瀏覽器中，導航到 Google Play 控制台 ( <a href="https://play.google.com/console/"> https://play.google.com/console/</a>）。</li>
+      <li>搜索<strong>酒館</strong> .
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/gpc-server-server-subscriptions/search-pubs.png" alt="Search for pubs">
+        </figure>
+      </li>
+      <li>選擇<strong>貨幣化</strong> .</li>
+      <li>選擇您的應用。
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/gpc-server-server-subscriptions/choose-app.png" alt="Choose your app">
+        </figure>
+      </li>
+      <li>輸入主題。
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/gpc-server-server-subscriptions/monetization-topic.png" alt="Enter the topic">
+        </figure>
+      </li>
+      <li>選擇<strong>發送測試通知</strong> .</li>
+      <li>如果您的設置正確，您應該會看到以下內容。請注意，在 Google Cloud 上傳播配置需要一些時間。
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/creating-your-apps/android/gpc-server-server-subscriptions/test-notification-msg.png" alt="Test notification msg">
+        </figure>
+      </li>
+    </ol>
+
+  </section>
+</article>

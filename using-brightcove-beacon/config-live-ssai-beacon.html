@@ -1,0 +1,88 @@
+---
+title:使用 Brightcove Beacon 頻道為實時 SSAI 配置廣告
+description: '在本主題中，您將學習如何將實時 SSAI 廣告設置為 Brightcove Beacon 頻道。'
+parent: Using Brightcove Beacon
+---
+ <h1>{{ page.title }}</h1>
+<article class="bcls-article">
+    <summary>{{ page.description }}</summary>
+
+    <section class="bcls-section">
+        <aside class="bcls-aside bcls-aside--information">僅當使用 SSAI 啟用直播頻道時才需要此直播廣告配置過程。如果不是，則不需要這些步驟。</aside>
+        <h2 id="Prerequisites">先決條件</h2>
+
+        <ul>
+            <li><a href="https://live.support.brightcove.com/live-module/implementing-server-side-ads-live-module.html" target="_blank">在 Video Cloud 中創建啟用了 SSAI 的直播頻道。</a></li>
+            <li><a href="https://studio.support.brightcove.com/admin/configuring-server-side-ad-settings.html#live" target="_blank">在 Video Cloud 中創建和設置廣告標籤。</a></li>
+            <li><a href="https://beacon.support.brightcove.com/using-brightcove-beacon/creating-a-channel.html" target="_blank">在 Brightcove Beacon 中創建一個通道。</a></li>
+            <li>在 Brightcove Beacon 中創建廣告配置。</li>
+            <li>在頻道中設置權限和調度。</li>
+        </ul>
+
+    </section>
+
+    <section class="bcls-section">
+        <h2 id="Prerequisites">使用 Brightcove Beacon 配置視頻雲廣告 </h2>
+
+        <ol class="bcls-tasklist-restart">
+            <li>在 Video Cloud Studio 中選擇<strong>居住</strong>模塊。</li>
+            <li>創建或打開要與 Brightcove Beacon 一起使用的實時 SSAI 頻道。 </li>
+            <li>在裡面<strong>控制室</strong>， 點擊<strong>發布和嵌入</strong>從左側面板。
+                <figure class="bcls-figure">
+                    <img class="bcls-image--no-border" src="/assets/images/using-bcb/ssai-beacon/live-player-options.png" alt="" width="" height="" />
+                </figure>
+            </li>
+            <li>在裡面<strong>實時播放器選項</strong>部分，從下拉列表中選擇<strong>廣告配置</strong>你想設置。</li>
+            <li>一旦選擇了一個新的<strong>標準嵌入代碼</strong>會出現。 </li>
+            <li>提取<strong>廣告配置 ID</strong>通過複製分配給 adConfigId 的 URL 的一部分，如圖所示。
+                <figure class="bcls-figure">
+                    <img class="bcls-image--no-border" src="/assets/images/using-bcb/ssai-beacon/configid.png" alt="" width="" height="" />
+                </figure>
+            </li>
+            
+        </ol>
+
+    </section>
+
+    <section class="bcls-section">
+        <h2 id="Prerequisites">在 Brightcove Beacon 中創建廣告</h2>
+
+        <ol class="bcls-tasklist-restart">
+            <li>返回 Brightcove Beacon 平台。</li>
+            <li>點擊<strong>廣告</strong> .
+                <figure class="bcls-figure">
+                    <img class="bcls-image--no-border" src="/assets/images/using-bcb/ssai-beacon/paste-configid.png" alt="" width="" height="" />
+                </figure>
+            </li>
+            <li>創建或選擇您要設置的廣告配置。 </li>
+            <li>對於一個新的廣告，給它一個<strong>姓名</strong> .</li>
+            <li>請確保<strong>提供者</strong>被設定為<strong>Brightcove SSAI</strong> .</li>
+            <li>在裡面<strong>實時配置 ID</strong>字段，粘貼<strong>廣告配置 ID</strong>您在本文檔上一部分中復制的 URL。</li>
+            <li>點擊<strong>創建新廣告</strong> .</li>
+            
+        </ol>
+
+        </section>
+
+        <section class="bcls-section">
+            <h2 id="Prerequisites">在 Brightcove Beacon 中設置權限和調度</h2>
+            <ol class="bcls-tasklist-restart">
+                <li>在頂部導航中，單擊<strong>頻道</strong> .
+                    <figure class="bcls-figure">
+                        <img class="bcls-image--no-border" src="/assets/images/using-bcb/ssai-beacon/rigthsandsche.png" alt="" width="" height="" />
+                    </figure>
+                </li>
+                <li>選擇要設置 SSAI 配置的通道。</li>
+                <li>點擊<strong>權利與日程安排</strong>標籤。</li>
+                <li>在<strong>權限類型</strong>， 選擇<strong>廣告 - AVOD</strong> .</li>
+                <li>在<strong>廣告配置</strong>，從下拉列表中選擇剛剛創建的廣告配置。</li>
+                <li>點擊<strong>創建新頻道</strong>以保存您的工作。 
+                    <figure class="bcls-figure">
+                        <img class="bcls-image--no-border" src="/assets/images/using-bcb/ssai-beacon/create-button.png" alt="" width="300" height="100" />
+                    </figure>
+                </li>
+            </ol>
+
+            </section>
+
+    </article>

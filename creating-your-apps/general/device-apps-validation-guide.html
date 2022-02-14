@@ -1,0 +1,172 @@
+---
+title: '設備應用驗證指南'
+description: '在本主題中，您將學習驗證行為或設備應用程序的信息，以便您可以將它們提交到相應的商店。'
+parent: 'General'
+---
+ <h1>{{ page.title }}</h1>
+<article class="bcls-article">
+  <summary>{{ page.description }}</summary>
+  <section class="bcls-section">
+    <h2 id="Overview">概述</h2>
+    <p>
+      在Brightcove Beacon Experience的應用程序開發過程中的某個時刻，您將獲得測試版本，以確保應用程序按您的意願運行。本文檔將提供有關以下各項的信息：
+    </p>
+    <ul>
+      <li><em>測試類別</em>：定義廣泛的測試區域。</li>
+      <li>
+        <em>提示</em>：執行測試時要遵循的建議和見解。
+      </li>
+      <li>
+        <em>正在匯報</em>：如果您在測試中遇到問題，請遵循以下步驟。
+      </li>
+    </ul>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Before_you_start">在你開始之前</h2>
+    <p>確保您已設置好進行正確的測試。確保以下幾點：</p>
+    <ul>
+      <li>測試人員手頭有所有需要的測試設備。</li>
+      <li>出於兼容性考慮，用於測試的設備的使用年限不應超過三年。在本文檔的稍後部分，將為每個平台指定所需的最低版本。</li>
+    </ul>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Testing_categories">測試類別</h2>
+    <p>
+      Brightcove建議對以下領域進行測試並回答問題：
+    </p>
+    <ul>
+      <li>
+        設計與特點：
+        <ul>
+          <li>體驗是否與商定的模型相符？</li>
+          <li>所有要求的功能都可用嗎？</li>
+        </ul>
+      </li>
+      <li>
+        頁面佈局和內容：
+        <ul>
+          <li>頁面設置是否符合預期？</li>
+          <li>預期內容顯示在每個頁面中嗎？</li>
+        </ul>
+      </li>
+      <li>
+        營利設定：
+        <ul>
+          <li>廣告是否按預期顯示？</li>
+          <li>
+            訂閱是否顯示對應資產？
+          </li>
+          <li>
+            用戶能否按預期購買並獲得內容的權利？
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Supported_platforms_and_versions">支持的平台和版本</h2>
+    <p>下面列出了應用於指導測試的受支持平台和版本。</p>
+    <ul>
+      <li>網絡
+        <ul>
+          <li>Chrome – 當前版本和 current-1 版本</li>
+          <li>Safari - 當前版本和 current-1 版本</li>
+          <li>Edge - 當前版本和 current-1 版本</li>
+          <li>Firefox - 當前版本和 current-1 版本</li>
+        </ul>
+      </li>
+      <li>Apple iOS（手機/平板電腦）
+        <ul>
+          <li>蘋果 iOS 13 及更高版本</li>
+          <li>有關更多信息，請參閱<a href="/creating-your-apps/ios-tvos/installing-ios-test-build.html">安裝 iOS/tvOS 測試版本</a>文檔</li>
+        </ul>
+      </li>
+      <li>蘋果 tvOS
+        <ul>
+          <li>tvOS 12 及更高版本</li>
+          <li>有關更多信息，請參閱<a href="/creating-your-apps/ios-tvos/installing-ios-test-build.html">安裝 iOS/tvOS 測試版本</a>文檔</li>
+        </ul>
+      </li>
+      <li>谷歌安卓
+        <ul>
+          <li>Android 5 及更高版本</li>
+          <li>有關更多信息，請參閱<a href="/creating-your-apps/android/installing-android-test-build.html">安裝 Android 測試版本</a>文檔</li>
+        </ul>
+      </li>
+      <li>谷歌安卓電視
+        <ul>
+          <li>Android 5 及更高版本</li>
+          <li>有關更多信息，請參閱<a href="/creating-your-apps/android/installing-android-test-build.html">安裝 Android 測試版本</a>文檔</li>
+        </ul>
+      </li>
+      <li>羅庫
+        <ul>
+          <li>Roku OS 9.1 及更高版本</li>
+          <li>有關更多信息，請參閱<a href="/creating-your-apps/roku/installing-roku-test-build.html">安裝 Roku 測試版本</a>文檔</li>
+        </ul>
+      </li>
+      <li>亞馬遜消防電視
+        <ul>
+          <li>Fire OS 5.0 及更高版本</li>
+          <li>有關更多信息，請參閱<a href="/creating-your-apps/fire-tv/installing-fire-tv-test-build.html">安裝 Fire TV 測試版本</a>文檔</li>
+        </ul>
+      </li>
+      <li>三星智能電視
+        <ul>
+          <li>泰森 2018、2019、2020</li>
+        </ul>
+      </li>
+      <li>索尼 Bravia 智能電視
+        <ul>
+          <li>Android TV 5.0+ 及更高版本</li>
+        </ul>
+      </li>
+      <li>東芝智能電視
+        <ul>
+          <li>Android TV 5.0+ 及更高版本和/或 Fire OS 5.0 及更高版本</li>
+          <li>有關更多信息，請參閱<a href="/creating-your-apps/android/installing-android-test-build.html">安裝 Android 測試版本</a>文檔</li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Tips">提示</h2>
+    <p>執行驗證時，請考慮以下提示：</p>
+    <ul>
+      <li>
+        <strong>首過</strong>：選擇一個平台，然後在該平台上進行不同的測試區域。從...開始 <em>設計和特點</em>，然後繼續 <em>頁面佈局和內容</em> 最後到 <em>貨幣化設置</em> 測試。
+      </li>
+      <li>
+        <strong>額外的測試</strong>：完成每個區域的第一遍操作後，請繼續使用其他可用的平台。如果問題適用於多個平台，請在以前報告的任何票證中註明。
+      </li>
+      <li>
+        <strong>測試修復</strong>：所報告問題的修復將在以下三個領域之一中：
+        <ul>
+          <li>Brightcove Beacon 體驗（無需更新應用程序）</li>
+          <li>在應用程序中</li>
+          <li>Brightcove Beacon 後端</li>
+        </ul>
+        <p>
+          如果該修復程序在應用程序中，則會提供一個新版本，其中包含已修復內容的詳細信息。對於其他區域，Brightcove將在故障單中提供有關已修復問題的詳細信息。為了加快修復和重新測試的速度，票證提供有關問題的詳細信息以及幫助重新測試的步驟非常重要。
+        </p>
+      </li>
+    </ul>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Reporting">正在匯報</h2>
+    <p>
+      Brightcove建議您在遇到問題時報告問題，以使反饋流向Brightcove，並解決問題並儘快解決以進行驗證。請為每個問題報告一個問題/票證，並在每個問題/票證中提供以下信息：
+    </p>
+    <ul>
+      <li>經過平台測試</li>
+      <li>發現問題的應用版本</li>
+      <li>重現步驟</li>
+      <li>
+        請附上屏幕截圖或屏幕電影，以幫助加快發現問題並提供解決方案 </li>
+    </ul>
+  </section>
+</article>

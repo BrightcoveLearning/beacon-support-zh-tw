@@ -1,0 +1,54 @@
+---
+title:“創建促銷優惠券"
+description:在本主題中，您將學習如何創建 Brightcove Beacon 優惠券/代金券供您的客戶在付款時使用。
+parent: Monetization
+---
+ <h1>{{ page.title }}</h1>
+<article class="bcls-article">
+  <summary>{{ page.description }}<aside class="bcls-aside bcls-aside--information">筆記：或者，您可以直接在 Stripe 中創建優惠券。</aside>
+  </summary>
+
+  <section class="bcls-section">
+    <h2 id="overview"> 創建新優惠券的步驟</h2>
+    <p>要在 Brightcove Beacon 中創建新的優惠券/代金券，請按照以下步驟操作： </p>
+
+    <ol class="bcls-tasklist-restart">
+      <li>在Brightcove Beacon用戶界面中，單擊<strong>商業</strong>標籤。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/promo-codes/1-beacon-ui.png" />
+        </figure>
+      </li>
+      <li>在左側菜單中，選擇<strong>條紋優惠券</strong>。</li>
+      <li>點擊<strong>添加新的優惠券</strong>按鈕。</li>
+      <li>在裡面<strong>ID</strong>字段中，鍵入用戶將使用的代碼。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/promo-codes/2-id-name.png" />
+        </figure>
+      </li>
+      <li>為了<strong>名稱</strong>字段中，使用可以在發票中顯示的用戶友好名稱。</li>
+      <li>為了<strong>期間</strong>字段，輸入優惠券的期限（以月為單位）。 </li>
+      <li>在裡面<strong>折扣類型</strong>您可以選擇以貨幣或百分比指定折扣。例如，如果折扣是3個月免費，則將持續時間設置為<strong>重複的</strong> 3個月<strong>優惠類型</strong>為100％。</li>
+      <li>在裡面<strong>局限性</strong>部分中，您可以限制使用優惠券的次數或日期。例如，假設優惠券只能在八月底之前使用，或者只有前100個人會獲得優惠券。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/promo-codes/3-lmitations-packages.png" />
+        </figure>
+      </li>
+      <li>在裡面<strong>套餐/訂閱相關</strong>部分，指定可與優惠券一起使用的訂閱。如果您未選擇訂閱，則它將應用於所有軟件包訂閱。</li>
+    </ol>
+    <aside class="bcls-aside bcls-aside--information">請注意以下事項
+      <ul>
+        <li>一旦創建了優惠券/憑證，任何註冊用戶都可以在購買訂閱時應用它。
+          <figure class="bcls-figure">
+            <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/promo-codes/4-enter-voucher.png" />
+          </figure>
+        </li>
+        <li>如果輸入了無效的優惠券，則會顯示以下內容：
+          <figure class="bcls-figure">
+            <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/promo-codes/5-error.png" />
+          </figure>
+        </li>
+      </ul>
+    </aside>
+  </section>
+
+</article>

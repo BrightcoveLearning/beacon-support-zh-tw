@@ -1,0 +1,101 @@
+---
+title: '與 Beacon Web Store 集成' 
+description:本主題涵蓋通過 OIDC（開放 ID 連接）進行的 Beacon Web Store 集成。
+parent: Beacon Web Store
+---
+ <h1>{{ page.title }}</h1>
+<article class="bcls-article">
+  <summary>{{ page.description }}</summary>
+  
+  <section class="bcls-section">
+    <h2 id="Authentication_through_OIDC_and_entitlements">通過OIDC和權利進行身份驗證</h2>
+    <h3>驗證</h3>
+    <p>信標利用以下OAuth 2.0流進行身份驗證：</p>
+    <ul>
+      <li>
+        帶有PKCE的授權代碼：iOS，Android和Web
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/beacon-web-store/oidc-1.png" alt="Authorization with PKCE">
+          <figcaption class="bcls-caption--image">使用PKCE進行授權（圖由Auth0表示）</figcaption>
+        </figure>
+      </li>
+      <li>
+        <a href="https://tools.ietf.org/html/rfc8628">設備流程</a>（Oauth 2.0擴展）：聯網電視和智能電視
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/beacon-web-store/oidc-2.png" alt="Device Flow">
+          <figcaption class="bcls-caption--image">設備流（以Auth0表示）</figcaption>
+        </figure>
+      </li>
+    </ul>
+    ，
+    <p>Beacon 預計將提供 3 個代幣：</p>
+    <ul>
+      <li>
+        訪問令牌：驗證用戶能夠進行身份驗證，並應被授予對信標的訪問權限（<strong> JWT格式，需要包含iss和sub</strong>）
+      </li>
+      <li>
+        刷新令牌：通過提供一種代表用戶自動獲取新訪問令牌的機制（只要允許用戶訪問），允許用戶在訪問令牌過期後保持登錄狀態- <strong>這在電視上尤其重要</strong>
+      </li>
+      <li>身份令牌：標準化我們獲取有關用戶信息的方式</li>
+    </ul>
+    <p>應支持以下贈款類型：</p>
+    <ul>
+      <li>
+        <code translate="No">authorization_code</code>
+      </li>
+      <li>
+        <code translate="No">refresh_token</code>
+      </li>
+      <li>
+        <code translate="No">urn:ietf:params:oauth:grant-type:device_code</code>
+      </li>
+    </ul>
+    <p>
+      需要在Beacon中配置以下身份驗證提供程序端點（客戶需要向我們提供這些端點，以便我們進行配置-如果<a href="https://swagger.io/docs/specification/authentication/openid-connect-discovery/">OpenID Connect發現</a>是可用的，我們可以發現這些）：
+    </p>
+    <ul>
+      <li>訪問令牌（JWT）</li>
+      <li>刷新令牌（JWT）</li>
+      <li>用戶信息</li>
+      <li>撤銷令牌 (JWT)</li>
+      <li>授權</li>
+      <li>配對碼</li>
+      <li>
+        <a href="https://auth0.com/docs/tokens/json-web-tokens/json-web-key-sets">京西</a>
+      </li>
+      <li>登出</li>
+      <li>
+        <a href="https://swagger.io/docs/specification/authentication/openid-connect-discovery/">OpenID Connect發現</a>（/.well-known/openid-configuration）-用於系統配置
+      </li>
+    </ul>
+    <h4>在Beacon CMS中配置的項目示例</h4>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/beacon-web-store/oidc-3.png" alt="Example Configuration">
+      <figcaption class="bcls-caption--image">配置示例</figcaption>
+    </figure>
+    <h3>權益</h3>
+		<p>在告知 Beacon 用戶權限方面，Beacon 提供了以下 API：<code translate="no"> https://beacon.brightcove.com/ <span class="bcls-highlight">{instance}</span> /網絡鉤子/信標</code>（Brightcove 提供的 API 密鑰）</p>
+			<h4>有效載荷將是 JSON：</h4>
+<pre class="line-numbers"><code class="language-json" translate="No">[
+  {
+    "package_name": "string",			// Commerce package for SVOD or SKU for TVOD purchases - required
+    "external_user_id": "string",			// User identifier (username or email depending on configuration of users)- required
+    "transaction_id": "string",			// Unique transaction id for purchase - required for subscriptions (this will be used in renewal)
+    "start_date": "string",				// Start date for entitlements 
+    "end_date": "string",				// End date for entitlements (applicable if a rent or a subscription)
+    "trial_end_date": "string",			// End date for a trial if applicable
+    "effective_cancelation_date": "string",		// Date by when cancellation is effective (for example, end of current subscription period)
+    "notification_type": "new",			// One of: new, renew, cancellation, buy or rent - required
+    “payment_gateway”: “beaconstore”      // One of: “beaconstore”
+  }
+]
+</code></pre>
+		<p>當使用外部認證系統時，external_user_id 對應於 Access token 中的主題值</p>
+		<aside class="bcls-aside bcls-aside--information">筆記：API 密鑰需要在 auth-token 密鑰中的 HEADER 中發送</aside>
+		<h4>Postman 調用授權網絡鉤子的示例：</h4>
+		<figure class="bcls-figure">
+			<img class="bcls-image" src="/assets/images/beacon-web-store/oidc-4.png" alt="Sample Postman Call">
+			<figcaption class="bcls-caption--image">郵遞員電話示例</figcaption>
+		</figure>
+  </section>
+</article>

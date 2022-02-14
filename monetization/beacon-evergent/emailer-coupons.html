@@ -1,0 +1,234 @@
+---
+title:“全體：電子郵件和優惠券"
+description:本主題提供了在 Evergent 中管理電子郵件和優惠券生成的指南。
+parent: Beacon Advanced Monetization 
+grandparent: Monetization
+layout: staging
+---
+ <h1>{{ page.title }}</h1>
+
+<article class="bcls-article">
+	<summary>{{ page.description }}</summary>
+	<section class="bcls-section">
+		<h2 id="Introduction">介紹</h2>
+		<p>Evergent 後台系統提供服務來幫助您管理您的業務。在本主題中，我們將介紹其中兩項服務：</p>
+		<ul>
+			<li>自動電子郵件</li>
+			<li>優惠券管理員</li>
+		</ul>
+	</section>
+	<section class="bcls-section">
+		<h2 id="emailer">電郵人</h2>
+		<p>電子郵件發送器允許您為各種系統生成的電子郵件創建模板和時間表。以下部分將詳細介紹電子郵件操作。</p>
+	</section>
+	<section class="bcls-section">
+		<h2 id="message_types">訊息類型</h2>
+		<p>Evergent 支持以下消息類型：</p>
+		<dl>
+			<dt>調度</dt>
+			<dd>在系統管理員中安排批處理作業時，會向管理員發送一封電子郵件。</dd>
+			<dt>信用卡到期提醒</dt>
+			<dd>如果在業務級別選中“信用卡到期提醒”複選框，則會在客戶的信用卡即將到期時向客戶發送提醒電子郵件（電子郵件通常在卡到期前一個月發送）。在這種情況下，系統將使用電子郵件模板消息類型“信用卡到期提醒”。</dd>
+			<dt>大量電子郵件</dt>
+			<dd>如果企業想要安排促銷電子郵件並指定未來的執行時間，則使用批量電子郵件消息類型。這些類型的群發電子郵件可以發送給業務單位訂閱者、特定市場區域訂閱者或特定服務。</dd>
+			<dt>信用卡交易</dt>
+			<dd>當訂戶完成信用卡支付交易時，交易詳情將使用此電子郵件模板通過電子郵件發送給客戶。</dd>
+			<dt>活動訊息</dt>
+			<dd>事件消息類型電子郵件模板將用於定義電子郵件模板並將它們交叉映射到事件類別，一旦在帳戶級別記錄事件，就能夠向訂閱者觸發電子郵件通知。</dd>
+			<dt>特設</dt>
+			<dd>即席消息類型是發送不與任何事件類別映射鏈接的單個消息。</dd>
+		</dl>
+	</section>
+	<section class="bcls-section">
+		<h2 id="Emailers">電郵人</h2>
+		<p>Emailers 選項卡用於為業務單位添加/編輯電子郵件模板和安排電子郵件。</p>
+		<figure class="bcls-figure">
+			<img class="bcls-image" src="/assets/images/beacon-evergent/emailers-tab.png" alt="Emailers Tab">
+			<figcaption class="bcls-caption--image">電子郵件選項卡</figcaption>
+		</figure>
+		<h3>添加一個新的電子郵件</h3>
+		<p>要添加新的電子郵件，請執行以下操作：</p>
+		<ol class="bcls-tasklist-restart">
+			<li>在<strong>電子郵件者</strong>在業務單位的屏幕上，單擊添加 (<i data-feather="plus"></i>） 圖標。</li>
+			<li>
+				在裡面<strong>基本細節</strong>部分，輸入所需的詳細信息，如下所示：
+				<ol style="list-style-type: lower-latin;">
+					<li>在<strong>標題</strong>字段，輸入電子郵件的標題。</li>
+					<li>在<strong>電子郵件主題</strong>字段中，鍵入電子郵件的主題。</li>
+					<li>選擇您將定義電子郵件的消息類型<strong>消息類型</strong>下拉列表。</li>
+					<li>在裡面<strong>管理員郵箱</strong>字段，輸入您希望發送電子郵件的電子郵件 ID。</li>
+					<li>在裡面<strong>管理員名稱</strong>字段中，輸入管理員名稱。</li>
+					<li>選擇<strong>活動類別</strong>從提供的下拉列表中。</li>
+					<li>
+						在<strong>抄送</strong>和<strong>密件抄送</strong>領域。<aside class="bcls-aside bcls-aside--information">筆記：您可以通過用逗號分隔每個電子郵件 ID 在抄送和密件抄送字段中指定多個電子郵件 ID。</aside>
+					</li>
+				</ol>
+			</li>
+			<li>選擇<strong>純文本</strong>或者<strong>HTML</strong>以所選格式發送電子郵件。</li>
+			<li>在裡面<strong>電子郵件/簡訊</strong>部分，在“電子郵件正文"文本框中，輸入要在客戶的電子郵件中顯示該消息的消息模板。</li>
+			<li>點擊<strong>預習</strong>在文本框區域旁邊，以純文本或HTML格式查看電子郵件。</li>
+			<li>
+				點擊<strong>創造</strong>按鈕。
+				<figure class="bcls-figure">
+					<img class="bcls-image" src="/assets/images/beacon-evergent/new-emailer.png" alt="New Emailer">
+					<figcaption class="bcls-caption--image">新電子郵件</figcaption>
+				</figure>
+			</li>
+		</ol>
+		<h3>更新電子郵件</h3>
+		<ol class="bcls-tasklist-restart">
+			<li>導航到<strong>電郵人</strong>業務部門的屏幕。</li>
+			<li>在裡面<strong>電子郵件模板列表</strong>部分中，單擊要編輯的電子郵件模板。</li>
+			<li>這<strong>更新電子郵件</strong>屏幕出現，在可用字段中進行必要的更改，然後單擊<strong>更新</strong> .</li>
+		</ol>
+		<aside class="bcls-aside bcls-aside--information">請注意，您無法修改“更新電子郵件”屏幕上的“消息類型”和“事件類別”字段。</aside>
+		<h3>安排電子郵件</h3>
+		<p>您可以安排電子郵件稍後發送。此屏幕用於在指定時間或每天為 DMA 或服務安排批量電子郵件。</p>
+		<h4>安排電子郵件</h4>
+		<ol class="bcls-tasklist-restart">
+			<li>在<strong>電郵人</strong>屏幕，在<strong>電子郵件範本</strong>標籤，單擊郵件類型為“批量電子郵件"。</li>
+			<li>點擊<strong>安排電子郵件</strong>標籤。出現預定電子郵件列表。</li>
+			<li>
+				要安排電子郵件，請單擊添加 (<i data-feather="plus"></i>) 圖標以打開“安排電子郵件”對話框。
+				<figure class="bcls-figure">
+					<img class="bcls-image" src="/assets/images/beacon-evergent/schedule-email.png" alt="Schedule Email">
+					<figcaption class="bcls-caption--image">安排電子郵件</figcaption>
+				</figure>
+			</li>
+			<li>在<strong>發送郵件至</strong>場地。</li>
+			<li>點擊<strong>執行時間</strong>字段以選擇計劃日期和時間。</li>
+			<li>要在選定的日期和時間每天安排電子郵件，請選擇<strong>每日時間表</strong>複選框。</li>
+		</ol>
+		<h4>刪除預定的電子郵件</h4>
+		<ol class="bcls-tasklist-restart">
+			<li>點擊<strong>電子郵件範本</strong>標籤下的<strong>電郵人</strong>左側菜單欄中的標籤。</li>
+			<li>單擊您要刪除的批量電子郵件（郵件類型）。</li>
+			<li>
+				這<strong>更新電子郵件</strong>屏幕出現。
+			</li>
+			<li>
+				點擊<strong>安排電子郵件</strong>標籤。
+				<figure class="bcls-figure">
+					<img class="bcls-image" src="/assets/images/beacon-evergent/update-emailer.png" alt="Update Emailer">
+					<figcaption class="bcls-caption--image">更新電子郵件</figcaption>
+				</figure>
+			</li>
+			<li>單擊刪除 (<i data-feather="trash-2"></i>) 圖標<strong>行動</strong>列中刪除預定的電子郵件<strong>預定電子郵件列表</strong> .</li>
+			<li></li>
+		</ol>
+	</section>
+	<section class="bcls-section">
+		<h2 id="Coupon_generation">優惠券代</h2>
+		<p>優惠券生成權限基於用戶的 BU 組權限。具有此權限的登錄用戶可以生成和編輯優惠券。</p>
+		<h3>添加新的優惠券/憑證</h3>
+		<ol class="bcls-tasklist-restart">
+			<li>點擊<strong>優惠券</strong>從左側菜單。</li>
+			<li>在<strong>優惠券</strong>在業務單位的屏幕上，單擊<strong>添加</strong> (<i data-feather="plus"></i>） 圖標。這<strong>優惠券</strong>出現默認屏幕。</li>
+			<li>
+				點擊<strong>添加</strong> (<i data-feather="plus"></i>) 用於生成優惠券的圖標。
+				<figure class="bcls-figure">
+					<img class="bcls-image" src="/assets/images/beacon-evergent/generate-coupon.png" alt="Generate Coupon">
+					<figcaption class="bcls-caption--image">產生優惠券</figcaption>
+				</figure>
+			</li>
+			<li>
+				新優惠券/優惠券生成屏幕如下所示。
+				<figure class="bcls-figure">
+					<img class="bcls-image" src="/assets/images/beacon-evergent/new-coupon-voucher.png" alt="New Coupon/Voucher">
+					<figcaption class="bcls-caption--image">新優惠券/代金券</figcaption>
+				</figure>
+			</li>
+			<li>
+				在字段中輸入信息，如下所示：
+				<ol style="list-style-type: lower-alpha;">
+					<li><strong>優惠券前綴</strong>：優惠券的前綴（例如：TestC、Hal、CD、星期五等）</li>
+					<li><strong>批次名稱</strong>：優惠券的批次名稱（例如：測試券、聖誕節等）</li>
+					<li><strong>零售商</strong>：可以在零售商選擇中生成優惠券，例如（AT＆T，Vodafone，Verizon，Idea等）</li>
+					<li><strong>開始日期</strong>：優惠券可供用戶使用的日期</li>
+					<li><strong>截止日期</strong>：用戶可以定義優惠券的到期日</li>
+					<li><strong>優惠券申請者</strong>：指示已請求優惠券的請求者的姓名</li>
+					<li>
+						<strong>記為電子錢包充值</strong>：
+						<ul>
+							<li>如需生成錢包充值優惠券，請單擊切換開關以啟用並輸入金額</li>
+							<li>要將優惠券生成為憑證，請單擊切換開關以將其禁用</li>
+						</ul>
+						<figure class="bcls-figure">
+							<img class="bcls-image" src="/assets/images/beacon-evergent/toggle-wallet-top-up.png" alt="Toggle for Wallet Top-Up">
+							<figcaption class="bcls-caption--image">Toggle 錢包充值</figcaption>
+						</figure>
+					</li>
+					<li><strong>優惠類型</strong>：定義優惠券類型–例如，免費，固定，固定，百分比，固定百分比和有效期擴展</li>
+					<li><strong>金額/百分比</strong>：對於選定的類型，出現“金額/百分比"字段</li>
+					<li><strong>期限和期限</strong>：所應用的優惠券期限可以是天數或月數，因為優惠券期限所暗示的相應期限選擇</li>
+					<li><strong>將前綴設為優惠券代碼</strong>：當您選中此復選框時，前綴將保存為優惠券代碼</li>
+					<li><strong>優惠券數量</strong>：用戶可以提供為批次生成的優惠券數量。在“前綴為優惠券代碼"的情況下，優惠券的數量將為“1"</li>
+					<li><strong>優惠券優先權</strong>：用於根據業務中生成的優先順序設置通用優惠券顯示並映射到訂閱和優惠類型</li>
+					<li><strong>票券長度</strong>：您要生成的優惠券代碼的長度</li>
+					<li><strong>多次兌換</strong>：如果選擇此切換開關，則用戶可以定義優惠券的最大兌換次數</li>
+					<li><strong>最多可兌換</strong>：允許兌換券數量</li>
+					<li><strong>單個用戶多次兌換</strong> : 複選框允許客戶在他們的帳戶上兌換單個優惠券，以獲得單個用戶的最大兌換次數</li>
+					<li><strong>單個用戶多次兌換</strong> : 複選框允許客戶在他們的帳戶上兌換單個優惠券，以獲得單個用戶的最大兌換次數</li>
+					<li><strong>區分大小寫</strong>：如果要以大寫字母生成優惠券代碼，請選中復選框</li>
+					<li><strong>是禮物</strong>：如果選中該複選框，則可以將優惠券贈送給其他人</li>
+					<li><strong>可繼承的</strong>：如果選中該複選框，則 Coupon 可以繼承</li>
+					<li><strong>是否所有項目都是強制性的</strong>：如果選中此復選框，則所有項目都是必填項</li>
+					<li><strong>跳過付款方式</strong>：如果選中該複選框，則應用優惠券後將跳過付款方式</li>
+					<li><strong>優待券
+description:輸入優惠券說明</li>
+					<li><strong>廣告活動資訊</strong>：輸入廣告系列信息詳細信息</li>
+					<li><strong>成功訊息</strong>：輸入要顯示給用戶的成功消息。</li>
+					<li><strong>警告信息</strong>：輸入要顯示給用戶的警告消息</li>
+					<li><strong>適用產品</strong>：用戶可以選擇編號。適用於優惠券的產品（例如：產品平價30％OFF優惠券<strong>氖</strong>）</li>
+					<li><strong>適用包裝</strong>：用戶可以選擇編號。應用程序包到優惠券</li>
+					<li><strong>優惠類型</strong>：用戶可以選擇優惠券的優惠類型</li>
+					<li><strong>適用的付款方式</strong>：用戶可以為優惠券選擇適用的支付方式</li>
+				</ol>
+			</li>
+			<li>點擊<strong>創建優惠券</strong>按鈕以生成優惠券（優惠券的生成時間還取決於用戶生成的優惠券數量）。</li>
+			<li>
+				生成優惠券後，<strong>優惠券成功生成</strong>顯示信息：
+				<figure class="bcls-figure">
+					<img class="bcls-image" src="/assets/images/beacon-evergent/coupons-generated.png" alt="Coupons Generated">
+					<figcaption class="bcls-caption--image">生成的優惠券</figcaption>
+				</figure>
+			</li>
+		</ol>
+		<h3>優惠券搜索</h3>
+		<p>使用各種選項搜索優惠券。要搜索優惠券，請執行以下操作：</p>
+		<ol class="bcls-tasklist-restart">
+			<li>在<strong>優惠券</strong>屏幕上，輸入字段值以按批次名稱，前綴，優惠券代碼，狀態，有效期自/至進行搜索。</li>
+			<li>
+				單擊搜索按鈕。顯示優惠券搜索結果，如下圖。
+				<figure class="bcls-figure">
+					<img class="bcls-image" src="/assets/images/beacon-evergent/coupon-search-results.png" alt="Coupon Search Results">
+					<figcaption class="bcls-caption--image">優惠券搜索結果</figcaption>
+				</figure>
+			</li>
+			<li>
+				單擊啟用高級搜索切換開關以啟用高級搜索。
+				<figure class="bcls-figure">
+					<img class="bcls-image" src="/assets/images/beacon-evergent/enable-advanced-coupon-search.png" alt="Enable Advanced Coupon Search">
+					<figcaption class="bcls-caption--image">啟用高級優惠券搜索</figcaption>
+				</figure>
+			</li>
+			<li>您可以使用優惠券批量搜索列表中列出的適用產品和適用支付方式。要使用優惠券批次進行搜索，請單擊優惠券批次搜索按鈕。</li>
+			<li>
+				搜索到的優惠券顯示在搜索結果列表中，如下圖所示。
+				<figure class="bcls-figure">
+					<img class="bcls-image" src="/assets/images/beacon-evergent/coupon-batch-search-results.png" alt="Coupon Batch Search Results">
+					<figcaption class="bcls-caption--image">優惠券批次搜索結果</figcaption>
+				</figure>
+			</li>
+		</ol>
+	</section>
+	<section class="bcls-section">
+		<h2 id="Related_topics">相關主題</h2>
+		<ul>
+			<li><a href="/monetization/beacon-evergent/overview-beacon-evergent.html">概述：信標高級獲利</a></li>
+			<li><a href="/monetization/beacon-evergent/evergent-finding-accounts.html">在Evergent CRM中查找帳戶</a></li>
+			<li><a href="/monetization/beacon-evergent/evergent-managing-account-details.html">Evergent：管理帳戶詳細信息</a></li>
+			<li><a href="/monetization/beacon-evergent/evergent-billing-finance.html">Evergent：帳單和財務</a></li>
+		</ul>
+	</section>
+</article>

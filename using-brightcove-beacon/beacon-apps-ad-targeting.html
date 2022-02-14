@@ -1,0 +1,284 @@
+---
+title:信標應用廣告定位
+description:Beacon Apps 廣告定位允許 Beacon 客戶將重要的設備級和用戶特定信息從客戶的 Beacon 應用程序發送到他們的廣告服務器或廣告提供商。
+parent: Using Brightcove Beacon
+layout: staging
+---
+ <h1>{{ page.title }}</h1>
+<article class="bcls-article">
+  <summary>{{ page.description }}</summary>
+  <section class="bcls-section">
+    <h2 id="introduction">介紹</h2>
+    <p>客戶端信息從應用程序傳遞到SSAI，然後SSAI將此數據包含在客戶的VAST代碼中，然後VAST代碼可讓客戶根據此數據來定位廣告。這樣做的目的是增加客戶廣告庫存的價值，從而增加他們業務的廣告收入。</p>
+    <p>您可以設置如何將此數據傳遞給他們的廣告服務器或廣告提供商。</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="key_benefits">好處</h2>
+    <h3>改善廣告定位</h3>
+    <ul>
+      <li><strong>用戶會話 ID：</strong>當用戶打開應用程序時，我們會在每台設備上生成一個會話 ID。這允許您為該會話設置頻次上限，排除競爭性廣告一起投放，並在該會話中按順序輪播廣告。這些定位功能對於直銷廣告和程序化廣告都是必要的</li>
+      <li><strong>程序化廣告的更多數據：</strong>移動應用程序和CTV應用程序不支持Cookie，這是網絡上基於用戶/設備的廣告定位的主要方法。通過添加諸如設備ID之類的參數，您可以將這些有價值的信息傳遞給程序化廣告購買者，這將增強他們的廣告定位功能，從而帶來更高的每千次展示費用。</li>
+    </ul>
+    <h3>支持廣告庫存拆分</h3>
+    <p>對於在Amazon，Roku和Samsung（在美國）上運行的應用，您需要使用該平台按70/30比例分配廣告資源/收入。信標客戶通過70％的廣告資源獲利，而平台則獲得了剩餘30％的廣告資源。通過這種增強的廣告定位，您可以在他們的所有應用中使用一個廣告標籤，並將設備參數傳遞給他們的廣告服務器。他們將在廣告服務器內部實施業務邏輯，以按設備劃分廣告資源。平台還需要傳遞 LAT - 有限的廣告定位 - 用於廣告庫存拆分，這是我們現在發送到您的廣告服務器的參數。</p>
+    <h3>用戶隱私改進</h3>
+    <ul>
+      <li>LAT“受限廣告定位"-允許Beacon應用程序的用戶根據用戶行為選擇退出廣告定位。</li>
+      <li>用戶可以隨時重置我們分配給設備的唯一設備 ID。</li>
+    </ul>
+  </section>
+  <section class="bcls-section">
+    <h2 id="targeting_information">定位信息</h2>
+    <p>您可以根據下表中的信息定位廣告。</p>
+    <table class="bcls-table">
+      <caption class="bcls-caption--table">定位信息</caption>
+      <thead class="bcls-table__head">
+          <tr>
+              <th>信息類型</th>
+              <th>變量名</th>
+              <th>價值觀</th>
+          </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+          <tr>
+              <td>平台</td>
+              <td><code translate="no">平台</code></td>
+              <td><code translate="No">iOS</code>，<code translate="No">Android</code>，<code translate="No">Roku</code>，<code translate="No">AppleTV</code>，<code translate="No">Web</code>，<code translate="No">STV</code></td>
+          </tr>
+          <tr>
+              <td>作業系統版本</td>
+              <td><code translate="no">操作系統</code></td>
+              <td>設備的操作系統版本（例如，<code translate="No">iOS 14</code></td>
+          </tr>
+          <tr>
+              <td>設備型號</td>
+              <td><code translate="no">模型</code></td>
+              <td>設備型號。用於Web應用程序的瀏覽器版本</td>
+          </tr>
+          <tr>
+              <td>製造商</td>
+              <td><code translate="no">製造商</code></td>
+              <td>設備製造商；用於Web應用程序的瀏覽器名稱</td>
+          </tr>
+          <tr>
+              <td>語</td>
+              <td><code translate="no">朗</code></td>
+              <td>在應用程序中設置的語言代碼（來自CMS）</td>
+          </tr>
+          <tr>
+              <td>用戶會話</td>
+              <td><code translate="no">西德</code></td>
+              <td>每次應用啟動時，我們都希望創建一個唯一的整數，該整數存儲在內存中並且不持久</td>
+          </tr>
+          <tr>
+              <td>唯一設備 ID</td>
+              <td><code translate="no">身份</code></td>
+              <td>可重置的設備ID（TIFA = Samsung，rida = Roku，adid = Android等）-如果在App上設置了有限的廣告定位，則ID應該全為零（無法識別用戶/設備）。此項不適用於網絡。</td>
+          </tr>
+          <tr>
+              <td>用戶是否允許跟踪</td>
+              <td>is_lat<code translate="no"></code></td>
+              <td>如果用戶未選擇限制定位，則為0；如果限制廣告定位，則為1。此項不適用於網絡。</td>
+          </tr>
+          <tr>
+              <td>設備類型</td>
+              <td><code translate="no">身份類型</code></td>
+              <td>adid =安卓，idfa =蘋果手機（iOS），afai =亞馬遜，rida：Roku tvOS：蘋果電視（tvOS）</td>
+          </tr>
+          <tr>
+              <td>應用程式識別碼</td>
+              <td>app_id<code translate="no"></code></td>
+              <td>這應該是應用程序包名稱（<code translate="no"> com.brightcove.beacon</code> )</td>
+          </tr>
+      </tbody>
+  </table>
+  <h3>筆記</h3>
+  <ul>
+    <li>此功能適用於所有平台/設備 iOS、Apple TV、Android、Roku、Fire TV、Web 和智能電視。</li>
+    <li>信標應用廣告定位可以與VOD SSAI和Live SSAI一起使用。</li>
+  </ul>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Implementation">執行</h2>
+    <p>以下是清單<strong>值宏</strong>將會傳遞給應用，然後應用將替換真實值，然後再發送至廣告服務器。他們是<strong>不是</strong>可配置。</p>
+    <table class="bcls-table">
+      <caption class="bcls-caption--table">值宏</caption>
+      <thead class="bcls-table__head">
+          <tr>
+              <th>巨集</th>
+              <th>描述</th>
+          </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+          <tr>
+              <td translate="no" style="font-weight:bold">平台</td>
+              <td>合適的信標平台：iOS、AppleTV、Android、Roku、Web、STV</td>
+          </tr>
+          <tr>
+              <td translate="no" style="font-weight:bold">作業系統</td>
+              <td>完全合格的操作系統（包括版本）-示例iOS 14</td>
+          </tr>
+          <tr>
+              <td translate="no" style="font-weight:bold">MFGR</td>
+              <td>設備的製造商； （Web - 用戶的瀏覽器）</td>
+          </tr>
+          <tr>
+              <td translate="no" style="font-weight:bold">模型</td>
+              <td>設備型號； （網絡-瀏覽器版本）</td>
+          </tr>
+          <tr>
+              <td translate="no" style="font-weight:bold">APP_ID</td>
+              <td>應用程序ID（例如捆綁包ID）；網站：應用程序域</td>
+          </tr>
+          <tr>
+              <td translate="no" style="font-weight:bold">地區</td>
+              <td>ISO 639-1（2個字母）語言代碼，後跟一個下劃線和一個ISO 3166-1（2個字母）國家/地區代碼（例如en_us）-應用程序中設置的語言</td>
+          </tr>
+          <tr>
+              <td translate="no" style="font-weight:bold">RDID</td>
+              <td>可重置設備 ID ( <code translate="no">蒂法</code>：三星，<code translate="no">麗達</code>：羅庫，<code translate="no">阿迪德</code>：Android等-請參閱<a href="#Device_identifiers">設備標識符</a>下方的更多值）-如果<strong>廣告定位受限</strong>是在應用程序上設置的，則ID應為全零（意味著無法識別用戶/設備）</td>
+          </tr>
+          <tr>
+              <td translate="no" style="font-weight:bold">身份類型</td>
+              <td>輸入可重置 ID ( <code translate="no">蒂法</code>：三星，<code translate="no">麗達</code>：羅庫，<code translate="no">阿迪德</code>：Android等-請參閱<a href="#Device_identifiers">設備標識符</a>下方的更多值）</td>
+          </tr>
+          <tr>
+              <td translate="no" style="font-weight:bold">IS_LAT</td>
+              <td>指示用戶是否選擇了受限廣告定位的標誌：<code translate="no">0</code>如果用戶沒有選擇限制定位，<code translate="no"> 1</code>如果限制廣告定位</td>
+          </tr>
+          <tr>
+              <td translate="no" style="font-weight:bold">標準識別碼</td>
+              <td>唯一會話標識符（每次應用啟動時重置）。不依賴於用戶登錄/註冊。從前台狀態切換到後台狀態不會更改此 ID。</td>
+          </tr>
+      </tbody>
+		</table>
+
+		<h4 id="Device_identifiers">設備標識符</h4>
+		<ul>
+			<li>adid：安卓</li>
+			<li>afai：亞馬遜</li>
+			<li>電視操作系統：蘋果電視（tvOS）</li>
+			<li>IDFA：蘋果手機（iOS）</li>
+			<li>里達：羅庫</li>
+			<li>蒂法：三星</li>
+			<li>維達：維齊奧</li>
+			<li>msai：Xbox</li>
+		</ul>
+  </section>
+  {% raw %}
+  <section class="bcls-section">
+		<h2 id="VOD_steps">點播步驟</h2>
+		<h3>視頻雲部分 - VOD</h3>
+		<ol class="bcls-tasklist-restart">
+			<li>
+				通過創建廣告配置<a href="https://studio.support.brightcove.com/admin/configuring-server-side-ad-settings.html">Studio中的服務器端廣告設置頁</a>：
+				<ol>
+					<li>
+						點擊<span class="blue-button">創建廣告配置</span>然後選擇<strong>視頻點播</strong>
+						<figure class="bcls-figure">
+							<img class="bcls-image" src="/assets/images/using-bcb/ad-targeting/create-vod-ad-config.png" alt="Create VOD Ad Config">
+							<figcaption class="bcls-caption--image">創建VOD廣告配置</figcaption>
+						</figure>
+						<figure class="bcls-figure">
+							<img class="bcls-image" src="/assets/images/using-bcb/ad-targeting/ssai-config-vod.png" alt="SSAI Configuration VOD">
+							<figcaption class="bcls-caption--image">SSAI 配置點播</figcaption>
+						</figure>
+					</li>
+					<li>為廣告配置添加名稱&lt;./ li&gt;
+					<li>選擇您的廣告響應 - 建議使用 VMAP 或 Vast。如果您使用Vast，則需要在視頻中添加提示點，以指定應在何處顯示廣告插播廣告。</li>
+					<li>粘貼到您的廣告代碼中（來自廣告提供商）。</li>
+					<li>複製您的廣告配置ID，因為您需要燈塔廣告配置。</li>
+				</ol>
+			</li>
+			</ol>
+			<h3>信標部分-視頻點播</h3>
+			<ol class="bcls-tasklist-restart">
+				<li>
+        打開Beacon Classic用戶界面，然後轉到“廣告"標籤：
+        <ol>
+          <li>
+						點擊<span class="button-teal">添加新配置</span>
+						<figure class="bcls-figure">
+							<img class="bcls-image" src="/assets/images/using-bcb/ad-targeting/advertising-config-vod.png" alt="Beacon Ad Configuration">
+							<figcaption class="bcls-caption--image">信標廣告配置視頻點播</figcaption>
+						</figure>
+					</li>
+          <li>命名廣告配置</li>
+          <li>選擇<strong>Brightcove SSAI</strong></li>
+          <li>粘貼在<strong>SSAI廣告配置ID</strong>進入<strong>VOD廣告配置ID</strong></li>
+        </ol>
+      </li>
+      <li>
+        在Studio和Beacon Classic中設置廣告配置後，您需要實施客戶端參數，這些參數將傳遞給客戶廣告服務器。客戶端參數可以在Playback API（在VMAP /清單輸入點中提供）中傳遞-這些參數將以<code translate="no">{{url.xxx}}</code>宏，其中xxx對應於在回放API URL中提交的參數密鑰。
+        <ol>
+          <li>在<strong>廣告定位</strong>信標中的字段。輸入將是查詢形式的字符串。例子：<code translate="no"> d= {PLATFORM} &amp;os= {OS} &amp;man= {MFGR} &amp;mo= {MODEL} &amp;appid= {APP_ID} &amp;lan= {LOCALE} &amp;確實= {RDID} &amp;dt= {IDTYPE} &amp;lat= {IS_LAT} &amp;sid= {SID}</code></li>
+          <li><strong>您可以在等號前配置鍵</strong> .他們<strong>必須</strong>匹配添加到 SSAI 廣告代碼的鍵。</li>
+          <li>接下來，在<strong>SSAI Studio設置</strong>頁。以下是在 Beacon Classic Ad-Targeting 中輸入並添加到 SSAI 廣告標籤的參數示例：<code translate="no"> d= {PLATFORM} &amp;os= {OS} &amp;appid= {APP_ID} &amp;確實= {RDID} &amp;dt= {IDTYPE} &amp;lat= {IS_LAT} &amp;sid= {SID}</code></li>
+          <li><strong>這些參數在這個 Ad 標籤中被翻譯成這樣：</strong><code translate="no"> https://ads.brightcove.com/ads?tech=dfpadrules&amp;dur=15&amp;pre=3&amp;d= {{url.d}} &amp;os= {{url.os}} &amp;appid= {{url.appid}} &amp;確實= {{url.did}} &amp;dt= {{url.dt}} &amp;lat= {{url.latl}} &amp;sid= {{url.sid}}</code></li>
+        </ol>
+      </li>
+		</ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Live_steps">現場步驟</h2>
+    <ol class="bcls-tasklist-restart">
+			<li>
+				首先，構造廣告定位參數字符串，因為在SSAI和Beacon配置中都將需要它。您可以為 VOD 重複使用參數，或選擇不同的集合。
+				<p>例子：</p>
+				<pre><code translate="no">ip= {{client.ipaddress}} &amp;num= {{random.int32}} &amp;d= {{PLATFORM}} &amp;os= {{OS}} &amp;確實= {{RDID}} &amp;dt= {{IDTYPE}} &amp;lat= {{IS_LAT}}</code></pre>
+			</li>
+      <li>
+        從以下位置創建廣告配置<a href="https://live.support.brightcove.com/live-module/implementing-server-side-ads-live-module.html">Studio中的“服務器端廣告設置"頁面</a>：
+        <ol>
+          <li>
+						點擊<span class="blue-button">創建廣告配置</span>然後選擇<strong>居住</strong>
+						<figure class="bcls-figure">
+							<img class="bcls-image" src="/assets/images/using-bcb/ad-targeting/create-live-ad-config.png" alt="Create Live Ad Config">
+							<figcaption class="bcls-caption--image">創建實時廣告配置</figcaption>
+						</figure>
+						<figure class="bcls-figure">
+							<img class="bcls-image" src="/assets/images/using-bcb/ad-targeting/ssai-config-live.png" alt="SSAI Configuration Live">
+							<figcaption class="bcls-caption--image">SSAI 配置實時</figcaption>
+						</figure>
+
+					</li>
+					<li>為廣告配置添加名稱</li>
+					<li>選擇<strong>廣闊的</strong>您的廣告響應</li>
+					<li>
+						粘貼到您的廣告代碼中，<strong>附加您的廣告定位參數查詢字符串</strong>。
+						<p>例子：</p>
+						<pre><code translate="no">https://ad-provider-host.com/path/to/ad-handler?ip= {{client.ipaddress}} &amp;num= {{random.int32}} &amp;d= {{PLATFORM}} &amp;os= {{OS}} &amp;確實= {{RDID}} &amp;dt= {{IDTYPE}} &amp;lat= {{IS_LAT}}</code></pre>
+					</li>
+					<li>複製信標廣告配置的廣告配置ID</li>
+        </ol>
+      </li>
+      <li>
+        打開Beacon Classic用戶界面，然後轉到“廣告"標籤
+        <ol>
+          <li>
+						點擊<span class="button-teal">添加新配置</span>
+						<figure class="bcls-figure">
+							<img class="bcls-image" src="/assets/images/using-bcb/ad-targeting/advertising-config-live.png" alt="Beacon Ad Configuration Live">
+							<figcaption class="bcls-caption--image">信標廣告配置實時</figcaption>
+						</figure>
+					</li>
+          <li>命名廣告配置</li>
+          <li>選擇<strong>Brightcove SSAI</strong></li>
+          <li>將SSAI廣告配置ID粘貼到<strong>實時廣告配置ID</strong></li>
+        </ol>
+      </li>
+      <li>
+				將您的廣告定位參數字符串粘貼到<strong>廣告定位</strong>場地。
+				<p>例子：</p>
+				<pre><code translate="no">ip= {{client.ipaddress}} &amp;num= {{random.int32}} &amp;d= {{PLATFORM}} &amp;os= {{OS}} &amp;確實= {{RDID}} &amp;dt= {{IDTYPE}} &amp;lat= {{IS_LAT}}</code></pre>
+			</li>
+		</ol>
+  </section>
+  <!-- <section class="bcls-section">
+    <h2 id="Limitations">Limitations</h2>
+    <ul>
+      <li>There currently isn’t a way to handle Device ID on the web so we are not passing that information to SSAI. We are still defining how we will handle it, and the doc will be updated once Device ID for the web is implemented.</li>
+    </ul>
+  </section> -->
+  {% endraw %}
+</article>

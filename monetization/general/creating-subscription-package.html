@@ -1,0 +1,183 @@
+---
+title:創建訂閱包
+parent: Monetization 
+---
+
+
+<article class="bcls-article">
+  <h1>創建訂閱包</h1>
+  <summary>在本主題中，您將學習如何使用<strong>商業</strong>選項卡的Brightcove Beacon。訂閱包實現了SVOD（訂閱視頻點播）貨幣化。要了解如何將訂閱包應用於視頻，請參閱<a href="/monetization/using-subscription-package.html">使用訂閱包</a>文檔。
+  </summary>
+  <section class="bcls-section">
+    <h2 id="Overview">概述</h2>
+    <p>
+      訂閱包定義了您的應用如何購買一組特定的視頻' 顧客。例如，在創建包時，您可以配置以下內容：
+    </p>
+    <ul>
+      <li>計費頻率</li>
+      <li>設置是否支持廣告，以及要使用的廣告配置</li>
+      <li>支付方式</li>
+      <li>一個用戶可以同時播放的最大流數</li>
+      <li>可以購買套餐的開始和結束日期</li>
+      <li>允許設備和地理位置查看包中的視頻</li>
+    </ul>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Steps to create a package">創建包的步驟</h2>
+    <p>逐步執行以下步驟以創建新包：</p>
+    <ol class="bcls-tasklist">
+      <li>
+        在Brightcove Beacon中，選擇<strong>商業</strong>標籤，請確保<strong>配套</strong>在左側導航中被選中，然後單擊<strong>添加新包裹</strong>。
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/using-bcb/creating-subscription-package/initial-menu-selections.png" alt="initial menu selections" />
+        </figure>
+      </li>
+      <li>
+        在<strong>包裹</strong>標籤（下面的屏幕截圖），請完成以下操作：
+        <ul>
+          <li>
+            <strong>名稱</strong>：在視頻的視頻云自定義字段中使用的包的名稱。
+          </li>
+          <li>
+            <strong>帳單頻率</strong>：選擇此套餐的結算頻率。
+          </li>
+          <li>
+            <strong>試用期</strong>：此包的試用期。進入<strong>0</strong>沒有試用期。
+          </li>
+          <li>
+            <strong>地位</strong>：選擇是否要發布該軟件包，以便可以使用。請注意，只有選擇至少一種付款方式，您才能發布該軟件包。
+          </li>
+          <li>
+            <strong>廣告</strong>：選擇是否要在此軟件包中使用廣告。
+          </li>
+          <li>
+            <strong>廣告提供商</strong>：如果您在上一步中選擇使用廣告，請選擇廣告提供商。此下拉列表填充了列在<strong>廣告</strong> Brightcove Beacon 的部分。
+            <!-- See the <a href="/using-brightcove-beacon/advertisement.html"> Advertisement </a> document for details on advertisement configurations. -->
+          </li>
+          <li>
+            <strong>付款方式</strong>：選擇您要用於此套餐的付款方式。請注意，對於每種選擇的方法，將在付款方法列表下方打開一個部分，您必須為每種選擇的方法完成該部分。下面的截圖顯示<strong>條紋（黃色）</strong>和<strong>蘋果專賣店（紅色）</strong>被選中。
+            <figure class="bcls-figure">
+              <img class="bcls-image" src="/assets/images/using-bcb/creating-subscription-package/payment-method-details.png" alt="payment method details" />
+            </figure>
+          </li>
+        </ul>
+      </li>
+      <li>
+        點擊<strong>創建包裝</strong>按鈕保存您當前的軟件包配置。
+      </li>
+      <li>
+        在<strong>文字數據</strong>標籤，完成以下操作： <ul>
+          <li><strong>包裝名稱</strong>：向用戶顯示的名稱。</li>
+          <li>
+            <strong>標題</strong>：向用戶顯示的標題，例如 <em>節日特惠！</em> .
+          </li>
+        </ul>
+      </li>
+      <li>
+        點擊<strong>創建包裝</strong>按鈕保存您當前的軟件包配置。
+      </li>
+      <li>
+        在<strong>非文字數據</strong>標籤，在軟件包名稱旁邊提供要使用的圖像。
+        <!-- The size of the image should be !!!!!!!!!!!!!!!!. -->
+      </li>
+      <li>
+        點擊<strong>創建包裝</strong>按鈕保存您當前的軟件包配置。
+      </li>
+      <li>
+        這<strong>內容</strong>當前不使用選項卡。
+      </li>
+      <li>
+        在<strong>溪流</strong>標籤，完成以下操作： <ul>
+          <li>
+            <strong>最大流</strong>：可以同時流式傳輸的已連接設備的最大數量。
+          </li>
+          <li>
+            <strong>最大設備</strong>：可以具有活動連接的已連接設備的最大數量。<aside class="bcls-aside bcls-aside--information">上述兩個設置也是全局設置的，因此僅當您希望覆蓋此包中的全局設置時才使用這些設置。</aside>
+          </li>
+          <li>
+            <strong>高級流</strong>：將此設置為<strong>是的</strong>如果您希望自定義此軟件包設置的權限。可用的更改顯示在以下屏幕截圖中：
+            <figure class="bcls-figure">
+              <img class="bcls-image" src="/assets/images/using-bcb/creating-subscription-package/advanced-stream-rights.png" alt="advanced stream rights" />
+            </figure>
+          </li>
+        </ul>
+      </li>
+      <li>
+        點擊<strong>添加新權限</strong>按鈕以保存您新配置的，自定義的權限。
+      </li>
+      <li>
+        點擊<strong>創建包裝</strong>按鈕保存您當前的軟件包配置。
+      </li>
+    </ol>
+    <p>這就是包創建！</p>
+  </section>
+  <!-- <section class="bcls-section"> <h2 id="Using_the_package_in_Video_Cloud"> Using the package in Video Cloud </h2> <p> Although the package is created in Brightcove Beacon, it is not applied to content in there. To use the package, and apply it to video content you use Video Cloud custom fields. </p> </section> -->
+  <section class="bcls-section">
+    <h2 id="Creating_a_Stripe_Coupon">創建條紋優惠券</h2>
+    <p>
+      可以創建優惠券以提供折扣，可以是固定貨幣折扣或百分比折扣，這些折扣可以在購買包裹時應用。
+    </p>
+    <ol class="bcls-tasklist-restart">
+      <li>
+        在Brightcove Beacon中，選擇<strong>商業</strong>標籤，然後單擊<strong>條紋優惠券</strong>最後點擊<strong>添加新憑證</strong>。
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/using-bcb/creating-subscription-package/coupon-menu-selection.png" alt="coupon menu selections" />
+        </figure>
+      </li>
+      <li>
+        在<strong>創建新的優惠券</strong>表單（下面的屏幕截圖），請完成以下操作：
+        <ul>
+          <li>
+            <strong>ID</strong>：觀眾將在Brightcove Beacon應用中輸入的代碼以使用優惠券
+          </li>
+          <li><strong>名稱</strong>：可以在發票中顯示的優惠券的友好名稱</li>
+          <li>
+            <strong>期間</strong>：從中選擇<strong>一次</strong> , <strong>永遠</strong>或者<strong>重複</strong> ;<br /> 如果<strong>重複</strong>被選中，然後設置它可以重複使用的月數。
+          </li>
+          <li>
+            為了<strong>折扣類型</strong>選擇以下之一：
+            <ul>
+              <li>
+                <strong>貨幣金額</strong>：輸入優惠券的價值和幣種
+              </li>
+              <li>
+                <strong>百分比</strong>：輸入優惠券將帶來的折扣百分比
+              </li>
+            </ul>
+            <p>
+              例子：如果折扣為3個月免費，則設置<strong>期間</strong>至<strong>重複的</strong> 3個月，並設置<strong>折扣類型</strong>和<strong>百分比</strong>的100％ </p>
+          </li>
+          <li>
+            <strong>限制日期（UTC）</strong>：選擇優惠券可以使用的最後日期
+          </li>
+          <li>
+            <strong>最多可兌換</strong>：輸入可兌換優惠券的最大數量；例如，只有50位客戶可以兌換優惠券
+          </li>
+          <li>
+            <strong>選擇套餐</strong>：選擇優惠券適用的套餐；如果您不選擇套餐，則優惠券適用於所有套餐<br />
+            例子：優惠券僅在您購買年度訂閱時有效
+          </li>
+        </ul>
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/using-bcb/creating-subscription-package/new-coupon-form.png" alt="coupon form" />
+        </figure>
+      </li>
+      <li>
+        <p>
+          請務必點擊<strong>保存</strong>按鈕以保存您的新優惠券。
+        </p>
+      </li>
+    </ol>
+    <p>
+      在購買套餐時，在Brightcove Beacon應用程序中，觀眾將能夠輸入優惠券<strong>ID</strong>： </p>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/using-bcb/creating-subscription-package/use-coupon.png" alt="use coupon form" />
+    </figure>
+    <p>
+      或者，您可以直接在Stripe帳戶中創建優惠券，然後在Brightcove Beacon中使用它們。
+    </p>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/using-bcb/creating-subscription-package/stripe-coupon-form.png" alt="use coupon form" />
+    </figure>
+  </section>
+</article>

@@ -1,0 +1,258 @@
+---
+title:“貨幣化的自定義字段”
+description:“在本主題中，您將學習如何創建實施貨幣化策略所需的自定義字段。”
+parent: "Monetization"
+---
+ <h1>{{ page.title }}</h1>
+<article class="bcls-article">
+  <section class="bcls-section">
+    <h2 id="Introduction">介紹</h2>
+    <p>您投入到貨幣化策略中的視頻，如 AuthOVD 和 SVOD，必須定義一組豐富的元數據。在本文檔中，您將看到如何創建用於實施貨幣化的新自定義字段。</p>
+    <p>本文檔的部分如下：</p>
+    <ol>
+      <li><strong>權限管理字段</strong> - 指定貨幣化實施可能需要的自定義字段的名稱和功能。</li>
+      <li><strong>創建自定義字段</strong> - 提供有關如何創建自定義字段的分步說明。在這些說明中，您將創建常用的權限管理字段之一。</li>
+      <li><strong>自定義字段實現細節</strong> - 提供有關管理以下主題的自定義字段的詳細信息：
+        <ul>
+          <li>自定義字段名稱</li>
+          <li>使用 Brightcove Beacon 元數據的列表值</li>
+          <li>編輯列表值</li>
+          <li>刪除列表值</li>
+          <li>從帳戶中刪除自定義字段</li>
+        </ul>
+      </li>
+    </ol>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Rights_Management_fields">權限管理字段</h2>
+    <p>
+      為了支持資產的貨幣化和訪問限制，應該使用一組自定義字段。由於可以擁有多個權限管理配置實例，因此建議的方法是創建多組自定義字段。在每個實例的名稱中，都有一個計數器用來區分它們。第一個實例應該使用計數器為 0。這是實際上使用計數器值的這些分組字段的示例：</p>
+    <figure class="bcls-figure"> <img class="bcls-image" src="/assets/images/monetization/vc-custom-fields/rights-management.png" alt=""> </figure>
+    <p>例如，您可能需要一組來定義您在視頻中使用的廣告，並需要一組來定義假期（如新年）的特價商品。</p>
+    <p>一個特定的示例將有助於闡明這些字段的用法。以下屏幕截圖顯示了在視頻上使用的設置服務器端廣告插入 (SSAI)。</p>
+    <figure class="bcls-figure"> <img class="bcls-image" src="/assets/images/monetization/vc-custom-fields/rights-mamagement-example-avod.png" alt=""> </figure>
+    <p>您可以從這個示例中了解到以下內容：</p>
+    <ul>
+      <li>並非必須為組中的所有權限管理字段都分配值。在這種情況下，只有 <em>beacon.rights。&lt;計數器&gt; .adConfiguration</em> 和 <em>beacon.rights。&lt;計數器&gt;。類型</em> 被使用。</li>
+      <li>您可以在 Brightcove Beacon 自定義字段中使用在 Studio 中創建的 SSAI 配置 ID。</li>
+      <li>一組權限管理字段的計數器值可以從 0 開始（以黃色突出顯示）。</li>
+    </ul>
+    <p>請注意，您創建的任何字段都不需要具有<strong>將此字段為必填項</strong>複選框已選中。</p>
+    <p>
+      下表顯示了您可能必鬚根據您的實施創建的自定義字段。
+    </p>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>顯示名稱</th>
+          <th>內部名稱</th>
+          <th>類型</th>
+          <th>註釋/示例</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td>beacon.rights。&lt;計數器&gt;。類型</td>
+          <td>信標_權利_ <br />&lt;計數器&gt;_type</td>
+          <td>文本</td>
+          <td>
+            * 確定資產的貨幣化類型<br> * 對於值，使用以下之一： <ul>
+              <li>自由</li>
+              <li>影音</li>
+              <li>點播</li>
+              <li>繼承</li>
+            </ul>
+            * 默認值：<strong>自由</strong><br> * 這<strong>繼承</strong>值僅適用於 <em>插曲</em> 資產 </td>
+        </tr>
+        <tr>
+          <td>
+            信標。權利。<br />
+            &lt;計數器&gt;。<br />
+            開始日期
+          </td>
+          <td>
+            信標_權利_ <br />
+            &lt;計數器&gt;_<br />
+            開始日期
+          </td>
+          <td>文本</td>
+          <td>
+            * 資產應在此特定集合中的訪問限制和貨幣化選項下公開的日期<br> * 格式：日期 yyyy-mm-dd hh:mm:ss<br> * 默認值：如果未設置，則默認為視頻可用性開始日期 </td>
+        </tr>
+        <tr>
+          <td>beacon.rights。&lt;計數器&gt; .endDate</td>
+          <td>
+            信標_權利_ <br />
+            &lt;計數器&gt;_結束日期
+          </td>
+          <td>文本</td>
+          <td>
+            * 資產在此特定集合中的訪問限制和貨幣化選項下不應再公開的日期<br> * 格式：日期 yyyy-mm-dd hh:mm:ss<br> * 默認值：如果未設置，則默認為視頻可用性結束日期 </td>
+        </tr>
+        <tr>
+          <td>beacon.rights。&lt;計數器&gt;。設備</td>
+          <td>
+            信標_權利_ <br />
+            &lt;計數器&gt;_devices
+          </td>
+          <td>文本</td>
+          <td>
+            * Brightcove Beacon 支持的逗號分隔設備列表，資產應在此特定集合中的訪問限制和貨幣化選項下公開<br> * 逗號分隔的列表： <ul>
+              <li>的iOS</li>
+              <li>安卓</li>
+              <li>網絡</li>
+              <li>羅庫</li>
+              <li>衛星電視</li>
+              <li>消防電視</li>
+              <!-- <li>LGTV</li> -->
+              <li>三星</li>
+              <li>蘋果電視</li>
+              <li>安卓電視</li>
+              <!-- li>panasonic</li> -->
+            </ul>
+            * 默認值：如果未設置，則默認為Brightcove Beacon支持的所有設備 </td>
+        </tr>
+        <tr>
+          <td>
+            信標。權利。<br />
+            &lt;計數器&gt;。<br />
+            地點許可
+          </td>
+          <td>
+            信標_權利_ <br />
+            &lt;計數器&gt;_<br />
+            地點許可
+          </td>
+          <td>文本</td>
+          <td>
+            * 在 Brightcove Beacon 中定義的逗號分隔位置列表，在此特定集合中的訪問限制和貨幣化選項下，資產應暴露在這些位置<br> * 默認值：如果未設置，則默認為Brightcove Beacon支持的所有位置 </td>
+        </tr>
+        <tr>
+          <td>
+            信標.權利。&lt;計數器&gt;。<br /> 地點拒絕 </td>
+          <td>
+            信標_權利_ <br />
+            &lt;計數器&gt;_<br />
+            地點拒絕
+          </td>
+          <td>文本</td>
+          <td>
+            * 在 Brightcove Beacon 中定義的逗號分隔位置列表，在此特定集合中的訪問限制和貨幣化選項下，資產不應暴露於這些位置<br> * 無默認值 </td>
+        </tr>
+        <tr>
+          <td>
+            信標。權利。<br />
+            &lt;計數器&gt;。<br />
+            包裹名字
+          </td>
+          <td>
+            信標_權利_ <br />
+            &lt;計數器&gt;_<br />
+            包裹名字
+          </td>
+          <td>文本</td>
+          <td>
+            * 必須輸入此字段的值，如果<strong>信標.權限.&lt;計數器&gt;.type</strong>字段值設置為<strong>點播</strong><br> * 逗號分隔的軟件包名稱列表，如 Brightcove Beacon 中所定義<br> * 例子： <em>優質體育、動作片、地球日電影</em><br> * 無默認值 </td>
+        </tr>
+        <tr>
+          <td>
+            信標。權利。<br />
+            &lt;計數器&gt;。<br />
+            廣告配置
+          </td>
+          <td>
+            信標_權利_ <br />
+            &lt;計數器&gt;_<br />
+            廣告配置
+          </td>
+          <td>文本</td>
+          <td>
+            * 必須輸入此字段的值，如果<strong>信標.權限.&lt;計數器&gt;.type</strong>字段值設置為<strong>AVOD</strong><br> * Brightcove Beacon 中廣告配置的標識符<br> * 無默認值 </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Creating_custom_fields">創建自定義字段</h2>
+    <p>要創建自定義字段，請按照下列步驟操作。</p>
+    <ol class="bcls-tasklist">
+      <li>登錄 Beacon Studio。</li>
+      <li>
+        在主導航中，單擊<strong>行政</strong>進而<strong>視頻場</strong> .請注意，您必須是帳戶管理員才能訪問ADMIN菜單。
+      </li>
+      <li>
+        視頻字段頁面將顯示您的自定義字段和所有標準視頻元數據字段，如下面的屏幕截圖所示（在這種情況下，尚未創建自定義字段）： <figure class="bcls-figure"> <img class="bcls-image" src="/assets/images/monetization/vc-custom-fields/custom-fields-overview1.png" alt="" /> </figure>
+      </li>
+      <li>
+        點擊<strong>添加自定義字段</strong>。
+        <figure class="bcls-figure"> <img class="bcls-image" src="/assets/images/monetization/vc-custom-fields/new-custom-field1.png" alt="" /> </figure>
+      </li>
+      <li>
+        為了<strong>顯示名稱</strong>， 進入 <samp>信標.rights.0.adConfiguration</samp>.這是您的第一個需要自定義字段的貨幣化實施通常需要的自定義字段。請注意，此值將顯示為媒體模塊中字段的標籤。一個<strong>內部名稱</strong>將根據顯示名稱自動為該字段創建。
+      </li>
+      <li>
+        為了<strong>類型</strong>選擇<strong>文本</strong> .請注意以下可能類型的值：
+        <ul>
+          <li>
+            <strong>文本</strong> - 用戶可以在字段中輸入最多 1024 個單字節字符（或 512 個雙字節字符）的任何內容。
+          </li>
+          <li>
+            <strong>列表</strong> -用戶將從值列表中進行選擇。列表中的可能值不能超過150個，並且列表中的每個值的長度都不能超過100個字符。
+          </li>
+        </ul>
+      </li>
+      <li>
+        進入一個<strong>描述</strong>。對於這個領域，一個很好的描述是 <samp>如果beacon.rights.&lt;counter&gt;.type 字段值設置為AVOD，則必須輸入該字段的值。</samp> 描述字段將作為提示出現在 Studio 界面中。
+      </li>
+      <li>
+        請勿將此字段設為必填。
+      </li>
+      <li>檢查以確保您的表單如下所示：
+        <figure class="bcls-figure"> <img class="bcls-image" src="/assets/images/monetization/vc-custom-fields/new-custom-field-added.png" alt="" /> </figure>
+      </li>
+      <li>
+        點擊<strong>保存字段</strong>保存更改。點擊<strong>保存並添加另一個</strong>保存該字段並開始創建另一個字段。
+      </li>
+    </ol>
+    <p>
+      您創建的自定義字段立即可用，並將在媒體模塊中可見。
+    </p>
+    <p>
+      最多可以創建 10 個自定義字段。如果您需要10個以上的字段，請點擊<strong>需要更多字段？</strong>視頻字段頁面中的鏈接以聯繫Brightcove客戶支持以獲取更多要求。發布者僅限於50個自定義字段。
+    </p>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Custom_field_implementation_details">自定義字段實現細節</h2>
+    <h3>自定義字段名稱</h3>
+    <p>
+      本文檔接下來的三個部分涵蓋了您可能需要根據您的特定實現用例創建的自定義字段。每個自定義字段都有一個<strong>顯示名稱</strong>和<strong>內部名稱</strong>。如果你覺得你有一個更有意義的名字<strong>顯示名稱</strong>您可以使用該選項，但是<strong>內部名稱</strong>必須完全匹配。
+    </p>
+
+    <h3>使用 Brightcove Beacon 元數據的列表值 </h3>
+    <p>
+      在上面顯示的權限管理自定義字段的值表中，您可能希望考慮<strong>信標.權限.&lt;計數器&gt;.type</strong>是類型<strong>列表</strong> .請注意，所有<strong>種類</strong>是<strong>文本</strong>。如果他們可以從列表中進行選擇而不必輸入文本，則可以減輕貨幣化實施者的負擔。同樣，如果可以從列表中選擇值而不是輸入值，則將始終有助於保持數據輸入的一致性。因此，如果你發現一個<strong>列表</strong>在某些業務案例中有效，可以使用列表。
+    </p>
+
+    <h3 id="edit">編輯列表值</h3>
+    <p>
+      您可以向列表類型自定義字段添加其他值。單擊自定義字段名稱鏈接，添加值，然後單擊<strong>添加到列表</strong>。完成後，單擊<strong>保存字段</strong> .
+    </p>
+
+    <h3 id="delete">刪除列表值</h3>
+    <p>
+      您可以從列表類型自定義字段中添加刪除現有值。單擊自定義字段名稱鏈接，單擊與值關聯的刪除圖標，然後單擊<strong>保存字段</strong> .
+    </p>
+    <p>
+      刪除列表值後，之前分配了該值的任何視頻都將保留該值。但是，如果編輯了帶有刪除值的視頻，則該值將被清除，並且必須選擇一個新值。
+    </p>
+
+    <h3 id="remove">從帳戶中刪除自定義字段</h3>
+    <p>
+      為了從您的帳戶中刪除自定義字段，您必須<a href="https://supportportal.brightcove.com/s/login/">聯繫Brightcove支持</a>。請注意，如果您有Brightcove Support刪除自定義字段，則對於存在值的任何視頻，修改日期都會更改。
+    </p>
+  </section>
+
+</article>

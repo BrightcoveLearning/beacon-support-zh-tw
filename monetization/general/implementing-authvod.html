@@ -1,0 +1,105 @@
+---
+title:“實施AuthVOD"
+description:“在本主題中，您將學習如何創建 AuthVOD 貨幣化包。”
+parent: "Monetization"
+---
+ <h1>{{ page.title }}</h1>
+<article class="bcls-article">
+  <summary>{{ page.description }}</summary>
+
+  <section class="bcls-section">
+    <h2 id="section-name">了解 AuthVOD</h2>
+    <p>AuthVOD（授權視頻點播）是一種獲利軟件包，觀眾必須向Brightcove Beacon應用驗證用戶身份，即輸入用戶名和密碼，才能觀看軟件包中包含的視頻。視頻可能會也可能不會顯示廣告，具體取決於您配置該軟件包的方式。</p>
+    <p>見<a href="/monetization/monetization-options.html">了解貨幣化選項</a>有關 AuthVOD 以及可與 Brightcove Beacon 一起使用的所有貨幣化包的更多信息，請參閱文檔。</p>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="section-name">配置AuthVOD軟件包概述</h2>
+    <p>以下是配置AuthVOD軟件包的高級步驟：</p>
+    <ol>
+      <li>在Brightcove Beacon中，創建一個<strong>未發表</strong>，免費套餐。</li>
+      <li>如果需要廣告，請在創建程序包時提供廣告提供商。</li>
+      <li>在 Video Cloud Studio 中，向視頻添加數據' 自定義字段將它們分配給 AuthVOD 包。</li>
+      <li>在Brightcove Beacon中，攝取視頻並清除緩存。</li>
+    </ol>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="section-name">在Brightcove Beacon中創建一個包</h2>
+    <p>以下是Brightcove Beacon中創建AuthVOD軟件包所遵循的詳細步驟：</p>
+    <ol class="bcls-tasklist">
+      <li>點擊<strong>商業</strong>標籤位於Brightcove Beacon頂部。
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/using-bcb/implementing-authvod/navigation-to-add.png" alt="get to add new package button">
+        </figure>
+      </li>
+      <li>選擇<strong>套餐</strong>從左側導航。</li>
+      <li>點擊<strong>添加新包裹</strong>按鈕。</li>
+      <li>在<strong>包裹</strong>標籤提供內部名稱，並確保保留<strong>地位</strong>作為<strong>未發表</strong>。
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/using-bcb/implementing-authvod/package-tab.png" alt="package tab">
+        </figure>
+      </li>
+      <li>如果您想使用廣告，則可以點擊<strong>是的</strong>單選按鈕<strong>廣告</strong>然後選擇一個<strong>廣告提供者</strong>從下拉菜單中。
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/using-bcb/implementing-authvod/package-tab-ads.png" alt="package tab">
+        </figure>
+      </li>
+      <li>在<strong>文字數據</strong>標籤，輸入對觀眾可見的名稱，以及有關包裝的標題。</li>
+      <li>如果需要，請提供將與包裝信息一起顯示的圖像。</li>
+      <li>在<strong>溪流</strong>標籤中，輸入可以同時流式傳輸的最大設備數和可以建立活動連接的最大設備數的值。</li>
+      <li>如果您希望更好地控制軟件包的可用性，請單擊<strong>是的</strong>單選按鈕<strong>高級流？</strong>，然後填寫表格並提供更好的可用性選項。</li>
+    </ol>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="section-name">將視頻添加到Studio中的包中</h2>
+    <p>要將內容添加到包中，您需要使用 Video Cloud Studio 為自定義字段分配值。您必須為 AuthVOD 包分配值的兩個自定義字段是：</p>
+    <ul>
+      <li>beacon.rights。&lt;計數器&gt; .packageName</li>
+      <li>beacon.rights。&lt;計數器&gt;。類型</li>
+    </ul>
+    <p>以下步驟詳細介紹了為這些自定義字段分配值的過程。</p>
+    <aside class="bcls-aside bcls-aside--tip">有關將 Video Cloud 的自定義字段與 Brightcove Beacon 結合使用的更多信息，請參閱<a href="/syncing-with-video-cloud/vc-custom-fields.html">創建視頻云自定義字段</a>文檔。</aside>
+    <p>對於您希望打包的每個視頻，請完成以下步驟：</p>
+    <ol class="bcls-tasklist-restart">
+      <li>登錄到Video Cloud Studio。</li>
+      <li>在媒體模塊中，單擊視頻名稱以查看該視頻的屬性。</li>
+      <li>點擊<strong>自定義字段</strong>' <strong>編輯</strong>按鈕。</li>
+      <li>為了<strong>beacon.rights。&lt;計數器&gt; .packageName</strong>，輸入先前創建的AuthVOD軟件包的名稱。</li>
+      <li>為了<strong>beacon.rights。&lt;計數器&gt;。類型</strong>， 進入<strong>SVOD</strong>。</li>
+    </ol>
+    <p>以下屏幕截圖顯示了自定義字段中使用的實際值的示例。在這種情況下，<strong>櫃檯</strong>為零（以紅色突出顯示），包名稱為<strong>AuthVOD測試</strong>（以黃色突出顯示）。請記住，在實施AuthVOD時，<strong> beacon.rights。&lt;計數器&gt;。類型</strong>始終設置為<strong>SVOD</strong>。</p>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/using-bcb/implementing-authvod/values-in-custom-fields.png" alt="custom field values">
+    </figure>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="section-name">將視頻攝取到Brightcove信標中</h2>
+    <p>需要將對Video Cloud Studio中的視頻所做的更改吸收到Brightcove Beacon中。這是每小時自動完成的，但您也可以按需手動攝取。下面將詳細介紹大致的步驟。</p>
+    <aside class="bcls-aside bcls-aside--tip">有關攝取視頻的完整詳細信息，請參閱<a href="/syncing-with-video-cloud/forcing-a-sync.html">強制同步</a>文檔。</aside>
+    <ol class="bcls-tasklist-restart">
+      <li>在Brightcove Beacon的頂部菜單中，單擊“工具"（扳手圖標）選項卡。</li>
+      <li>在左側導航中，請確保<strong>攝取</strong>選項被選中（這是默認選項）。</li>
+      <li>點擊<strong>更新Brightcove視頻</strong>按鈕。</li>
+      <li>提取完成後，您可以通過以下方法檢查並確保已將您的視頻分配給AuthVOD軟件包：<strong>商業</strong>標籤。</li>
+      <li>在左側導航中，請確保<strong>配套</strong>選項被選中（這是默認選項）。</li>
+      <li>單擊您的AuthVOD軟件包的名稱。</li>
+      <li>點擊<strong>內容</strong>標籤以查看分配給此AuthVOD軟件包的資產。此選項卡的示例在此處顯示：
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/using-bcb/implementing-authvod/content.png" alt="content">
+        </figure>
+      </li>
+      <li>要開始清除緩存，請在頂部菜單中單擊工具（扳手圖標）選項卡。</li>
+      <li>在左側導航欄中，點擊<strong>快取</strong>選項。</li>
+      <li>點擊<strong>緩存清除</strong>按鈕。</li>
+    </ol>
+    <p>現在，任何通過Brightcove Beacon應用程序進行身份驗證的查看器都可以訪問AuthVOD內容。如果觀看者嘗試在未經身份驗證的情況下播放視頻，則視頻的左下方會顯示一條消息，提示他們登錄，如下所示：
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/using-bcb/implementing-authvod/sign-in.png" alt="sign in prompt">
+    </figure>
+    </p>
+  </section>
+
+</article>

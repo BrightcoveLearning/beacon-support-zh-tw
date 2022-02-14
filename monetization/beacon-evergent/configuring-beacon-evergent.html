@@ -1,0 +1,108 @@
+---
+title:使用Evergent描述配置信標：本主題提供了配置 Beacon 和 Evergent 以相互協作的分步指南。
+parent: Beacon Advanced Monetization
+layout: staging
+---
+ <h1>{{ page.title }}</h1>
+<article class="bcls-article">
+  <summary>{{ page.description }}</summary>
+	<section class="bcls-section">
+		<h2 id="Introduction">介紹</h2>
+		<p>要配置Beacon和Evergent一起工作，需要在兩個系統中進行一些設置。在某些情況下，您需要將信息從一個系統複製到另一個系統，或將信息準確地從一個系統複製到另一個系統。如果可以在單獨的瀏覽器窗口中並排打開兩個系統，則可以更輕鬆地成功執行以下步驟。</p>
+	</section>
+  <section class="bcls-section">
+    <h2 id="Beacon_part_1">信標第1部分</h2>
+		<p>對於這一部分，您將需要配置的Beacon CMS（客戶管理系統）實例。</p>
+		<ol class="bcls-tasklist-restart">
+			<li>在信標CMS中，將Evergent配置為<strong>店鋪</strong>。</li>
+			<li>在<strong>設置&gt;位置</strong>商店的頁面上，定義將在其中提供服務的國家/地區。</li>
+			<li>在<strong>設置&gt;貨幣</strong>商店的頁面上，定義每個國家/地區的貨幣。</li>
+	</ol>
+  </section>
+	<section class="bcls-section">
+		<h2 id="Evergent_part_1">Evergent第1部分</h2>
+		<p>對於這一部分，您需要在Evergent Go門戶中設置BU（業務部門）。每個Evergent BU都將映射到世界上一個特定的國家或地區，並且這些以及與之關聯的貨幣應與您在Beacon CMS中輸入的內容匹配。</p>
+		<ol class="bcls-tasklist-restart">
+			<li>配置業務單元的幣種。</li>
+			<li>配置BU所在的國家</li>
+			<li>
+				配置BU的支付網關和支付方式：
+				<ul>
+					<li>信用卡，借記卡</li>
+					<li>電子錢包</li>
+					<li>應用內購買（iOS，Google Play，Amazon Billing，Roku Pay）</li>
+				</ul>
+			</li>
+	</ol>
+	</section>
+	<section class="bcls-section">
+		<h2 id="Beacon_part_2">信標第2部分</h2>
+		<p>每個信標客戶都需要配置Evergent BU ID和國家/地區映射。這是在貨幣化支付服務中完成的，該服務是回放團隊擁有的後端服務。（計劃是將此配置在Q1 21年底前移至Jackie Pages）。這些配置應與用於 Beacon 的特定 Video Cloud 客戶帳戶相關聯。</p>
+	</section>
+	<section class="bcls-section">
+		<h2 id="Beacon_part_3">信標第4部分</h2>
+		<p>永恆<a href="https://en.wikipedia.org/wiki/Salt_(cryptography)">鹽</a>該特定的Beacon客戶需要在獲利付款服務中進行配置。 </p>
+	</section>
+	<section class="bcls-section">
+		<h2 id="Beacon_part_5">信標第5部分</h2>
+		<p>貨幣化支付服務生成一個“Beacon_Monetization_Api”端點（beacon.monetization.api.brightcove.com），需要輸入到客戶的 Beacon CMS 實例中。這應該在 Evergent 的“支付網關配置”下的“設置”頁面中輸入。</p>
+	</section>
+	<section class="bcls-section">
+		<h2 id="Beacon_part_6">信標第6部分</h2>
+		<ol class="bcls-tasklist-restart">
+			<li>
+				在“信標CMS Commerce"選項卡中創建SVOD計劃。定義獲利政策：
+				<ol style="list-style-type: lower-alpha;">
+					<li>帳單頻率</li>
+					<li>試用期</li>
+					<li>續簽政策</li>
+					<li>
+						選擇計劃將顯示在哪些商店：
+						<ul>
+							<li>永恆</li>
+							<li>應用商店（iOS，Google Play，亞馬遜，Roku）</li>
+						</ul>
+					</li>
+					<li>設置設備和位置。</li>
+					<li>設置可用性日期。</li>
+					<li>
+						配置應用商店：
+						<ol style="list-style-type: lower-roman;">
+							<li>配置可用性日期。 </li>
+							<li>配置設備。</li>
+							<li>輸入價格和貨幣。</li>
+							<li>創建商店標識。該ID需要復制粘貼到應用商店的產品sku中。另外，需要在Evergent Go中輸入它以匹配SVOD計劃。</li>
+						</ol>
+					</li>
+				</ol>
+			</li>
+	</ol>
+	</section>
+	<section class="bcls-section">
+		<h2 id="Evergent_part_2">Evergent第2部分</h2>
+		<p>在Evergent Go中，創建匹配的SVOD計劃。重要的是，貨幣化政策必須與Beacon CMS中輸入的政策完全匹配。另外，請注意，如果您想以不同的貨幣出售SVOD計劃，則需要使用多個Evergent BU。每個 BU 中的計劃使用在 Beacon CMS 的“Evergent Store”中輸入的 SKU 映射到 Beacon。</p>
+		<figure class="bcls-figure">
+			<img class="bcls-image" src="/assets/images/beacon-evergent/svod-plans.png" alt="Evergent SVOD Setup">
+			<figcaption class="bcls-caption--image">Evergent SVOD設置</figcaption>
+		</figure>
+	</section>
+	<section class="bcls-section">
+		<h2 id="Beacon_part_7">信標第7部分</h2>
+		<p>為您的SVOD計劃配置Beacon Evergent Store：</p>
+		<ol class="bcls-tasklist-restart">
+			<li>配置可用性。</li>
+			<li>配置設備（目前僅適用於Web）。</li>
+			<li>配置價格和貨幣。貨幣應映射到使用該貨幣的特定 BU 中的計劃。例如，如果您有使用歐元在歐洲銷售的計劃，則Evergent ID應該來自EU Evergent BU。Evergent ID 字段是您輸入 Evergent SKU 的地方。</li>
+		</ol>
+	</section>
+	<section class="bcls-section">
+		<h2 id="Related_topics">相關主題</h2>
+		<ul>
+			<li><a href="/monetization/beacon-evergent/overview-beacon-evergent.html">概述：信標高級獲利</a></li>
+			<li><a href="/monetization/beacon-evergent/evergent-finding-accounts.html">在Evergent CRM中查找帳戶</a></li>
+			<li><a href="/monetization/beacon-evergent/evergent-managing-account-details.html">Evergent：管理帳戶詳細信息</a></li>
+			<li><a href="/monetization/beacon-evergent/evergent-billing-finance.html">Evergent：帳單和財務</a></li>
+			<li><a href="/monetization/beacon-evergent/emailer-coupons.html">Evergent：電子郵件和優惠券</a></li>
+		</ul>
+	</section>
+</article>

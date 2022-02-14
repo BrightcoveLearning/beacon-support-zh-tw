@@ -1,0 +1,88 @@
+---
+title:創建一個帶區帳戶
+description:在本主題中，您將學習如何創建用於支付的 Stripe 賬戶並將其與您的 Brightcove Beacon Experience 相關聯。
+parent: Monetization
+---
+ <h1>{{ page.title }}</h1>
+<article class="bcls-article">
+  <summary>{{ page.description }}</summary>
+  <section class="bcls-section">
+    <h2 id="Overview">概述</h2>
+    <p>
+      需要Stripe帳戶以允許來自客戶的以下平台的付款：
+    </p>
+    <ul>
+      <li>網絡</li>
+      <!-- <li>LG Smart TV</li>
+      <li>Panasonic Smart TV</li> -->
+      <li>三星智能電視</li>
+      <li>索尼智能電視</li>
+      <li>東芝智能電視</li>
+    </ul>
+    <p>
+      這意味著 Web 應用程序和所有 Smart TV 應用程序都需要 Stripe <em>以外</em> 安卓電視和消防電視。
+    </p>
+    <p>
+      以下步驟概述了將 Stripe 與 Brightcove Beacon 結合使用的過程：
+    </p>
+    <ol>
+      <li>
+        通過提供基本信息（電子郵件，名稱，密碼）來創建您的帳戶。
+      </li>
+      <li>
+        通過提供有關您的業務的信息來激活您的帳戶。
+      </li>
+      <li>檢索Stripe API密鑰。</li>
+      <li>
+        向 Brightcove 人員提供 API 密鑰，以便將他們添加到 Brightcove Beacon Experience。
+      </li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Creating_the_Stripe_account"> 創建和激活Stripe帳戶 </h2>
+    <p></p>
+    <ol class="bcls-tasklist">
+      <li>瀏覽到<a href="https://stripe.com/">條紋首頁</a>。</li>
+      <li>點擊<strong>現在開始</strong>按鈕。</li>
+      <li>
+        填寫您的基本信息以創建帳戶。
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/references/creating-stripe-account/info-create-account.png" alt="basic info to create account" />
+        </figure>
+      </li>
+      <li>
+        檢查以確保已顯示Stripe儀表板。
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/references/creating-stripe-account/stripe-dashboard.png" alt="stipe dashboard" />
+        </figure>
+      </li>
+      <li>點擊<strong>激活您的Stripe帳戶</strong>選項。</li>
+      <li>點擊<strong>現在開始</strong>按鈕開始該過程。</li>
+      <li>您需要驗證您的電子郵件地址。</li>
+      <li>
+        驗證電子郵件地址後，您會看到要填寫的表格以激活您的帳戶。表格的主要部分以黃色突出顯示。
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/references/creating-stripe-account/activate-account-form.png" alt="form to activate account" />
+        </figure>
+      </li>
+      <li>
+        填寫完表格後，點擊<strong>遞交申請</strong>按鈕。
+      </li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="section-name">獲取您的Stripe API密鑰</h2>
+    <p>
+      您的 Stripe 帳戶和 Brightcove Beacon 之間的連接是通過 Stripe API 密鑰完成的。在上面顯示的儀表板的屏幕截圖中，您會看到一個指向<strong>獲取您的實時API密鑰</strong>。請注意，在激活帳戶之前，您只能獲得測試API密鑰。
+    </p>
+    <p>
+      在資訊主頁中，按一下<strong>獲取您的實時API密鑰</strong>並按照說明進行下載。
+    </p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Connecting_Stripe_to_Brightcove_Beacon"> 將條紋連接到Brightcove信標 </h2>
+    <p>
+      擁有Stripe API密鑰後，會將其提供給配置Brightcove信標體驗的Brightcove人員。他們會將您的 Stripe API 密鑰與您的 Brightcove Beacon Experience 相關聯，以便在您配置要在您的應用程序中使用的 Stripe 時，它會與您的帳戶相關聯。
+    </p>
+  </section>
+</article>

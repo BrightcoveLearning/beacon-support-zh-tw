@@ -1,0 +1,17 @@
+---
+title:信標網絡商店
+description:Beacon Web Store 是一項服務，可讓 Beacon 被許可人在自帶 (BYO) 網絡商店中實施訂閱。
+parent: home
+---
+ <h1>{{ page.title }}</h1>
+<article class="landing-page-wrapper">
+  <summary>{{ page.description }}</summary>
+  <section class="bcls-topic-list">
+    <h2 id="Topics_in_this_section">主題在{{ page.title }}</h2>
+    <ul>
+      {% for item in site.data.navigation %} {% if item.name == page.title %} {% for doc in item.docs %}
+      <li><a href="{{ doc.url }}">{{ doc.name }}</a></li>
+      {% endfor %} {% endif %} {% endfor %}
+    </ul>
+  </section>
+</article>

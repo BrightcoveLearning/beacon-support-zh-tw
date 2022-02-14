@@ -1,0 +1,231 @@
+---
+title:將 VOD 流式傳輸到頻道
+description: '在本主題中，您將學習如何將一組視頻點播資產 (VOD) 作為直播流傳輸到 Brightcove Beacon 中的頻道。'
+parent: Managing Channels
+---
+ <h1>{{ page.title }}</h1>
+<article class="bcls-article">
+  <summary>{{ page.description }}</summary>
+  <aside class="bcls-aside bcls-aside--information">筆記：在本主題中，一些步驟是在 Beacon Classic 中執行的。</aside>
+
+  <section class="bcls-section">
+    <h2 id="overview">概述</h2>
+    <p>要將一組 VOD 作為直播流傳輸到 Brightcove Beacon 中的頻道，您必須按照一系列步驟創建視頻源並將其發送給您的第三方雲流媒體合作夥伴。</p>
+    <aside class="bcls-aside bcls-aside--information">目前，Brightcove 不支持此功能，因此需要使用外部第三方公司（如Frequency、Veset 或 Amagi）的服務來完成從一組 VOD 生成直播流的過程。</aside>
+    <p>該過程的高級視圖是：</p>
+
+    <ol>
+      <li>標記您希望在流中使用的視頻。</li>
+      <li>使用Social Syndication API創建所需視頻的XML視頻供稿。 </li>
+      <li>將您的 XML 視頻源 URL 發送給您的第三方 Cloud Streaming 合作夥伴。</li>
+      <li>使用您的Cloud Streaming合作夥伴提供的URL在“媒體"模塊中創建遠程視頻。</li>
+      <li>通過視頻ID將遠程視頻與Brightcove Beacon連接。</li>
+      <li>將您的 Cloud Streaming 提供商提供的 XML 文件上傳到您的 Amazon S3 存儲桶以生成電子編程指南 (EPG)</li>
+    </ol>
+    <p>本文檔的其餘部分將提供上述每個步驟的詳細信息。</p>
+  </section>
+
+  <section>
+    <h2 id="creating-video-feed">標記將在流中的視頻</h2>
+    <p>您將使用標籤（元數據）來標記您想要出現在您的流中的視頻。</p>
+    <ol class="bcls-tasklist">
+      <li>在Video Cloud Studio中，打開<strong>媒體</strong>模塊。（屏幕截圖中的數字指的是後面的步驟。）
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/channels/vod-to-channels/media-module.png" />
+        </figure>
+      </li>
+      <li>選中您要在視頻流中使用的視頻前面的所有復選框。</li>
+      <li>
+        點擊<strong>快速編輯</strong>位於您的視頻列表上方的按鈕。
+      </li>
+      <li>
+        在裡面<strong>快速編輯</strong>影片標題右側的面板中，<strong>要添加的標籤</strong>輸入框，輸入您選擇用來對流中想要的所有視頻進行分組的標籤。在此示例中，標籤<strong>Aug_Stream</strong>用來。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/channels/vod-to-channels/quick-edit-panel.png" />
+        </figure>
+        <aside class="bcls-aside bcls-aside--information">將需要該標記來填充 XML 模板信息。</aside>
+      </li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="creating-xml-video-feed">使用社交聯合API創建XML視頻供稿</h2>
+    <p>要將標記的 VOD 集作為實時流進行流式傳輸，您需要創建視頻源 XML 文件。該文件將包含您希望流式傳輸的視頻的所有信息。此文件是任何第三方 Cloud Streaming 合作夥伴（例如 Frequency、Veset 或 Amagi）的必需文件。以下提供了此過程的詳細信息：</p>
+    <ul>
+      <li>您將需要一個 API 開發工具作為<a href="https://www.postman.com/" target="_blank">郵差</a>或者<a href="https://insomnia.rest/" target="_blank">失眠</a> .在這個例子中<strong>郵差</strong>將會被使用。</li>
+      <li>要創建視頻源 XML 文件，您需要使用 Brightcove Social Syndication API，有關如何使用 API 獲取 XML URL 的信息，請訪問<a href="https://apis.support.brightcove.com/social-syndication/getting-started/public-syndication-api-overview.html" target="_blank">社交聯合 API 文檔</a> .
+      </li>
+      <li>大多數平台API的身份驗證都是通過臨時OAuth2訪問令牌進行的。一些API改用永久API密鑰或策略密鑰。見<a href="https://apis.support.brightcove.com/social-syndication/getting-started/public-syndication-api-overview.html" target="_blank">文件</a>有關詳細信息，請參閱各個 API。</li>
+    </ul>
+    <ol class="bcls-tasklist-restart">
+      <li>在本例中打開您的 API 客戶端工具 <em>郵差</em> 用來。</li>
+      <li>選擇<strong>郵政</strong>來自 API 調用類型下拉菜單。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/channels/vod-to-channels/5.5-post-call.png" />
+        </figure>
+      </li>
+      <li>複製社交聯合API調用：
+        <pre class="line-numbers"><code class="language-http" translate="No">https://social.api.brightcove.com/v1/accounts/your-account-id/mrss/syndications</code></pre>
+      </li>
+      <li>將Social Syndication API調用粘貼到URL字段中，然後使用您自己的帳戶ID信息更改URL數據。</li>
+      <li>選擇<strong>身體</strong> API 客戶端中的選項卡。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/channels/vod-to-channels/6.5-body-call.png" />
+        </figure>
+      </li>
+      <li>複製以下社會聯合資源模板：
+        <pre class="line-numbers"><code class="language-json" translate="No">
+{
+  "name": "Your Channel Syndication Videos",
+  "type": "universal",
+  "include_all_content": false,
+  "include_filter": "tags:yourtag",
+  "title": "80s Music Videos",
+  "description": "Amateur Tokyo drift!",
+  "destination_url": "http://mywebsite.com",
+  "keywords": "80s, rock",
+  "author": "Rick Astley",
+  "category": "Music",
+  "album_art_url": "http://my_album_art.jpg",
+  "explicit": "no",
+  "owner_name": "http://my_album_art.jpg",
+  "owner_email": "rick@astley.com",
+  "language": "en-us",
+  "fetch_sources": true,
+  "fetch_digital_master": false,
+  "fetch_dynamic_renditions": true,
+  "sort": "-created_at"
+ } </code></pre>
+      </li>
+      <li>將社交聯合資源模板粘貼到<strong>身體</strong>文本域。 </li>
+      <li>使用您自己的信息編輯社交聯合資源模板數據。 </li>
+      <li>請記住，將您之前在Video Cloud中創建的標籤添加到<strong>“include_filter"：“標籤：你的標籤”</strong>場地。
+      </li>
+      <li>點擊<strong>發送</strong> API客戶端中的按鈕以使<strong>郵政</strong>稱呼。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/channels/vod-to-channels/6-first-api-call.png" />
+        </figure>
+      </li>
+      <li>請注意，社交聯合API響應添加了一些只讀字段：
+        <pre class="line-numbers"><code class="language-json" translate="No">
+ {
+    "id": "7f594cd3-4853-4174-aff3-203c3e99e9c2",
+    "name": "Your Channel Syndication Videos",
+    "type": "universal",
+    "include_all_content": false,
+    "include_filter": "tags:yourtag",
+    "title": "80s Music Videos",
+    "description": "Amateur Tokyo drift!",
+    "syndication_url": "https://social.feeds.brightcove.com/v1/accounts/9999999999999/mrss/accounts/{account_id}/mrss/syndications/7f594cd3-4853-4174-aff3-203c3e99e9c2/feed",
+    "destination_url": "http://mywebsite.com",
+    "keywords": "80s, rock",
+    "author": "Rick Astley",
+    "category": "Music",
+    "album_art_url": "http://my_album_art.jpg",
+    "explicit": "no",
+    "owner_name": "http://my_album_art.jpg",
+    "owner_email": "rick@astley.com",
+    "language": "en-us",
+    "fetch_sources": true,
+    "fetch_digital_master": false,
+    "fetch_dynamic_renditions": true,
+    "sort": "-created_at"
+ }</code></pre>
+      </li>
+
+      <li>創建視頻Feed後，請注意，API響應包括<strong>ID</strong>和<strong>syndication_url</strong>。這<strong>聯合網址</strong>是您應該提供給您的 Cloud Streaming 合作夥伴的一個，但在視頻源準備好之前還有一些步驟要做。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/channels/vod-to-channels/7-api-response-id.png" />
+        </figure>
+      </li>
+      <li>複製API響應<strong>ID</strong>。</li>
+      <li>下一步是為數據添加模板。從下拉菜單中選擇<strong>放</strong>。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/channels/vod-to-channels/8-api-template.png" />
+        </figure>
+      </li>
+      <li>添加<strong>ID</strong> URL請求中最後一個API調用的響應。 </li>
+      <li>點擊<strong>身體</strong>標籤。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/channels/vod-to-channels/9-body-template.png" />
+        </figure>
+      </li>
+      <li>選擇<strong>生的</strong>選項。</li>
+      <li>複製並粘貼以下內容之一<a href="https://apis.support.brightcove.com/social-syndication/getting-started/sample-templates-universal-syndication.html" target="_blank">為通用聯合提供的XML模板</a>在文字部分。 </li>
+      <li>點擊<strong>發送</strong>使<strong>放</strong> API調用。<aside class="bcls-aside bcls-aside--information">請記住，您需要有一個有效的令牌<strong>授權 &gt; 管理訪問令牌</strong> API 調用部分正常工作。有關如何創建 OAuth 2.0 令牌的更多信息，請閱讀<a href="https://apis.support.brightcove.com/oauth/index.html" target="_blank">OAuth API 文檔</a> .</aside>
+
+      </li>
+      <li>製作完成後<strong>放</strong>調用，API 響應將包含您的視頻模板' 信息和<strong>聯合網址</strong>將更新並準備好交付給您的 Cloud Streaming 合作夥伴。 </li>
+    </ol>
+  </section>
+
+
+  <section class="bcls-section">
+    <h2 id="delivering-xml">將XML提要交付給您的Cloud Streaming合作夥伴</h2>
+
+    <p>一旦有了<strong>syndication_url</strong>您的視頻Feed已更新，您需要將其交付給Cloud Streaming合作夥伴（頻率，Veset，Amagi），因為URL包含XML文件。</p>
+    <p>收到它之後，您的Cloud Streaming合作夥伴應為您提供一個流URL和一個新的XML文件，其中包含Brightcove Beacon的《電子編程指南》。 </p>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="remote-video-studio">在Studio中添加遠程視頻</h2>
+    <p>收到頻道的流URL後，您需要將實時流作為視頻雲中的遠程視頻發送到Brightcove Beacon。</p>
+    <ol class="bcls-tasklist-restart">
+      <li>打開<strong>媒體</strong>視頻雲帳戶中的模塊。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/channels/vod-to-channels/10-media-module.png" />
+        </figure>
+      </li>
+      <li>在左側面板中，點擊<strong>+添加遠程視頻</strong>按鈕。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/channels/vod-to-channels/11-remote-video.png" />
+        </figure>
+      </li>
+      <li>在裡面<strong>影片名稱</strong>字段中，為您的流視頻命名。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/channels/vod-to-channels/12-create-remote.png" />
+        </figure>
+      </li>
+      <li>在裡面<strong>影片類型</strong>菜單中，選擇<strong>居住</strong>選項。 </li>
+      <li> 在裡面<strong>格式</strong>字段中，選擇<strong>HLS</strong>選項。</li>
+      <li>在裡面<strong>網址</strong>字段中，粘貼您的Cloud Streaming合作夥伴提供的流URL。 </li>
+      <li>點擊<strong>保存</strong>按鈕。</li>
+      <li>創建遠程視頻後，請在<strong>媒體</strong>模塊。
+      </li>
+      <li>打開<strong>視頻信息</strong>部分，然後復制<strong>ID</strong>。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/channels/vod-to-channels/13-studio-id.png" />
+        </figure>
+      </li>
+    </ol>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="connect-video-beacon">將遠程視頻連接到Brightcove信標</h2>
+
+    <p>最後一步是將您剛剛在 Video Cloud 中創建的遠程視頻流連接到 Brightcove Beacon 頻道。</p>
+
+    <ol class="bcls-tasklist-restart">
+      <li>打開信標經典。</li>
+      <li>在上方菜單中，點擊<strong>頻道數</strong>標籤。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/channels/vod-to-channels/14-channels-tab.png" />
+        </figure>
+      </li>
+      <li>點擊您想要的頻道。有關如何創建頻道的更多信息，請訪問<a href="https://beacon.support.brightcove.com/channels/creating-a-channel.html" target="_blank">渠道文件</a>。</li>
+      <li>在頻道設置中，點擊<strong>溪流</strong>標籤。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" src="/assets/images/channels/vod-to-channels/15-channel-streams.png" />
+        </figure>
+      </li>
+      <li>在裡面<strong>流視頻ID</strong>字段，粘貼視頻<strong>ID</strong>從您的視頻雲遠程視頻。</li>
+      <li>點擊<strong>更新頻道</strong>。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="" width="400" height="700" src="/assets/images/channels/vod-to-channels/16-update-button.png" />
+        </figure>
+      </li>
+      <li>打開Brightcove Beacon Web應用程序進行測試，您應該在所需的頻道上看到VOD流。</li>
+      <li>最後一步是將您的第三方 Cloud Streaming 合作夥伴提供的 XML 文件上傳到您的 Amazon S3 存儲桶。這會為頻道創建 EPG。有關如何上傳和獲取XML文件的更多信息，請訪問<a href="/channels/electronic-program-guides.html#fetching-xml" target="_blank">EPG文檔</a>。</li>
+    </ol>
+
+  </section>
+</article>

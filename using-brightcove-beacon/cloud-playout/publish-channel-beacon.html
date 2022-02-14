@@ -1,0 +1,144 @@
+---
+title:發布 Cloud Playout 頻道
+description: '在本主題中，您將學習如何使 Cloud Playout 頻道成為 Beacon 應用程序的一部分。'
+parent:
+---
+ <h1>{{ page.title }}</h1>
+<article class="bcls-article">
+  <summary>{{ page.description }}</summary>
+  <aside class="bcls-aside bcls-aside--information language-editable">本主題中描述的某些操作在 Beacon 中執行，而其他操作在 Video Cloud 中執行。</aside>
+  <section class="bcls-section">
+    <h2 id="Introduction">介紹</h2>
+    <p>創建 Cloud Playout 頻道後，您需要執行三個步驟才能使其成為 Beacon 應用程序的一部分。這些將在下面的部分中詳細說明。</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Get_information_for_the_Beacon_Channel">獲取信標頻道的信息</h2>
+    <p>在繼續之前，您需要獲取設置 Beacon 頻道和播放列表所需的信息。</p>
+    <ol class="bcls-tasklist-restart">
+      <li>通過單擊頻道列表中的頻道，轉到頻道詳細信息頁面。</li>
+      <li>如果您還沒有這樣做，請單擊<span class="button-red-text-border"><i data-feather="play" class="button-icon"></i> 啟用</span>激活通道。看<a href="/using-brightcove-beacon/cloud-playout/using-channel-actions.html">使用頻道操作</a>更多細節。</li>
+      <li>頻道激活後，使用主導航轉到視頻雲<strong>媒體</strong>模塊。</li>
+      <li>
+        您應該會找到與您的 Cloud Playout 頻道同名的視頻。這將是一個沒有圖像的實時視頻：
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/cloud-playout/cloud-playout-video.png" alt="Channel Video">
+          <figcaption class="bcls-caption--image">頻道視頻</figcaption>
+        </figure>
+      </li>
+      <li>單擊視頻名稱以打開詳細信息。</li>
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/cloud-playout/video-id-and-channel-id.png" alt="Video for Cloud Playout">
+          <figcaption class="bcls-caption--image">雲播放視頻</figcaption>
+        </figure>
+      <li>保存兩個<strong>視頻標識</strong>和<strong>頻道編號</strong>（後面的長字母數字字符串<strong>雲播放：</strong>在標籤中）。</li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="create_beacon_channel">創建信標通道</h2>
+    <aside class="bcls-aside bcls-aside--information language-editable">此步驟當前必須在<strong>信標</strong> .</aside>
+    <p>要在 Brightcove Beacon 中創建頻道，請按照下列步驟操作：</p>
+    <h3>基本數據</h3>
+    <ol class="bcls-tasklist">
+      <li>登錄 Beacon Classic。</li>
+      <li>在頂部導航中，選擇<strong>頻道數</strong>。</li>
+      <li>點擊<strong>新增頻道</strong>按鈕。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" src="/assets/images/channels/creating-channels/1-add-new-channel.png" alt="" width="" height="" />
+        </figure>
+      </li>
+      <li>在裡面<strong>基本數據</strong>標籤，定義一個<strong>名稱</strong>為您的頻道。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" src="/assets/images/channels/creating-channels/2-basic-data.png" alt="" />
+        </figure>
+      </li>
+      <li>
+        輸入 Cloud Playout 頻道 ID： <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/cloud-playout/enter-cloud-playout-channel-id.png" alt="Enter Cloud Playout Channel ID">
+          <figcaption class="bcls-caption--image">輸入雲播出頻道ID</figcaption>
+        </figure>
+        <p>要查找 Cloud Playout 頻道 ID，請參閱<a href="/cloud-playout/cloud-playout-stream-vod.html#Get_information_for_the_Beacon_Channel">獲取 Beacon 頻道的信息</a> .</p>
+      </li>
+      <li>在裡面<strong>內容分級</strong>下拉菜單中，根據您的頻道流式播放國家/地區的內容分級系統選擇頻道的內容分級。在示例圖片中，它是針對美國的<strong>電視台</strong>。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" src="/assets/images/channels/creating-channels/2.2-basic-data-options.png" alt="Channel Data Options" />
+        </figure>
+      </li>
+      <li>在裡面<strong>類型詳情</strong>部分中，單擊<strong>體裁</strong>下拉菜單為您的頻道選擇類型。（例子：恐怖，戲劇等。）</li>
+      <li>如果找不到適合您頻道的流派，則可以通過點擊<strong>創建體裁</strong>按鈕。</li>
+      <aside class="bcls-aside bcls-aside--information">這<strong>子流派</strong>下拉菜單此時不起作用。</aside>
+    </ol>
+    <h3 id="textual-data">文本數據</h3>
+    <p>這<strong>文本數據</strong>部分允許您為頻道添加可顯示的文本。</p>
+    <ol class="bcls-tasklist-restart">
+      <li>選擇<strong>文本數據</strong>標籤。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" src="/assets/images/channels/creating-channels/3-textual-data.png" alt="" width="" height="" />
+        </figure>
+      </li>
+      <li>在裡面<strong>標題</strong>字段，為您的頻道定義標題。</li>
+      <li>在裡面<strong>描述</strong>字段，為您的頻道定義說明。</li>
+      <li>在裡面<strong>概要</strong>字段，為您的頻道定義摘要。
+      </li>
+      <aside class="bcls-aside bcls-aside--information">您可以添加一個<strong>文本數據</strong>您將在頻道中使用的每種不同語言的部分。</aside>
+    </ol>
+    <h3>流</h3>
+    <p>在流部分，您將為您的頻道設置流信息</p>
+    <ol class="bcls-tasklist-restart">
+      <li>
+        在流部分中，選擇<strong>亮灣</strong>作為<strong>提供者</strong>然後點擊<strong>添加新流</strong>：
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/cloud-playout/publish-add-new-stream.png" alt="Add New Stream">
+          <figcaption class="bcls-caption--image">添加新流</figcaption>
+        </figure>
+      </li>
+      <li>
+        添加 Steams 信息：
+        <ul>
+          <li><strong>流視頻 ID：</strong>輸入頻道直播的視頻 ID</li>
+          <li><strong>要發布的設備：</strong>單擊選擇/取消選擇所有設備，然後刪除您不想發佈到的任何設備</li>
+          <li><strong>流類型：</strong>選擇<strong>居住</strong></li>
+          <li><strong>數字版權管理類型：</strong>選擇您正在使用的 DRM 類型或<strong>打開</strong></li>
+          <li><strong>流格式：</strong>選擇 HLS</li>
+        </ul>
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/cloud-playout/publish-stream-settings.png" alt="Streams Settings">
+          <figcaption class="bcls-caption--image">流設置</figcaption>
+        </figure>
+      </li>
+    </ol>
+    <h3>權限和調度</h3>
+    <ol class="bcls-tasklist-restart">
+      <li>
+        在裡面<strong>權限和調度</strong>部分，添加以下信息：
+        <ul>
+          <li><strong>地位：</strong>選擇已發布</li>
+          <li><strong>允許下載：</strong>選擇是否允許觀眾下載內容（大多數情況下，答案是否定的）</li>
+          <li><strong>權利類型：</strong>選擇免費或適合您內容的任何內容</li>
+          <li><strong>開始時間：</strong>使頻道可用的時間（選擇過去的日期以使其立即可用）</li>
+          <li><strong>時間結束：</strong>頻道不可用的時間（如果您希望它無限期地運行，您可以在將來設置它）</li>
+          <li><strong>最大流：</strong>您不需要輸入任何內容 - 將其保留為 0</li>
+          <li><strong>要發布的設備：</strong>單擊選擇/取消選擇所有設備，然後刪除您不想發佈到的任何設備</li>
+          <li><strong>允許的地點：</strong>進入<strong>世界</strong>或您允許查看的區域</li>
+          <li><strong>拒絕地點：</strong>留空或進入不允許查看的區域</li>
+        </ul>
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/cloud-playout/publish-rights-scheduling.png" alt="Rights & Scheduling Settings">
+          <figcaption class="bcls-caption--image">權限和調度設置</figcaption>
+        </figure>
+      </li>
+    </ol>
+    <h3>創建頻道</h3>
+    <ol class="bcls-tasklist-restart">
+      <li>輸入所有必要的設置後，單擊<strong>創建新頻道</strong></li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Add_channel_to_playlist">將頻道添加到播放列表</h2>
+    <p>因為 Beacon 頁面使用<strong>播放列表</strong>對於內容，您需要將 Cloud Playout 頻道添加到播放列表。播放列表可以包含其他視頻，但通常只包含頻道，以便包含頁面內容。看<a href="/using-brightcove-beacon/creating-a-playlist.html">創建播放列表</a>詳情。</p>
+    
+  </section>
+  <section class="bcls-section">
+    <h2 id="Add_channel_to_page">將頻道添加到 Beacon 頁面</h2>
+    <p>將 Cloud Playout 頻道放入 Beacon 應用程序的最後一步是最簡單的一步：您需要做的就是將包含頻道視頻的播放列表添加到頁面。看<a href="/using-brightcove-beacon/creating-a-page.html">創建頁面</a>詳情。</p>
+  </section>
+</article>

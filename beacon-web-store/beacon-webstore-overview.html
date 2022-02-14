@@ -1,0 +1,259 @@
+---
+title: '概述：Brightcove Beacon 網上商店' 
+description:本主題概述了 Brightcove Beacon Web Store 服務。
+parent: Beacon Web Store
+---
+ <h1>{{ page.title }}</h1>
+<article class="bcls-article">
+  <summary>{{ page.description }}</summary>
+  <section class="bcls-section">
+    <h2 id="Introduction">介紹</h2>
+    <p>Beacon 網上商店是一種配置、功能和 API 集成，使 Beacon 被許可人能夠在自帶 (BYO) 網上商店中實施訂閱。內容所有者在網上商店中實現用於租賃和銷售的店面和業務邏輯以及支付系統集成。Beacon API為商店提供了在Beacon CMS中添加，刪除和編輯所產生的權利更改的接口。Beacon 應用中定義訪問和顯示內容標題的邏輯沒有改變。</p>
+    <p>信標中未管理或跟踪所有財務報告，儀表板和納稅的實施，這是內容所有者的責任。</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="glossary_of_terms">專業術語</h2>
+    <p>下表解釋了本主題中使用的術語。</p>
+    <table class="bcls-table">
+      <caption class="bcls-caption--table">專業術語</caption>
+      <thead class="bcls-table__head">
+        <tr>
+          <th>學期</th>
+          <th>解釋</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td>網上商店</td>
+          <td>一個BYO商業網站，用於出售，出租和出售訂閱</td>
+        </tr>
+        <tr>
+          <td>付款處理器</td>
+          <td>網上商店用來處理交易並將收入存入帳戶的系統</td>
+        </tr>
+        <tr>
+          <td>單品</td>
+          <td>信標資產的標識符</td>
+        </tr>
+        <tr>
+          <td>點播</td>
+          <td>訂閱VOD，定期支付模式</td>
+        </tr>
+        <!-- <tr>
+          <td>TVOD</td>
+          <td>One time purchase or rental payment model</td>
+        </tr> -->
+        <tr>
+          <td>計劃</td>
+          <td>SVOD報價定義</td>
+        </tr>
+        <tr>
+          <td>統一管理系統</td>
+          <td>用戶管理系統</td>
+        </tr>
+        <tr>
+          <td>代理UMS</td>
+          <td>在BYO UMS中映射到主副本的用戶的代理副本。信標權利在Proxy UMS系統中管理。</td>
+        </tr>
+        <tr>
+          <td>OIDC</td>
+          <td>Open ID Connect，一種在身份驗證期間進行通信授權的協議</td>
+        </tr>
+        <tr>
+          <td>驗證</td>
+          <td>標識特定用戶以授予訪問權限 </td>
+        </tr>
+        <tr>
+          <td>授權</td>
+          <td>登錄時通過令牌傳達用戶權利</td>
+        </tr>
+        <tr>
+          <td>應用內購買（2021年第二季度可用）</td>
+          <td>如果客戶要將Beacon應用程序添加到其網絡商店產品報價中，並希望通過應用程序商店出售新產品配置，則可以將Beacon Stores配置為用於應用程序內購買。 </td>
+        </tr>
+        <tr>
+          <td>權益</td>
+          <td>訪問信標內容或功能</td>
+        </tr>
+        <tr>
+          <td>購買通知</td>
+          <td>從信標存儲發送到信標CMS的消息，指示訂閱或資產權利的購買狀態（購買，取消）發生變化</td>
+        </tr>
+        <tr>
+          <td>聯網電視</td>
+          <td>HDMI連接的外部設備，為電視提供應用程序管理支持：Apple TV，FireTV，Roku和Android TV機頂盒</td>
+        </tr>
+        <tr>
+          <td>智能電視</td>
+          <td>內置應用程序管理支持的電視</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Beacon_Store_Components">燈塔商店組件</h2>
+    <p>所有Beacon Store購買都是通過網上商店進行的。銷售模式要求查看者訪問客戶網上商店，購買內容，然後作為單獨的操作在其支持的設備上打開 Beacon 應用程序。</p>
+    <p>所需的組件是：</p>
+    <table class="bcls-table">
+      <caption class="bcls-caption--table">燈塔商店組件</caption>
+      <thead class="bcls-table__head">
+          <tr>
+              <th>成分</th>
+              <th>責任</th>
+              <th>描述</th>
+          </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+          <tr>
+              <td>網上商店</td>
+              <td>內容擁有者</td>
+              <td>用戶提供的網絡商店實現了用於出售和出租對單個內容標題和可再生訂閱的訪問權的邏輯和過程。</td>
+          </tr>
+          <tr>
+              <td>付款處理器</td>
+              <td>內容擁有者</td>
+              <td>一種用於處理通過網上商店出售的商品的付款的系統。該服務將以當地貨幣進行信用卡借記卡、電子錢包和二維碼支付，並與內容所有者的銀行進行結算。</td>
+          </tr>
+          <tr>
+              <td>用戶管理系統</td>
+              <td>內容擁有者</td>
+              <td>必須提供一個用戶管理系統來存儲註冊用戶的記錄。現有網絡商店的所有者希望維護他們現有的 UMS，因為它包含有關其客戶的所有歷史信息。</td>
+          </tr>
+          <tr>
+              <td>明灣燈塔</td>
+              <td>布萊特灣</td>
+              <td>Brightcove Beacon將內容的配置和打包提供到在網上商店和Beacon Entitlements API上出售的命名SKU中，在此Web商店在查看器記錄中註冊特定內容訪問權限的權利。</td>
+          </tr>
+          <tr>
+              <td>權利通知</td>
+              <td>Brightcove和內容所有者</td>
+              <td>
+                Webstore 向 Beacon 發送諸如訂閱購買或取消之類的商業事件通知，Beacon 更新用戶對 Beacon UMS 中 Beacon 資產的權利。
+                <!-- <p>(Coming in Q2 2021) In cases where Beacon Store In App Purchases are required, the web store will maintain a separate entitlements database that must be updated.  Beacon will send notifications to an end point defined by the customer and their system is responsible for maintaining the matching entitlements. </p> -->
+              </td>
+          </tr>
+      </tbody>
+  </table>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Beacon_Store_Workflows_and_Configurations">信標存儲工作流程和配置</h2>
+    <p>在引入 Beacon 之前，您很可能已經擁有一個商業網站作為其業務的一個組成部分，並希望將 Beacon 訂閱添加到您的網上商店產品中。網絡商店由三個部分組成：</p>
+    <ol>
+      <li><strong>網上商店</strong> - 網上商店是您組織的商業站點。它介紹了產品，定價和購買模型。 </li>
+      <li><strong>付款處理器</strong> -付款處理器是一種處理交易，從信用卡，借記卡和電子錢包接受付款，將付款存入組織的銀行帳戶並將收據發送給購買者的系統。</li>
+      <li><strong>用戶管理系統</strong> - 您的組織在其 UMS 中維護其註冊讀者的列表。</li>
+    </ol>
+
+    <p>Beacon Store 集成有兩個開發活動</p>
+    <ol>
+      <li><strong>信標從網絡商店接收財務交易通知</strong> -從網上商店銷售和取消Beacon訂閱均報告給Beacon API。信標根據這些通知添加或刪除權利。</li>
+      <li><strong>連接並同步Beacon和Web Store用戶管理系統</strong> -Webstore UMS用戶記錄包含主記錄和用戶，並且是存儲的用戶數據的源。在信標UMS中為每個註冊的顧客創建代理用戶。信標一接收到交易通知，便將權利分配給代理用戶記錄。存儲UMS中的更改（例如添加和刪除用戶）將應用於信標UMS中的匹配用戶記錄。
+      </li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Beacon_Store_Configurations">信標存儲配置</h2>
+    <p>Beacon商店是與Beacon集成的，現有的，客戶擁有的和運營的BYO網絡商店，其目的是將Beacon訂閱添加到該網絡商店中出售的產品列表中。藝術組織提供了一個示例來說明支持該目標的兩種主要銷售模式。</p>
+    <p>藝術組織目前通過其網上商店出售與表演相關的訂閱，門票和實物商品。因此，存在現有的網絡商店、用戶管理、支付處理和權利跟踪系統來管理該交易。</p>
+    <p>一些組織已決定通過包括對這些相同事件和錄製內容的虛擬訪問來擴大他們的受眾。他們還希望在他們的網絡商店中整合整個商務管理流程。</p>
+    <p>一部分組織希望通過其網絡商店獲得相同的結果，並希望出售與應用商店中的應用購買相同的產品（Apple Store，Google Play，Amazon，Roku和與Beacon Web應用集成的Stripe） 。</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Web_Store_Only_Purchases">僅限網上商店購買</h2>
+    <p>僅 Web 商店的工作流實現如圖 1 所示。客戶帶來自己的網上商店、支付處理器和 UMS。集成點是：</p>
+    <ul>
+      <li>
+        <strong>UMS 代理用戶</strong> - 註冊用戶的完整記錄保存在客戶的BYO UMS中，這是用戶賬戶和用戶賬戶管理的真實來源。登錄時的用戶身份驗證發生在 BYO UMS 中。身份驗證或訂閱後，將在信標UMS中創建代理用戶。當用戶從 UMS 中刪除時，代理用戶也從 Beacon 中刪除。
+        <p>身份驗證和帳戶管理的同步使用 OIDC ( <a href="https://openid.net/developers/specs/">打開 ID 連接</a> ) 協議，OAuth 2.0 的擴展。您必須提供具有本地 OIDC 支持的系統或更新您的 UMS 接口以支持 OIDC。</p>
+      </li>
+      <li><strong>購買通知</strong> -您修改了網上商店，將Commerce Events的通知發送到Beacon Entitlements API。該通知包括用戶 ID 和產品 SKU。當 Beacon 收到通知時，用戶記錄中權利的適當更新會記錄在 Beacon UMS 中。因此授予或撤銷使用戶能夠在 Beacon 應用程序中查看內容的權利。技術權利 API 接口定義在<a href="/beacon-web-store/integration-details.html">信標集成詳細信息</a></li>
+    </ul>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/beacon-web-store/beacon-store.png" alt="Beacon Store">
+      <figcaption class="bcls-caption--image">燈塔商店</figcaption>
+    </figure>
+    <p>配置詳細信息：</p>
+    <ul>
+      <li>webstore 和 Beacon 中的訂閱定義<strong>必須</strong>使用相同的 SKU 名稱進行配置。</li>
+      <li>網絡商店通知被發送到從 Beacon CMS 顯示的網絡鉤子 URL。</li>
+    </ul>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Beacon_Store_with_In_App_Purchases">帶有應用內購買的燈塔商店</h2>
+    <p>應用程序購買工作流中的 Web 商店的實現如圖 2 所示。在這種模式下，可以從Amazon，Apple，Google和Roku商店以及您的網上商店進行應用內購買。您負責：</p>
+    <ul>
+      <li>您自己的網上商店</li>
+      <li>支付處理器</li>
+      <li>統一管理系統</li>
+      <li>所需商店的商家帳戶</li>
+    </ul>
+    <p>Brightcove Beacon提供應用內購買集成。集成點從上一節中描述的內容進行了修改，以包括從 Beacon 到 Webstore 的成功應用內購買的付款通知。Beacon 生成的通知消息遵循類似的模式。</p>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/beacon-web-store/beacon-store-with-in-app-purchases.png" alt="Beacon Store with In-App Purchases">
+      <figcaption class="bcls-caption--image">帶有應用內購買功能的信標商店</figcaption>
+    </figure>
+    <p>配置詳細信息：</p>
+    <ul>
+      <li>webstore 和 Beacon 中的訂閱定義<strong>必須</strong>使用相同的 SKU 名稱進行配置。</li>
+      <li>網絡商店通知被發送到從 Beacon CMS 顯示的網絡鉤子 URL。</li>
+      <li>信標通信被發送到Webhook URL，該URL由您選擇的服務顯示。</li>
+    </ul>
+  </section>
+  <section class="bcls-section">
+    <h2 id="User_Management_Systems">用戶管理系統</h2>
+    <p>Beacon 商店的典型用例是將 Beacon 與預先存在的、已建立的網絡商店進行集成。較不常見的是通過新的網絡商店啟動新服務以管理商務。</p>
+    <h3>外部連接的UMS</h3>
+    <p>既有的網上商店始終與用戶管理和付款處理系統集成在一起。在這種情況下，您的目標是將Beacon集成到預先存在的商業配置中。您的 UMS 將繼續作為身份驗證和用戶記錄管理點。因此，集成將使用客戶 UMS 來驗證和授權 Beacon 用戶。用戶的電子郵件地址用作帳戶 ID，並且權利與該帳戶相關聯。所有用戶個人信息數據都存儲在BYO UMS中。</p>
+    <p>外部BYO UMS系統使用OIDC接口協議與Beacon進行接口。Open ID Connect是OAuth的擴展，用於標準化身份令牌架構。</p>
+    <h3>移動和Web UMS配置</h3>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/beacon-web-store/mobile-web-ums.png" alt="Mobile and Web UMS">
+      <figcaption class="bcls-caption--image">移動和Web UMS</figcaption>
+    </figure>
+    <ol>
+      <li>用戶選擇登錄 Beacon App</li>
+      <li>應用程序與OIDC提供程序進行交互，以引導用戶完成登錄流程。成功後，將向應用程序提供訪問，刷新和身份令牌</li>
+      <li>應用程序使用訪問令牌連接到Beacon後端</li>
+      <li>信標後端驗證訪問令牌</li>
+    </ol>
+    <h3>連接和SmartTV UMS配置</h3>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/beacon-web-store/tv-ums.png" alt="Connected and SmartTV UMS">
+      <figcaption class="bcls-caption--image">聯網和SmartTV UMS</figcaption>
+    </figure>
+    <ol>
+      <li>用戶選擇登錄 Beacon App</li>
+      <li>應用要求輸入設備代碼</li>
+      <li>用戶轉到移動設備或 Web 設備，輸入身份驗證 URL 和設備代碼</li>
+      <li>設備與OIDC提供程序進行交互以對用戶進行身份驗證</li>
+      <li>聯網或智能電視連續輪詢OIDC提供商，以查明是否向用戶提供了通過身份驗證的身份（通過身份驗證時），訪問，刷新和身份令牌</li>
+      <li>應用程序使用訪問令牌連接到Beacon後端</li>
+      <li>信標後端驗證訪問令牌</li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Beacon_User_Management_Autosync">信標用戶管理自動同步</h2>
+    <p>將現有 UMS 與 Beacon 集成時，必須在 Beacon UMS 中創建代理用戶，以便可以將 Beacon Store 銷售通知創建的權限分配給適當的用戶。</p>
+    <p>作為客戶 UMS 中事件的結果，用戶在 Beacon 中得到維護。通過 OIDC 接口，當用戶在外部 UMS 中進行身份驗證或將授權發送到 Beacon 時，將在 Beacon 中創建用戶。無需手動同步。</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Beacon_Store_Monetization_Models">信標商店獲利模型</h2>
+    <p>信標存儲可配置為支持SVOD事務。配置詳細信息：</p>
+    <h3>點播配置</h3>
+    <h4>信標配置</h4>
+    <ol class="bcls-tasklist-restart">
+      <li>在信標中創建SVOD計劃</li>
+      <li>在 Beacon 中將狀態設置為 UNPUBLISHED</li>
+      <li>在信標中為計劃定義SKU</li>
+      <li>將內容分配給計劃</li>
+    </ol>
+    <h4>網店配置</h4>
+    <ol class="bcls-tasklist-restart">
+      <li>在網上商店和網上商店付款系統中創建SVOD計劃/產品</li>
+      <li>演戲<strong>與信標中使用的名稱相同</strong></li>
+      <li>將Beacon中的SKU複製到網上商店付款系統中的SKU ID中</li>
+    </ol>
+    <!-- <h3>TVOD configuration</h3>
+    <p>(TBD)</p> -->
+  </section>
+</article>

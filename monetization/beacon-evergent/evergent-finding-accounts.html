@@ -1,0 +1,391 @@
+---
+title:“在Evergent CRM中查找帳戶"
+description:本主題提供了在 Evergent CRM 系統中登錄和查找現有帳戶的指南。
+parent: Beacon Advanced Monetization 
+grandparent: Monetization
+layout: staging
+---
+ <h1>{{ page.title }}</h1>
+
+<article class="bcls-article">
+	<summary>{{ page.description }}</summary>
+	<section class="bcls-section">
+		<h2 id="Introduction">介紹</h2>
+		<p>Evergent CRM 與 Brightcove Beacon 集成，允許您管理查看者帳戶、訂閱和交易。本指南涵蓋了 CRM 的使用。</p>
+	</section>
+	<section class="bcls-section">
+		<h2 id="Login_to_Account_Management">登錄賬戶管理</h2>
+		<ol class="bcls-tasklist-restart">
+			<li>打開網絡瀏覽器。</li>
+			<li>在地址欄中，輸入Evergent提供的應用程序URL。</li>
+			<li>輸入有效的電子郵件/用戶名和密碼。</li>
+			<li>
+				點擊<strong>登入</code>按鈕開始您的 Evergent 會話。
+				<figure class="bcls-figure">
+					<img class="bcls-image" src="/assets/images/beacon-evergent/evergent-login.png" alt="Evergent Login">
+					<figcaption class="bcls-caption--image">Evergent登錄</figcaption>
+				</figure>
+			</li>
+			<li>
+				有權訪問多個業務單位的用戶必須從可用的下拉列表中選擇業務單位，然後單擊<strong>提交</strong>：
+				<figure class="bcls-figure">
+					<img class="bcls-image" src="/assets/images/beacon-evergent/select-business-unit.png" alt="Select Business Unit">
+					<figcaption class="bcls-caption--image">選擇業務單位</figcaption>
+				</figure>
+			</li>
+			<li>
+				點擊<strong>帳戶管理</strong>儀表板主屏幕上的圖像按鈕以進入“帳戶管理"應用程序：
+				<figure class="bcls-figure">
+					<img class="bcls-image" src="/assets/images/beacon-evergent/select-account-management.png" alt="Select Account Management">
+					<figcaption class="bcls-caption--image">選擇賬戶管理</figcaption>
+				</figure>
+			</li>
+			<li>
+				彈出的模式對話框將要求您從以下選項中進行選擇：
+				<ul>
+					<li>創建帳號</li>
+					<li>現有帳戶</li>
+					<li>訂單不完整</li>
+				</ul>
+			</li>
+			<li>選擇<strong>現有賬戶</strong></li>
+	</ol>
+	</section>
+	<section class="bcls-section">
+		<h2 id="Account_Management">帳戶管理</h2>
+		<p>賬戶管理模塊用於維護客戶詳細信息、服務、訂單、賬單和財務等，以建立與 Evergent 現有和潛在客戶的關係。</p>
+		<h3>管理現有帳戶</h3>
+		<p>進入“現有帳戶"部分後，您可以搜索要使用的帳戶。</p>
+		<ol class="bcls-tasklist-restart">
+			<li>
+				在<strong>帳戶搜尋</strong>屏幕，在<strong>搜索任何內容</strong>部分中，輸入與帳戶相關的詳細信息，以通過以下方式搜索現有帳戶<strong>帳戶類型</strong>，<strong>業務部</strong>， 或者<strong>賬號</strong>：
+				<figure class="bcls-figure">
+					<img class="bcls-image" src="/assets/images/beacon-evergent/search-for-account.png" alt="Basic Account Search">
+					<figcaption class="bcls-caption--image">基本帳戶搜索</figcaption>
+				</figure>
+			</li>
+			<li>
+				要查看更多搜索選項，請啟用<strong>高級搜索字段</strong>撥動開關：
+				<figure class="bcls-figure">
+					<img class="bcls-image" src="/assets/images/beacon-evergent/advanced-search-toggle.png" alt="Advance Search Options">
+					<figcaption class="bcls-caption--image">進階搜尋選項</figcaption>
+				</figure>
+			</li>
+			<li>
+				高級搜索選項允許您使用多個搜索字段的任意組合來搜索帳戶：
+				<figure class="bcls-figure">
+					<img class="bcls-image" src="/assets/images/beacon-evergent/advanced-search-fields.png" alt="Advanced Search Fields">
+					<figcaption class="bcls-caption--image">進階搜尋欄位</figcaption>
+				</figure>
+				<table class="bcls-table">
+					<caption class="bcls-caption--table">進階搜尋欄位</caption>
+					<thead class="bcls-table__head">
+							<tr>
+									<th>場地</th>
+									<th>描述</th>
+							</tr>
+					</thead>
+					<tbody class="bcls-table__body">
+							<tr>
+									<td>選擇業務單位</td>
+									<td>搜索特定業務部門下的客戶</td>
+							</tr>
+							<tr>
+									<td>賬號</td>
+									<td>在 Evergent 系統中成功註冊時生成的客戶唯一帳號</td>
+							</tr>
+							<tr>
+									<td>CP客戶編號</td>
+									<td>客戶購買的硬件訂閱的唯一序列號。</td>
+							</tr>
+							<tr>
+									<td>註冊號碼</td>
+									<td>客戶在 Evergent 系統中成功註冊時生成的唯一註冊號</td> 
+							</tr>
+							<tr>
+									<td>SP 帳戶 ID</td>
+									<td>供應系統中客戶的唯一 SP 帳戶 ID </td>
+							</tr>
+							<tr>
+									<td>訂單編號</td>
+									<td>成功購買訂閱後為客戶生成的唯一訂單 ID。</td>
+							</tr>
+							<tr>
+									<td>發票號碼</td>
+									<td>成功交付賬單後為客戶生成的唯一發票 ID</td>
+							</tr>
+							<tr>
+									<td>CTN</td>
+									<td>唯一客戶電話號碼</td>
+							</tr>
+							<tr>
+									<td>外部訂單編號</td>
+									<td>成功購買外部訂單後為客戶生成的唯一外部訂單 ID</td>
+							</tr>
+							<tr>
+									<td>付款資料編號</td>
+									<td>支付時生成的唯一支付ID</td>
+							</tr>
+							<tr>
+									<td>禁止</td>
+									<td>與客戶帳戶相關的唯一 BAN</td>
+							</tr>
+							<tr>
+									<td>用戶名</td>
+									<td>根據最新客戶記錄的客戶登錄用戶名</td>
+							</tr>
+							<tr>
+									<td>名</td>
+									<td>根據最新客戶記錄的客戶名字</td>
+							</tr>
+							<tr>
+									<td>姓</td>
+									<td>根據最新客戶記錄的客戶姓氏</td>
+							</tr>
+							<tr>
+									<td>社會保障號碼</td>
+									<td>註冊期間根據客戶的最新記錄提供的客戶的SSN（社會保險號）</td>
+							</tr>
+							<tr>
+									<td>備用用戶名</td>
+									<td>註冊期間提供的客戶的備用用戶名。此字段在保存期間保存任何電話號碼或電子郵件或字母數字值</td>
+							</tr>
+							<tr>
+									<td>全名</td>
+									<td>客戶的全名，即根據最新客戶記錄的名字和姓氏</td>
+							</tr>
+							<tr>
+									<td>電話號碼</td>
+									<td>可以是註冊期間提供的任何客戶的家庭或工作地點或手機號碼，也可以是客戶的最新記錄</td>
+							</tr>
+							<tr>
+									<td>電子郵件</td>
+									<td>根據最新客戶記錄，客戶註冊的主要電子郵件地址</td>
+							</tr>
+							<tr>
+									<td>聯絡人編號</td>
+									<td>客戶的聯繫ID。可以是主要或輔助聯繫人ID。</td>
+							</tr>
+							<tr>
+									<td>CC4數字</td>
+									<td>客戶的信用卡末4位數字，以後註冊或添加到客戶帳戶中</td>
+							</tr>
+							<tr>
+									<td>到期月份和年份</td>
+									<td>客戶的MM和YYYY格式的註冊信用卡的到期月份和年份</td>
+							</tr>
+							<tr>
+									<td>禮品卡PIN碼</td>
+									<td>禮品卡的禮品卡密碼</td>
+							</tr>
+					</tbody>
+			</table>
+			</li>
+			<li>
+				如果搜索結果僅產生一個帳戶，則顯示客戶的“帳戶摘要"屏幕以查看360度客戶信息：
+				<figure class="bcls-figure">
+					<img class="bcls-image" src="/assets/images/beacon-evergent/account-details.png" alt="Account Summary">
+					<figcaption class="bcls-caption--image">帳戶匯總</figcaption>
+				</figure>
+				<p>以下是帳戶的字段。</p>
+				<table class="bcls-table">
+					<caption class="bcls-caption--table">帳戶字段</caption>
+					<thead class="bcls-table__head">
+							<tr>
+									<th>場地</th>
+									<th>描述</th>
+							</tr>
+							<tr>
+									<th colspan="2">帳戶詳細信息部分</th>
+							</tr>
+					</thead>
+					<tbody class="bcls-table__body">
+							<tr>
+									<td>賬號</td>
+									<td>在 Evergent 系統中成功註冊時生成的客戶唯一帳號</td>
+							</tr>
+							<tr>
+									<td>註冊號碼</td>
+									<td>客戶在 Evergent 系統中成功註冊時生成的唯一註冊號</td>
+							</tr>
+							<tr>
+									<td>帳戶已驗證</td>
+									<td>表示訂閱者的郵箱驗證是否已完成</td>
+							</tr>
+							<tr>
+									<td>家長控制</td>
+									<td>如果選中，將啟用家長控制</td>
+							</tr>
+							<tr>
+									<td>CP客戶編號</td>
+									<td>Evergent系統中客戶的唯一CP客戶ID</td>
+							</tr>
+							<tr>
+									<td>SP 客戶 ID</td>
+									<td>Evergent系統中客戶的唯一SP客戶ID</td>
+							</tr>
+							<tr>
+									<td>免費帳戶</td>
+									<td>表示賬戶是否免費</td>
+							</tr>
+							<tr>
+									<td>投訴模式</td>
+									<td>表示賬戶是否處於投訴模式</td>
+							</tr>
+							<tr>
+									<td>帳戶類型 </td>
+									<td>表示訂戶帳戶類型</td>
+							</tr>
+							<tr>
+									<td>銷售方式</td>
+									<td>表示獲得客戶的銷售方法</td>
+								</tr>
+								<tr>
+										<td>計費方式</td>
+										<td>表示計費方式的頻率</td>
+								</tr>
+								<tr>
+										<td>賬單週期</td>
+										<td>指示客戶賬單生成日期</td>
+								</tr>
+								<tr>
+										<td>匯票類型</td>
+										<td>客戶選擇的票據交付類型</td>
+								</tr>
+								<tr>
+										<td>帳戶角色</td>
+										<td>指示客戶的帳戶角色</td>
+								</tr>
+								<tr>
+										<td>冷卻</td>
+										<td>這表明客戶是否有資格根據細分選項卡中定義的細分獲得任何類型的優惠/促銷</td>
+								</tr>
+								<tr>
+										<td>遷移類別</td>
+										<td>它說明了不遷移用戶帳戶的原因</td>
+								</tr>
+							</tbody>
+							<thead class="bcls-table__head">
+								<tr>
+										<th colspan="2">服務詳情部分</th>
+								</tr>
+							</thead>
+							<tbody class="bcls-table__body">
+								<tr>
+									<td>投訴模式</td>
+									<td>表示賬戶是否處於投訴模式</td>
+							</tr>
+							<tr>
+									<td>帳戶類型 </td>
+									<td>表示訂戶帳戶類型</td>
+							</tr>
+							<tr>
+									<td>銷售方式</td>
+									<td>表示獲得客戶的銷售方法</td>
+								</tr>
+								<tr>
+										<td>計費方式</td>
+										<td>表示計費方式的頻率</td>
+								</tr>
+								<tr>
+										<td>賬單週期</td>
+										<td>指示客戶賬單生成日期</td>
+								</tr>
+								<tr>
+										<td>匯票類型</td>
+										<td>客戶選擇的票據交付類型</td>
+								</tr>
+							</tbody>
+							<thead class="bcls-table__head">
+								<tr>
+										<th colspan="2">帳單和財務科</th>
+								</tr>
+							</thead>
+							<tbody class="bcls-table__body">
+								<tr>
+									<td>最近的帳單金額</td>
+									<td>表示客戶最近的賬單金額</td>
+							</tr>
+							<tr>
+									<td>當前餘額</td>
+									<td>客戶當前餘額</td>
+							</tr>
+							<tr>
+									<td>下一個帳單金額</td>
+									<td>這表示要從客戶那裡收取的下一個賬單金額</td>
+							</tr>
+							<tr>
+									<td>設備激活日期（RTP日期，除非已激活10ft設備）</td>
+									<td>引入此字段以顯示購買後可以為客戶完成設備激活的日期</td>
+							</tr>
+							<tr>
+									<td>設備服務費</td>
+									<td>這反映了分期付款詳細信息功能。單擊此按鈕後，用戶將導航到“帳戶管理"模塊中的“訂單"選項卡，以獲取分期付款詳細信息</td>
+							</tr>
+							<tr>
+									<td>下一個賬單日期</td>
+									<td>這表示客戶的下一個賬單生成日期</td>
+							</tr>
+							<tr>
+									<td>錢包餘額</td>
+									<td>這表示客戶帳戶的可用錢包餘額</td>
+							</tr>
+							<tr>
+									<td>客戶以來</td>
+									<td>指示何時獲得客戶</td>
+							</tr>
+							<tr>
+									<td>迄今為止的收入</td>
+									<td>表示該客戶迄今產生的收入</td>
+							</tr>
+							<tr>
+									<td>客戶至今的通話</td>
+									<td>迄今為止收到客戶打給CSR的電話數量</td>
+							</tr>
+							<tr>
+									<td>補償數量</td>
+									<td>提供給客戶的補償總數</td>
+							</tr>
+							<tr>
+									<td>賠償總額</td>
+									<td>提供給客戶的賠償總額</td>
+							</tr>
+							<tr>
+									<td>忠誠度積分</td>
+									<td>客戶根據他們的購買獲得的積分</td>
+							</tr>
+							<tr>
+									<td>可兌現積分/金額</td>
+									<td>客戶可兌現的積分及累計積分可兌現的金額</td>
+							</tr>
+						</tbody>
+						<thead class="bcls-table__head">
+							<tr>
+									<th colspan="2">付款方式部分</th>
+							</tr>
+						</thead>
+						<tbody class="bcls-table__body">
+							<tr>
+								<td>設置</td>
+								<td>以掩碼形式顯示客戶的自動付款方式的類型以及卡的詳細信息。可以是信用卡/借記卡、運營商賬單、App Store 賬單、谷歌錢包等。</td>
+						</tr>
+				</tbody>
+			</table>
+			</li>
+			<li>如果找到多個帳戶，則會在屏幕上顯示具有匹配信息的帳戶列表以及相應的客戶信息，例如渠道合作夥伴，帳戶名稱，電子郵件，CP客戶ID，SP帳戶ID，狀態，服務計劃和上次登錄日期帳戶的“搜索條件"屏幕下方。
+				<p>單擊任一客戶' 從搜索結果中的帳戶詳細信息導航到客戶帳戶摘要屏幕以查看 360 度客戶信息。</p>
+				</li>
+		</ol>
+		<p>見<a href="#Related_topics">以下</a>有關管理帳戶信息不同部分的指南。</p>
+		<aside class="bcls-aside bcls-aside--information">請注意，某些可以在 Evergent 中修改的帳戶功能將在 Beacon 中處理。您會看到這方面的跡象，並且不會涵蓋 Evergent 的這些部分。</aside>
+	</section>
+	<section class="bcls-section">
+		<h2 id="Related_topics">相關主題</h2>
+		<ul>
+			<li><a href="/monetization/beacon-evergent/overview-beacon-evergent.html">概述：信標高級獲利</a></li>
+			<li><a href="/monetization/beacon-evergent/evergent-managing-account-details.html">Evergent：管理帳戶詳細信息</a></li>
+			<li><a href="/monetization/beacon-evergent/evergent-billing-finance.html">Evergent：帳單和財務"</a></li>
+			<li><a href="/monetization/beacon-evergent/emailer-coupons.html">Evergent：電子郵件和優惠券</a></li>
+		</ul>
+	</section>
+</article>

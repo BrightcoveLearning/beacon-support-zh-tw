@@ -1,675 +1,167 @@
-﻿<!DOCTYPE html>
-<html lang="zh-TW">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <meta name="description" content="在本主題中，您將學習如何在 Brightcove 信標中管理和建立即時伺服器端廣告設定。" />
-
-    <title>實施即時 SSAI</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="manifest" href="/site.webmanifest" />
-    <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&amp;display=swap">
-      <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://support.brightcove.com/site-assets/css/site/prism.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://support.brightcove.com/site-assets/css/site/styles.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://support.brightcove.com/site-assets/css/site/landing-page.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://support.brightcove.com/site-assets/css/site/tabs.css"
-    />
-    <link rel="stylesheet" href="/assets/css/local.css" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Lato&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap"
-      rel="stylesheet"
-    />
-    <script
-      src="https://kit.fontawesome.com/381443caa8.js"
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://support.brightcove.com/site-assets/js/site/google-analytics.js"></script>
-    <script src="/assets/js/sajari-head.js"></script>
-  </head>
-
-  <body class="body"></body>
-</html>
-
-<header>
-  <div class="div-header">
-    <a href="/"><img class="product-logo" src="https://support.brightcove.com/site-assets/images/site/product-logos/Beacon_Logo.svg" alt="產品標誌" style="max-height: 100px;max-width: 232px;"/></a>
-<!-- GTranslate: https://gtranslate.io/ -->
-<select onchange="doGTranslate(this);"><option value="">選擇語言</option><option value="en|en" translate="No">English</option><option value="en|zh-TW" translate="No">繁體中文</option><option value="en|fr" translate="No">Français</option><option value="en|de" translate="No">Deutsche</option><option value="en|ja" translate="No">日本語</option><option value="en|ko" translate="No">한국어</option><option value="en|es" translate="No">Español</option></select>
-
-<script>
-/* <![CDATA[ */
-function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
-/* ]]> */
+---
+title:“實施實時SSAI"
+description:在本主題中，您將學習如何在 Brightcove Beacon 中管理和創建實時服務器端廣告配置。
+parent: Using Brightcove Beacon
+---
+ <h1>此頁面已移動 - 您將被定向到<a href="/monetization/ssai/live-ssai.html">新地點</a>在 5 秒內。請更新您的書籤！</h1> 
+<script type="text/javascript">
+var t = setTimeout(function() { window.location.href = '/monetization/ssai/live-ssai.html'; } , 5000);
 </script>
 
-Brightcove 
-
-    <span class="secondary-nav"><a href="https://supportportal.brightcove.com/s/login/?"><img src="https://support.brightcove.com/site-assets/images/site/support.png" alt="支持"/>聯繫支持</a><span style="vertical-align: top;margin-left:1em;margin-right:1em;">|</span><a href="https://status.brightcove.com/"><img src="https://support.brightcove.com/site-assets/images/site/status.png" alt="系統狀態"/>系統狀況</a></span><br/>
-    
-  </div>
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb arr-right">
-      
-      <li class="breadcrumb-item"><a href="/">首頁</a></li>
-      
-      
-      
-      <li class="breadcrumb-item"><a href="/using-brightcove-beacon/">使用布萊特灣信標</a></li>
-      
-      <li class="breadcrumb-item active" aria-current="page">實施即時 SSAI</li>
-    </ol>
-  </nav>
-</header>
-<div class="container">
-  <div class="row">
-    <div class="col-sm-3 left-side-bar">
-      				<select id="site_select" class="bcls-select" style="margin-right: 1rem;">
-					<option value="">其他布萊特灣文件</option>
-					
-						
-							<option value="https://support.brightcove.com">文件首頁</option>
-						
-					
-						
-							<option value="https://audience.support.brightcove.com">布萊特灣觀眾</option>
-						
-					
-						
-							<option value="https://beacon.support.brightcove.com">布萊特灣燈塔</option>
-						
-					
-						
-							<option value="https://campaign.support.brightcove.com">布萊特灣戰役</option>
-						
-					
-						
-							<option value="https://engage.support.brightcove.com">布萊特灣參與</option>
-						
-					
-						
-							<option value="https://live.support.brightcove.com">Brightcove Live</option>
-						
-					
-						
-							<option value="https://gallery.support.brightcove.com">Brightcove 圖庫</option>
-						
-					
-						
-							<option value="https://ssai.support.brightcove.com">布萊特灣</option>
-						
-					
-						
-							<option value="https://social.support.brightcove.com">布萊特灣社會</option>
-						
-					
-						
-							<option value="https://studio.support.brightcove.com">視訊雲端工作室</option>
-						
-					
-						
-							<option value="https://player.support.brightcove.com">布萊特灣球員開發</option>
-						
-					
-						
-							<option value="https://apis.support.brightcove.com">視訊雲端平台 API</option>
-						
-					
-						
-							<option value="https://sdks.support.brightcove.com">視訊雲端裝置開發套件</option>
-						
-					
-						
-							<option value="https://integrations.support.brightcove.com">整合與 CMS 連接器</option>
-						
-					
-						
-							<option value="https://general.support.brightcove.com">視訊雲端一般資訊</option>
-						
-					
-						
-							<option value="https://zencoder.support.brightcove.com">Zencoder</option>
-						
-					
-				</select>
-						<nav class="sidenav" id="side_nav">
-
-        
-        
-        <h5><a href="/index.html">首頁</a></h5>
-        
-        
-        
-        <h5 class="submenu-header"><a href="/getting-started/index.html">開始使<strong>用 + </strong></a></h5>
-        <ul class="sidenav-submenu" style="display:none;">
-          
-          
-          <li><a href="/getting-started/learning-guide-bc-beacon.html">學習指南</a></li>
-          
-          
-          
-          <li><a href="/getting-started/implementation-phases.html">實施階段</a></li>
-          
-          
-          
-          <li><a href="/getting-started/app-design-considerations.html">應用程式設計考量</a></li>
-          
-          
-          
-          <li><a href="/getting-started/creating-your-app-design-info-architecture.html">應用程式設計-資訊架構</a></li>
-          
-          
-          
-          <li><a href="/getting-started/creating-your-app-design-layout-options.html">應用程式設計-佈局選項</a></li>
-          
-          
-          
-          <li><a href="/getting-started/design-best-practices.html">設計最佳實務</a></li>
-          
-          
-        </ul>
-        
-        
-        
-        <h5 class="submenu-header"><a href="/syncing-with-video-cloud/index.html"><strong>與視訊雲端同步</strong></a></h5>
-        <ul class="sidenav-submenu" style="display:none;">
-          
-          
-          <li><a href="/syncing-with-video-cloud/vc-custom-fields.html">建立視訊雲端自訂欄位</a></li>
-          
-          
-          
-          <li><a href="/syncing-with-video-cloud/forcing-a-sync.html">強制同步</a></li>
-          
-          
-        </ul>
-        
-        
-        
-        <h5 class="submenu-header"><a href="/using-brightcove-beacon/index.html">使用布萊特灣信標<strong> + </strong></a></h5>
-        <ul class="sidenav-submenu" style="display:none;">
-          
-          
-          <li><a href="/using-brightcove-beacon/adding-to-page.html">將輪播新增至頁面</a></li>
-          
-          
-          
-          <li><a href="/using-brightcove-beacon/creating-a-channel.html">建立通道</a></li>
-          
-          
-          
-          <li><a href="/using-brightcove-beacon/electronic-program-guides.html">建立電子程式指南 (EPG) </a></li>
-          
-          
-          
-          <li><a href="/using-brightcove-beacon/creating-a-page.html">建立新頁面</a></li>
-          
-          
-          
-          <li><a href="/using-brightcove-beacon/creating-a-playlist.html">建立播放清單</a></li>
-          
-          
-          
-          <li><a href="/using-brightcove-beacon/creating-subscription-package.html">建立訂閱套件</a></li>
-          
-          
-          
-          <li><a href="/using-brightcove-beacon/promo-codes.html">建立促銷代碼</a></li>
-          
-          
-          
-          <li><a href="/using-brightcove-beacon/series-seasons-episodes.html">建立系列/季節/集</a></li>
-          
-          
-          
-          <li><a href="/using-brightcove-beacon/configuring-server-side-ad-settings.html">設定伺服器端廣告設定</a></li>
-          
-          
-          
-          <li><a href="/using-brightcove-beacon/implementing-authvod.html">實作驗證</a></li>
-          
-          
-          
-          <li><a href="/using-brightcove-beacon/live-ssai.html">實施即時 SSAI </a></li>
-          
-          
-          
-          <li><a href="/using-brightcove-beacon/vod-ssai.html">實施 VOD SSAI </a></li>
-          
-          
-          
-          <li><a href="/using-brightcove-beacon/including-non-configurable-pages.html">包括無法設定的頁面</a></li>
-          
-          
-          
-          <li><a href="/using-brightcove-beacon/introducing-pages.html">介紹頁面</a></li>
-          
-          
-          
-          <li><a href="/using-brightcove-beacon/streaming-live-event.html">串流即時事件</a></li>
-          
-          
-          
-          <li><a href="/using-brightcove-beacon/streaming-vods-to-a-channel.html">將 VOD 串流至頻道</a></li>
-          
-          
-          
-          <li><a href="/using-brightcove-beacon/monetization-options.html">瞭解營利選項</a></li>
-          
-          
-          
-          <li><a href="/using-brightcove-beacon/using-subscription-package.html">使用訂閱套件</a></li>
-          
-          
-          
-          <li><a href="/using-brightcove-beacon/tools.html">使用工具</a></li>
-          
-          
-          
-          <li><a href="/using-brightcove-beacon/viewing-analytics-data.html">檢視分析資料</a></li>
-          
-          
-        </ul>
-        
-        
-        
-        <h5 class="submenu-header"><a href="/creating-your-apps/index.html">建立您的應用程式<strong> + </strong></a></h5>
-        <ul class="sidenav-submenu" style="display:none;">
-          
-          
-          <li class="submenu-header">
-            <a href="/creating-your-apps/android/index.html">安卓<strong> + </strong></a>
-            <ul class="sidenav-subsubmenu" style="display:none;">
-              
-              <li><a href="/creating-your-apps/android/submitting-to-android.html">將新應用程式提交至 Android 商店</a></li>
-              
-              <li><a href="/creating-your-apps/android/updating-android-apps-to-bcb.html">更新 Android 應用程序到布萊特灣信標</a></li>
-              
-              <li><a href="/creating-your-apps/android/adding-subscriptions-in-android.html">新增訂閱至安卓</a></li>
-              
-              <li><a href="/creating-your-apps/android/improving-relevance-android.html">改善安卓遊戲商店中的搜尋關聯性</a></li>
-              
-              <li><a href="/creating-your-apps/android/installing-android-test-build.html">安裝一個安卓測試構建</a></li>
-              
-            </ul>
-          </li>
-          
-          
-          
-          <li class="submenu-header">
-            <a href="/creating-your-apps/fire-tv/index.html">火電視<strong> + </strong></a>
-            <ul class="sidenav-subsubmenu" style="display:none;">
-              
-              <li><a href="/creating-your-apps/fire-tv/installing-fire-tv-test-build.html">安裝防火電視測試組建</a></li>
-              
-              <li><a href="/creating-your-apps/fire-tv/submitting-to-amazon.html">提交到亞馬遜商店</a></li>
-              
-            </ul>
-          </li>
-          
-          
-          
-          <li class="submenu-header">
-            <a href="/creating-your-apps/ios-tvos/index.html">IOS /電訊系統/電視系統<strong> + </strong></a>
-            <ul class="sidenav-subsubmenu" style="display:none;">
-              
-              <li><a href="/creating-your-apps/ios-tvos/installing-ios-test-build.html">安裝IOS/tvOS 測試組建</a></li>
-              
-              <li><a href="/creating-your-apps/ios-tvos/submitting-to-apple.html">提交至蘋果商店</a></li>
-              
-            </ul>
-          </li>
-          
-          
-          
-          <li class="submenu-header">
-            <a href="/creating-your-apps/panasonic/index.html">松下<strong> + </strong></a>
-            <ul class="sidenav-subsubmenu" style="display:none;">
-              
-              <li><a href="/creating-your-apps/panasonic/submitting-to-panasonic.html">提交至松下商店</a></li>
-              
-            </ul>
-          </li>
-          
-          
-          
-          <li class="submenu-header">
-            <a href="/creating-your-apps/roku/index.html">六<strong> + </strong></a>
-            <ul class="sidenav-subsubmenu" style="display:none;">
-              
-              <li><a href="/creating-your-apps/roku/configuring-inchannel-products.html">在 Roku 中設定通路內產品</a></li>
-              
-              <li><a href="/creating-your-apps/roku/installing-roku-test-build.html">安裝 Roku 測試組建</a></li>
-              
-              <li><a href="/creating-your-apps/roku/submitting-to-roku.html">提交至六商店</a></li>
-              
-            </ul>
-          </li>
-          
-          
-          
-          <li class="submenu-header">
-            <a href="/creating-your-apps/samsung/index.html">三星<strong> + </strong></a>
-            <ul class="sidenav-subsubmenu" style="display:none;">
-              
-              <li><a href="/creating-your-apps/samsung/samsung-partner.html">成為三星合作夥伴</a></li>
-              
-              <li><a href="/creating-your-apps/samsung/submitting-to-samsung.html">提交至三星商店</a></li>
-              
-            </ul>
-          </li>
-          
-          
-          
-          <li><a href="/creating-your-apps/common-required-info.html">一般必要資訊</a></li>
-          
-          
-          
-          <li><a href="/creating-your-apps/device-apps-validation-guide.html">裝置應用程式驗證指南</a></li>
-          
-          
-        </ul>
-        
-        
-        
-        <h5 class="submenu-header"><a href="/references/index.html">參考資料<strong> + </strong></a></h5>
-        <ul class="sidenav-submenu" style="display:none;">
-          
-          
-          <li><a href="/references/common-configuration-settings.html">一般組態設定</a></li>
-          
-          
-          
-          <li><a href="/references/creating-stripe-account.html">建立等量帳戶</a></li>
-          
-          
-          
-          <li><a href="/references/glossary.html">詞彙</a></li>
-          
-          
-          
-          <li><a href="/references/image-requirements.html">圖片及其規格</a></li>
-          
-          
-          
-          <li><a href="/references/known-issues.html">已知問題</a></li>
-          
-          
-          
-          <li><a href="/references/product-updates.html">產品更新</a></li>
-          
-          
-        </ul>
-        
-        
-        
-        <h5 class="submenu-header"><a href="/training/index.html">訓練<strong> + </strong></a></h5>
-        <ul class="sidenav-submenu" style="display:none;">
-          
-          
-          <li><a href="/training/training-demand-custom-fields.html">使用視訊雲端視訊/自訂欄位</a></li>
-          
-          
-          
-          <li><a href="/training/training-demand-design-layout.html">設計應用程式配置</a></li>
-          
-          
-          
-          <li><a href="/training/training-demand-playlists.html">建立和使用播放清單</a></li>
-          
-          
-          
-          <li><a href="/training/training-demand-series-seasons-episodes.html">創建系列，季節和劇集</a></li>
-          
-          
-          
-          <li><a href="/training/training-demand-vod-ssai.html">實作 VOD 伺服器端廣告</a></li>
-          
-          
-          
-          <li><a href="/training/training-demand-publish-android-app.html">在 Play 商店發布安卓應用程序</a></li>
-          
-          
-          
-          <li><a href="/training/training-demand-viewing-analytics.html">檢視分析資料</a></li>
-          
-          
-        </ul>
-        
-        
-        
-        <h5 class="submenu-header"><a href="/support/index.html">支援<strong> + </strong></a></h5>
-        <ul class="sidenav-submenu" style="display:none;">
-          
-          
-          
-          
-          
-          
-          <li><a href="/support/viewing-brightcove-system-status-page.html">檢視布萊特灣系統狀態頁面</a></li>
-          
-          
-          
-          <li><a href="/support/contact-sales.html">聯絡銷售人員</a></li>
-          
-          
-          
-          <li><a href="/support/opening-case-with-brightcove-support.html">開啟支援案例</a></li>
-          
-          
-        </ul>
-        
-        
-      </nav>
-    </div>
-    <div class="col-lg-7" style="background-color: white;color: #333333;margin-top: -1em;margin-bottom: -1em;padding-bottom:1em;">
-      <!-- bootstrap layout -->
-<p id="bc_veggie_burger_wrapper" style="display: none;"><img id="bc_veggie_burger" src="/assets/images/feather/menu.svg" alt="導覽功能表"/></p>
-
-<!-- search bar -->
-<div id="nav-search-box" style="margin-top: 1rem;"></div>
-<!-- in-page navigation for narrow screens -->
-<details class="centered-inpage-nav" id="centered_inpage_nav">
-  <summary><h6 class="toc">頁面內容</h6></summary>
-  <nav id="centered_toc"></nav>
-  <ul id="centered_in_page_toc" class="list-none"></ul>
-</details>
-<!-- open in new tab/window -->
-<a id="open_new_tab" href="#" target="_blank" style="display: none;"><img src="/assets/images/feather/external-link.svg" alt="在新分頁中開啟" style="margin-top:4em;width: 1.5em;"/></a>
-
-
-<h1>實施即時 SSAI</h1>
+<h1>{{ page.title }}</h1>
 <article class="bcls-article">
-  <summary>在本主題中，您將學習如何在 Brightcove 信標中管理和建立即時伺服器端廣告設定。</summary>
+  <summary>{{ page.description }}</summary>
 
   <section class="bcls-section">
-    <h2 id="overview">概覽</h2>
+    <h2 id="overview">概述</h2>
 
     <p>
-      Brightcove Beacon 支援即時活動中的伺服器端廣告插入 (SSAI)，因此可以在直播期間要求和顯示伺服器端廣告。
+      Brightcove Beacon在實時事件中支持服務器端廣告插入（SSAI），因此可以在實時流中請求並顯示服務器端廣告。注意：如果您將冗餘與SSAI一起使用，則必須同時將廣告插入該組中的所有作業。 
     </p>
     <p>該過程的高級視圖是：</p>
     <ol>
-      <li>創建一個廣告配置工作室。</li>
-      <li>為您的直播活動建立填色板。</li>
-      <li>在啟用 SSAI 的情況下建立即時活動。</li>
-      <li>將直播活動發佈到布萊特灣信標。</li>
+      <li>在Studio中創建廣告配置。</li>
+      <li>為您的現場直播活動創建一個填充板。</li>
+      <li>創建啟用了SSAI的直播活動。</li>
+      <li>將實時事件發佈到Brightcove Beacon。</li>
     </ol>
-    <aside class="bcls-aside bcls-aside--information">
-      本文件是對<a href="https://beacon.support.brightcove.com/using-brightcove-beacon/streaming-live-event.html" target="_blank">直播現場直播</a>文檔，指導您將SSAI添加到現場活動中。有關如何創建活動的詳細信息，請參閱<a href="https://beacon.support.brightcove.com/using-brightcove-beacon/streaming-live-event.html#create" target="_blank">在Brightcove Beacon中創建現場活動</a>。
-    </aside>
+    <aside class="bcls-aside bcls-aside--information">本文件是對<a href="https://beacon.support.brightcove.com/using-brightcove-beacon/streaming-live-event.html" target="_blank">直播活動</a>指導您將 SSAI 添加到現場活動的文檔。有關如何創建事件的詳細信息，請參閱有關<a href="https://beacon.support.brightcove.com/using-brightcove-beacon/streaming-live-event.html#create" target="_blank">在 Brightcove Beacon 中創建現場活動</a> .</aside>
 
-    <p>SSAI 在即時活動期間提供以下主要功能：</p>
+    <p>SSAI 在 Live 活動期間提供以下主要功能：</p>
     <ul>
       <li>
-        由於廣告會拼接到伺服器端的即時影片串流，因此廣告不會受到廣告封鎖程式的影響。
+        由於廣告是在服務器端拼接到直播視頻流中的，因此它們不受廣告攔截器的影響。
       </li>
       <li>
-        廣告會在編碼器傳送的提示點上插入，或者您可以使用即時模組控制室建立即時提示點。
+        廣告會插入從編碼器發送的提示點，或者您可以使用實時模塊控制室創建即時提示點。
       </li>
       <li>
-        您可以配置<a href="https://live.support.brightcove.com/live-module/implementing-server-side-ads-live-module.html#fill_slate" target="_blank">填充石板</a>來填補所有未使用的廣告時間。
+        你可以配置<a href="https://live.support.brightcove.com/live-module/implementing-server-side-ads-live-module.html#fill_slate" target="_blank">填充石板</a>填補任何未使用的廣告時間。
       </li>
     </ul>
   </section>
   <section class="bcls-section">
-    <h2 id="configuring-ssai">設定伺服器端廣告設定</h2>
+    <h2 id="configuring-ssai">配置服務器端廣告設置</h2>
     <p>
-      在這裡，您將創建一個 SSAI 廣告配置，用作您的廣告集將顯示在您的布萊特灣信標直播活動中。
+      在這裡，您將創建一個SSAI廣告配置，用作將在Brightcove Beacon Live事件中顯示的廣告集。
     </p>
     <ol class="bcls-tasklist">
-      <li>登入工作室</li>
+      <li>登錄到Studio。</li>
       <li>
-        在導覽標題中，按一下 [ <strong>管理</strong> ]，然後選取 [ <strong>伺服器端廣告設定</strong> ]。將會顯示所有廣告設定的清單。
+        在導航標題中，單擊<strong>行政</strong>然後選擇<strong>服務器端廣告設置</strong>。將顯示所有廣告配置的列表。
         <figure class="bcls-figure">
-          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/1-studio-ssai-settings.png"/>
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/1-studio-ssai-settings.png" />
         </figure>
       </li>
       <li>
-        若要建立新的廣告組態，請按一下 [ <strong>建立廣告組態</strong> ] 按鈕。
+        要創建新的廣告配置，請點擊<strong>創建廣告配置</strong>按鈕。
         <figure class="bcls-figure">
-          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/2-create-ad-configuration.png"/>
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/2-create-ad-configuration.png" />
         </figure>
-        <aside class="bcls-aside bcls-aside--information">
-          伺服器端即時廣告設定也可以使用即時 API 來管理。如需詳細資訊，請參閱<a href="https://live.support.brightcove.com/live-api/ssai/live-api-server-side-ad-insertion-ssai.html#Create_an_ad_configuration" target="_blank">布萊特灣即時 API：伺服器端廣告插入 (SSAI) </a>。
-        </aside>
+        <aside class="bcls-aside bcls-aside--information">還可以使用 Live API 管理服務器端直播廣告配置。有關信息，請參閱<a href="https://live.support.brightcove.com/live-api/ssai/live-api-server-side-ad-insertion-ssai.html#Create_an_ad_configuration" target="_blank">Brightcove Live API：服務器端廣告插入 (SSAI)</a> .</aside>
       </li>
       <li>
-        從下拉菜單中選擇<strong>生活</strong>作為一種。
+        從下拉菜單中選擇<strong>居住</strong>作為一種。
         <figure class="bcls-figure">
-          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/3-ad-config-live.png"/>
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/3-ad-config-live.png" />
         </figure>
       </li>
       <li>
-        請確認您看到的是「<strong>伺服器端廣告設定」</strong>表單。
+        檢查以確保您看到了<strong>服務器端廣告設置</strong>形式。
         <figure class="bcls-figure">
-          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/4-ad-config-form.png"/>
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/4-ad-config-form.png" />
         </figure>
       </li>
-      <li>為您的廣告設定<strong>命名</strong>。</li>
+      <li>給您的廣告配置一個<strong>名稱</strong>。</li>
       <li>
-        選取<strong>廣告伺服器回應</strong>：
+        選擇<strong>廣告服務器響應</strong>：
         <ul>
-          <li><strong>廣大</strong></li>
-          <li><strong>DFP (廣告規則) </strong></li>
-          <li><strong>智慧型 XML </strong></li>
+          <li><strong>廣闊的</strong></li>
+          <li><strong>DFP（廣告規則）</strong></li>
+          <li><strong>智能 XML</strong></li>
         </ul>
-        <aside class="bcls-aside bcls-aside--information">
-          請洽詢您的廣告營運管理員，以取得正確的值以選取。
-        </aside>
+        <aside class="bcls-aside bcls-aside--information">請與您的廣告運營經理核實以選擇正確的值。</aside>
       </li>
-      <li>輸入<strong>廣告代碼 (伺服器網址) </strong>。</li>
-      <li>按一下「<strong>儲存</strong>」按鈕。</li>
+      <li>輸入<strong>廣告代碼（服務器網址）</strong>。</li>
+      <li>點擊<strong>保存</strong>按鈕。</li>
     </ol>
   </section>
   <section class="bcls-section">
     <h2 id="configuring-slate">配置填充板</h2>
     <p>
-      填色板是指即時直播廣告片段中出現空白，而無法填滿動態廣告時，會顯示的影片。如果要求的廣告短於廣告片段時間，則會顯示填色板，讓觀眾看不到空白播放器。
+      填充板岩是當實時流廣告中斷中的空白無法用動態投放的廣告填充時將顯示的視頻。如果請求的廣告短於廣告休息時間，則會顯示填充列表，因此觀眾不會看到空白的播放器。
     </p>
-    <aside class="bcls-aside bcls-aside--information">
-      請求伺服器端廣告之前，您應該至少設定一個填色板。
-    </aside>
-    <p>若要新增填色板，請依照下列步驟執行：</p>
+    <aside class="bcls-aside bcls-aside--information">在請求服務器端廣告之前，您應該至少配置一個填充選項板。</aside>
+    <p>要添加填充石板，請按照下列步驟操作：</p>
     <ol class="bcls-tasklist">
       <li>
-        點擊<strong>管理員</strong> &gt; <strong>實時設置</strong> Studio標頭中的鏈接。
-        <aside class="bcls-aside bcls-aside--information">
-          您必須是帳戶管理員才能存取<strong> ADMIN </strong>功能表。
-        </aside>
+        點擊<strong>行政</strong> &gt; <strong>實時設置</strong> Studio標頭中的鏈接。<aside class="bcls-aside bcls-aside--information">您必須是帳戶管理員才能訪問<strong>行政</strong>菜單。</aside>
       </li>
       <li>
-        按一下「<strong> + 加入填滿板板</strong>」。你應該看到以下形式：
+        點擊<strong>+添加填充板岩</strong>。您應該看到以下表格：
         <figure class="bcls-figure">
-          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/5-fill-slate.png"/>
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/5-fill-slate.png" />
         </figure>
       </li>
-      <li>進入一個<strong>名稱</strong>為您的填充板。</li>
-      <li>輸入石板的「<strong>來源 URL </strong>」。</li>
-      <li>按一下「<strong>儲存</strong>」。石板的攝取過程將開始。</li>
+      <li>進入一個<strong>名稱</strong>為您的填充板岩。</li>
+      <li>輸入<strong>來源網址</strong>為石板。</li>
+      <li>點擊<strong>保存</strong>。slate 的攝取過程將開始。</li>
     </ol>
-    <p>要刪除填充板，請點擊刪除按鈕（<img alt="" src="/assets/images/using-bcb/live-ssai/node18588-delete-icon.png"/>）旁邊的填充板岩。</p>
+    <p>要刪除填充板，請單擊刪除按鈕 (<img alt="" src="/assets/images/using-bcb/live-ssai/node18588-delete-icon.png" />) 旁邊的填充石板。</p>
   </section>
 
   <section class="bcls-section">
-    <h2 id="creating-live-ssai">建立支援 SSAI 的直播活動</h2>
+    <h2 id="creating-live-ssai">創建支持SSAI的現場活動</h2>
     <p>
       為了使直播活動能夠使用SSAI（服務器端廣告插入），<strong>啟用服務器端廣告插入（SSAI）</strong>創建事件時必須選擇設置，並且應選擇先前創建的填充板進行播放。
     </p>
     <p>
-      請依照下列步驟建立支援 Brightcove 信標中 SSAI 廣告的事件：
+      請按照以下步驟創建在Brightcove Beacon中支持SSAI廣告的事件：
     </p>
     <ol class="bcls-tasklist">
-      <li>打開<strong>生活</strong> Studio中的模塊。</li>
-      <li>從「<strong>管理事</strong>件」頁面中，按一下「<strong>建立事件</strong>」。</li>
+      <li>打開<strong>居住</strong> Studio中的模塊。</li>
+      <li>來自<strong>管理活動</strong>頁面上，單擊<strong>建立活動</strong>。</li>
       <li>
-        輸入您的活動詳細資料。有關使用“直播”模塊創建直播活動的完整信息，請參閱<a href="https://live.support.brightcove.com/live-module/creating-and-managing-live-events-using-live-module.html" target="_blank">使用實時模塊創建和管理實時事件</a>。
+        輸入您的活動詳細信息。有關使用“直播"模塊創建直播活動的完整信息，請參閱<a href="https://live.support.brightcove.com/live-module/creating-and-managing-live-events-using-live-module.html" target="_blank">使用實時模塊創建和管理實時事件</a>。
       </li>
-      <li>按一下「<strong>進階選項</strong>」以展開進階選項。</li>
-      <li>檢查一下<strong>啟用服務器端廣告插入（SSAI）</strong>。這將啟用伺服器端廣告插入功能。</li>
+      <li>點擊<strong>高級選項</strong>擴展高級選項。</li>
+      <li>查看<strong>啟用服務器端廣告插入（SSAI）</strong>。這將啟用服務器端廣告插入。</li>
       <li>
-        選取「<strong>填滿板</strong>」。當直播廣告片段中有空白無法填滿動態播放的廣告時，即會顯示填色板。
+        選擇一個<strong>填充石板</strong> .當直播廣告時段中存在無法用動態提供的廣告填充的空白時，將顯示填充選項卡。
       </li>
       <li>
-        勾選「<strong>廣告音訊</strong>」設定後，廣告上的音量會根據所設定的調整進行標準化。這可以用來協助確保廣告不會比內容大幅度大。布萊特灣建議您選取此選項。
+        當。。。的時候<strong>廣告音頻</strong>設置被選中，廣告上的音頻電平將根據設置的調整進行標準化。這可以用來幫助確保廣告的音量不會明顯高於內容。Brightcove建議選擇此選項。
         <figure class="bcls-figure">
-          <img class="bcls-image--no-border" alt="" width="450" height="700" src="/assets/images/using-bcb/live-ssai/6-ssai-check.png"/>
+          <img class="bcls-image--no-border" alt="" width="450" height="700" src="/assets/images/using-bcb/live-ssai/6-ssai-check.png" />
         </figure>
       </li>
-      <li>請點擊<strong>建立活動</strong></li>
+      <li>點擊<strong>建立活動</strong></li>
       <li>
-        的<strong>控制室</strong>該頁面將打開，其中包含有關直播活動的詳細信息，包括<strong>流式傳輸端點（RTMP URL）</strong>和<strong>流名稱</strong>。這些值將由編碼器使用。
+        這<strong>控制室</strong>頁面將打開，其中包含有關現場活動的詳細信息，包括<strong>流媒體端點（RTMP URL）</strong>和<strong>流名稱</strong> .這些值將由編碼器使用。
       </li>
       <li>
-        設定您的編碼器並啟動即時串流。
-        <aside class="bcls-aside bcls-aside--information">
-          若要在直播平台中開始串流，您需要編碼器，如需有關如何使用編碼器的資訊，請閱讀以下文件：
+        配置編碼器並開始直播。<aside class="bcls-aside bcls-aside--information">要在直播平台上開始流式傳輸，您需要一個編碼器，有關如何使用編碼器的信息，請閱讀以下文檔：
           <p>
-            <a href="https://live.support.brightcove.com/get-started/step-step-using-live-module-telestream-wirecast.html" target="_blank">逐步：使用即時模組與電流線上傳送</a>
+            <a href="https://live.support.brightcove.com/get-started/step-step-using-live-module-telestream-wirecast.html" target="_blank">一步步：將直播模塊與 Telestream Wirecast 結合使用</a>
           </p>
           <p>
-            <a href="https://live.support.brightcove.com/get-started/step-step-using-live-module-open-broadcaster-software-obs.html" target="_blank">逐步：使用開放式廣播軟體 (OBS) 的直播模組</a>
+            <a href="https://live.support.brightcove.com/get-started/step-step-using-live-module-open-broadcaster-software-obs.html" target="_blank">一步步：將直播模塊與 Open Broadcaster Software (OBS) 結合使用</a>
           </p>
         </aside>
       </li>
       <li>
-        默認情況下，<strong>控制室</strong>預覽播放器顯示無廣告流。廣告將不會顯示在<strong>控制室</strong>除非選擇了實時廣告配置。使用播放器下方的下拉式清單來選取廣告設定。
+        默認情況下，<strong>控制室</strong>預覽播放器顯示無廣告流。廣告將不會顯示在<strong>控制室</strong>除非選擇了實時廣告配置。使用下面的下拉菜單選擇播放器的廣告配置。
         <figure class="bcls-figure">
-          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/7-select-ad-config.png"/>
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/7-select-ad-config.png" />
         </figure>
       </li>
       <li>
-        （可選的）點擊加號按鈕（<img alt="" src="/assets/images/using-bcb/live-ssai/node18753-plus-icon.png"/>）以選擇其他廣告配置。這樣做會在<strong>控制室</strong>頁。
+        （可選）單擊加號按鈕 (<img alt="" src="/assets/images/using-bcb/live-ssai/node18753-plus-icon.png" />) 以選擇其他廣告配置。這樣做會在<strong>控制室</strong>頁。
         <figure class="bcls-figure">
-          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/8-two-preview-players.png"/>
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/8-two-preview-players.png" />
         </figure>
         <p>
-          按一下預覽播放器下方的音量按鈕，即可控制哪個播放器音訊串流啟動。
+          單擊預覽播放器下方的音量按鈕，以控制哪個播放器音頻流處於活動狀態。
         </p>
       </li>
     </ol>
@@ -681,62 +173,62 @@ Brightcove
     </p>
     <ol class="bcls-tasklist">
       <li>
-        請點擊<strong>轉到廣告</strong>然後從下拉列表中選擇所需的廣告休息時間。
+        點擊<strong>轉到廣告</strong>然後從下拉列表中選擇所需的廣告休息時間。
         <figure class="bcls-figure">
-          <img class="bcls-image--no-border" alt="" width="350" height="500" src="/assets/images/using-bcb/live-ssai/9-gotoad.png"/>
+          <img class="bcls-image--no-border" alt="" width="350" height="500" src="/assets/images/using-bcb/live-ssai/9-gotoad.png" />
         </figure>
       </li>
       <li>
-        按一下 [ <strong>插</strong>入]，即可在直播中插入廣告分享。如果廣告沒有填滿整個廣告突發時間，則會顯示填色板 (在建立活動時被選取)。
+        點擊<strong>插</strong>將廣告時段插入實時流。如果廣告沒有佔據整個廣告休息時間，則將顯示填充板岩（在創建事件時選擇）。
       </li>
     </ol>
     <p>
-      廣告將會在<strong>控制室</strong>預覽播放器以及使用實時模塊發布的播放器中。此示例顯示了2個廣告在<strong>控制室</strong>。
+      廣告將顯示在<strong>控制室</strong>預覽播放器以及使用實時模塊發布的播放器中。此示例顯示了 2 個廣告顯示在<strong>控制室</strong> .
     </p>
     <figure class="bcls-figure">
-      <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/10-adsplayer.png"/>
+      <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/10-adsplayer.png" />
     </figure>
   </section>
   <section class="bcls-section">
-    <h2 id="requesting-ssai">在布萊特灣燈塔發佈直播活動</h2>
+    <h2 id="requesting-ssai">在Brightcove Beacon中發布現場活動</h2>
     <p>
-      若要在 BrightBeacon 中使用伺服器端廣告發佈您的直播活動，請按照下列步驟進行：
+      要在 Brightcove Beacon 中使用服務器端廣告發布直播活動，請按照以下步驟操作：
     </p>
     <ol class="bcls-tasklist">
-      <li>在現場<strong>控制室</strong>點擊<strong>發布和嵌入</strong>在左側導航欄中。</li>
+      <li>現場直播<strong>控制室</strong>點擊<strong>發布和嵌入</strong>在左側導航欄中。</li>
       <li>
-        選擇<strong>播放器配置</strong>。
+        選擇<strong>播放器配置</strong> .
         <figure class="bcls-figure">
-          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/11-controlroom.png"/>
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/11-controlroom.png" />
         </figure>
       </li>
       <li>在裡面<strong>實時播放器選項</strong>選擇一個<strong>可用的播放器</strong>。</li>
       <li>
-        選擇你的<strong>廣告配置</strong>先前在<strong>服務器端廣告設置</strong>。
+        選擇您的<strong>廣告配置</strong>之前在<strong>服務器端廣告設置</strong> .
         <figure class="bcls-figure">
-          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/12-select-player.png"/>
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/12-select-player.png" />
         </figure>
       </li>
       <li>
-        選擇您的<strong>可用的播放器</strong>和<strong>廣告配置</strong>，將生成一個新的Player URL。如圖所示，複製URL的所選部分，從單詞開始<strong>生活</strong>。例：<strong> live.xxxxxxx</strong>
+        選擇您的<strong>可用的播放器</strong>和<strong>廣告設定</strong>，將生成一個新的Player URL。如圖中所示，複製URL的所選部分，從單詞開始<strong>居住</strong>。例子：<strong> live.xxxxxxx</strong>
         <figure class="bcls-figure">
-          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/13-player-url.png"/>
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/13-player-url.png" />
         </figure>
       </li>
-      <li>去布萊特灣信標平台</li>
+      <li>轉到Brightcove信標平台。</li>
       <li>
         在Brightcove Beacon的上方菜單中，單擊<strong>廣告</strong>標籤。
       </li>
       <li>
         點擊<strong>添加新配置</strong>按鈕。
         <figure class="bcls-figure">
-          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/14-newadconfig.png"/>
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/14-newadconfig.png" />
         </figure>
       </li>
       <li>
-        檢查以確保您看到了<strong>新廣告</strong>形成。
+        檢查以確保您看到了<strong>新廣告</strong>形式。
         <figure class="bcls-figure">
-          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/15-newadconfig-settings.png"/>
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/15-newadconfig-settings.png" />
         </figure>
       </li>
       <li>給您的新廣告配置一個<strong>名稱</strong>。</li>
@@ -746,216 +238,45 @@ Brightcove
       <li>來自<strong>提供者</strong>菜單選擇<strong>Brightcove SSAI</strong>。</li>
       <li>點擊<strong>製作新廣告</strong>按鈕。</li>
       <li>
-        點擊上方菜單<strong>大事記</strong>標籤並創建或選擇您的直播活動。有關如何創建Brightcove Beacon直播活動的更多信息，請參見<a href="https://beacon.support.brightcove.com/using-brightcove-beacon/streaming-live-event.html" target="_blank">直播現場直播</a>文件。
-        <aside class="bcls-aside bcls-aside--information">
-          為了使直播活動能夠在Brightcove Beacon中成功流式傳輸，<strong>工作編號</strong>和<strong>流視頻ID</strong>必須與當前直播事件的ID匹配。
-        </aside>
+        點擊上方菜單<strong>大事記</strong>標籤，然後創建或選擇您的直播活動。有關如何創建Brightcove Beacon直播活動的更多信息，請參見<a href="https://beacon.support.brightcove.com/using-brightcove-beacon/streaming-live-event.html" target="_blank">直播現場直播</a>文檔。<aside class="bcls-aside bcls-aside--information">為使直播活動在 Brightcove Beacon 中成功流式傳輸，<strong>作業編號</strong>和<strong>流視頻 ID</strong>必須與當前 Live 事件的 ID 匹配。</aside>
       </li>
       <li>
-        在您的Brightcove Beacon直播活動中，單擊<strong>權利和計劃</strong>標籤。
+        在您的Brightcove Beacon直播活動中，單擊<strong>權利與日程安排</strong>標籤。
       </li>
       <li>
         在裡面<strong>權利類型</strong>下拉菜單，選擇<strong>廣告-AVOD</strong>。
         <figure class="bcls-figure">
-          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/16-ad-avod.png"/>
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/16-ad-avod.png" />
         </figure>
       </li>
       <li>
         在裡面<strong>廣告配置</strong>底部菜單中，選擇您先前創建的廣告配置。
         <figure class="bcls-figure">
-          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/17-ad-configuration.png"/>
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/17-ad-configuration.png" />
         </figure>
       </li>
       <li>點擊<strong>更新事件</strong>按鈕。</li>
       <li>
-        按一下畫面右上角的<strong>工具</strong> (扳手) 按鈕。然後清除快取。
+        點擊<strong>工具</strong>屏幕右上方的（扳手）按鈕。然後清除緩存。
         <figure class="bcls-figure">
-          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/18-clear-cache.png"/>
+          <img class="bcls-image--no-border" alt="" src="/assets/images/using-bcb/live-ssai/18-clear-cache.png" />
         </figure>
       </li>
       <li>
-        打開您的 Brightcove Beacon 應用程序並選擇您的活動（圖片上的活動名稱和圖片僅供例如用途）。
+        打開您的Brightcove Beacon App並選擇您的事件（事件名稱和圖像上的圖片僅出於示例目的）。
         <figure class="bcls-figure">
-          <img class="bcls-image--no-border" alt="" width="400" height="700" src="/assets/images/using-bcb/live-ssai/19-app-event.png"/>
+          <img class="bcls-image--no-border" alt="" width="400" height="700" src="/assets/images/using-bcb/live-ssai/19-app-event.png" />
         </figure>
       </li>
       <li>
-        在您的Brightcove Beacon應用中，點擊<strong>玩</strong>按鈕。您現在應該可以看到您的直播活動串流，並由 SAI 插入來自 Video Cloud 的廣告。
+        在您的Brightcove Beacon應用中，點擊<strong>玩</strong>按鈕。您現在應該能夠看到您的直播事件流，以及 SSAI 從 Video Cloud 插入的廣告。
       </li>
     </ol>
     <p>
-      活動結束後，您可以將所有或部分內容儲存為影片雲端中的影片資產，或是可在 Brightcove Beacon 中顯示的可播放串流。直播活動的廣告不會被儲存，但會註冊傳送廣告的提示點，以便您可以在稍後錄製的直播活動的 VOD 中新增新廣告。
+      活動結束後，您可以將其全部或部分保存為片段，該片段成為Video Cloud中的視頻資產或可以在Brightcove Beacon中顯示的可播放流。不會保存直播活動的廣告，但會註冊傳輸廣告的提示點，以便您可以在錄製的直播活動的後續 VOD 中添加新廣告。
     </p>
     <p>
-      有關如何創建剪輯的更多信息，請參見<a href="https://beacon.support.brightcove.com/using-brightcove-beacon/streaming-live-event.html#Clip" target="_blank">通過現場活動創建片段</a>的部分<em>直播現場直播</em>文件。
+      有關如何創建剪輯的更多信息，請參閱<a href="https://beacon.support.brightcove.com/using-brightcove-beacon/streaming-live-event.html#Clip" target="_blank">從您的現場活動創建剪輯</a>部分來自 <em>直播活動</em> 文檔。
     </p>
   </section>
 </article>
-
-<!-- complete bootstrap layout -->
-    </div>
-    <div class="col-sm-2 right-side-bar">
-      
-      <nav class="right-side-nav" id="right_side_nav">
-        <h6 class="toc">頁面內容</h6>
-        <ul id="in_page_nav" class="list-none"></ul>
-      </nav>
-      
-    </div>
-  </div>
-</div>
-
-<hr>
-<div class="last-updated">
-  頁面最後更新日期為 6 月 12 日
-</div>
-
-
-
-<footer class="bcls-footer" role="contentinfo">
-  <div class="row">
-    <div class="region region-footer-top-center col-md-12">
-      <nav role="navigation" aria-labelledby="block-brightcovesupport-menu" id="block-brightcovesupport" class="footer-menu">
-
-        <h2>布萊特灣支援</h2>
-
-        <ul class="menu">
-          <li>
-            <a href="https://status.brightcove.com">系統狀態</a>
-          </li>
-          <li>
-            <a href="https://supportportal.brightcove.com/s/login/?">聯絡支援</a>
-          </li>
-          <li>
-            <a href="https://support.brightcove.com/">文獻資料</a>
-          </li>
-        </ul>
-
-      </nav>
-      <nav role="navigation" aria-labelledby="block-training-menu" id="block-training" class="footer-menu">
-
-        <h2>訓練</h2>
-
-        <ul class="menu">
-          <li>
-            <a href="https://studio.support.brightcove.com/training/online-training-courses.html">線上課程</a>
-          </li>
-          <li>
-            <a href="https://studio.support.brightcove.com/training/register-training.html">註冊課程</a>
-          </li>
-          <li>
-            <a href="https://university.brightcove.com/">布萊特灣大學</a>
-          </li>
-        </ul>
-
-      </nav>
-      <nav role="navigation" aria-labelledby="block-brightcove-menu" class="footer-menu">
-
-        <h2>Brightcove</h2>
-
-        <ul class="menu">
-          <li>
-            <a href="https://www.brightcove.com">亮麗</a>
-          </li>
-          <li>
-            <a href="https://supportportal.brightcove.com/s/login/?">聯絡我們</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </div>
-  <div class="row">
-    <div class="region region-footer-bottom-center col-md-12">
-      <div class="bcls-copyright footer-menu">
-        <table>
-          <tr>
-            <td>
-              <div id="bc_copyright" class="field field--name-field-copyright-year field--type-string field--label-hidden field--item" style="float: left;"> 布萊特灣公司版權所有</div>
-            </td>
-            <td><a href="https://www.brightcove.com/en/legal/privacy">私隱</a> | 條<a href="https://www.brightcove.com/en/terms-and-conditions">款及細則</a></td>
-            <td>
-              <div class="gf-links-cols footer-menu">
-                <div class="gf-social"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" newtab="newtab" class="gf-social-linkedin"><i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i></a><a href="https://twitter.com/brightcove" title="Twitter" newtab="newtab" class="gf-social-twitter"><i class="fab fa-twitter" style="font-size: 1.5rem;"></i></a><a href="https://www.facebook.com/Brightcove" title="Facebook" newtab="newtab" class="gf-social-facebook"><i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i></a>
-                </div>
-              </div>
-            </td>
-          </tr>
-        </table>
-      </div>
-    </div>
-  </div>
-</footer>
-<div id="talla_wrapper">
-  <p style="text-align: right;position: relative;"><button style="background:rgb(2, 28, 146);color:Snow;padding:.3rem;position:fixed;right:0;bottom:1em;z-index:9999999" onclick="javascript:displayChat()">有問題嗎？ </button> </p>
-  <div id="talla_chat">
-</div>
-</div>
-<script>
-      
-  var searchBox = sajari.init({
-    mode: "search-box",
-    project: "1588255093746585379", // Set this to your project.
-    collection: "brightcove-documenation", // Set this to your collection.
-    instantPipeline: "autocomplete", // Pipeline used as you type
-    inputPlaceholder: "Search", // Input element placeholder
-    maxSuggestions: 5, // Maximum number of suggestions to show
-    attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to
-  });
-  
-    searchBox("sub", "pipeline.search-sent", function (_, query) {
-      window.location = "/search.html?q=" + encodeURIComponent(query.q);
-    });
-  
-
-</script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/https-fix.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/setDate.js"></script>
-  
-  <script src="https://support.brightcove.com/site-assets/js/site/prism.js"></script>
-  
-  <script src="https://support.brightcove.com/site-assets/js/site/site.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/tabs.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/toc.js"></script>
-  <script src="/assets/js/sites_nav.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/bcls-utils.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/local-link-fix.js"></script>
-  <script src="/assets/js/feedback.js"></script>
-  
-  <script src="/assets/js/sajari-search-foot.js"></script>
-  
-  <!-- <script src="/assets/js/sajari-index.js"></script> -->
-  <script src="https://assets.talla.com/latest/embeddedjs/talla.js"></script>
-  <script src="/assets/js/talla-init.js"></script>
-  <style>
-    a.sj-paginator__page-number.sj-paginator__page-number--current.css-so0ov7 {
-      background-color: lightblue;
-    }
-    div.sj-tabs__tab {
-      margin-top: 3rem;
-      margin-left: .3rem;
-      border-top-left-radius: .4rem;
-      border-top-right-radius: .4rem;
-      background-color:#e8e8e8;
-    }
-
-    div.sj-tabs__tab.sj-tabs__tab--selected {
-      border-bottom-color: crimson;
-      background-color: #f8f8f8;
-    }
-
-    p.sj-results__result__description.css-p9jvyt {
-      font-size: 1rem;
-    }
-
-    .sj-result__text.css-31l7gp h3 {
-      color: navy;
-      font-size: 1.4rem;
-    }
-    </style>
-
-</body>
-
-</html>

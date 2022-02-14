@@ -1,0 +1,241 @@
+---
+title:創建信標通道
+description: '在本主題中，您將學習如何使用 Brightcove Beacon 中的頻道選項卡創建頻道。'
+parent: Managing Channels
+---
+ <h1>{{ page.title }}</h1>
+<article class="bcls-article">
+  <summary>{{ page.description }}</summary>
+  <aside class="bcls-aside bcls-aside--information">筆記：在本主題中，所有步驟均在 Beacon Classic 中執行。</aside>
+
+  <section class="bcls-section">
+    <h2 id="overview">描述</h2>
+    <p>創建頻道以流式傳輸24/7直播事件，就像常規電視頻道一樣。頻道的內容可以通過一組 VOD 生成，只要頻道可用，這些 VOD 就會廣播，也可以通過直接傳輸直播事件來生成。有關如何創建直播活動的更多信息，請訪問<a href="/live/streaming-live-event.html#Live" target="_blank">Brightcove信標實時文檔</a>。</p>
+    <p>除了經典的信標頻道，您現在還可以使用<a href="/cloud-playout/cloud-playout-overview.html">雲播出頻道</a>為您的頻道提供內容。Cloud Playout 頻道的主要優勢是 Brightcove 生成 EPG - 您不需要第三方服務。</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="basic-data">基本數據部分</h2>
+    <p>要在 Brightcove Beacon 中創建頻道，請按照下列步驟操作：</p>
+    <ol class="bcls-tasklist">
+      <li>登錄 Beacon Classic。</li>
+      <li>在頂部導航中，選擇<strong>頻道數</strong>。</li>
+      <li>點擊<strong>新增頻道</strong>按鈕。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" src="/assets/images/channels/creating-channels/1-add-new-channel.png" alt="" width="" height="" />
+        </figure>
+      </li>
+      <li>在裡面<strong>基本數據</strong>標籤，定義一個<strong>名稱</strong>為您的頻道。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" src="/assets/images/channels/creating-channels/2-basic-data.png" alt="" />
+        </figure>
+      </li>
+      <li>
+        如果您將Cloud Playout頻道用作信標頻道的來源，請輸入Cloud Playout頻道ID： <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/cloud-playout/enter-cloud-playout-channel-id.png" alt="Enter Cloud Playout Channel ID">
+          <figcaption class="bcls-caption--image">輸入雲播出頻道ID</figcaption>
+        </figure>
+        <p>要查找 Cloud Playout 頻道 ID，請參閱<a href="/cloud-playout/cloud-playout-stream-vod.html#Get_information_for_the_Beacon_Channel">獲取 Beacon 頻道的信息</a> .</p>
+      </li>
+      <li>在裡面<strong>內容分級</strong>下拉菜單中，根據您的頻道流式播放國家/地區的內容分級系統選擇頻道的內容分級。在示例圖片中，它是針對美國的<strong>電視台</strong>。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" src="/assets/images/channels/creating-channels/2.2-basic-data-options.png" alt="" width="" height="" />
+        </figure>
+      </li>
+      <li>在裡面<strong>類型詳情</strong>部分中，單擊<strong>體裁</strong>下拉菜單為您的頻道選擇類型。（例子：恐怖，戲劇等。）</li>
+      <li>如果找不到適合您頻道的流派，則可以通過點擊<strong>創建體裁</strong>按鈕。</li>
+      <aside class="bcls-aside bcls-aside--information">這<strong>子流派</strong>下拉菜單，此時不起作用。</aside>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="textual-data">文本數據</h2>
+    <p>這<strong>文本數據</strong>部分允許您為頻道添加可顯示的文本。</p>
+    <ol class="bcls-tasklist-restart">
+      <li>選擇<strong>文本數據</strong>標籤。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" src="/assets/images/channels/creating-channels/3-textual-data.png" alt="" width="" height="" />
+        </figure>
+      </li>
+      <li>在裡面<strong>標題</strong>字段，為您的頻道定義標題。</li>
+      <li>在裡面<strong>描述</strong>字段，為您的頻道定義說明。</li>
+      <li>在裡面<strong>概要</strong>字段，為您的頻道定義摘要。
+      </li>
+      <aside class="bcls-aside bcls-aside--information">您可以添加一個<strong>文本數據</strong>您將在頻道中使用的每種不同語言的部分。</aside>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="non-textual-data">非文字數據</h2>
+    <p>這<strong>非文本數據</strong>部分允許您為頻道添加縱向和橫向圖像。您將提供縱向和橫向圖像。確保圖像滿足以下要求：
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>圖像</th>
+          <th>要求</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td>人像海報</td>
+          <td>
+            海報圖片（2：3）
+            <table>
+              <tr>
+                <td>最低限度</td>
+                <td>寬度：1000像素</td>
+                <td>高度：563px</td>
+              </tr>
+              <tr>
+                <td>最大</td>
+                <td>寬度：4000像素</td>
+                <td>高度：2250像素</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>風景海報</td>
+          <td>
+            風景圖片（16：9）：
+            <table>
+              <tr>
+                <td>最低限度</td>
+                <td>寬度：1000像素</td>
+                <td>高度：563px</td>
+              </tr>
+              <tr>
+                <td>最大</td>
+                <td>寬度：4000像素</td>
+                <td>高度：2250像素</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    </p>
+    <ol class="bcls-tasklist-restart">
+      <li>選擇<strong>非文本數據</strong>標籤。</li>
+      <li>添加一個<strong>人像海報</strong>通過在框部分中拖放圖片來獲取您頻道的圖片。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" src="/assets/images/channels/creating-channels/4-non-textual-data.png" alt="" width="" height="" />
+        </figure>
+      </li>
+      <li>添加一個<strong>風景海報</strong>通過在框部分中拖放圖片來獲取您頻道的圖片。</li>
+    </ol>
+    <aside class="bcls-aside bcls-aside--information">只需選擇所需的語言選項卡，您就可以為頻道中使用的每種不同語言添加不同的縱向和橫向圖像集。</aside>
+  </section>
+  <section class="bcls-section">
+    <h2 id="tags">標籤</h2>
+    <p>這<strong>標籤</strong>選項卡此時不起作用。</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Metadata">元數據</h2>
+    <p>這<strong>元數據</strong>選項卡此時不起作用。</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Streams">流</h2>
+    <p>這<strong>溪流</strong>部分允許您設置播放 URL 的選項和權限。</p>
+    <ol class="bcls-tasklist-restart">
+      <li>選擇<strong>流</strong>標籤。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" src="/assets/images/channels/creating-channels/5-streams.png" alt="" width="" height="" />
+        </figure>
+      </li>
+      <li>選擇您的<strong>提供者</strong> .您很可能只有一個提供商，該提供商引用您的 Brightcove Video Cloud 帳戶。</li>
+      <li>點擊<strong>添加新的流</strong>按鈕。</li>
+      <li>在裡面<strong>流視頻ID</strong>字段中，粘貼您的視頻雲直播活動中的視頻ID。如果您將Cloud Playout頻道用作信標頻道的來源，請參見<a href="/cloud-playout/cloud-playout-stream-vod.html#Get_information_for_the_Beacon_Channel">獲取有關信標頻道的信息。</a> </li>
+      <li>在裡面<strong>要發布的設備</strong>部分中，添加您要發佈到的設備。選擇<strong>選擇/取消選擇所有設備</strong>查看可用設備列表。 </li>
+      <li>在裡面<strong>流類型</strong>選擇<strong>居住</strong>。</li>
+      <li>請注意<strong>DRM類型</strong>和<strong>流格式</strong>值不需要更改。</li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Rights_and_Scheduling">權限和調度</h2>
+    <p>
+      這<strong>權限和調度</strong>部分是您設置發布狀態和可用性的地方。
+    </p>
+    <ol class="bcls-tasklist-restart">
+      <li>
+        <p>選擇<strong>權限和調度</strong>標籤。</p>
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" src="/assets/images/channels/creating-channels/6-rights-schedualing.png" alt="" width="" height="" />
+        </figure>
+      </li>
+      <li>
+        確保<strong>地位</strong>設定為<strong>已發表</strong>為您的頻道。
+      </li>
+      <li>
+        為了<strong>可用性詳細信息</strong>，請以以下內容為指導來完成信息：
+        <table class="bcls-table">
+          <thead class="bcls-table__head">
+            <tr>
+              <th>場地</th>
+              <th>必要</th>
+              <th>筆記</th>
+            </tr>
+          </thead>
+          <tbody class="bcls-table__body">
+            <tr>
+              <td>權限類型</td>
+              <td>是的</td>
+              <td>根據您的獲利模式選擇： <ul>
+                  <li><strong>自由</strong></li>
+                  <li><strong>廣告-AVOD</strong>：對於通過廣告獲利的渠道。</li>
+                  <li><strong>訂閱 - 點播</strong>：對於通過訂閱獲利的頻道。</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>開始時間</td>
+              <td>是的</td>
+              <td>為您的頻道安排一個開始時間。</td>
+            </tr>
+            <tr>
+              <td>時間結束</td>
+              <td>是的</td>
+              <td>為您的頻道安排一個結束時間。</td>
+            </tr>
+            <tr>
+              <td>最大流</td>
+              <td>不適用</td>
+              <td>目前無法運作。</td>
+            </tr>
+            <tr>
+              <td>要發布的設備</td>
+              <td>是的</td>
+              <td>
+                添加您要發佈到的設備。選擇<strong>選擇/取消選擇所有設備</strong>查看可用設備列表。
+              </td>
+            </tr>
+            <tr>
+              <td>允許的位置</td>
+              <td>是的</td>
+              <td>
+                選擇要流式傳輸內容的位置。
+              </td>
+            </tr>
+            <tr>
+              <td>拒絕地點</td>
+              <td>沒有</td>
+              <td>
+                選擇您不想流式傳輸內容的位置。
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <br />
+        <aside class="bcls-aside bcls-aside--tip">要添加或編輯地理位置，請導航至<strong>設置</strong>進而<strong>地點</strong> .</aside>
+      </li>
+      <li>
+        請務必點擊<strong>建立新頻道</strong>按鈕保存您的工作。
+        <figure class="bcls-figure">
+          <img class="bcls-image--no-border" src="/assets/images/channels/creating-channels/7-create-button.png" alt="" width="" height="" />
+        </figure>
+      </li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Add-Channel-to-EPG">將頻道添加到電子節目指南（EPG）</h2>
+    <p>創建頻道後，最後一步是將其添加到Brightcove Beacon EPG時間表中。有關如何執行此操作的信息，請訪問<a href="https://beacon.support.brightcove.com/using-brightcove-beacon/electronic-program-guides.html" target="_blank">創建電子節目指南（EPG）</a>文檔。 </p>
+    <aside class="bcls-aside bcls-aside--information">請注意，如果您使用 Cloud Playout 頻道作為 Beacon 頻道的來源，Brightcove 將為您創建 EPG，您無需採取進一步行動。</aside>
+  </section>
+</article>

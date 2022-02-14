@@ -1,0 +1,212 @@
+---
+title:使用訂閱包
+parent: Monetization 
+---
+
+
+<article class="bcls-article">
+  <h1>使用訂閱包</h1>
+  <summary>在本主題中，您將學習如何使用通過以下方式創建的視頻訂閱包：<strong>商業</strong>選項卡的Brightcove Beacon。訂閱包實現了SVOD（訂閱視頻點播）貨幣化。有關創建訂閱的詳細信息，請參見<a href="/monetization/creating-subscription-package.html">創建訂閱包</a>文檔。
+  </summary>
+  <section class="bcls-section">
+    <h2 id="Overview">概述</h2>
+    <p>
+      訂閱包定義了您的應用如何購買一組特定的視頻' 顧客。訂閱包必須在 Brightcove Beacon 中創建，並在<a href="/monetization/creating-subscription-package.html">創建訂閱包</a>文檔。對於使用訂閱包也至關重要的是為Video Cloud帳戶中的視頻創建的Video Cloud自定義字段，如<a href="/syncing-with-video-cloud/vc-custom-fields.html">創建視頻云自定義字段</a>文檔。具體來說，<a href="/syncing-with-video-cloud/vc-custom-fields.html#Rights_Management_fields">權限管理字段</a>將會被使用。
+    </p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Understanding_the_rights_management_custom_fields"> 了解權限管理自定義字段 </h2>
+    <p>權限管理自定義字段包括：</p>
+    <ul>
+      <li>beacon.rights。&lt;計數器&gt;。類型</li>
+      <li>beacon.rights。&lt;計數器&gt; .startDate</li>
+      <li>beacon.rights。&lt;計數器&gt; .endDate</li>
+      <li>beacon.rights。&lt;計數器&gt;。設備</li>
+      <li>beacon.rights。&lt;counter&gt; .locationsPermit</li>
+      <li>beacon.rights。&lt;counter&gt; .locationsDeny</li>
+      <li>beacon.rights。&lt;計數器&gt; .packageName</li>
+      <li>beacon.rights。&lt;計數器&gt; .adConfiguration</li>
+    </ul>
+    <p>
+      首先考慮<strong>&lt;計數器&gt;</strong>每個名稱的一部分。這是因為您可能希望創建多組權限管理字段，並且<strong>&lt;計數器&gt;</strong>被利用，因此您可以使用數組類型語法對關聯字段進行分組。
+    </p>
+    <p>
+      例如，假設您想在假期前後創建訂閱軟件包，並具有以下軟件包：
+    </p>
+    <ul>
+      <li>地球日</li>
+      <li>植樹節</li>
+      <li>新年</li>
+    </ul>
+    <p>
+      您必須進入 Video Cloud 並使用如下所示的 0-2（或 1-3，如果您願意）的計數器值創建三組權限管理字段：
+    </p>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/using-bcb/using-subscription-package/index-of-rights-fields.png" alt="index of rights fields" />
+    </figure>
+    <p>
+      總而言之，對於您希望使用的每個包，您需要創建一組“計數器”權限管理字段。
+    </p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Package_and_custom_field_similar_rights"> 包和自定義字段的相似權限 </h2>
+    <p>
+      在 Brightcove Beacon 中創建包時，您可以為其分配數據並已應用於視頻的某些自定義字段看起來與表單字段相同。例如，自定義字段 <em>beacon.rights。&lt;counter&gt; .locationsDeny</em> 和包裹的<strong>拒絕位置</strong>表單字段看起來可能會發生衝突。請記住，在考慮這些“衝突"時，有兩個不同的問題被問到： </p>
+    <ul>
+      <li>視頻上的版權是否可以播放？</li>
+      <li>是否允許用戶訂閱套餐？</li>
+    </ul>
+    <p>
+      請考慮以下情形：
+    </p>
+    <ul>
+      <li>
+        中的結束日期 <em>beacon.rights。&lt;計數器&gt; .endDate</em> 自定義字段晚於包本身的結束日期。這意味著視頻的權利將允許在自定義字段結束日期之前查看它，但用戶無法訂閱可能降低了觀看視頻的成本等的包。
+      </li>
+      <li>
+        創建了一個允許位於美國、加拿大和墨西哥的包，並將該包分配給自定義字段中的視頻 <em>beacon.rights。&lt;計數器&gt; .packageName</em>.同樣在視頻的自定義字段中，UK 被放置在
+        <em>beacon.rights。&lt;counter&gt; .locationsPermit</em> 自定義字段。該套餐已分配給視頻，但無法在英國購買該套餐。該視頻將能夠在英國播放，但它不能成為英國客戶的套餐的一部分。
+      </li>
+      <li>
+        將創建一個包，其中包含美國，加拿大和墨西哥的位置。在自定義字段中，美國和加拿大被添加到視頻的 <em>beacon.rights。&lt;counter&gt; .locationsDeny</em> 自定義字段。在這裡，美國，加拿大和墨西哥的客戶可以訂閱該軟件包，但是在美國和加拿大被拒絕的位置上的特定視頻意味著即使這些視頻位於軟件包中，這些位置的客戶也無法觀看該視頻。
+      </li>
+    </ul>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Subscription_interval_support"> 訂閱間隔支持
+    </h2>
+    <p>
+      下表顯示了每個商店的重複訂閱支持的時間間隔： </p>
+    <table class="bcls-table">
+      <!-- <caption class="bcls-caption--table">Table Caption (optional <strong><caption class="bcls-caption--table"></strong>)</caption> -->
+      <thead class="bcls-table__head">
+        <tr>
+          <th>時間間隔</th>
+          <th>蘋果商店</th>
+          <th>Google Play商店</th>
+          <th>Roku商店</th>
+          <th>亞馬遜商店</th>
+          <th>條紋</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td>1週</td>
+          <td>是的</td>
+          <td>是的</td>
+          <td></td>
+          <td>是的</td>
+          <td>是的</td>
+        </tr>
+        <tr>
+          <td>1個月</td>
+          <td>是的</td>
+          <td>是的</td>
+          <td>是的</td>
+          <td>是的</td>
+          <td>是的</td>
+        </tr>
+        <tr>
+          <td>3個月</td>
+          <td>是的</td>
+          <td>是的</td>
+          <td></td>
+          <td>是的</td>
+          <td>是的</td>
+        </tr>
+        <tr>
+          <td>6個月</td>
+          <td>是的</td>
+          <td>是的</td>
+          <td></td>
+          <td>是的</td>
+          <td>是的</td>
+        </tr>
+        <tr>
+          <td>1年</td>
+          <td>是的</td>
+          <td>是的</td>
+          <td>是的</td>
+          <td>是的</td>
+          <td>是的</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Assigning_a_single_video_to_a_package"> 將單個視頻分配給包
+    </h2>
+    <p>
+      要將單個視頻分配給包，您必須使用 Video Cloud Studio。執行以下步驟：
+    </p>
+    <ol class="bcls-tasklist">
+      <li>在Studio中，導航到<strong>媒體</strong>模塊。</li>
+      <li>
+        單擊您要添加到視頻包中的視頻標題，以查看該視頻的屬性。
+      </li>
+      <li>
+        向下滾動直到看到<strong>自定義字段</strong>右側的部分，然後單擊<strong>編輯</strong>按鈕。
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/using-bcb/using-subscription-package/single-video-edit-fields.png" alt="index of rights fields" />
+        </figure>
+      </li>
+      <li>
+        將在Brightcove Beacon中創建的訂閱包的名稱放在<code translate="No">beacon.rights.&lt;counter&gt;.packageName</code>場地。
+      </li>
+      <li>
+        由於您使用的是包，因此您必須設置<code translate="No">beacon.rights.&lt;counter&gt;.type</code>到<strong>點播</strong> .
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/using-bcb/using-subscription-package/custom-fields.png" alt="index of rights fields" />
+        </figure>
+      </li>
+      <li>
+        滾動到自定義字段列表的底部，然後單擊<strong>節省</strong>按鈕。
+      </li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Assigning_a_single_video_to_a_package"> 將多個視頻分配給一個包 </h2>
+    <p>
+      要將多個視頻分配給一個包，您必須使用 Video Cloud Studio。執行這些步驟時，以下屏幕截圖很有幫助：
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/using-bcb/using-subscription-package/multiple-video-edit.png" alt="index of rights fields" />
+    </figure>
+    </p>
+    <ol class="bcls-tasklist-restart">
+      <li>
+        在Studio中，導航到<strong>媒體</strong>模塊，然後選中要添加到包中的每個視頻前面的複選框。
+      </li>
+      <li>點擊<strong>快速編輯</strong>按鈕。</li>
+      <li>
+        這<strong>快速編輯</strong>部分出現在屏幕右側，您可以將在 Brightcove Beacon 中創建的訂閱包的名稱放在<code translate="No">beacon.rights.&lt;counter&gt;.packageName</code>場地。
+      </li>
+      <li>
+        由於您使用的是包，因此您必須設置<code translate="No">beacon.rights.&lt;counter&gt;.type</code>到<strong>點播</strong> .
+      </li>
+      <li>
+        在底部<strong>快速編輯</strong>部分中，單擊<strong>保存</strong>按鈕。
+      </li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Ingesting_the_videos_into_Brightcove_Beacon"> 將視頻攝取到Brightcove Beacon中 </h2>
+    <p>
+      您現在已將一個或多個視頻與您的訂閱包相關聯。您現在必須將這些關聯吸收到 Brightcove Beacon 中。為此，請按照下列步驟操作：
+    </p>
+    <ol class="bcls-tasklist-restart">
+      <li>登錄到Brightcove Beacon。</li>
+      <li>單擊扳手圖標（工具）。</li>
+      <li>在左側導航中，單擊<strong>攝取</strong>。</li>
+      <li>點擊<strong>更新Brightcove視頻</strong>按鈕。</li>
+      <li>
+        如果報告了任何錯誤，請檢查那些錯誤，以確保沒有任何錯誤與您的訂閱軟件包有關。
+      </li>
+      <li>
+        如果希望新關聯立即在Brightcove Beacon中活動，則必須清除當前緩存。為此，請從左側導航單擊<strong>緩存</strong>，然後單擊<strong>緩存清除</strong> .
+      </li>
+    </ol>
+    <p>
+      有關本節中採取的措施的更多詳細信息，請參見<a href="/using-brightcove-beacon/tools.html">使用工具</a>文檔。
+    </p>
+  </section>
+</article>

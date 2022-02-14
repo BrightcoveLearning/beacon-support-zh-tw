@@ -1,533 +1,31 @@
-﻿<!DOCTYPE html>
-<html lang="zh-TW">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <meta name="description" content="在本主題中，您將學習如何創建具有相關季節和情節的系列。" />
-
-    <title>創建系列/季節/劇集</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="manifest" href="/site.webmanifest" />
-    <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&amp;display=swap">
-      <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://support.brightcove.com/site-assets/css/site/prism.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://support.brightcove.com/site-assets/css/site/styles.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://support.brightcove.com/site-assets/css/site/landing-page.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://support.brightcove.com/site-assets/css/site/tabs.css"
-    />
-    <link rel="stylesheet" href="/assets/css/local.css" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Lato&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap"
-      rel="stylesheet"
-    />
-    <script
-      src="https://kit.fontawesome.com/381443caa8.js"
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://support.brightcove.com/site-assets/js/site/google-analytics.js"></script>
-    <script src="/assets/js/sajari-head.js"></script>
-  </head>
-
-  <body class="body"></body>
-</html>
-
-<header>
-  <div class="div-header">
-    <a href="/"><img class="product-logo" src="https://support.brightcove.com/site-assets/images/site/product-logos/Beacon_Logo.svg" alt="產品標誌" style="max-height: 100px;max-width: 232px;"/></a>
-<!-- GTranslate: https://gtranslate.io/ -->
-<select onchange="doGTranslate(this);"><option value="">選擇語言</option><option value="en|en" translate="No">English</option><option value="en|zh-TW" translate="No">繁體中文</option><option value="en|fr" translate="No">Français</option><option value="en|de" translate="No">Deutsche</option><option value="en|ja" translate="No">日本語</option><option value="en|ko" translate="No">한국어</option><option value="en|es" translate="No">Español</option></select>
-
-<script>
-/* <![CDATA[ */
-function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
-/* ]]> */
-</script>
-
-Brightcove 
-
-    <span class="secondary-nav"><a href="https://supportportal.brightcove.com/s/login/?"><img src="https://support.brightcove.com/site-assets/images/site/support.png" alt="支持"/>聯繫支持</a><span style="vertical-align: top;margin-left:1em;margin-right:1em;">|</span><a href="https://status.brightcove.com/"><img src="https://support.brightcove.com/site-assets/images/site/status.png" alt="系統狀態"/>系統狀況</a></span><br/>
-    
-  </div>
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb arr-right">
-      
-      <li class="breadcrumb-item"><a href="/">首頁</a></li>
-      
-      
-      
-      <li class="breadcrumb-item"><a href="/using-brightcove-beacon/">使用布萊特灣信標</a></li>
-      
-      <li class="breadcrumb-item active" aria-current="page">創建系列/季節/劇集</li>
-    </ol>
-  </nav>
-</header>
-<div class="container">
-  <div class="row">
-    <div class="col-sm-3 left-side-bar">
-      				<select id="site_select" class="bcls-select" style="margin-right: 1rem;">
-					<option value="">其他布萊特灣文件</option>
-					
-						
-							<option value="https://support.brightcove.com">文件首頁</option>
-						
-					
-						
-							<option value="https://audience.support.brightcove.com">布萊特灣觀眾</option>
-						
-					
-						
-							<option value="https://beacon.support.brightcove.com">布萊特灣燈塔</option>
-						
-					
-						
-							<option value="https://campaign.support.brightcove.com">布萊特灣戰役</option>
-						
-					
-						
-							<option value="https://engage.support.brightcove.com">布萊特灣參與</option>
-						
-					
-						
-							<option value="https://live.support.brightcove.com">Brightcove Live</option>
-						
-					
-						
-							<option value="https://gallery.support.brightcove.com">Brightcove 圖庫</option>
-						
-					
-						
-							<option value="https://ssai.support.brightcove.com">布萊特灣</option>
-						
-					
-						
-							<option value="https://social.support.brightcove.com">布萊特灣社會</option>
-						
-					
-						
-							<option value="https://studio.support.brightcove.com">視訊雲端工作室</option>
-						
-					
-						
-							<option value="https://player.support.brightcove.com">布萊特灣球員開發</option>
-						
-					
-						
-							<option value="https://apis.support.brightcove.com">視訊雲端平台 API</option>
-						
-					
-						
-							<option value="https://sdks.support.brightcove.com">視訊雲端裝置開發套件</option>
-						
-					
-						
-							<option value="https://integrations.support.brightcove.com">整合與 CMS 連接器</option>
-						
-					
-						
-							<option value="https://general.support.brightcove.com">視訊雲端一般資訊</option>
-						
-					
-						
-							<option value="https://zencoder.support.brightcove.com">Zencoder</option>
-						
-					
-				</select>
-						<nav class="sidenav" id="side_nav">
-
-        
-        
-        <h5><a href="/index.html">首頁</a></h5>
-        
-        
-        
-        <h5 class="submenu-header"><a href="/getting-started/index.html">開始使<strong>用 + </strong></a></h5>
-        <ul class="sidenav-submenu" style="display:none;">
-          
-          
-          <li><a href="/getting-started/learning-guide-bc-beacon.html">學習指南</a></li>
-          
-          
-          
-          <li><a href="/getting-started/implementation-phases.html">實施階段</a></li>
-          
-          
-          
-          <li><a href="/getting-started/app-design-considerations.html">應用程式設計考量</a></li>
-          
-          
-          
-          <li><a href="/getting-started/creating-your-app-design-info-architecture.html">應用程式設計-資訊架構</a></li>
-          
-          
-          
-          <li><a href="/getting-started/creating-your-app-design-layout-options.html">應用程式設計-佈局選項</a></li>
-          
-          
-          
-          <li><a href="/getting-started/design-best-practices.html">設計最佳實務</a></li>
-          
-          
-        </ul>
-        
-        
-        
-        <h5 class="submenu-header"><a href="/syncing-with-video-cloud/index.html"><strong>與視訊雲端同步</strong></a></h5>
-        <ul class="sidenav-submenu" style="display:none;">
-          
-          
-          <li><a href="/syncing-with-video-cloud/vc-custom-fields.html">建立視訊雲端自訂欄位</a></li>
-          
-          
-          
-          <li><a href="/syncing-with-video-cloud/forcing-a-sync.html">強制同步</a></li>
-          
-          
-        </ul>
-        
-        
-        
-        <h5 class="submenu-header"><a href="/using-brightcove-beacon/index.html">使用布萊特灣信標<strong> + </strong></a></h5>
-        <ul class="sidenav-submenu" style="display:none;">
-          
-          
-          <li><a href="/using-brightcove-beacon/adding-to-page.html">將輪播新增至頁面</a></li>
-          
-          
-          
-          <li><a href="/using-brightcove-beacon/creating-a-channel.html">建立通道</a></li>
-          
-          
-          
-          <li><a href="/using-brightcove-beacon/electronic-program-guides.html">建立電子程式指南 (EPG) </a></li>
-          
-          
-          
-          <li><a href="/using-brightcove-beacon/creating-a-page.html">建立新頁面</a></li>
-          
-          
-          
-          <li><a href="/using-brightcove-beacon/creating-a-playlist.html">建立播放清單</a></li>
-          
-          
-          
-          <li><a href="/using-brightcove-beacon/creating-subscription-package.html">建立訂閱套件</a></li>
-          
-          
-          
-          <li><a href="/using-brightcove-beacon/promo-codes.html">建立促銷代碼</a></li>
-          
-          
-          
-          <li><a href="/using-brightcove-beacon/series-seasons-episodes.html">建立系列/季節/集</a></li>
-          
-          
-          
-          <li><a href="/using-brightcove-beacon/configuring-server-side-ad-settings.html">設定伺服器端廣告設定</a></li>
-          
-          
-          
-          <li><a href="/using-brightcove-beacon/implementing-authvod.html">實作驗證</a></li>
-          
-          
-          
-          <li><a href="/using-brightcove-beacon/live-ssai.html">實施即時 SSAI </a></li>
-          
-          
-          
-          <li><a href="/using-brightcove-beacon/vod-ssai.html">實施 VOD SSAI </a></li>
-          
-          
-          
-          <li><a href="/using-brightcove-beacon/including-non-configurable-pages.html">包括無法設定的頁面</a></li>
-          
-          
-          
-          <li><a href="/using-brightcove-beacon/introducing-pages.html">介紹頁面</a></li>
-          
-          
-          
-          <li><a href="/using-brightcove-beacon/streaming-live-event.html">串流即時事件</a></li>
-          
-          
-          
-          <li><a href="/using-brightcove-beacon/streaming-vods-to-a-channel.html">將 VOD 串流至頻道</a></li>
-          
-          
-          
-          <li><a href="/using-brightcove-beacon/monetization-options.html">瞭解營利選項</a></li>
-          
-          
-          
-          <li><a href="/using-brightcove-beacon/using-subscription-package.html">使用訂閱套件</a></li>
-          
-          
-          
-          <li><a href="/using-brightcove-beacon/tools.html">使用工具</a></li>
-          
-          
-          
-          <li><a href="/using-brightcove-beacon/viewing-analytics-data.html">檢視分析資料</a></li>
-          
-          
-        </ul>
-        
-        
-        
-        <h5 class="submenu-header"><a href="/creating-your-apps/index.html">建立您的應用程式<strong> + </strong></a></h5>
-        <ul class="sidenav-submenu" style="display:none;">
-          
-          
-          <li class="submenu-header">
-            <a href="/creating-your-apps/android/index.html">安卓<strong> + </strong></a>
-            <ul class="sidenav-subsubmenu" style="display:none;">
-              
-              <li><a href="/creating-your-apps/android/submitting-to-android.html">將新應用程式提交至 Android 商店</a></li>
-              
-              <li><a href="/creating-your-apps/android/updating-android-apps-to-bcb.html">更新 Android 應用程序到布萊特灣信標</a></li>
-              
-              <li><a href="/creating-your-apps/android/adding-subscriptions-in-android.html">新增訂閱至安卓</a></li>
-              
-              <li><a href="/creating-your-apps/android/improving-relevance-android.html">改善安卓遊戲商店中的搜尋關聯性</a></li>
-              
-              <li><a href="/creating-your-apps/android/installing-android-test-build.html">安裝一個安卓測試構建</a></li>
-              
-            </ul>
-          </li>
-          
-          
-          
-          <li class="submenu-header">
-            <a href="/creating-your-apps/fire-tv/index.html">火電視<strong> + </strong></a>
-            <ul class="sidenav-subsubmenu" style="display:none;">
-              
-              <li><a href="/creating-your-apps/fire-tv/installing-fire-tv-test-build.html">安裝防火電視測試組建</a></li>
-              
-              <li><a href="/creating-your-apps/fire-tv/submitting-to-amazon.html">提交到亞馬遜商店</a></li>
-              
-            </ul>
-          </li>
-          
-          
-          
-          <li class="submenu-header">
-            <a href="/creating-your-apps/ios-tvos/index.html">IOS /電訊系統/電視系統<strong> + </strong></a>
-            <ul class="sidenav-subsubmenu" style="display:none;">
-              
-              <li><a href="/creating-your-apps/ios-tvos/installing-ios-test-build.html">安裝IOS/tvOS 測試組建</a></li>
-              
-              <li><a href="/creating-your-apps/ios-tvos/submitting-to-apple.html">提交至蘋果商店</a></li>
-              
-            </ul>
-          </li>
-          
-          
-          
-          <li class="submenu-header">
-            <a href="/creating-your-apps/panasonic/index.html">松下<strong> + </strong></a>
-            <ul class="sidenav-subsubmenu" style="display:none;">
-              
-              <li><a href="/creating-your-apps/panasonic/submitting-to-panasonic.html">提交至松下商店</a></li>
-              
-            </ul>
-          </li>
-          
-          
-          
-          <li class="submenu-header">
-            <a href="/creating-your-apps/roku/index.html">六<strong> + </strong></a>
-            <ul class="sidenav-subsubmenu" style="display:none;">
-              
-              <li><a href="/creating-your-apps/roku/configuring-inchannel-products.html">在 Roku 中設定通路內產品</a></li>
-              
-              <li><a href="/creating-your-apps/roku/installing-roku-test-build.html">安裝 Roku 測試組建</a></li>
-              
-              <li><a href="/creating-your-apps/roku/submitting-to-roku.html">提交至六商店</a></li>
-              
-            </ul>
-          </li>
-          
-          
-          
-          <li class="submenu-header">
-            <a href="/creating-your-apps/samsung/index.html">三星<strong> + </strong></a>
-            <ul class="sidenav-subsubmenu" style="display:none;">
-              
-              <li><a href="/creating-your-apps/samsung/samsung-partner.html">成為三星合作夥伴</a></li>
-              
-              <li><a href="/creating-your-apps/samsung/submitting-to-samsung.html">提交至三星商店</a></li>
-              
-            </ul>
-          </li>
-          
-          
-          
-          <li><a href="/creating-your-apps/common-required-info.html">一般必要資訊</a></li>
-          
-          
-          
-          <li><a href="/creating-your-apps/device-apps-validation-guide.html">裝置應用程式驗證指南</a></li>
-          
-          
-        </ul>
-        
-        
-        
-        <h5 class="submenu-header"><a href="/references/index.html">參考資料<strong> + </strong></a></h5>
-        <ul class="sidenav-submenu" style="display:none;">
-          
-          
-          <li><a href="/references/common-configuration-settings.html">一般組態設定</a></li>
-          
-          
-          
-          <li><a href="/references/creating-stripe-account.html">建立等量帳戶</a></li>
-          
-          
-          
-          <li><a href="/references/glossary.html">詞彙</a></li>
-          
-          
-          
-          <li><a href="/references/image-requirements.html">圖片及其規格</a></li>
-          
-          
-          
-          <li><a href="/references/known-issues.html">已知問題</a></li>
-          
-          
-          
-          <li><a href="/references/product-updates.html">產品更新</a></li>
-          
-          
-        </ul>
-        
-        
-        
-        <h5 class="submenu-header"><a href="/training/index.html">訓練<strong> + </strong></a></h5>
-        <ul class="sidenav-submenu" style="display:none;">
-          
-          
-          <li><a href="/training/training-demand-custom-fields.html">使用視訊雲端視訊/自訂欄位</a></li>
-          
-          
-          
-          <li><a href="/training/training-demand-design-layout.html">設計應用程式配置</a></li>
-          
-          
-          
-          <li><a href="/training/training-demand-playlists.html">建立和使用播放清單</a></li>
-          
-          
-          
-          <li><a href="/training/training-demand-series-seasons-episodes.html">創建系列，季節和劇集</a></li>
-          
-          
-          
-          <li><a href="/training/training-demand-vod-ssai.html">實作 VOD 伺服器端廣告</a></li>
-          
-          
-          
-          <li><a href="/training/training-demand-publish-android-app.html">在 Play 商店發布安卓應用程序</a></li>
-          
-          
-          
-          <li><a href="/training/training-demand-viewing-analytics.html">檢視分析資料</a></li>
-          
-          
-        </ul>
-        
-        
-        
-        <h5 class="submenu-header"><a href="/support/index.html">支援<strong> + </strong></a></h5>
-        <ul class="sidenav-submenu" style="display:none;">
-          
-          
-          
-          
-          
-          
-          <li><a href="/support/viewing-brightcove-system-status-page.html">檢視布萊特灣系統狀態頁面</a></li>
-          
-          
-          
-          <li><a href="/support/contact-sales.html">聯絡銷售人員</a></li>
-          
-          
-          
-          <li><a href="/support/opening-case-with-brightcove-support.html">開啟支援案例</a></li>
-          
-          
-        </ul>
-        
-        
-      </nav>
-    </div>
-    <div class="col-lg-7" style="background-color: white;color: #333333;margin-top: -1em;margin-bottom: -1em;padding-bottom:1em;">
-      <!-- bootstrap layout -->
-<p id="bc_veggie_burger_wrapper" style="display: none;"><img id="bc_veggie_burger" src="/assets/images/feather/menu.svg" alt="導覽功能表"/></p>
-
-<!-- search bar -->
-<div id="nav-search-box" style="margin-top: 1rem;"></div>
-<!-- in-page navigation for narrow screens -->
-<details class="centered-inpage-nav" id="centered_inpage_nav">
-  <summary><h6 class="toc">頁面內容</h6></summary>
-  <nav id="centered_toc"></nav>
-  <ul id="centered_in_page_toc" class="list-none"></ul>
-</details>
-<!-- open in new tab/window -->
-<a id="open_new_tab" href="#" target="_blank" style="display: none;"><img src="/assets/images/feather/external-link.svg" alt="在新分頁中開啟" style="margin-top:4em;width: 1.5em;"/></a>
-
-
-<h1>創建系列/季節/劇集</h1>
+---
+title: '創建系列/季節/劇集' 
+description:在本主題中，您將學習如何創建具有相關季節和劇集的系列。
+parent: Using Brightcove Beacon
+---
+ <h1>{{ page.title }}</h1>
 <article class="bcls-article">
-    <summary>在本主題中，您將學習如何創建具有相關季節和情節的系列。</summary>
+    <summary>{{ page.description }}</summary>
     <section class="bcls-section">
-        <h2 id="Overview">概覽</h2>
-        <p>一種<strong>系列</strong>是按特定順序顯示的相關視頻的集合，通常具有相同的主題。建立序列時，您必須定義序列、其季節及相關單集之間的關係。</p>
-        <p>一種<strong>季節</strong>是一組覆蓋一定時間段的視頻。每個系列可以有一個或多個季節。</p>
-        <p>一個<strong>插曲</strong>是個人視頻。你可以把這個想像成一部特定的電影</p>
-        <p>一旦你定義了你的系列和賽季，並攝入你的劇集，它們就可以在你的 Brightcove Beacon 應用程式中使用。為此，請按照下列步驟操作：</p>
-
+        <h2 id="Overview">概述</h2>
+        <p>一種<strong>系列</strong>是按特定順序顯示的相關視頻的集合，通常具有相同的主題。創建系列時，您必須定義系列、其季節和相關劇集之間的關係。</p>
+        <p>一種<strong>季節</strong>是一組涵蓋一定時間段的視頻。每個系列可以有一個或多個季節。</p>
+        <p>一個<strong>插曲</strong>是一個單獨的視頻。您可以將其視為特定的電影。</p>
+        <p>一旦定義了系列和季節，並攝取了劇集，就可以在Brightcove Beacon應用中使用它們。為此，請按照下列步驟操作：</p>
         <ol class="bcls-tasklist">
             <li>
-                <h4>系列 (布萊特灣燈塔)</h4>
-                <p>在布萊特灣信標，創建該系列。在這裡，您將為系列命名，並提供包括可用性和映像等資訊。</p>
+                <h4>系列（Brightcove Beacon）</h4>
+                <p>在Brightcove Beacon中，創建系列。在這裡，您將為系列命名，並提供包括可用性和圖像在內的信息。</p>
             </li>
             <li>
-                <h4>季節 (布萊特灣燈塔)</h4>
-                <p>在布萊特灣燈塔，創造與系列相關的季節。除了選擇賽季所屬的系列之外，您還會提供類似系列的資訊。</p>
+                <h4>四季（Brightcove Beacon）</h4>
+                <p>在Brightcove Beacon中，創建與該系列相關的季節。除了選擇季節所屬的系列之外，您還將提供類似於系列的信息。</p>
             </li>
             <li>
-                <h4>集數 (雲端影片)</h4>
-                <p>布萊特灣信標集內容的真相存在於影片雲端。</p>
+                <h4>劇集（視頻雲）</h4>
+                <p>Brightcove Beacon 劇集內容的真相存在於 Video Cloud 中。</p>
                 <p>
-                    在 Video Cloud Studio 中，使用提供給自訂欄位的值，將影片集指派給對應的季節。這些自訂欄位包括：
-                </p>
+                    在Video Cloud Studio中，使用提供給自定義字段的值將視頻劇集分配給相應的季節。這些自定義字段包括： </p>
                 <ul>
                     <li><code translate="No">beacon.episode.number</code></li>
                     <li><code translate="No">beacon.episode.seasonNumber</code></li>
@@ -535,26 +33,23 @@ Brightcove
                 </ul>
             </li>
             <li>
-                <p>返回布萊特灣信標並攝取您的視頻集。</p>
+                <p>返回Brightcove Beacon並攝取您的視頻片段。</p>
             </li>
         </ol>
     </section>
-
     <section class="bcls-section">
         <h2 id="Relationship">關係</h2>
         <p>
-            下圖顯示了一系列和它的季節和情節之間的關係。
+            下圖顯示了系列與其季節和劇集之間的關係。
         </p>
         <figure class="bcls-figure">
-            <img class="bcls-image" src="/assets/images/syncing-with-vc/vc-custom-fields/beacon-series-season-episode.png" alt=""/>
-        </figure>
+            <img class="bcls-image" src="/assets/images/syncing-with-vc/vc-custom-fields/beacon-series-season-episode.png" alt="" /> </figure>
     </section>
-
     <section class="bcls-section">
-        <h2 id="Creating_a_series">建立序列</h2>
-        <p>若要建立序列，請依照下列步驟執行：</p>
+        <h2 id="Creating_a_series">創建系列</h2>
+        <p>要創建系列，請按照下列步驟操作：</p>
         <ol class="bcls-tasklist-restart">
-            <li>登錄到Brightcove Beacon並選擇<strong>程式</strong>。</li>
+            <li>登錄到Brightcove Beacon，然後選擇<strong>程式</strong>。</li>
             <li>在左側導航中，選擇<strong>系列</strong>。</li>
             <li>點擊<strong>添加新系列</strong>按鈕。</li>
             <li>
@@ -568,72 +63,67 @@ Brightcove
                     </thead>
                     <tbody class="bcls-table__body">
                         <tr>
-                            <td>名字</td>
+                            <td>名稱</td>
                             <td>
-                                系列的標識符，面向客戶的名稱將在後面的<strong>文字數據</strong>部分
-                            </td>
+                                系列的標識符，面向客戶的名稱在後面提供<strong>文本數據</strong>部分 </td>
                         </tr>
                         <tr>
-                            <td>製作年份</td>
+                            <td>生產年份</td>
                             <td>
-                                系列製作的年份；此信息將出現在<strong>更多信息</strong>屏幕
-                            </td>
+                                該系列的製作年份；此信息將出現在<strong>更多信息</strong>屏幕 </td>
                         </tr>
                         <tr>
-                            <td>製作國家</td>
+                            <td>生產國</td>
                             <td>
-                                該系列的生產國；此信息將出現在<strong>更多信息</strong>屏幕
-                            </td>
+                                製作該系列的國家；此信息將出現在<strong>更多信息</strong>屏幕 </td>
                         </tr>
                         <tr>
-                            <td>類別</td>
+                            <td>體裁</td>
                             <td>
-                                系列的類型；請注意，您可以視需要建立類型：
+                                該系列的流派；請注意，您可以根據需要創建流派：
                                 <figure class="bcls-figure">
-                                    <img class="bcls-image" src="/assets/images/using-bcb/series-seasons-episodes/make-genres.png" alt="製作流派"/>
-                                </figure>
+                                    <img class="bcls-image" src="/assets/images/using-bcb/series-seasons-episodes/make-genres.png" alt="make genres" /> </figure>
                             </td>
                         </tr>
                         <tr>
-                            <td>子類型</td>
-                            <td>請勿完成，不使用此資料</td>
+                            <td>子流派</td>
+                            <td>不完整，不使用此數據</td>
                         </tr>
                         <tr>
-                            <td>類型語言預覽</td>
-                            <td>預覽的語言</td>
+                            <td>體裁語言預覽</td>
+                            <td>預覽語言</td>
                         </tr>
                         <tr>
-                            <td>插曲排序類型</td>
-                            <td>如何在應用程式使用者介面中排序集數</td>
+                            <td>情節排序類型</td>
+                            <td>如何在應用程序用戶界面中對劇集進行排序</td>
                         </tr>
                         <tr>
-                            <td>演員陣容</td>
+                            <td>投</td>
                             <td>
-                                下的元數據<strong>投</strong>將出現在<strong>更多信息</strong>屏幕。
+                                下的元數據<strong>投擲</strong>將出現在<strong>更多信息</strong>屏幕。
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </li>
-            <li>單擊<strong>文本數據</strong>選項卡。</li>
+            <li>點擊<strong>文字數據</strong>標籤。</li>
             <li>
-                填寫<em>標題</em>（這是該系列的觀看者姓名），<em>描述</em>和<em>概要</em>。此數據將顯示在Brightcove Beacon應用程序中。
+                填寫 <em>標題</em> （這是該系列面向觀眾的名稱）， <em>描述</em> 和 <em>概要</em>.此數據將顯示在 Brightcove Beacon 應用程序中。
             </li>
-            <li>單擊<strong>非文本數據</strong>選項卡。</li>
+            <li>點擊<strong>非文字數據</strong>標籤。</li>
             <li>
-                提供下列項目的影像 (符合下列需求)：
-                <ul>
-                    <li><strong>人像海報</strong>（需要）</li>
-                    <li><strong>風景海報</strong>（需要）</li>
-                    <li><strong>縮圖</strong></li>
-                    <li><strong>寬幅橫幅</strong>（需要）</li>
+                提供以下圖片（符合以下要求）： <ul>
+                    <li><strong>人像海報</strong>（必需的）</li>
+                    <li><strong>風景海報</strong>（必需的）</li>
+                    <li><strong>縮略圖</strong></li>
+                    <li><strong>寬幅橫幅</strong>（必需的）</li>
                 </ul>
-                <p>如果未提供，則會從「人像海報」產生縮圖影像。</p>
+                <p>如果未提供，則將根據人像海報生成縮略圖圖像。</p>
                 <table class="bcls-table">
                     <thead class="bcls-table__head">
                         <tr>
-                            <th>影像</th>
-                            <th>需求</th>
+                            <th>圖像</th>
+                            <th>要求</th>
                         </tr>
                     </thead>
                     <tbody class="bcls-table__body">
@@ -643,14 +133,14 @@ Brightcove
                                 <p>JPEG圖像（2：3）</p>
                                 <table>
                                     <tr>
-                                        <td>最小值</td>
-                                        <td>寬度：1000 像素</td>
-                                        <td>高度：1500 像素</td>
+                                        <td>最低限度</td>
+                                        <td>寬度：1000像素</td>
+                                        <td>高度：1500px</td>
                                     </tr>
                                     <tr>
-                                        <td>最大值</td>
-                                        <td>寬度：2000 像素</td>
-                                        <td>高度：3000 像素</td>
+                                        <td>最大</td>
+                                        <td>寬度：2000像素</td>
+                                        <td>高度：3000像素</td>
                                     </tr>
                                 </table>
                             </td>
@@ -661,38 +151,38 @@ Brightcove
                                 <p>JPEG圖像（16：9）</p>
                                 <table>
                                     <tr>
-                                        <td>最小值</td>
-                                        <td>寬度：1000 像素</td>
-                                        <td>高度：563 像素</td>
+                                        <td>最低限度</td>
+                                        <td>寬度：1000像素</td>
+                                        <td>高度：563px</td>
                                     </tr>
                                     <tr>
-                                        <td>最大值</td>
-                                        <td>寬度：4000 像素</td>
-                                        <td>高度：2250 像素</td>
+                                        <td>最大</td>
+                                        <td>寬度：4000像素</td>
+                                        <td>高度：2250像素</td>
                                     </tr>
                                 </table>
                             </td>
                         </tr>
                         <tr>
-                            <td>縮圖</td>
+                            <td>縮略圖</td>
                             <td>
                                 JPEG圖像（4：3）
                             </td>
                         </tr>
                         <tr>
-                            <td>寬橫幅</td>
+                            <td>寬幅橫幅</td>
                             <td>
                                 JPEG圖像（21：9）
                                 <table>
                                     <tr>
-                                        <td>最小值</td>
-                                        <td>寬度：1000 像素</td>
-                                        <td>高度：428 像素</td>
+                                        <td>最低限度</td>
+                                        <td>寬度：1000像素</td>
+                                        <td>高度：428像素</td>
                                     </tr>
                                     <tr>
-                                        <td>最大值</td>
-                                        <td>寬度：4000 像素</td>
-                                        <td>高度：1714 像素</td>
+                                        <td>最大</td>
+                                        <td>寬度：4000像素</td>
+                                        <td>高度：1714像素</td>
                                     </tr>
                                 </table>
                             </td>
@@ -701,143 +191,133 @@ Brightcove
                 </table>
             </li>
             <li>
-                關於的信息<strong>標籤</strong>標籤目前未使用，因此請勿在此標籤上輸入信息。
+                有關的信息<strong>標籤</strong>此時不使用選項卡，因此不要在此選項卡上輸入信息。
             </li>
             <li>
-                關於的信息<strong>元數據</strong>標籤目前未使用，因此請勿在此標籤上輸入信息。
+                有關的信息<strong>元數據</strong>此時不使用選項卡，因此不要在此選項卡上輸入信息。
             </li>
             <li>
-                點擊<strong>流</strong>標籤，您將在其中選擇該系列的預告片。下面的截圖將幫助您完成選擇該預告片的過程。
+                點擊<strong>溪流</strong>標籤，您將在其中選擇該系列的預告片。以下屏幕截圖將幫助您完成選擇該預告片的過程。
                 <figure class="bcls-figure">
-                    <img class="bcls-image" src="/assets/images/using-bcb/series-seasons-episodes/streams-tab.png" alt="串流標籤"/>
-                </figure>
+                    <img class="bcls-image" src="/assets/images/using-bcb/series-seasons-episodes/streams-tab.png" alt="streams tab" /> </figure>
             </li>
             <li>
-                選取您的<strong>提供者</strong>。您很可能只有一個提供者，這些供應商會參考您的布萊特灣視訊雲端帳戶。
+                選擇您的<strong>提供者</strong> .您很可能只有一個提供商，該提供商引用您的 Brightcove Video Cloud 帳戶。
             </li>
             <li>
                 為了<strong>流視頻ID</strong>，從Studio獲得預告片的視頻ID，並將其放置在文本框中。
             </li>
             <li>
-                請確定<strong>串流類型設定為 [</strong><em>預告片</em> ]。
+                確保<strong>流類型</strong>被設定為 <em>預告片</em>.
             </li>
             <li>
-                請注意，<strong> DRM 類型</strong>和<strong>流格式</strong>值不需要更改。
-            </li>
-            <li>
-                點擊<strong>權利和計劃</strong>標籤，如下所示：
-                <figure class="bcls-figure">
-                    <img class="bcls-image" src="/assets/images/using-bcb/series-seasons-episodes/rights-scheduling-tab.png" alt="權利和計劃"/>
-                </figure>
+                點擊<strong>權利與日程安排</strong>標籤，如下所示： <figure class="bcls-figure">
+                    <img class="bcls-image" src="/assets/images/using-bcb/series-seasons-episodes/rights-scheduling-tab.png" alt="Rights and Scheduling" /> </figure>
             </li>
             <li>
                 <p>
-                    新增下列欄位的值：
+                    為以下字段添加值：
                 </p>
                 <table class="bcls-table">
                     <thead class="bcls-table__head">
                         <tr>
-                            <th>欄位</th>
-                            <th>必填</th>
-                            <th>注意事項</th>
+                            <th>場地</th>
+                            <th>必要</th>
+                            <th>筆記</th>
                         </tr>
                     </thead>
                     <tbody class="bcls-table__body">
                         <tr>
-                            <td>狀態</td>
-                            <td>是</td>
+                            <td>地位</td>
+                            <td>是的</td>
                             <td>
-                                選取下列其中一種類型：
+                                選擇以下類型之一：
                                 <ul>
                                     <li>
-                                        已發佈
+                                        已發表
                                     </li>
                                     <li>
-                                        未發佈
+                                        未發表
                                     </li>
                                 </ul>
                             </td>
                         </tr>
                         <tr>
                             <td>權限類型</td>
-                            <td>是</td>
+                            <td>是的</td>
                             <td>
-                                從選項中為您的序列選擇適當的值：
-                                <ul>
+                                從選項中選擇適合您的系列的值： <ul>
                                     <li>廣告-AVOD</li>
-                                    <li>免費</li>
-                                    <li>訂閱-SVOD</li>
+                                    <li>自由</li>
+                                    <li>訂閱 - 點播</li>
                                 </ul>
                             </td>
                         </tr>
                         <tr>
                             <td>開始時間</td>
-                            <td>是</td>
-                            <td>排定一個開始日期您的系列可供使用</td>
+                            <td>是的</td>
+                            <td>安排開始日期您的系列將可用</td>
                         </tr>
                         <tr>
-                            <td>結束時間</td>
-                            <td>是</td>
+                            <td>時間結束</td>
+                            <td>是的</td>
                             <td>
-                                排定結束日期，當您的系列將不再出現
+                                安排一個結束日期，當您的系列不再可用時
                             </td>
                         </tr>
                         <tr>
-                            <td>最大串流</td>
-                            <td>是</td>
+                            <td>最大流</td>
+                            <td>是的</td>
                             <td>
-                                設定可以從同一帳戶觀看系列的最大串流數
+                                設置同一個賬號可以觀看的最大流數
                             </td>
                         </tr>
                         <tr>
-                            <td>要發佈的裝置</td>
-                            <td>是</td>
+                            <td>要發布的設備</td>
+                            <td>是的</td>
                             <td>
-                                新增您要發佈的裝置。選擇<strong>選擇/取消選擇所有設備</strong>查看可用設備列表
+                                添加您要發佈到的設備。選擇<strong>選擇/取消選擇所有設備</strong>查看可用設備列表
                             </td>
                         </tr>
                         <tr>
                             <td>允許的位置</td>
-                            <td>是</td>
+                            <td>是的</td>
                             <td>
-                                <p>如果沒有限制進入<em> World </em>，請選取您想要串流內容的位置。</p>
-                                <aside class="bcls-aside bcls-aside--information language-editable">
-                                    <p>如果您沒有指定至少 1 個允許的位置，則您可能會從您的應用程序看到以下消息：</p>
+                                <p>如果沒有限制，請選擇要流式傳輸內容的位置 <em>世界</em>.</p>
+                                <aside class="bcls-aside bcls-aside--information">
+                                    <p>如果您未指定至少一個允許的位置，那麼您可能會在您的應用中看到以下消息：</p>
                                     <figure class="bcls-figure">
-                                        <img class="bcls-image" src="/assets/images/using-bcb/series-seasons-episodes/no-content.jpg" alt="沒有內容"/>
-                                    </figure>
+                                        <img class="bcls-image" src="/assets/images/using-bcb/series-seasons-episodes/no-content.jpg" alt="No content" /> </figure>
                                 </aside>
                             </td>
                         </tr>
                         <tr>
-                            <td>拒絕的位置</td>
-                            <td>否</td>
+                            <td>拒絕地點</td>
+                            <td>沒有</td>
                             <td>
-                                選取您不想串流內容的位置
+                                選擇您不想流式傳輸內容的位置
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </li>
             <li>
-                請務必點擊<strong>創建新系列</strong>按鈕保存系列信息。
+                請務必點擊<strong>創建新系列</strong>按鈕以保存系列信息。
             </li>
         </ol>
         <p>
-            您現在已建立您的系列。下一步是建立屬於此系列的一個或多個賽季。下一節將引導您完成該過程。
+            您現在已經創建了您的系列。下一步是創建屬於該系列的一個或多個季節。下一部分將引導您完成該過程。
         </p>
     </section>
-
     <section class="bcls-section">
-        <h2 id="Creating_seasons">建立季節</h2>
-        <p>若要建立賽季，請按照下列步驟操作：</p>
+        <h2 id="Creating_seasons">創造季節</h2>
+        <p>要創建一個季節，請按照下列步驟操作：</p>
         <ol class="bcls-tasklist-restart">
-            <li>登錄到Brightcove Beacon並選擇<strong>程式</strong>。</li>
+            <li>登錄到Brightcove Beacon，然後選擇<strong>程式</strong>。</li>
             <li>在左側導航中，選擇<strong>季節</strong>。</li>
             <li>點擊<strong>新增季節</strong>按鈕。</li>
             <li>
-                在<strong>基本數據</strong>標籤，填寫以下內容：
-                <table class="bcls-table">
+                在<strong>基本數據</strong>標籤，填寫以下內容： <table class="bcls-table">
                     <thead class="bcls-table__head">
                         <tr>
                             <th>表格欄位名稱</th>
@@ -846,60 +326,55 @@ Brightcove
                     </thead>
                     <tbody class="bcls-table__body">
                         <tr>
-                            <td>選取序列</td>
+                            <td>選擇系列</td>
                             <td>
-                                下拉式清單將會填入您所建立的序列。選擇本賽季所屬的系列。
+                                下拉列表將填充您創建的系列。選擇本賽季所屬的系列。
                             </td>
                         </tr>
                         <tr>
-                            <td>名字</td>
+                            <td>名稱</td>
                             <td>
-                                系列的標識符，面向客戶的名稱將在後面的<strong>文字數據</strong>部分
+                                系列的標識符，面向客戶的名稱在後面提供<strong>文本數據</strong>部分 </td>
+                        </tr>
+                        <tr>
+                            <td>季號</td>
+                            <td>
+                                這必須是一個整數，表示系列中的季節序列。從 Video Cloud 中提取劇集視頻時將使用此數字。
                             </td>
                         </tr>
                         <tr>
-                            <td>季度編號</td>
+                            <td>生產年份</td>
                             <td>
-                                這必須是代表該系列中季節序列的整數。從影片雲端擷取集數影片時，會使用此號碼。
+                                生產季節的年份；此信息將出現在<strong>更多信息</strong>屏幕。
                             </td>
                         </tr>
                         <tr>
-                            <td>製作年份</td>
+                            <td>生產國</td>
                             <td>
-                                季節的產生年份；此信息將出現在<strong>更多信息</strong>屏幕。
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>製作國家</td>
-                            <td>
-                                季節產生的國家；此信息將出現在<strong>更多信息</strong>屏幕。
+                                生產季節的國家；此信息將出現在<strong>更多信息</strong>屏幕。
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </li>
-            <li>單擊<strong>文本數據</strong>選項卡。</li>
+            <li>點擊<strong>文字數據</strong>標籤。</li>
             <li>
-                填寫<em>標題</em>，<em>描述</em>和<em>概要</em>這個季節。此數據將顯示在Brightcove Beacon應用程序中。
-                <aside class="bcls-aside bcls-aside--tip language-editable">
-                    對於本賽季<em>標題</em>，您可以輸入類似<em>第1季</em>，但是如果系列中有不同季節的主題，則可能是更好的選擇。例如，在每個大洲都集中於一個大洲的一系列大洲上，這些季節的好名字應該是<em>歐洲</em>，<em>非洲</em>，<em>亞洲</em>等
-                </aside>
+                填寫 <em>標題</em>， <em>描述</em> 和 <em>概要</em> 本賽季。此數據將顯示在 Brightcove Beacon 應用程序中。<aside class="bcls-aside bcls-aside--tip">對於本賽季 <em>標題</em>，您可以輸入一個名稱，如 <em>第1季</em>，但如果一個系列有不同季節的主題，那可能是更好的選擇。例如，一個關於大陸的系列，每個季節都集中在一個大陸上，季節的好名字將是 <em>歐洲</em>， <em>非洲</em>， <em>亞洲</em>， 等等。</aside>
             </li>
-            <li>單擊<strong>非文本數據</strong>選項卡。</li>
+            <li>點擊<strong>非文字數據</strong>標籤。</li>
             <li>
-                針對您的季節，請提供下列項目的影像 (符合下列需求)：
-                <ul>
-                    <li><strong>人像海報</strong>（需要）</li>
-                    <li><strong>風景海報</strong>（需要）</li>
-                    <li><strong>縮圖</strong></li>
-                    <li><strong>寬幅橫幅</strong>（需要）</li>
+                根據您的季節，提供以下圖片（符合以下要求）： <ul>
+                    <li><strong>人像海報</strong>（必需的）</li>
+                    <li><strong>風景海報</strong>（必需的）</li>
+                    <li><strong>縮略圖</strong></li>
+                    <li><strong>寬幅橫幅</strong>（必需的）</li>
                 </ul>
-                <p>如果未提供，則會從「人像海報」產生縮圖影像。</p>
+                <p>如果未提供，則將根據人像海報生成縮略圖圖像。</p>
                 <table class="bcls-table">
                     <thead class="bcls-table__head">
                         <tr>
-                            <th>影像</th>
-                            <th>需求</th>
+                            <th>圖像</th>
+                            <th>要求</th>
                         </tr>
                     </thead>
                     <tbody class="bcls-table__body">
@@ -909,14 +384,14 @@ Brightcove
                                 <p>JPEG圖像（2：3）</p>
                                 <table>
                                     <tr>
-                                        <td>最小值</td>
-                                        <td>寬度：1000 像素</td>
-                                        <td>高度：1500 像素</td>
+                                        <td>最低限度</td>
+                                        <td>寬度：1000像素</td>
+                                        <td>高度：1500px</td>
                                     </tr>
                                     <tr>
-                                        <td>最大值</td>
-                                        <td>寬度：2000 像素</td>
-                                        <td>高度：3000 像素</td>
+                                        <td>最大</td>
+                                        <td>寬度：2000像素</td>
+                                        <td>高度：3000像素</td>
                                     </tr>
                                 </table>
                             </td>
@@ -927,162 +402,155 @@ Brightcove
                                 <p>JPEG圖像（16：9）</p>
                                 <table>
                                     <tr>
-                                        <td>最小值</td>
-                                        <td>寬度：1000 像素</td>
-                                        <td>高度：563 像素</td>
+                                        <td>最低限度</td>
+                                        <td>寬度：1000像素</td>
+                                        <td>高度：563px</td>
                                     </tr>
                                     <tr>
-                                        <td>最大值</td>
-                                        <td>寬度：4000 像素</td>
-                                        <td>高度：2250 像素</td>
+                                        <td>最大</td>
+                                        <td>寬度：4000像素</td>
+                                        <td>高度：2250像素</td>
                                     </tr>
                                 </table>
                             </td>
                         </tr>
                         <tr>
-                            <td>縮圖</td>
+                            <td>縮略圖</td>
                             <td>
                                 JPEG圖像（4：3）
                             </td>
                         </tr>
                         <tr>
-                            <td>寬橫幅</td>
+                            <td>寬幅橫幅</td>
                             <td>
                                 JPEG圖像（21：9）
                                 <table>
                                     <tr>
-                                        <td>最小值</td>
-                                        <td>寬度：1000 像素</td>
-                                        <td>高度：428 像素</td>
+                                        <td>最低限度</td>
+                                        <td>寬度：1000像素</td>
+                                        <td>高度：428像素</td>
                                     </tr>
                                     <tr>
-                                        <td>最大值</td>
-                                        <td>寬度：4000 像素</td>
-                                        <td>高度：1714 像素</td>
+                                        <td>最大</td>
+                                        <td>寬度：4000像素</td>
+                                        <td>高度：1714像素</td>
                                     </tr>
                                 </table>
                             </td>
                         </tr>
                     </tbody>
                 </table>
-
             </li>
             <li>
-                關於的信息<strong>標籤</strong>標籤目前未使用，因此請勿在此標籤上輸入信息。
+                有關的信息<strong>標籤</strong>此時不使用選項卡，因此不要在此選項卡上輸入信息。
             </li>
             <li>
-                關於的信息<strong>元數據</strong>標籤目前未使用，因此請勿在此標籤上輸入信息。
+                有關的信息<strong>元數據</strong>此時不使用選項卡，因此不要在此選項卡上輸入信息。
             </li>
             <li>
-                點擊<strong>流</strong>標籤，您將在其中選擇本季的預告片。
+                點擊<strong>溪流</strong>標籤，您將在其中選擇本季的預告片。
             </li>
             <li>
-                選取您的<strong>提供者</strong>。您很可能只有一個提供者，這些供應商會參考您的布萊特灣視訊雲端帳戶。
+                選擇您的<strong>提供者</strong> .您很可能只有一個提供商，該提供商引用您的 Brightcove Video Cloud 帳戶。
             </li>
-            <li>按一下 [ <strong>新增資料流</strong> ] 按鈕。</li>
+            <li>點擊<strong>添加新的流</strong>按鈕。</li>
             <li>
                 為了<strong>流視頻ID</strong>，從Studio獲得預告片的視頻ID，並將其放置在文本框中。
             </li>
             <li>
-                請確定<strong>串流類型設定為 [</strong><em>預告片</em> ]。
+                確保<strong>流類型</strong>被設定為 <em>預告片</em>.
             </li>
             <li>
-                請注意，<strong> DRM 類型</strong>和<strong>流格式</strong>值不需要更改。
-            </li>
-            <li>
-                點擊<strong>權利和計劃</strong>標籤，如下所示。
+                點擊<strong>權利與日程安排</strong>標籤，如下所示。
                 <figure class="bcls-figure">
-                    <img class="bcls-image" src="/assets/images/using-bcb/series-seasons-episodes/rights-scheduling-tab-season.png" alt="權利和計劃"/>
-                </figure>
+                    <img class="bcls-image" src="/assets/images/using-bcb/series-seasons-episodes/rights-scheduling-tab-season.png" alt="Rights and Scheduling" /> </figure>
             </li>
             <li>
                 <p>
-                    新增下列欄位的值：
+                    為以下字段添加值：
                 </p>
                 <table class="bcls-table">
                     <thead class="bcls-table__head">
                         <tr>
-                            <th>欄位</th>
-                            <th>必填</th>
-                            <th>注意事項</th>
+                            <th>場地</th>
+                            <th>必要</th>
+                            <th>筆記</th>
                         </tr>
                     </thead>
                     <tbody class="bcls-table__body">
                         <tr>
-                            <td>狀態</td>
-                            <td>是</td>
+                            <td>地位</td>
+                            <td>是的</td>
                             <td>
-                                選取下列其中一種類型：
+                                選擇以下類型之一：
                                 <ul>
                                     <li>
-                                        已發佈
+                                        已發表
                                     </li>
                                     <li>
-                                        未發佈
+                                        未發表
                                     </li>
                                 </ul>
                             </td>
                         </tr>
                         <tr>
                             <td>權限類型</td>
-                            <td>是</td>
+                            <td>是的</td>
                             <td>
-                                從選項中為您的季節選擇適當的值：
-                                <ul>
+                                從選項中選擇適合您季節的值： <ul>
                                     <li>廣告-AVOD</li>
-                                    <li>免費</li>
+                                    <li>自由</li>
                                     <li>繼承</li>
-                                    <li>訂閱-SVOD</li>
+                                    <li>訂閱 - 點播</li>
                                 </ul>
                                 <p>
-                                    <em>繼承</em>表示權利將從本賽季所屬的系列中繼承。
+                                    <em>繼承</em> 意味著權利將從本賽季所屬的系列中繼承。
                                 </p>
                             </td>
                         </tr>
                         <tr>
                             <td>開始時間</td>
-                            <td>是</td>
-                            <td>預定本賽季的開始日期</td>
+                            <td>是的</td>
+                            <td>安排本賽季的開始日期將可用</td>
                         </tr>
                         <tr>
-                            <td>結束時間</td>
-                            <td>是</td>
+                            <td>時間結束</td>
+                            <td>是的</td>
                             <td>
-                                預定本賽季不再出售的結束日期
+                                安排一個結束日期，當這個季節不再可用時
                             </td>
                         </tr>
                         <tr>
-                            <td>最大串流</td>
-                            <td>是</td>
+                            <td>最大流</td>
+                            <td>是的</td>
                             <td>
-                                從同一帳戶可以觀看季節的最大數量
+                                同一賬號最多可收看本季的流數
                             </td>
                         </tr>
                         <tr>
-                            <td>要發佈的裝置</td>
-                            <td>是</td>
+                            <td>要發布的設備</td>
+                            <td>是的</td>
                             <td>
-                                新增您想要發佈的裝置。選取 [ <strong>選取/取消選取所有裝置</strong> ] 以查看可用裝置的清單。
+                                添加您要發佈到的設備。選擇<strong>選擇/取消選擇所有設備</strong>查看可用設備列表。
                             </td>
                         </tr>
                         <tr>
                             <td>允許的位置</td>
-                            <td>是</td>
+                            <td>是的</td>
                             <td>
-                                <p>如果沒有限制進入<em> World </em>，請選取您想要串流內容的位置。</p>
-                                <aside class="bcls-aside bcls-aside--information language-editable">
-                                    <p>如果您沒有指定至少 1 個允許的位置，則您可能會從您的應用程序看到以下消息：</p>
+                                <p>如果沒有限制，請選擇要流式傳輸內容的位置 <em>世界</em>.</p>
+                                <aside class="bcls-aside bcls-aside--information">
+                                    <p>如果您未指定至少一個允許的位置，那麼您可能會在您的應用中看到以下消息：</p>
                                     <figure class="bcls-figure">
-                                        <img class="bcls-image" src="/assets/images/using-bcb/series-seasons-episodes/no-content.jpg" alt="沒有內容"/>
-                                    </figure>
+                                        <img class="bcls-image" src="/assets/images/using-bcb/series-seasons-episodes/no-content.jpg" alt="No content" /> </figure>
                                 </aside>
                             </td>
                         </tr>
                         <tr>
-                            <td>拒絕的位置</td>
-                            <td>否</td>
+                            <td>拒絕地點</td>
+                            <td>沒有</td>
                             <td>
-                                選取您不想串流內容的位置。輸入<em>世界</em>如果沒有限制。
+                                選擇您不想流式傳輸內容的位置。進入 <em>世界</em> 如果你沒有限制。
                             </td>
                         </tr>
                     </tbody>
@@ -1093,269 +561,90 @@ Brightcove
             </li>
         </ol>
         <p>
-            您現在已經建立了您的其中一個賽季。如果需要，為該系列創建更多的季節。下一個步驟是將影片從影片雲端擷取到布萊特灣信標。下一節將引導您完成該過程。
+            您現在已經創建了一個季節。如果需要，可以為該系列創造更多的季節。下一步是將視頻雲中的劇集視頻攝取到 Brightcove Beacon。下一部分將引導您完成該過程。
         </p>
     </section>
-
     <section class="bcls-section">
-        <h2 id="Ingesting_episodes">擷取單集</h2>
+        <h2 id="Ingesting_episodes">攝取劇集</h2>
         <p>
-            雖然創建系列和相關的季節是在布萊特灣信標完成, 該系列的創建情節是在視頻雲工作室完成.您將會在每個集合影片的自訂欄位中指定該系列和季節的價值，然後將這些影片擷取到 Brightcove Beacon。
+            雖然在 Brightcove Beacon 中創建系列和相關季節，但在 Video Cloud Studio 中創建系列劇集。您將在每個劇集視頻的自定義字段中分配有關係列和季節的值，然後將這些視頻攝取到 Brightcove Beacon。
         </p>
-        <aside class="bcls-aside bcls-aside--tip language-editable">請記住，布萊特灣信標集內容的真相存在於視訊雲端。當您從影片雲端擷取內容時，您在布萊特灣信標中對單集所做的任何變更都會被覆寫。</aside>
-
+        <aside class="bcls-aside bcls-aside--tip">請記住，Brightcove Beacon 劇集內容的真相存在於 Video Cloud 中。當您從 Video Cloud 攝取內容時，您在 Brightcove Beacon 中對劇集所做的任何更改都將被覆蓋。</aside>
         <h3>先決條件</h3>
-        <p>繼續執行下列步驟之前，請確定您已完成下列項目：</p>
+        <p>在繼續執行以下步驟之前，請確保您已完成以下操作：</p>
         <ol class="bcls-tasklist-restart">
-            <li>登入視訊雲端工作室。</li>
+            <li>登錄到Video Cloud Studio。</li>
             <li>
                 <p>從頁面頂部的下拉菜單中，選擇<strong>上載</strong>。</p>
                 <figure class="bcls-figure">
-                    <img class="bcls-image" src="/assets/images/using-bcb/series-seasons-episodes/upload-module.png" alt="上傳模組"/>
-                </figure>
+                    <img class="bcls-image" src="/assets/images/using-bcb/series-seasons-episodes/upload-module.png" alt="Upload module" /> </figure>
             </li>
-            <li>上傳您的集合影片。</li>
+            <li>上傳您的劇集視頻。</li>
             <li>
                 <p>從頁面頂部的下拉菜單中，選擇<strong>媒體</strong>。</p>
                 <figure class="bcls-figure">
-                    <img class="bcls-image" src="/assets/images/using-bcb/series-seasons-episodes/media-module.png" alt="媒體模組"/>
-                </figure>
+                    <img class="bcls-image" src="/assets/images/using-bcb/series-seasons-episodes/media-module.png" alt="Media module" /> </figure>
             </li>
-            <li>按照中指定的步驟更新劇集視頻圖像<a href="/references/image-requirements.html">圖像及其規格</a>文件。</li>
+            <li>更新您的劇集視頻圖像<a href="/references/image-requirements.html">圖像及其規格</a>文檔。</li>
             <li>
-                <p>在導覽標題中，依序按一下 [ <strong>管理員</strong> ] 和 [ <strong>視訊欄位</strong> ]。</p>
-                <aside class="bcls-aside bcls-aside--information language-editable">
-                    您必須是帳戶管理員才能存取<strong> ADMIN </strong>功能表。
-                </aside>
+                <p>在導航標題中，單擊<strong>行政</strong>然後<strong>視頻場</strong>。</p>
+                <aside class="bcls-aside bcls-aside--information">您必須是帳戶管理員才能訪問<strong>行政</strong>菜單。</aside>
                 <figure class="bcls-figure">
-                    <img class="bcls-image" src="/assets/images/using-bcb/series-seasons-episodes/video-fields.png" alt="視訊欄位"/>
-                </figure>
+                    <img class="bcls-image" src="/assets/images/using-bcb/series-seasons-episodes/video-fields.png" alt="Video fields" /> </figure>
             </li>
-            <li>建立擷取影片至布萊特灣信標所需的自訂欄位。有關詳細信息，請參見<a href="/syncing-with-video-cloud/vc-custom-fields.html">創建視頻云自定義字段</a>文件。</li>
+            <li>創建將視頻攝取到Brightcove Beacon所需的必需自定義字段。有關詳細信息，請參見<a href="/syncing-with-video-cloud/vc-custom-fields.html">創建視頻云自定義字段</a>文檔。</li>
         </ol>
-        <h3>步驟</h3>
-        <p>若要將集合影片攝入布萊特灣信標，請依照下列步驟執行：</p>
+        <h3>腳步</h3>
+        <p>要將劇集視頻攝取到 Brightcove Beacon，請按照以下步驟操作：</p>
         <ol class="bcls-tasklist-restart">
-            <li>返回視頻雲端工作室。</li>
+            <li>返回到Video Cloud Studio。</li>
             <li>
                 從頁面頂部的下拉菜單中，選擇<strong>媒體</strong>。
             </li>
             <li>
-                <p>按一下其中一集影片的標題，進入影片的屬性頁面。</p>
+                <p>單擊其中一集視頻的標題，以進入視頻的屬性頁面。</p>
                 <figure class="bcls-figure">
-                    <img class="bcls-image" src="/assets/images/using-bcb/series-seasons-episodes/video-link.png" alt="視訊連結"/>
-                </figure>
+                    <img class="bcls-image" src="/assets/images/using-bcb/series-seasons-episodes/video-link.png" alt="Video link" /> </figure>
             </li>
             <li>
                 向下滾動，直到您在右側看到<strong>自定義字段</strong>部分。
             </li>
             <li>點擊<strong>編輯</strong>按鈕。</li>
             <li>
-                找出與單集相關聯的三個自訂欄位。
+                找到與情節關聯的三個自定義字段。
                 <figure class="bcls-figure">
-                    <img class="bcls-image" src="/assets/images/using-bcb/series-seasons-episodes/vc-custom-fields.png" alt="集合自訂欄位"/>
-                </figure>
+                    <img class="bcls-image" src="/assets/images/using-bcb/series-seasons-episodes/vc-custom-fields.png" alt="episode custom fields" /> </figure>
             </li>
             <li>
-                對於集數影片，請在對應的自訂欄位中輸入集數、季節編號和系列名稱。
+                對於情節視頻，在相應的自定義字段中輸入情節編號，季號和系列名稱。
             </li>
             <li>
-                請務必點擊<strong>保存</strong>在為視頻輸入適當的值後單擊“確定”按鈕。
+                請務必點擊<strong>保存</strong>在為視頻輸入適當的值後單擊“確定"按鈕。
             </li>
             <li>
-                在所有集數影片的自訂欄位中重複輸入值。
+                在所有插曲視頻的自定義字段中重複輸入值。
             </li>
-            <li>登入布萊特灣燈塔</li>
+            <li>登錄到Brightcove Beacon。</li>
             <li>
-                點擊<strong>工具類</strong>選項 （<strong>扳手</strong>圖標）。
+                點擊<strong>工具</strong>選項 （<strong>扳手</strong>圖標）。
             </li>
             <li>
-                <p>確保<strong>攝取</strong>在左側菜單上選擇選項。</p>
+                <p>確保<strong>攝取</strong>在左側菜單上選擇了選項。</p>
                 <figure class="bcls-figure">
-                    <img class="bcls-image" src="/assets/images/using-bcb/series-seasons-episodes/beacon-ingest.png" alt="布萊特灣信標攝取"/>
-                </figure>
+                    <img class="bcls-image" src="/assets/images/using-bcb/series-seasons-episodes/beacon-ingest.png" alt="Brightcove Beacon ingestion" /> </figure>
             </li>
             <li>
                 點擊<strong>更新Brightcove視頻</strong>按鈕以提取新配置的劇集視頻。
             </li>
             <li>
                 <p>
-                    要使視頻立即在您的應用中可用，請通過單擊以下按鈕清除Brightcove Beacon的緩存<strong>快取</strong>左側導航欄中的選項，然後點擊<strong>緩存清除</strong>按鈕。
+                    要在您的應用程序中立即提供視頻，請單擊<strong>緩存</strong>左側導航欄中的選項，然後單擊<strong>緩存清除</strong>按鈕。
                 </p>
-                <aside class="bcls-aside bcls-aside--information language-editable">
-                    有關使用Brightcove信標工具選項的更多詳細信息，請參閱<a href="/using-brightcove-beacon/tools.html">使用工具</a>文件。
-                </aside>
+                <aside class="bcls-aside bcls-aside--information">有關使用 Brightcove Beacon Tools 選項的更多詳細信息，請參閱<a href="/using-brightcove-beacon/tools.html">使用工具</a>文檔。</aside>
             </li>
         </ol>
         <p>
-            此結論是建立系列及其相關的季節和劇集的資訊。
+            到此結束有關創建系列及其相關季節和劇集的信息。
         </p>
     </section>
 </article>
-<!-- complete bootstrap layout -->
-    </div>
-    <div class="col-sm-2 right-side-bar">
-      
-      <nav class="right-side-nav" id="right_side_nav">
-        <h6 class="toc">頁面內容</h6>
-        <ul id="in_page_nav" class="list-none"></ul>
-      </nav>
-      
-    </div>
-  </div>
-</div>
-
-<hr>
-<div class="last-updated">
-  頁面最後更新日期為 10 月 15 日
-</div>
-
-
-
-<footer class="bcls-footer" role="contentinfo">
-  <div class="row">
-    <div class="region region-footer-top-center col-md-12">
-      <nav role="navigation" aria-labelledby="block-brightcovesupport-menu" id="block-brightcovesupport" class="footer-menu">
-
-        <h2>布萊特灣支援</h2>
-
-        <ul class="menu">
-          <li>
-            <a href="https://status.brightcove.com">系統狀態</a>
-          </li>
-          <li>
-            <a href="https://supportportal.brightcove.com/s/login/?">聯絡支援</a>
-          </li>
-          <li>
-            <a href="https://support.brightcove.com/">文獻資料</a>
-          </li>
-        </ul>
-
-      </nav>
-      <nav role="navigation" aria-labelledby="block-training-menu" id="block-training" class="footer-menu">
-
-        <h2>訓練</h2>
-
-        <ul class="menu">
-          <li>
-            <a href="https://studio.support.brightcove.com/training/online-training-courses.html">線上課程</a>
-          </li>
-          <li>
-            <a href="https://studio.support.brightcove.com/training/register-training.html">註冊課程</a>
-          </li>
-          <li>
-            <a href="https://university.brightcove.com/">布萊特灣大學</a>
-          </li>
-        </ul>
-
-      </nav>
-      <nav role="navigation" aria-labelledby="block-brightcove-menu" class="footer-menu">
-
-        <h2>Brightcove</h2>
-
-        <ul class="menu">
-          <li>
-            <a href="https://www.brightcove.com">亮麗</a>
-          </li>
-          <li>
-            <a href="https://supportportal.brightcove.com/s/login/?">聯絡我們</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </div>
-  <div class="row">
-    <div class="region region-footer-bottom-center col-md-12">
-      <div class="bcls-copyright footer-menu">
-        <table>
-          <tr>
-            <td>
-              <div id="bc_copyright" class="field field--name-field-copyright-year field--type-string field--label-hidden field--item" style="float: left;"> 布萊特灣公司版權所有</div>
-            </td>
-            <td><a href="https://www.brightcove.com/en/legal/privacy">私隱</a> | 條<a href="https://www.brightcove.com/en/terms-and-conditions">款及細則</a></td>
-            <td>
-              <div class="gf-links-cols footer-menu">
-                <div class="gf-social"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" newtab="newtab" class="gf-social-linkedin"><i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i></a><a href="https://twitter.com/brightcove" title="Twitter" newtab="newtab" class="gf-social-twitter"><i class="fab fa-twitter" style="font-size: 1.5rem;"></i></a><a href="https://www.facebook.com/Brightcove" title="Facebook" newtab="newtab" class="gf-social-facebook"><i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i></a>
-                </div>
-              </div>
-            </td>
-          </tr>
-        </table>
-      </div>
-    </div>
-  </div>
-</footer>
-<div id="talla_wrapper">
-  <p style="text-align: right;position: relative;"><button style="background:rgb(2, 28, 146);color:Snow;padding:.3rem;position:fixed;right:0;bottom:1em;z-index:9999999" onclick="javascript:displayChat()">有問題嗎？ </button> </p>
-  <div id="talla_chat">
-</div>
-</div>
-<script>
-      
-  var searchBox = sajari.init({
-    mode: "search-box",
-    project: "1588255093746585379", // Set this to your project.
-    collection: "brightcove-documenation", // Set this to your collection.
-    instantPipeline: "autocomplete", // Pipeline used as you type
-    inputPlaceholder: "Search", // Input element placeholder
-    maxSuggestions: 5, // Maximum number of suggestions to show
-    attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to
-  });
-  
-    searchBox("sub", "pipeline.search-sent", function (_, query) {
-      window.location = "/search.html?q=" + encodeURIComponent(query.q);
-    });
-  
-
-</script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/https-fix.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/setDate.js"></script>
-  
-  <script src="https://support.brightcove.com/site-assets/js/site/prism.js"></script>
-  
-  <script src="https://support.brightcove.com/site-assets/js/site/site.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/tabs.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/toc.js"></script>
-  <script src="/assets/js/sites_nav.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/bcls-utils.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/local-link-fix.js"></script>
-  <script src="/assets/js/feedback.js"></script>
-  
-  <script src="/assets/js/sajari-search-foot.js"></script>
-  
-  <!-- <script src="/assets/js/sajari-index.js"></script> -->
-  <script src="https://assets.talla.com/latest/embeddedjs/talla.js"></script>
-  <script src="/assets/js/talla-init.js"></script>
-  <style>
-    a.sj-paginator__page-number.sj-paginator__page-number--current.css-so0ov7 {
-      background-color: lightblue;
-    }
-    div.sj-tabs__tab {
-      margin-top: 3rem;
-      margin-left: .3rem;
-      border-top-left-radius: .4rem;
-      border-top-right-radius: .4rem;
-      background-color:#e8e8e8;
-    }
-
-    div.sj-tabs__tab.sj-tabs__tab--selected {
-      border-bottom-color: crimson;
-      background-color: #f8f8f8;
-    }
-
-    p.sj-results__result__description.css-p9jvyt {
-      font-size: 1rem;
-    }
-
-    .sj-result__text.css-31l7gp h3 {
-      color: navy;
-      font-size: 1.4rem;
-    }
-    </style>
-
-</body>
-
-</html>

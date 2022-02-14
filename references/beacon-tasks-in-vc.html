@@ -1,0 +1,104 @@
+---
+title:“在視頻雲中執行的Brightcove信標任務"
+description:“在本主題中，您將了解作為 Brightcove Beacon 客戶必須/應該在 Video Cloud Studio 中完成的任務。”
+parent: "references"
+---
+ <h1>{{ page.title }}</h1>
+<article class="bcls-article">
+    <summary>{{ page.description }}</summary>
+
+    <section class="bcls-section">
+        <h2 id="Task_summary">任務總結</h2>
+        <p>以下是您作為 Brightcove Beacon 客戶應該/必須在 Video Cloud Studio 中執行的任務列表：</p>
+        <ul>
+            <li><a href="#Add_video_assets">添加視頻資產</a></li>
+            <li><a href="#Create_custom_fields">創建自定義字段</a></li>
+            <li><a href="#Add_images">添加與視頻資產關聯的圖像</a></li>
+            <li><a href="#Add_rights_management_information">添加權限管理信息</a></li>
+            <li><a href="#Add_episode_data">將系列/季的劇集數據添加到視頻資產</a></li>
+            <li><a href="#Create_video_playlists">創建視頻播放列表</a></li>
+            <li><a href="#Create_Brightcove_Live_events">創建Brightcove Live活動</a></li>
+            <li><a href="#Create_an_SSAI_ad_configuration">創建SSAI廣告配置</a></li>
+        </ul>
+        <p>每個任務將在本文檔的後面部分通過文檔的鏈接進行進一步說明，其中提供了有關如何執行特定任務的說明。</p>
+        <p>本文檔不是每項任務的“操作方法”手冊，但每個部分都會將您鏈接到包含有關如何完成任務的步驟的相應文檔。</p>
+    </section>
+    <section class="bcls-section">
+        <h2 id="Add_video_assets">添加視頻資產</h2>
+        <p>Video Cloud 是用於上傳您在 Brightcove Beacon 中使用的視頻的工具。在本文檔中，您將看到 Video Cloud Studio 是使用 Brightcove Beacon 應用程序時常用的工具。</p>
+        <p>以下是將您的視頻導入 Video Cloud 的資源：</p>
+        <ul>
+            <li><a href="https://studio.support.brightcove.com/basics/video-cloud-basics-uploading-videos.html">視頻雲基礎：上傳視頻</a> - 一個 1 分 30 秒的視頻和四個步驟，用於快速開始將內容上傳到 Video Cloud。</li>
+            <li><a href="https://studio.support.brightcove.com/media/uploading-videos-using-upload-module.html">使用上傳模塊上傳視頻</a> - 關於使用 Video Cloud 上傳視頻的完整文檔。</li>
+            <li><a href="https://studio.support.brightcove.com/media/index.html">管理影片</a> -涵蓋整個視頻管理工作流程的登錄頁面，包括有關上傳視頻，播放列表，組織帶有文件夾的視頻等的文檔。</li>
+        </ul>
+    </section>
+    <section class="bcls-section">
+        <h2 id="Create_custom_fields">創建自定義字段</h2>
+        <p>Video Cloud 允許您使用自定義字段為您的視頻添加元數據。擁有視頻後，自定義字段將在準備要在Brightcove Beacon中使用的視頻中扮演重要角色。您添加到與 Brightcove Beacon 一起使用的 Video Cloud 視頻的自定義字段分為三類。這些類別以及每個類別的簡要說明是：</p>
+        <ul>
+            <li><strong>一般的</strong> -有關視頻內容的信息，包括：
+                <ul>
+                    <li>類型</li>
+                    <li>簡短說明和詳細說明</li>
+                    <li>生產年份</li>
+                    <li>投</li>
+                    <li>作家</li>
+                    <li>等等。</li>
+                </ul>
+            </li>
+            <li><strong>權限管理</strong> - 支持貨幣化和訪問限制。例如，廣告類型和視頻可用日期。</li>
+            <li><strong>劇集數據</strong> -如果視頻是系列的一集，則可以定義系列，季和集號。</li>
+        </ul>
+        <p>這<a href="/syncing-with-video-cloud/vc-custom-fields.html">創建視頻云自定義字段</a>文檔專門用於幫助您創建所需的自定義字段。</p>
+        <p>在 Video Cloud Studio 中將值分配給這些自定義字段。</p>
+    </section>
+    <section class="bcls-section">
+        <h2 id="Add_images">新增圖片</h2>
+        <p>您在Video Cloud中添加的圖像將顯示在Brightcove Beacon應用程序中。例如，來自Video Cloud的海報圖像在您的應用程序中顯示如下：</p>
+        <figure class="bcls-figure">
+            <img class="bcls-image" src="/assets/images/references/bcb-tasks-performed-in-vc/thumbnail-images.png" alt="">
+        </figure>
+        <p>這<a href="/references/image-requirements.html">圖像及其規格</a>文檔指定了圖像要求以及如何在 Video Cloud Studio 中上傳圖像。</p>
+    </section>
+    <section class="bcls-section">
+        <h2 id="Add_rights_management_information">添加權限管理信息</h2>
+        <p>如前所述，自定義字段用於添加用於控制獲利和訪問限制的權限管理信息。例如，字段</p>
+        <ul>
+            <li>信標。權利。<em>指數</em>。開始日期</li>
+            <li>信標。權利。<em>指數</em>。結束日期</li>
+        </ul>
+        <p>定義何時可以訪問特定視頻資產。</p>
+        <p>此外，以下文檔顯示瞭如何通過廣告和訂閱來實現獲利：</p>
+        <ul>
+            <li><a href="/using-brightcove-beacon/vod-ssai.html">實施VOD SSAI</a> ;看到<a href="/using-brightcove-beacon/vod-ssai.html#Setting_custom_field_values">設置自定義字段值</a>文檔部分，用於向相應的自定義字段提供值。</li>
+            <li><a href="/using-brightcove-beacon/using-subscription-package.html">使用訂閱包</a></li>
+        </ul>
+        <p>權限管理自定義字段在 Video Cloud Studio 中分配值。 </p>
+    </section>
+    <section class="bcls-section">
+        <h2 id="Add_episode_data">添加劇集數據</h2>
+        <p>如果特定視頻是系列的一集，則使用自定義字段來分配將視頻與正確的系列，季和集號相關聯的集數據。此示例顯示使用的自定義字段以及每個字段的特定值。</p>
+        <figure class="bcls-figure"> <img class="bcls-image" src="/assets/images/syncing-with-vc/vc-custom-fields/episode-example.png" alt=""> </figure>
+        <p>這<a href="/using-brightcove-beacon/series-seasons-episodes.html#Ingesting_episodes">攝取情節</a>的部分<strong>創建系列/季節/劇集</strong>文件提供了具體說明。</p>
+    </section>
+    <section class="bcls-section">
+        <h2 id="Create_video_playlists">創建視頻播放列表</h2>
+        <p>在決定要在應用程序頁面上顯示哪些視頻內容時，Brightcove Beacon中會充分利用播放列表。您在 Video Cloud Studio 中創建播放列表。</p>
+        <p>以下是將您的視頻導入 Video Cloud 的資源：</p>
+        <ul>
+            <li><a href="https://studio.support.brightcove.com/basics/video-cloud-basics-creating-manual-playlist.html">視頻雲基礎：創建手動播放列表</a></li>
+            <li><a href="https://studio.support.brightcove.com/basics/video-cloud-basics-creating-smart-playlist.html">視頻雲基礎：創建智能播放列表</a></li>
+            <li><a href="https://studio.support.brightcove.com/media/creating-and-managing-playlists.html">創建和管理播放列表</a></li>
+        </ul>
+        <aside class="bcls-aside bcls-aside--warning">在 Video Cloud Studio 中創建的播放列表只能包含視頻。如果您希望創建包含系列、現場活動等的播放列表，則必須在 Brightcove Beacon 中創建這些播放列表。</aside>
+    </section>
+    <section class="bcls-section">
+        <h2 id="Create_Brightcove_Live_events">創建Brightcove Live活動</h2>
+        <p>如果您想在Brightcove Beacon應用程序中播放實時流事件，則必須在Video Cloud Studio中完成部分過程。這<a href="/using-brightcove-beacon/streaming-live-event.html">直播活動</a>文檔將引導您完成整個過程。</p>
+    </section>
+    <section class="bcls-section">
+        <h2 id="Create_an_SSAI_ad_configuration">創建SSAI廣告配置</h2>
+        <p>服務器端廣告插入 (SSAI) 可用於 Brightcove Beacon。要實現這一點，您必須在 Video Cloud Studio 中創建廣告配置。這<a href="/using-brightcove-beacon/vod-ssai.html">實施 VOD SSAI</a>文檔包括如何創建該廣告配置，以及為 Brightcove Beacon 設置 VOD SSAI 的端到端流程。</p>
+    </section>
+</article>

@@ -1,0 +1,68 @@
+---
+title:“與視頻雲目錄同步”
+description:“在本主題中，您將了解 Brightcove Beacon 如何與視頻雲目錄同步。”
+parent: "syncing-with-video-cloud"
+---
+ <h1>{{ page.title }}</h1>
+<article class="bcls-article">
+  <summary>{{ page.description }}</summary>
+
+  <aside class="bcls-aside bcls-aside--information language-editable">過去，Brightcove Beacon 和 Video Cloud 之間的同步是一個計劃的或手動的過程。本文檔描述了當前的自動化流程。不再等待計劃（每小時、每兩小時等）攝取整個目錄，更新現在隨著更改發生而逐漸發生。通過這種改進，任何單個資產的更新延遲都會降低幾個數量級。</aside>
+  <section class="bcls-section">
+    <h2 id="Syncing_options">同步選項</h2>
+    <p>在裡面<strong>工具</strong> Brightcove信標部分，您有兩個選項可用於將Brightcove信標與視頻雲目錄同步。要訪問工具，請單擊<strong>扳手</strong>頂部菜單中的圖標，然後<strong>攝取</strong>左側菜單中的選項：</p>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/syncing-with-vc/force-sync.png" alt="force-sync">
+    </figure>
+    <p>這裡有兩個關於與 Video Cloud 同步的工具。他們是：</p>
+    <ul>
+      <li><strong>更新 Brightcove 視頻</strong>：這提供了一種查看 Brightcove Beacon 和視頻雲目錄之間自動同步結果的方法。</li>
+      <li><strong>更新 Brightcove 播放列表</strong>：如果您已將播放列表添加到您的Video Cloud目錄中，或更改了現有的播放列表，則此按鈕會將新添加或更新的播放列表同步到Brightcove Beacon。</li>
+    </ul>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/syncing-with-vc/sync-vc-catalog/buttons.png" alt="sync-buttons">
+    </figure>
+    <aside class="bcls-aside bcls-aside--warning">筆記：確保播放列表中的視頻已同步<strong>前</strong>同步播放列表。</aside>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Viewing_sync_data">查看同步數據</h2>
+    <p>當對視頻進行目錄更改時，視頻同步過程是根據來自 Video Cloud 的通知完成的。新資產、刪除資產、元數據和圖像更新等都會觸發 Brightcove Beacon 和視頻雲目錄之間的同步。您可以通過單擊<strong>更新 Brightcove 視頻</strong>按鈕。</p>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/syncing-with-vc/sync-vc-catalog/arrow-on-button.png" alt="arrow on button">
+    </figure>
+    <p>完成此操作後，您將看到以下內容，其中顯示了已同步的視頻。請注意以下功能（紅色箭頭）和過濾（以黃色突出顯示，並在屏幕截圖下方詳細說明）。</p>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/syncing-with-vc/sync-vc-catalog/sync-details.png" alt="sync details">
+    </figure>
+    <h3>篩選</h3>
+    <p>您可以按以下條件過濾：</p>
+    <ul>
+      <li>失誤
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/syncing-with-vc/sync-vc-catalog/filter-errors.png" alt="filter errors">
+        </figure>
+      </li>
+      <li>警告
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/syncing-with-vc/sync-vc-catalog/filter-warnings.png" alt="filter warnings">
+        </figure>
+      </li>
+      <li>單次更新日期
+        <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/syncing-with-vc/sync-vc-catalog/filter-date.png" alt="filter date">
+        </figure>
+      </li>
+    </ul>
+    <h3>錯誤和警告詳細信息</h3>
+    <p>單擊錯誤或警告數量（紅色框）旁邊的箭頭，將顯示相應錯誤或警告的詳細信息（黃色突出顯示）。</p>
+    <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/syncing-with-vc/sync-vc-catalog/warning-details.png" alt="warning details">
+    </figure>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Clearing_the_cache_after_syncing">同步後清除緩存</h2>
+    <p>同步視頻後，您很可能希望清除緩存以盡快查看執行同步的結果。這可以從<strong>工具</strong>菜單。只需單擊<strong>緩存</strong>左側導航欄中的選項，然後單擊<strong>緩存清除</strong>按鈕。請注意，在生產中過於頻繁地執行此操作會對可伸縮性和性能產生不利影響。有關詳細信息，請參見<a href="/using-brightcove-beacon/tools.html">使用工具</a>文檔。</p>
+  </section>
+</article>

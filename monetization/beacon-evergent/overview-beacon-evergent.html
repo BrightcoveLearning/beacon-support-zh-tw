@@ -1,0 +1,141 @@
+---
+title: '概述：Beacon 高級貨幣化' 
+description:本主題概述了 Brightcove Beacon 和 Evergent 之間的集成。
+parent: Using Brightcove Beacon
+layout: staging
+---
+ <h1>{{ page.title }}</h1>
+<article class="bcls-article">
+  <summary>{{ page.description }}</summary>
+  <section class="bcls-section">
+    <h2 id="Introduction">介紹</h2>
+		<p>Evergent是一種與Beacon集成在一起的支付和訂戶管理系統，以提供這些功能。Evergent提供強大的訂戶管理，並可以訪問全球許多流行的付款網關，包括拉丁美洲，中東，非洲和亞太地區常用的網關。</p>
+  </section>
+	<section class="bcls-section">
+		<h2 id="glossary_of_terms">專業術語</h2>
+		<dl>
+			<dt>業務部</dt>
+			<dd>業務單位（BU）是Evergent系統中的一個實體，該實體定義了您要出售內容的國家或地區。如果您希望每個國家/地區使用不同的貨幣或稅收，您將需要單獨的業務單位。在Evergent的系統中，每個業務部門都將分配一種貨幣；這種貨幣就是他們結帳時將向用戶顯示的貨幣。</dd>
+			<dt>支付網關</dt>
+			<dd>允許商家接受客戶付款的服務。支付網關充當中介，以安全可靠的方式將資金從客戶的銀行賬戶轉移到您自己的銀行賬戶。</dd>
+			<dt>唱片商人</dt>
+			<dd>被授權接收消費者付款的法人實體。您將成為您使用的每個網關的 MOR（記錄商家）。</dd>
+			<dt>商家帳戶</dt>
+			<dd>發送在線銷售收入的虛擬銀行帳戶。收入在您的商家賬戶中一直存在，直到結算——將資金轉移到您的銀行賬戶的過程。通常，支付網關提供商家帳戶。不提供商戶帳戶的網關會將資金直接轉入您的銀行帳戶。</dd>
+			<dt>包裹</dt>
+			<dd>軟件包定義了用戶如何在Beacon CMS中購買對您內容的訪問權限；它定義了獲利計劃的所有詳細信息。它包括諸如價格，計費頻率，可用性，應用商店可用性，貨幣，試用期等信息。</dd>
+			<dt>產品</dt>
+			<dd>Evergent中的產品定義了獲利計劃的所有詳細信息。它包括諸如價格，計費頻率，可用性，應用商店可用性，貨幣，試用期等信息。</dd>
+		</dl>
+	</section>
+	<section class="bcls-section">
+		<h2 id="account_setup">帳戶設定</h2>
+		<h3>需要什麼：</h3>
+		<h4>信標</h4>
+		<ul>
+			<li>在信標中，您需要將Evergent配置為商店的CMS。</li>
+			<li>提供您的服務的所有國家/地區。</li>
+			<li>每個國家/地區應定義一種貨幣，以接收收看者的付款。 </li>
+		</ul>
+		<h4>永恆</h4>
+		<ul>
+			<li>您需要在 Evergent 中創建的業務單位映射到您希望接收付款的貨幣。 </li>
+			<li>每個業務部門都將配置網關和應用商店帳單（Apple Store，Roku，Amazon，Google Play）。您需要與他們想要使用的每個網關建立關係和商家帳戶。</li>
+		</ul>
+	</section>
+	<section class="bcls-section">
+		<h2 id="package_product_management">包裝/產品管理</h2>
+		<p>您將從 Beacon UI 和 Evergent UI 設置和管理貨幣化計劃。在Beacon和Evergent中，都需要使用SKU手動鏈接計劃：</p>
+		<ul>
+			<li>在 Beacon 中配置的 Packages 是向應用程序中的查看者呈現信息的方式。看<a href="/using-brightcove-beacon/creating-subscription-package.html">創建訂閱包</a>詳情。</li>
+			<li>這<strong>產品</strong>在 Evergent 中，他們可以為正確的貨幣化計劃處理付款，並在觀眾被授予訪問內容之前驗證收據。看<a href="/monetization/beacon-evergent/evergent-account-management.html">Evergent 賬戶管理</a>詳情。</li>
+			<li>
+				對於初始版本，Beacon將支持以下貨幣化模型：
+				<ul>
+					<li>MixedVOD-通過投放廣告向經過身份驗證的用戶訂閱</li>
+					<li>SVOD - 為經過身份驗證的用戶訂閱且不投放廣告</li>
+				</ul>
+			</li>
+			<li>未來的版本將包括TVOD和PPV。</li>
+		</ul>
+	</section>
+	<section class="bcls-section">
+		<h2 id="website_sales">網站銷售</h2>
+		<p>配置軟件包和產品後，您將能夠在Beacon Web應用程序上接受付款。Beacon Web應用程序中的購買通過通過Evergent平台連接的支付網關進行處理。</p>
+		<h3>支付網關和支付方式</h3>
+		<p>Evergent允許我們的客戶通過多個付款網關接收付款。支付網關配置位於業務部門級別。客戶可以將多個支付網關配置為一個業務部門。當配置了多個網關時，查看者在結賬時有不同的支付方式選項。客戶必須直接與支付網關建立關係。</p>
+	</section>
+	<section class="bcls-section">
+		<h2 id="In_app_purchases">應用內購買</h2>
+		<p>信標客戶還將能夠通過Apple，Google，Amazon和Roku商店出售其內容。每個存儲都在Beacon CMS和Evergent系統中配置為一個選項。</p>
+		<ul>
+			<li>什麼時候<a href="/using-brightcove-beacon/creating-subscription-package.html">在 Beacon 中創建 SVOD 包</a>，客戶可以選擇他們想要通過哪些應用商店銷售他們的套餐。可以設置應用商店、可用性、位置、價格、貨幣和應用商店產品SKU。</li>
+			<li>此外，可以在SVOD產品上配置應用程序商店（Apple，Google，Amazon，Roku），應用程序商店產品ID和產品名稱。</li>
+		</ul>
+	</section>
+	<section class="bcls-section">
+		<h2 id="Subscriber_viewer_management">訂閱者/觀眾管理</h2>
+		<p>Beacon Advanced Monetization 支持通過以下兩個應用程序進行註冊和購買工作流程：</p>
+		<ul>
+			<li>當觀眾在 Beacon 應用程序中註冊時，Evergent 的觀眾數據庫中會自動創建一個影子查看器。 </li>
+			<li>觀眾在 Evergent 的觀眾數據庫中進行細分。如果客戶有多個業務部門，則會在與其位置對應的業務部門中創建查看者。</li>
+			<li>觀眾可以是 Evergent 系統中的非付費觀眾或付費觀眾。</li>
+		</ul>
+		<h3>查看器問題疑難解答</h3>
+		<p>您需要同時使用 Beacon 的 Viewer Management 和 Evergent 的 Subscriber Management 來對您的觀眾進行故障排除' 問題，取決於問題的類型。以下信息將幫助您了解在特定情況下您需要使用哪個系統。</p>
+		<h4>Beacon 的查看器管理中包含的查看器信息：</h4>
+		<ul>
+			<li>名稱</li>
+			<li>電子郵件</li>
+			<li>密碼</li>
+			<li>購買記錄</li>
+			<li>檔案信息</li>
+			<li>書籤和收藏夾</li>
+			<li>與該帳戶關聯的設備</li>
+		</ul>
+		<h4>Evergent 的訂閱者管理中包含的查看者信息：</h4>
+		<ul>
+			<li>名稱</li>
+			<li>電子郵件</li>
+			<li>付款憑證</li>
+			<li>購買記錄</li>
+		</ul>
+		<h4>必須在 Beacon 中完成的任務：</h4>
+		<ul>
+			<li>更新查看者密碼</li>
+			<li>編輯或刪除個人資料</li>
+			<li>從信標帳戶刪除設備</li>
+		</ul>
+		<h4>必須在 Evergent 中完成的任務：</h4>
+		<ul>
+			<li>向查看者的存檔付款方式退款</li>
+			<li>取消查看者的訂閱</li>
+			<li>驗證觀眾付款是否成功</li>
+			<li>檢查觀看者的續訂日期</li>
+			<li>查看觀眾的所有付款</li>
+		</ul>
+	</section>
+	<section class="bcls-section">
+		<h2 id="coupons_and_voucher_codes">優惠券和優惠券代碼</h2>
+		<p>在Evergent UI中，您將能夠生成優惠券和優惠券。生成這些代碼後，您可以將其分發給查看者，然後查看者可以在結帳過程中兌換它們。優惠券和優惠券與特定的SVOD套餐/產品相關聯，因此觀看者只能將它們與相應的SVOD套餐/產品一起兌換。</p>
+	</section>
+	<section class="bcls-section">
+		<h2 id="Viewer_communication">觀眾交流</h2>
+		<p>您可以在 Evergent 的系統中配置發送給查看者的電子郵件的內容和样式。您還可以配置哪些事件觸發正在發送的電子郵件。例如，當觀看者註冊該服務時或當他們從一個訂閱升級到另一個訂閱時。</p>
+	</section>
+	<section class="bcls-section">
+		<h2 id="analytics_and_reporting">分析和報告</h2>
+		<h3>財務報告</h3>
+		<p>Evergent的報告儀表板中將提供業務績效報告，以幫助您了解Beacon應用相對於業務目標的表現。</p>
+	</section>
+	<section class="bcls-section">
+		<h2 id="Related_topics">相關主題</h2>
+		<ul>
+			<li><a href="/monetization/beacon-evergent/configuring-beacon-evergent.html">使用Evergent配置信標</a></li>
+			<li><a href="/monetization/beacon-evergent/evergent-finding-accounts.html">在Evergent CRM中查找帳戶</a></li>
+			<li><a href="/monetization/beacon-evergent/evergent-managing-account-details.html">Evergent：管理帳戶詳細信息</a></li>
+			<li><a href="/monetization/beacon-evergent/evergent-billing-finance.html">Evergent：帳單和財務</a></li>
+			<li><a href="/monetization/beacon-evergent/emailer-coupons.html">Evergent：電子郵件和優惠券</a></li>
+		</ul>
+	</section>
+</article>

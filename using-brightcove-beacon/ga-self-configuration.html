@@ -1,0 +1,706 @@
+---
+title:“Google Analytics（分析）自我配置"
+description:“在本主題中，當您不能或選擇不讓 Brightcove 為您執行此過程時，您將了解如何配置 Google Analytics 以與 Brightcove Beacon 一起使用。”
+parent: "using-brightcove-beacon"
+layout: "staging"
+---
+ <h1>{{ page.title }}</h1>
+<article class="bcls-article">
+    <summary>{{ page.description }}</summary>
+
+    <section class="bcls-section">
+        <h2 id="Introduction">介紹</h2>
+        <p>配置過程包括以下任務：</p>
+        <ul>
+            <li>創建四個Google Analytics（分析）屬性。</li>
+            <li>為每個屬性創建一組自定義維度和一個自定義指標。</li>
+            <li>創建四個Google跟踪代碼管理器容器。</li>
+            <li>為每個容器配置Google跟踪代碼管理器。</li>
+            <li>配置Firebase以協助使用iOS和Android進行分析收集。</li>
+            <li>在Google Data Studio中安裝模板以查看您的分析數據。</li>
+        </ul>
+
+    </section>
+
+    <section class="bcls-section">
+        <h2 id="Required_tools">必備工具</h2>
+        <p>Brightcove使用各種工具來使用Google Analytics（分析）實現分析數據的收集，處理和顯示。這些工具是：</p>
+        <ul>
+            <li><strong>谷歌分析</strong> -Google作為其Google Marketing Platform品牌的一部分提供的網絡分析平台。</li>
+            <li><strong>Google跟踪代碼管理器</strong> -首先，了解標記是添加到網站上以收集信息並將其發送給第三方的代碼段。使用標籤的原因有很多，包括滾動跟踪、監控表單提交、進行調查等。使用 Google 標籤管理器，您可以“快速管理和更新標籤並更快地做出更明智的決定。跟踪代碼管理器與所有 Google 和第三方代碼集成，讓您可以完全控制代碼觸發的時間和方式。”</li>
+            <li><strong>火力基地</strong> -Firebase是Google開發的用於創建移動和Web應用程序的平台。Firebase包括<strong>Firebase實時數據庫</strong>，這是一個雲託管的數據庫。</li>
+            <li><strong>Google Data Studio</strong> -Google Data Studio是“免費工具，可將您的數據轉變為內容豐富，易於閱讀，易於共享以及完全可自定義的儀表板和報告。"</li>
+        </ul>
+        <p>下圖詳細說明了在為 Brightcove Beacon 收集分析時這些工具的交互/流程：</p>
+        <figure class="bcls-figure">
+            <img class="bcls-image" src="/assets/images/using-bcb/self-config-ga/tool-diagram.png" alt="">
+        </figure>
+
+    </section>
+
+    <section class="bcls-section">
+        <h2 id="Obtain_the_templates_and_configuration_files">獲取模板和配置文件</h2>
+        <p>您需要許多文件/URL 才能成功完成 Brightcove Beacon 的分析設置。文件/URL 在以下項目符號中詳細說明。您需要聯繫您的 Brightcove 入門經理以獲取這些文件/URL。您將收到： </p>
+        <ul>
+            <li>三個預先構建的 Google Analytics Dashboard 配置的 URL，移動、網絡和智能電視各一個。</li>
+            <li>四個JSON文件，分別配置在Google跟踪代碼管理器中創建的四個容器中的每個容器。</li>
+            <li>三個預構建的 Google Data Studio 模板的 URL，移動、網絡和智能電視各一個。</li>
+        </ul>
+        <p>有關安裝/使用每個文件/ URL的說明，請參見本文檔後面的相應部分。</p>
+        <aside class="bcls-aside bcls-aside--tip">在開始配置過程之前，您需要獲取這些文件/URL。</aside>
+    </section>
+
+    <section class="bcls-section">
+        <h2 id="Create_Google_Analytics_properties">配置Google Analytics（分析）</h2>
+        <p>在文檔的此部分中，您將配置Google Analytics（分析），其中包括以下任務：</p>
+        <ul>
+            <li>創建四個Google Analytics（分析）屬性。</li>
+            <li>為iOS和Android屬性創建移動視圖</li>
+            <li>為每個屬性創建一組自定義維度。</li>
+            <li>為每個屬性創建一個自定義指標。</li>
+            <li>導入三個Brightcove創建的儀表板配置，每個配置用於移動，網絡和智能電視。</li>
+        </ul>
+        <h3>創建四個屬性</h3>
+        <p>您需要創建這四個屬性：</p>
+        <ul>
+            <li>信標Android</li>
+            <li>信標iOS</li>
+            <li>信標STV（智能電視）</li>
+            <li>信標網</li>
+        </ul>
+        <p>以下步驟將指導您完成創建<strong>信標安卓</strong>財產。您將需要按照相同的過程創建其他人。</p>
+        <ol class="bcls-tasklist">
+            <li>登錄到您的Google Analytics（分析）帳戶。</li>
+            <li>點擊<strong>管理員（齒輪）</strong>屏幕左下方的圖標。</li>
+            <li>在中間列的頂部，單擊<strong>建立財產</strong>。</li>
+            <li>在裡面<strong>屬性設置</strong> , 供應<strong>物業名稱</strong>，對於第一個屬性，使用 <samp>信標Android</samp>.</li>
+            <li>供應<strong>報告時區</strong> .</li>
+            <li>供應<strong>貨幣</strong> .</li>
+            <li>點擊<strong>顯示高級選項</strong>關聯。</li>
+            <li>打開<strong>創建 Universal Analytics 媒體資源。</strong></li>
+            <li>輸入您的網站的URL。</li>
+            <li>點擊<strong>僅創建通用Analytics（分析）屬性</strong>單選按鈕。</li>
+            <li>確保您的財產信息填寫如下：
+                <figure class="bcls-figure">
+                    <img class="bcls-image" src="/assets/images/using-bcb/self-config-ga/property1-setup.png" alt="create property">
+                </figure>
+            </li>
+            <li>點擊<strong>下一個</strong>。</li>
+            <li>完成<strong>商業信息</strong>與您的數據一起形成表格。</li>
+            <li>點擊<strong>創造</strong>。</li>
+            <li>閱讀有關您的新財產的任何詳細信息。</li>
+            <li>單擊後箭頭，在以下屏幕截圖中突出顯示：
+                <figure class="bcls-figure">
+                    <img class="bcls-image" src="/assets/images/using-bcb/self-config-ga/property3-back.png" alt="back button">
+                </figure>
+            </li>
+            <li>剛好在<strong>建立財產</strong>您之前單擊過的內容，請單擊向下箭頭以確保正確創建了您的媒體資源。
+                <figure class="bcls-figure">
+                    <img class="bcls-image" src="/assets/images/using-bcb/self-config-ga/property-view.png" alt="property selector">
+                </figure>
+            </li>
+            <li>執行以下步驟來創建其他三個必需的屬性：
+                <ol>
+                    <li>信標iOS</li>
+                    <li>信標電視</li>
+                    <li>信標網絡</li>
+                </ol>
+            </li>
+        </ol>
+        <h3>為iOS和Android創建移動視圖</h3>
+        <p>對於iOS和Android移動平台，您需要在每個屬性中創建一個移動視圖。如果您沒有移動應用程序，則無需完成本節中的步驟。</p>
+        <ol class="bcls-tasklist-restart">
+            <li>點擊下拉菜單（在屏幕截圖中以黃色突出顯示）以查看您的所有Google Analytics（分析）帳戶，媒體資源和視圖。
+                <figure class="bcls-figure">
+                    <img class="bcls-image" src="/assets/images/using-bcb/self-config-ga/choose-property.png" alt="choose property">
+                </figure>
+            </li>
+            <li>從三窗格的下拉菜單中，選擇：
+                <ul type="a">
+                    <li>您的 Brightcove Beacon 帳戶</li>
+                    <li>這<strong>信標安卓</strong>財產</li>
+                    <li>這<strong>所有網站數據</strong>看法</li>
+                </ul>
+                <figure class="bcls-figure">
+                    <img class="bcls-image" src="/assets/images/using-bcb/self-config-ga/choose-property-3-column.png" alt="Select property">
+                </figure>
+            </li>
+            <li>點擊<strong>管理員（齒輪）</strong>屏幕左下方的圖標。</li>
+            <li>在第三列的頂部，單擊<strong>建立檢視</strong>。
+                <figure class="bcls-figure">
+                    <img class="bcls-image" src="/assets/images/using-bcb/self-config-ga/ga-create-view.png" alt="create view">
+                </figure>
+            </li>
+            <li>請按照以下步驟填寫：
+                <ol>
+                    <li>點擊<strong>移動應用</strong>按鈕以跟踪要跟踪的數據類型。</li>
+                    <li>為您的視圖提供一個名稱。一個邏輯名稱是 <samp>所有移動數據</samp>.</li>
+                    <li>點擊<strong>建立檢視</strong>。</li>
+                </ol>
+                <figure class="bcls-figure">
+                    <img class="bcls-image" src="/assets/images/using-bcb/self-config-ga/ga-mobile-view-form.png" alt="create view form">
+                </figure>
+            </li>
+            <li>將視圖更改為新創建的移動視圖。
+                <figure class="bcls-figure">
+                    <img class="bcls-image" src="/assets/images/using-bcb/self-config-ga/ga-change-view.png" alt="change view">
+                </figure>
+            </li>
+            <li>請按照本文本節中的相同步驟為iOS屬性創建移動視圖。</li>
+        </ol>
+        <p>使用您的帳戶時，請確保在選擇帳戶/屬性/查看您的移動屬性時使用<strong>所有移動數據</strong>視圖和 Web 和 STV 帳戶使用默認<strong>所有網站數據</strong>，如下圖所示：</p>
+        <figure class="bcls-figure">
+            <img class="bcls-image" src="/assets/images/using-bcb/self-config-ga/account-property-view.png" alt="account property view">
+        </figure>
+        <p>請注意，iOS 和 Android 視圖將具有 <em>所有網站數據</em> 視圖，因為這些是在創建屬性時默認創建的</p>
+
+        <h3>創建自定義指標和尺寸</h3>
+        <p>現在，對於每個屬性，您需要創建一組自定義維度和一個自定義指標。</p>
+        <p>本節將按以下方式組織：</p>
+        <ul>
+            <li>將展示如何創建單個自定義維度的步驟。</li>
+            <li>將展示如何創建單個自定義指標的步驟。</li>
+            <li>表格將顯示屬性所需的尺寸<strong>信標Android</strong>和<strong>信標iOS</strong>。</li>
+            <li>表格將顯示屬性所需的尺寸<strong>信標電視</strong>和<strong>信標網絡</strong>。</li>
+            <li>表格將顯示<strong>全部四個</strong>屬性必須具備。</li>
+        </ul>
+        <p>然後，您需要為四個屬性中的每一個創建維度和指標。</p>
+        <h4>創建自定義維度</h4>
+        <ol class="bcls-tasklist-restart">
+            <li>從帳戶/屬性/視圖選擇器中選擇您要為其創建自定義維度的屬性之一。
+                <figure class="bcls-figure">
+                    <img class="bcls-image" src="/assets/images/using-bcb/self-config-ga/account-property-view-selelctor.png" alt="choose property">
+                </figure>
+            </li>
+            <li>點擊<strong>管理員（齒輪）</strong>屏幕左下方的圖標。</li>
+            <li>在中間列底部附近，在<strong>自定義定義</strong>， 點擊<strong>自定義尺寸</strong>
+                <figure class="bcls-figure">
+                    <img class="bcls-image" src="/assets/images/using-bcb/self-config-ga/click-custom-demensions.png" alt="click custom dimensions">
+                </figure>
+            </li>
+            <li>點擊<strong>新的自定義維度</strong>。</li>
+            <li>為了<strong>姓名</strong>進入 <samp>劇集編號</samp>.</li>
+            <li>來自<strong>範圍</strong>下拉，選擇 <samp>打</samp>.</li>
+            <li>離開尺寸<strong>積極的</strong>。</li>
+            <li>點擊<strong>創造</strong>。</li>
+            <li>在示例代碼屏幕中，單擊<strong>完畢</strong>。</li>
+            <li>您將在列表中看到新創建的維度，如下所示：
+                <figure class="bcls-figure">
+                    <img class="bcls-image" src="/assets/images/using-bcb/self-config-ga/dimension-list.png" alt="list dimensions">
+                </figure>
+                <aside class="bcls-aside bcls-aside--warning">至關重要的是<strong>指數</strong>匹配維度名稱，如下表所示。為此，只需按照表中顯示的順序創建維度。</aside>
+            </li>
+            <li>要創建另一個維度，請單擊<strong>新的自定義維度</strong> .</li>
+        </ol>
+        <h4>創建自定義指標</h4>
+        <ol class="bcls-tasklist-restart">
+            <li>從要為其創建自定義指標的帳戶/屬性/視圖選擇器中選擇您的屬性之一。
+                <figure class="bcls-figure">
+                    <img class="bcls-image" src="/assets/images/using-bcb/self-config-ga/account-property-view-selelctor.png" alt="choose property">
+                </figure>
+            </li>
+            <li>點擊<strong>管理員（齒輪）</strong>屏幕左下方的圖標。</li>
+            <li>在中間列底部附近，在<strong>自定義定義</strong>， 點擊<strong>自定義指標</strong></li>
+            <li>點擊<strong>新的自定義指標</strong>。</li>
+            <li>為了<strong>姓名</strong>進入 <samp>觀看時間</samp>.</li>
+            <li>來自<strong>範圍</strong>下拉，選擇 <samp>打</samp>.</li>
+            <li>為了<strong>格式類型</strong>， 選擇 <samp>時間</samp>.</li>
+            <li>離開尺寸<strong>積極的</strong>。</li>
+            <li>點擊<strong>創造</strong>。</li>
+            <li>在示例代碼屏幕中，單擊<strong>完畢</strong>。</li>
+            <li>您將在列表中看到新創建的指標。</li>
+        </ol>
+        <aside class="bcls-aside bcls-aside--information">這是您需要為四個屬性中的每一個創建的唯一自定義指標。</aside>
+        <h4>Android和iOS尺寸和指標</h4>
+        <p>下表顯示了必須添加到 Beacon Android 和 Beacon iOS 屬性的自定義維度。</p>
+        <aside class="bcls-aside bcls-aside--warning">至關重要的是<strong>指數</strong>匹配維度名稱，如下表所示。為此，只需按照表中所示的順序創建維度。</aside>
+        <table class="bcls-table">
+            <thead class="bcls-table__head">
+                <tr>
+                    <th>自定義維度名稱</th>
+                    <th>指數</th>
+                    <th>範圍</th>
+                </tr>
+            </thead>
+            <tbody class="bcls-table__body">
+                <tr>
+                    <td>劇集編號</td>
+                    <td>1</td>
+                    <td>打</td>
+                </tr>
+                <tr>
+                    <td>類型</td>
+                    <td>2</td>
+                    <td>打</td>
+                </tr>
+                <tr>
+                    <td>生產年份</td>
+                    <td>3</td>
+                    <td>打</td>
+                </tr>
+                <tr>
+                    <td>原產地</td>
+                    <td>4</td>
+                    <td>打</td>
+                </tr>
+                <tr>
+                    <td>資產編號</td>
+                    <td>5</td>
+                    <td>打</td>
+                </tr>
+                <tr>
+                    <td>登錄狀態</td>
+                    <td>6</td>
+                    <td>會議</td>
+                </tr>
+                <tr>
+                    <td>語</td>
+                    <td>7</td>
+                    <td>會議</td>
+                </tr>
+                <tr>
+                    <td>用戶類型</td>
+                    <td>8</td>
+                    <td>會議</td>
+                </tr>
+                <tr>
+                    <td>內容提供商</td>
+                    <td>9</td>
+                    <td>打</td>
+                </tr>
+                <tr>
+                    <td>系列標題</td>
+                    <td>10</td>
+                    <td>打</td>
+                </tr>
+                <tr>
+                    <td>劇集標題</td>
+                    <td>11</td>
+                    <td>打</td>
+                </tr>
+                <tr>
+                    <td>季號</td>
+                    <td>12</td>
+                    <td>打</td>
+                </tr>
+                <tr>
+                    <td>時間戳</td>
+                    <td>13</td>
+                    <td>打</td>
+                </tr>
+                <tr>
+                    <td>流媒體時間</td>
+                    <td>14</td>
+                    <td>打</td>
+                </tr>
+                <tr>
+                    <td>帳戶令牌</td>
+                    <td>15</td>
+                    <td>用戶</td>
+                </tr>
+                <tr>
+                    <td>個人資料令牌</td>
+                    <td>16</td>
+                    <td>用戶</td>
+                </tr>
+            </tbody>
+        </table>
+        <h4>STV 和 WEB 維度和指標</h4>
+        <p>下表顯示了必須添加到 Beacon STV 和 Beacon Web 屬性的自定義維度。</p>
+        <aside class="bcls-aside bcls-aside--warning">至關重要的是<strong>指數</strong>匹配維度名稱，如下表所示。為此，只需按照表中所示的順序創建維度。</aside>
+        <table class="bcls-table">
+            <thead class="bcls-table__head">
+                <tr>
+                    <th>自定義維度名稱</th>
+                    <th>指數</th>
+                    <th>範圍</th>
+                </tr>
+            </thead>
+            <tbody class="bcls-table__body">
+                <tr>
+                    <td>用戶身份</td>
+                    <td>1</td>
+                    <td>用戶</td>
+                </tr>
+                <tr>
+                    <td>平台</td>
+                    <td>2</td>
+                    <td>會議</td>
+                </tr>
+                <tr>
+                    <td>帳戶令牌</td>
+                    <td>3</td>
+                    <td>用戶</td>
+                </tr>
+                <tr>
+                    <td>應用程式版本</td>
+                    <td>4</td>
+                    <td>會議</td>
+                </tr>
+                <tr>
+                    <td>劇集編號</td>
+                    <td>5</td>
+                    <td>打</td>
+                </tr>
+                <tr>
+                    <td>季號</td>
+                    <td>6</td>
+                    <td>打</td>
+                </tr>
+                <tr>
+                    <td>劇集標題</td>
+                    <td>7</td>
+                    <td>打</td>
+                </tr>
+                <tr>
+                    <td>程序</td>
+                    <td>8</td>
+                    <td>打</td>
+                </tr>
+                <tr>
+                    <td>設備型號</td>
+                    <td>9</td>
+                    <td>會議</td>
+                </tr>
+                <tr>
+                    <td>類型</td>
+                    <td>10</td>
+                    <td>打</td>
+                </tr>
+                <tr>
+                    <td>生產年份</td>
+                    <td>11</td>
+                    <td>打</td>
+                </tr>
+                <tr>
+                    <td>原產地</td>
+                    <td>12</td>
+                    <td>打</td>
+                </tr>
+                <tr>
+                    <td>關鍵詞</td>
+                    <td>13</td>
+                    <td>打</td>
+                </tr>
+                <tr>
+                    <td>操作系統版本</td>
+                    <td>14</td>
+                    <td>會議</td>
+                </tr>
+                <tr>
+                    <td>操作系統語言</td>
+                    <td>15</td>
+                    <td>會議</td>
+                </tr>
+                <tr>
+                    <td>賬號</td>
+                    <td>16</td>
+                    <td>會議</td>
+                </tr>
+                <tr>
+                    <td>語</td>
+                    <td>17</td>
+                    <td>會議</td>
+                </tr>
+                <tr>
+                    <td>用戶類型</td>
+                    <td>18</td>
+                    <td>會議</td>
+                </tr>
+                <tr>
+                    <td>內容類型</td>
+                    <td>19</td>
+                    <td>打</td>
+                </tr>
+                <tr>
+                    <td>內容提供商</td>
+                    <td>20</td>
+                    <td>打</td>
+                </tr>
+            </tbody>
+        </table>
+        <h4>自定義指標</h4>
+        <p>下表顯示了必須添加到所有四個屬性的單個自定義指標。</p>
+        <table class="bcls-table">
+            <thead class="bcls-table__head">
+                <tr>
+                    <th>自定義指標名稱</th>
+                    <th>指數</th>
+                    <th>範圍</th>
+                    <th>格式化類型</th>
+                </tr>
+            </thead>
+            <tbody class="bcls-table__body">
+                <tr>
+                    <td>觀看時間</td>
+                    <td>1</td>
+                    <td>打</td>
+                    <td>格式化類型</td>
+                </tr>
+            </tbody>
+        </table>
+        <h3>導入儀錶盤配置</h3>
+        <p>在裡面<a href="#Obtain_the_templates_and_configuration_files">獲取模板和配置文件</a>在本文檔前面的部分中，您向入職管理器請求了文件/ URL。其中三個網址如下：</p>
+        <ul>
+            <li>手機：https://analytics.google.com/analytics/web/template?uid=QTJbSdv3Sk6gvpa4Go_CRQ</li>
+            <li>網站：https://analytics.google.com/analytics/web/template?uid=pIoBH8hYRSO3JZL4WbFTlA</li>
+            <li>智能電視：https://analytics.google.com/analytics/web/template?uid=eZhlzo76QtSn5BNi-rXJyQ</li>
+        </ul>
+        <p>要使用這些配置，請執行以下步驟：</p>
+        <ol class="bcls-tasklist-restart">
+            <li>注意用於移動電視，網絡電視或智能電視的配置，然後單擊URL。</li>
+            <li>在新的瀏覽器標籤中，請確保您看到以下內容：
+                <figure class="bcls-figure">
+                    <img class="bcls-image" src="/assets/images/using-bcb/self-config-ga/ga-dashboard-config-import.png" alt="import configuration">
+                </figure>
+            </li>
+            <li>來自<strong>選擇一個視圖</strong>下拉菜單中，選擇匹配屬性，移動設備（iOS和Android），網絡或智能電視。</li>
+            <li>如果選擇，請更改配置的名稱。</li>
+            <li>點擊<strong>創造</strong>。</li>
+            <li>確保配置打開。這裡顯示一個示例：
+                <figure class="bcls-figure">
+                    <img class="bcls-image" src="/assets/images/using-bcb/self-config-ga/ga-example-imported-configuration.png" alt="example configuration">
+                </figure>
+            </li>
+        </ol>
+    </section>
+    <section class="bcls-section">
+        <h2 id="Configuring_Google_Tag_Manager">配置Google跟踪代碼管理器</h2>
+        <p>在文檔的此部分中，您將執行以下任務：</p>
+        <ul>
+            <li>創建四個容器，每個容器用於前面創建的每個屬性。</li>
+            <li>導入通過電子郵件發送給您的配置JSON文件是<a href="#Obtain_the_templates_and_configuration_files">獲取模板和配置文件</a>以上部分。</li>
+            <li>將您從 Google Analytics 帳戶複製的跟踪 ID 輸入到每個容器中' <strong>跟踪代碼</strong>多變的。</li>
+            <li>發布您的容器。</li>
+        </ul>
+        <h3>創建容器</h3>
+        <ol class="bcls-tasklist-restart">
+            <li>
+                查看 Google 的文檔以<a href="https://support.google.com/tagmanager/answer/6103696?hl=en">設置和安裝標籤管理器</a> .
+            </li>
+            <li>
+                <p>
+                    在<a href="https://tagmanager.google.com/#/home">標籤管理器</a>，創建一個帳戶或使用現有帳戶。要創建新帳戶，請選擇<strong>創建賬戶</strong>按鈕。
+                </p>
+                <p>
+                    默認情況下，將為新帳戶創建一個新容器。您將在每個帳戶中創建額外的容器。
+                </p>
+                <figure class="bcls-figure">
+                    <img class="bcls-image" alt="Create account" src="/assets/images/using-bcb/self-config-ga/tm-click-to-create.png" />
+                </figure>
+            </li>
+            <li>
+                <p>輸入新帳戶頁面的值：</p>
+                <ul>
+                    <li><strong>帳戶名稱</strong>：您的公司名稱，或者 <samp>信標</samp>.</li>
+                    <li><strong>國家</strong>：您公司的原籍國。</li>
+                    <li><strong>貨櫃名稱</strong>： <samp>信標網絡</samp> 您將為每個屬性創建一個容器。</li>
+                    <li><strong>目標平台</strong>：網絡</li>
+                </ul>
+            <li>確保您的容器信息與以下內容類似：</li>
+            <figure class="bcls-figure">
+                <img class="bcls-image" alt="New account information" src="/assets/images/using-bcb/self-config-ga/tm-add-new-account.png" />
+            </figure>
+            </li>
+            <li>點擊<strong>創造</strong>。</li>
+            <li>點擊<strong>好的</strong>關閉打開的對話框。</li>
+            <li>來自<strong>工作空間</strong>， 點擊<strong>行政</strong>。
+                <figure class="bcls-figure">
+                    <img class="bcls-image" src="/assets/images/using-bcb/self-config-ga/tm-workspace-click-admin.png" alt="click admin">
+                </figure>
+            </li>
+            <li>單擊加號以添加另一個容器。
+                <figure class="bcls-figure">
+                    <img class="bcls-image" src="/assets/images/using-bcb/self-config-ga/tm-plus-to-add-container.png" alt="plus to add container">
+                </figure>
+            </li>
+            <li>填寫表格，然後單擊<strong>創造</strong>創建<strong>的iOS</strong>容器。
+                <figure class="bcls-figure">
+                    <img class="bcls-image" src="/assets/images/using-bcb/self-config-ga/tm-create-ios.png" alt="create iOS container">
+                </figure>
+            </li>
+            <li>確保使用正確的方式創建了以下四個容器<strong>目標平台</strong>。
+                <table class="bcls-table">
+                    <thead class="bcls-table__head">
+                        <tr>
+                            <th>貨櫃名稱</th>
+                            <th>目標平台</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bcls-table__body">
+                        <tr>
+                            <td>信標Android</td>
+                            <td>安卓</td>
+                        </tr>
+                        <tr>
+                            <td>信標iOS</td>
+                            <td>的iOS</td>
+                        </tr>
+                        <tr>
+                            <td>信標電視</td>
+                            <td>網絡</td>
+                        </tr>
+                        <tr>
+                            <td>信標網絡</td>
+                            <td>網絡</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </li>
+            <li>來自<strong>工作空間</strong>，請使用頁面頂部的帳戶下拉列表來確保已創建所有容器。
+                <figure class="bcls-figure">
+                    <img class="bcls-image" src="/assets/images/using-bcb/self-config-ga/tm-all-containers-created.png" alt="all containers list">
+                </figure>
+            </li>
+            <li>在這一點上，至關重要的是您對該下拉菜單進行截屏。Brightcove Beacon 工程師需要這些數據，即容器名稱和關聯的<strong>GTM</strong> ID。您將將此文件與下載的其他文件一起發送給您的入職經理，如<a href="#Publish_each_container">發布每個容器</a>本文檔後面的部分。請確保屏幕截圖清晰易讀：
+                <figure class="bcls-figure">
+                    <img class="bcls-image" src="/assets/images/using-bcb/self-config-ga/tm-containers-with-ids.png" alt="containers with IDs">
+                </figure>
+            </li>
+        </ol>
+        <h3>導入配置文件</h3>
+        <p>執行以下步驟以導入容器的配置文件：</p>
+        <ol class="bcls-tasklist-restart">
+            <li>來自<strong>工作空間</strong>， 點擊<strong>行政</strong>。</li>
+            <li>檢查您現在正在配置的容器，然後單擊<strong>進口貨櫃</strong>。
+                <figure class="bcls-figure">
+                    <img class="bcls-image" src="/assets/images/using-bcb/self-config-ga/tm-check-container.png" alt="import container">
+                </figure>
+            </li>
+            <li>點擊<strong>選擇容器文件</strong>，然後為此容器選擇正確的JSON文件。</li>
+            <li>為了<strong>選擇工作區</strong>， 點擊<strong>現存的</strong>，然後從打開的對話框中選擇<strong>默認工作區</strong>。</li>
+            <li>為了<strong>選擇一個導入選項</strong>， 點擊<strong>覆寫</strong>單選按鈕。</li>
+            <li>確保您看到有關標籤，觸發器，變量和模板的信息。
+                <figure class="bcls-figure">
+                    <img class="bcls-image" src="/assets/images/using-bcb/self-config-ga/tm-import-info.png" alt="import information">
+                </figure>
+            </li>
+            <li>點擊<strong>確認</strong>，您將被帶回到<strong>工作區。</strong>。</li>
+            <li>在裡面<strong>工作空間</strong>， 點擊<strong>標籤</strong>，<strong>扳機</strong>和<strong>變數</strong>確認導入成功。
+                <figure class="bcls-figure">
+                    <img class="bcls-image" src="/assets/images/using-bcb/self-config-ga/tm-check-ttv.png" alt="check import">
+                </figure>
+            </li>
+            <li>您現在需要為每個容器導入正確的 JSON 文件。</li>
+        </ol>
+        <h3>輸入跟踪ID</h3>
+        <p>您現在將從 Google Analytics 複製每個媒體資源的跟踪 ID，然後將其粘貼到相應的容器中。</p>
+        <ol class="bcls-tasklist-restart">
+            <li>登錄到Google Analytics（分析）。</li>
+            <li>使用頁面頂部的帳戶/資產選擇器選擇<strong>信標安卓</strong>財產。
+                <figure class="bcls-figure">
+                    <img class="bcls-image" src="/assets/images/using-bcb/self-config-ga/tm-ga-choose-property.png" alt="select android">
+                </figure>
+            </li>
+            <li>點擊<strong>行政</strong>。</li>
+            <li>來自<strong>財產</strong>列首次點擊<strong>追踪資訊</strong>然後<strong>跟踪代碼。</strong>
+                <figure class="bcls-figure">
+                    <img class="bcls-image" src="/assets/images/using-bcb/self-config-ga/tm-ga-tracking-info-code.png" alt="click tracking code">
+                </figure>
+            </li>
+            <li>複製<strong>跟踪號碼</strong>。
+                <figure class=" bcls-figure">
+                    <img class="bcls-image" src="/assets/images/using-bcb/self-config-ga/tm-ga-copy-tracking-id.png" alt="copy tracking ID">
+                </figure>
+            </li>
+            <li>返回到Google跟踪代碼管理器。</li>
+            <li>確保您正在編輯<strong>信標Android</strong>容器。</li>
+            <li>點擊<strong>變數</strong>從左側導航。</li>
+            <li>點擊<strong>跟踪代碼</strong>多變的。</li>
+            <li>將復制的跟踪ID從Google Analytics（分析）粘貼到<strong>價值</strong>表格欄位。
+                <figure class="bcls-figure">
+                    <img class="bcls-image" src="/assets/images/using-bcb/self-config-ga/tm-paste-id-in-tracking-variable.png" alt="paste id">
+                </figure>
+            </li>
+            <li>您現在需要將相應的跟踪 ID 粘貼到<strong>跟踪代碼</strong>每個容器中的變量。</li>
+        </ol>
+
+        <h3 id="Publish_each_container">發布每個容器</h3>
+        <aside class="bcls-aside bcls-aside--tip">在這些步驟的後面，您將發布您的容器。對於 iOS 和 Android，您需要下載配置文件，並讓您的應用開發團隊將這些文件添加到相應的應用中。</aside>
+        <p>您需要在 Google Tag Manger 中執行的最後一步是提交每個容器以進行發布。以下步驟將指導您完成該過程：</p>
+        <ol class="bcls-tasklist-restart">
+            <li>返回到您的工作區。</li>
+            <li>請注意您所在的容器。</li>
+            <li>在用戶界面的右上角，點擊<strong>提交</strong>。</li>
+            <li>確保<strong>發布和創建版本</strong>按鈕被選中。</li>
+            <li>如果選擇，請添加版本名稱和版本說明。</li>
+            <li>點擊<strong>發布</strong>。</li>
+            <li>如果您未提供版本名稱和描述，則會再次詢問您。如果您確定不想要這些，請跳過。</li>
+            <li>確保返回的有關您的容器的信息是正確的。</li>
+            <li><strong>對於iOS和Android容器</strong>：點擊<strong>下載</strong>在用戶界面的右上角下載相關文件。此文件需要發送給您的入職經理。
+                <figure class="bcls-figure">
+                    <img class="bcls-image" src="/assets/images/using-bcb/self-config-ga/tm-download-button.png" alt="download button">
+                </figure>
+            </li>
+            <li><strong>對於iOS和Android容器</strong>：請與您的入職經理聯繫，並將下載的這些文件以及您的容器的屏幕截圖和相應的ID發送給她/他。這些文件將添加到您相應的應用程序中。</li>
+            <li>確保所有容器都已發布。</li>
+        </ol>
+        <aside class="bcls-aside bcls-aside--warning">重申一下，此時您需要發送下載的文件，以及顯示每個容器名稱和關聯的屏幕截圖<strong>GTM</strong> ID，給您的入職經理。然後，這些文件將被路由到 Brightcove Beacon 工程人員並配置您的應用程序。</aside>
+    </section>
+    <section class="bcls-section">
+        <h2 id="section-name">配置Firebase</h2>
+        <aside class="bcls-aside bcls-aside--tip">僅當您擁有 Android 和/或 iOS 應用程序時，才需要執行本節中的步驟。此外，如果您完全不熟悉 Google Firebase，可以使用 2 1/2 分鐘的介紹性營銷視頻形式<a href="https://firebase.google.com/">Firebase 的主頁</a> .</aside>
+        <p></p>
+        <ol class="bcls-tasklist-restart">
+            <li>瀏覽到<a href="https://console.firebase.google.com/?pli=1">Firebase入門頁面</a>。</li>
+            <li>點擊<strong>建立專案</strong>。</li>
+            <li>輸入項目名稱。</li>
+            <li>接受條款並點擊<strong>繼續</strong>。</li>
+            <li>接受為項目啟用Google Analytics（分析）的默認設置，然後單擊<strong>繼續</strong>。</li>
+            <li>選擇或提供一個Google Analytics（分析）帳戶。</li>
+            <li>點擊<strong>建立專案</strong>。</li>
+            <li>確保您返回到<strong>項目概況</strong>頁。另請注意，iOS和Android的“創建應用程序"按鈕（紅色箭頭指示其位置）。
+                <figure class="bcls-figure">
+                    <img class="bcls-image" src="/assets/images/using-bcb/self-config-ga/fb-project-overview.png" alt="project overview">
+                </figure>
+            </li>
+            <li>如果您使用的是iOS應用程序，請單擊iOS應用程序按鈕，然後完成五個步驟，將Firebase添加到您的iOS應用程序。要完成這些步驟，您需要 iOS 開發人員的協助。以下 Google 文檔提供了有關步驟的詳細信息：
+                <ul>
+                    <li><a href="https://firebase.google.com/docs/ios/setup">將Firebase添加到您的iOS項目</a>。</li>
+                </ul>
+                <figure class="bcls-figure">
+                    <img class="bcls-image" src="/assets/images/using-bcb/self-config-ga/fb-add-ios-app.png" alt="add iOS">
+                </figure>
+            </li>
+            <li>如果您使用的是Android應用程序，請單擊Android應用程序按鈕，然後完成四個步驟，將Firebase添加到您的Android應用程序中。要完成這些步驟，您需要一名 Android 開發人員來協助。以下 Google 文檔提供了有關步驟的詳細信息：
+                <ul>
+                    <li><a href="https://firebase.google.com/docs/android/setup">將Firebase添加到您的Android項目</a>。</li>
+                </ul>
+                <figure class="bcls-figure">
+                    <img class="bcls-image" src="/assets/images/using-bcb/self-config-ga/fb-add-android-app.png" alt="add android">
+                </figure>
+            </li>
+        </ol>
+        <p>添加了Goggle跟踪代碼管理器和Firebase文件後（如本文檔的後兩節所述），您應該能夠檢查Firebase本身中的事件。此外，匹配還會發送到Google Analytics（分析）。請注意，Google跟踪代碼管理器在這裡充當中間人的角色，根據推送到Firebase的數據將該信息發送到Google Analytics（分析）。</p>
+        <figure class="bcls-figure">
+            <img class="bcls-image" src="/assets/images/using-bcb/self-config-ga/fb-test-install.png" alt="firebase results">
+        </figure>
+    </section>
+    <section class="bcls-section">
+        <h2 id="Install_templates_into_Google_Data_Studio">將模板安裝到Google Data Studio中</h2>
+        <p>Brightcove提供了Google Data Studio預先生成的報告模板，每種模板分別用於Web，移動和智能電視。在裡面<a href="#Obtain_the_templates_and_configuration_files">獲取模板和配置文件</a>在本文檔前面的部分中，您要求入職管理者提供文件/ URL。其中三個網址如下：</p>
+        <ul>
+            <li>網站：https://datastudio.google.com/reporting/43b8362b-785a-487d-b681-39dde640f029</li>
+            <li>手機：https：//datastudio.google.com/reporting/2ca9572d-e50e-4931-858a-e67dc99f62f9</li>
+            <li>STV：https://datastudio.google.com/reporting/bfa8fad2-b4f6-4bfc-aee2-33742bf600a5</li>
+        </ul>
+        <p>要使用模板，請執行以下任務：</p>
+        <ol class="bcls-tasklist-restart">
+            <li>注意報表，移動電視，網絡電視或智能電視的用法，然後單擊URL。</li>
+            <li>在新的瀏覽器標籤中，請確保您看到以下內容：
+                <figure class="bcls-figure">
+                    <img class="bcls-image" src="/assets/images/using-bcb/self-config-ga/ga-dashboard-config-import.png" alt="import configuration">
+                </figure>
+            </li>
+            <li>來自<strong>選擇一個視圖</strong>下拉菜單中，選擇匹配屬性，移動設備（iOS和Android），網絡或智能電視。</li>
+            <li>如果選擇，請更改配置的名稱。</li>
+            <li>點擊<strong>創造</strong>。</li>
+            <li>導入的配置將打開。檢查數據以確保它似乎有效。這裡顯示一個示例：
+                <figure class="bcls-figure">
+                    <img class="bcls-image" src="/assets/images/using-bcb/self-config-ga/ds-sample-report.png" alt="example report">
+                </figure>
+            </li>
+        </ol>
+        <p>就是這樣！恭喜，您已為Brightcove Beacon配置了Google Analytics（分析）。</p>
+    </section>
+</article>
